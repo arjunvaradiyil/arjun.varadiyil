@@ -85,20 +85,13 @@ const Education = () => {
           <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
           {educationData.map((edu, index) => (
             <div key={index} className="timeline-item-edu relative mb-12">
-              <div className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
-                <div className="w-1/2 px-6">
-                  <div className={`text-center ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'}`}>
-                    <p className="text-sm font-semibold text-gray-400">{edu.years}</p>
-                    <h3 className="mt-1 text-2xl font-bold text-white">{edu.institution}</h3>
-                    <p className="mt-1 text-md text-amber-400">{edu.degree}</p>
-                  </div>
+              <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8 ml-auto'}`}>
+                <div className={`${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                  <p className="text-sm font-semibold text-gray-400">{edu.years}</p>
+                  <h3 className="mt-1 text-2xl font-bold text-white">{edu.institution}</h3>
+                  <p className="mt-1 text-md text-amber-400">{edu.degree}</p>
                 </div>
-                <div className="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
-                  <School className="w-4 h-4 text-amber-400" />
-                </div>
-              </div>
-              <div className={`w-1/2 px-6 ${index % 2 === 0 ? 'ml-auto' : ''}`}>
-                <div className="bg-slate-800/50 p-6 rounded-lg shadow-lg mt-4">
+                <div className="bg-slate-800/50 p-6 rounded-lg shadow-lg mt-4 text-left">
                   <TextHighlight>
                     <ul className="space-y-3 text-gray-300">
                       {edu.details.map((detail, i) => (
@@ -110,6 +103,9 @@ const Education = () => {
                     </ul>
                   </TextHighlight>
                 </div>
+              </div>
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
+                <School className="w-4 h-4 text-amber-400" />
               </div>
             </div>
           ))}
