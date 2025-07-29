@@ -5,106 +5,6 @@ import React, { useEffect, useRef, useState, MouseEvent } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
 
-const Rain = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const flashRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    const handleResize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', handleResize);
-
-    class Raindrop {
-      x: number;
-      y: number;
-      len: number;
-      speed: number;
-      opacity: number;
-
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * -height;
-        this.len = Math.random() * 20 + 10;
-        this.speed = Math.random() * 5 + 4;
-        this.opacity = Math.random() * 0.5 + 0.2;
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x, this.y + this.len);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      }
-
-      update() {
-        this.y += this.speed;
-        if (this.y > height) {
-          this.y = Math.random() * -100;
-          this.x = Math.random() * width;
-        }
-        this.draw();
-      }
-    }
-
-    const raindrops: Raindrop[] = [];
-    for (let i = 0; i < 300; i++) {
-      raindrops.push(new Raindrop());
-    }
-
-    const lightningFlash = () => {
-      const flash = flashRef.current;
-      const heroSection = document.querySelector('section');
-      if (!flash || !heroSection) return;
-
-      gsap.timeline()
-        .set(flash, { opacity: Math.random() * 0.5 + 0.2 })
-        .to(flash, { opacity: 0, duration: 2 })
-        .to(heroSection, { x: 'random(-5, 5)', y: 'random(-5, 5)', duration: 0.1, ease: 'power1.inOut' }, '<0.1')
-        .to(heroSection, { x: 0, y: 0, duration: 1, ease: 'elastic.out(1, 0.3)' });
-      
-      setTimeout(lightningFlash, Math.random() * 8000 + 4000);
-    };
-    
-    setTimeout(lightningFlash, Math.random() * 8000 + 4000);
-
-    let animationFrameId: number;
-
-    const animate = () => {
-      ctx.clearRect(0, 0, width, height);
-      raindrops.forEach((drop) => drop.update());
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return (
-    <>
-      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0" />
-      <div ref={flashRef} className="absolute top-0 left-0 w-full h-full bg-white opacity-0 pointer-events-none z-10" />
-    </>
-  );
-};
-
-
 export default function Hero() {
   const titleRef1 = useRef(null);
   const titleRef2 = useRef(null);
@@ -194,7 +94,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center">
-      <Rain />
       {/* Mobile Menu */}
       <div 
         ref={menuRef}
