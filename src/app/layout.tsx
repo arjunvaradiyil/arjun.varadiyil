@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import SocialLinks from "@/components/SocialLinks";
+import Hero from "@/components/Hero";
 
 const siteConfig = {
   name: "Arjun Varadiyil - Full Stack Developer",
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased">
         <SmoothScroll />
         <SocialLinks />
+        <Hero />
         {children}
       </body>
     </html>
