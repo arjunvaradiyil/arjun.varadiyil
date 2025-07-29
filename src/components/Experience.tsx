@@ -22,7 +22,7 @@ const experienceData = [
     technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Next.js', 'Tailwind CSS', 'Docker'],
   },
   {
-    role: 'Cyber Security Intern',
+    role: 'Penetration Testing of Websites',
     company: 'Redteam Hacker Academy, Perinthalmanna',
     years: 'May 10, 2023 – May 25, 2023',
     description: [
