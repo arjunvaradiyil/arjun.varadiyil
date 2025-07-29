@@ -3,11 +3,19 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import TextHighlight from './TextHighlight';
+import { HeartHandshake, Users } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const volunteeringData = [
+interface VolunteerExperience {
+  role: string;
+  organization: string;
+  years: string;
+  description: string[];
+  icon: React.ElementType;
+}
+
+const volunteeringData: VolunteerExperience[] = [
   {
     role: 'Campus Lead',
     organization: 'Tinkerhub Tech Community',
@@ -17,6 +25,7 @@ const volunteeringData = [
       'Organized and hosted workshops, hackathons, and speaker sessions on various technology topics.',
       'Mentored fellow students, providing guidance on technical skills and career development.',
     ],
+    icon: HeartHandshake,
   },
   {
     role: 'NSS Volunteer',
@@ -27,56 +36,78 @@ const volunteeringData = [
       'Developed teamwork and leadership skills through organizing and executing events.',
       'Contributed to initiatives focused on environmental conservation and community health.',
     ],
+    icon: Users,
   },
 ];
 
-export default function Volunteering() {
-  const sectionRef = useRef(null);
+const VolunteerCard = ({ exp }: { exp: VolunteerExperience }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const el = sectionRef.current;
-    gsap.set(el, { autoAlpha: 0 });
-    gsap.fromTo(
-      el,
-      { y: 50 },
+    gsap.fromTo(cardRef.current,
+      { autoAlpha: 0, y: 30 },
       {
         autoAlpha: 1,
         y: 0,
+        duration: 0.6,
         scrollTrigger: {
-          trigger: el,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
-        },
-        duration: 1,
+          trigger: cardRef.current,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        }
       }
     );
   }, []);
 
   return (
-    <section id="volunteering" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24 invisible" ref={sectionRef}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Volunteering & Leadership</h2>
+    <div ref={cardRef} className="invisible bg-slate-800/50 p-6 rounded-lg shadow-lg flex flex-col transition-all duration-300 hover:bg-slate-800 hover:shadow-amber-400/10 hover:shadow-2xl hover:-translate-y-1">
+      <div className="flex items-center mb-4">
+        <exp.icon className="w-8 h-8 text-amber-400 mr-4 flex-shrink-0" />
+        <div>
+          <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+          <p className="text-gray-300 text-sm">{exp.organization} &bull; {exp.years}</p>
         </div>
-        <div className="space-y-12">
+      </div>
+      <ul className="text-gray-400 text-sm space-y-2 list-disc list-inside flex-grow">
+        {exp.description.map((desc, i) => (
+          <li key={i}>{desc}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default function Volunteering() {
+  const sectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.fromTo(sectionRef.current,
+      { autoAlpha: 0 },
+      {
+        autoAlpha: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+        },
+      }
+    );
+  }, []);
+
+  return (
+    <section id="volunteering" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24 invisible">
+      <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center">
+          <p className="text-base font-semibold leading-7 text-amber-400">Community & Leadership</p>
+          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Volunteering</h2>
+          <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
+            Giving back to the community and taking on leadership roles are important to my personal and professional growth.
+          </p>
+        </div>
+        <div className="mt-16 grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {volunteeringData.map((exp, index) => (
-            <div key={index} className="grid md:grid-cols-3 gap-8">
-              <div className="md:col-span-1">
-                <h3 className="text-2xl font-bold text-white">{exp.role}</h3>
-                <p className="text-amber-400 font-semibold mt-1">{exp.organization}</p>
-                <p className="text-gray-400 text-sm mt-1">{exp.years}</p>
-              </div>
-              <div className="md:col-span-2">
-                <TextHighlight>
-                  <ul className="text-gray-300 space-y-3 list-disc list-inside">
-                    {exp.description.map((desc, i) => (
-                      <li key={i}>{desc}</li>
-                    ))}
-                  </ul>
-                </TextHighlight>
-              </div>
-            </div>
+            <VolunteerCard key={index} exp={exp} />
           ))}
         </div>
       </div>

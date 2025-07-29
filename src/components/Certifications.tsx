@@ -3,11 +3,18 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import TextHighlight from './TextHighlight';
+import { Award, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const certificationsData = [
+interface Certification {
+  issuer: string;
+  title: string;
+  year: string;
+  verifyUrl?: string;
+}
+
+const certificationsData: Certification[] = [
   {
     issuer: 'Illinois Institute of Technology (via Entri)',
     title: 'Full Stack Development (MERN Stack)',
@@ -22,40 +29,55 @@ const certificationsData = [
     issuer: 'HackerRank',
     title: 'JavaScript (Basic)',
     year: '2024',
+    verifyUrl: 'https://www.hackerrank.com/certificates/61e892b1158c',
   },
   {
     issuer: 'HackerRank',
     title: 'Python (Basic)',
     year: '2024',
+    verifyUrl: 'https://www.hackerrank.com/certificates/06450639ceb8',
   },
 ];
 
-const CertificationCard = ({ cert }: { cert: { issuer: string, title: string, year: string } }) => {
+const CertificationCard = ({ cert }: { cert: Certification }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const element = cardRef.current;
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!element) return;
-      const rect = element.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      element.style.setProperty('--x', `${x}px`);
-      element.style.setProperty('--y', `${y}px`);
-    };
-    element?.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      element?.removeEventListener('mousemove', handleMouseMove);
-    };
+    gsap.fromTo(cardRef.current,
+      { autoAlpha: 0, y: 30 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
   }, []);
 
   return (
-    <div ref={cardRef} className="card-spotlight bg-zinc-900/70 p-6 rounded-lg border border-slate-700/50">
-      <TextHighlight>
-        <h3 className="text-2xl font-bold text-white">{cert.title}</h3>
-      </TextHighlight>
-      <p className="text-amber-400 font-semibold mt-1">{cert.issuer}</p>
-      <p className="text-gray-400 text-sm mt-1">{cert.year}</p>
+    <div ref={cardRef} className="invisible bg-slate-800/50 p-6 rounded-lg shadow-lg flex items-center justify-between transition-all duration-300 hover:bg-slate-800 hover:shadow-amber-400/10 hover:shadow-2xl hover:-translate-y-1">
+      <div className="flex items-center">
+        <Award className="w-8 h-8 text-amber-400 mr-5 flex-shrink-0" />
+        <div>
+          <h3 className="text-lg font-bold text-white">{cert.title}</h3>
+          <p className="text-gray-300 text-sm">{cert.issuer} - {cert.year}</p>
+        </div>
+      </div>
+      {cert.verifyUrl && (
+        <a
+          href={cert.verifyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-white font-semibold text-sm py-2 px-4 bg-slate-700/50 rounded-full hover:bg-amber-400/20 hover:text-amber-300 transition-colors"
+        >
+          <ExternalLink size={14} />
+          Verify
+        </a>
+      )}
     </div>
   );
 };
@@ -64,32 +86,31 @@ export default function Certifications() {
   const sectionRef = useRef(null);
 
   useLayoutEffect(() => {
-    const el = sectionRef.current;
-    gsap.set(el, { autoAlpha: 0 });
-    gsap.fromTo(
-      el,
-      { y: 50 },
+    gsap.fromTo(sectionRef.current,
+      { autoAlpha: 0 },
       {
         autoAlpha: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
-        },
         duration: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+        },
       }
     );
   }, []);
 
   return (
-    <section id="certifications" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24 invisible" ref={sectionRef}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Certifications</h2>
+    <section id="certifications" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24 invisible">
+      <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
+      <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
+        <div className="text-center">
+          <p className="text-base font-semibold leading-7 text-amber-400">Credentials</p>
+          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Certifications</h2>
+          <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
+            My commitment to continuous learning is demonstrated by these credentials from respected institutions.
+          </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="mt-16 space-y-6">
           {certificationsData.map((cert, index) => (
             <CertificationCard key={index} cert={cert} />
           ))}
