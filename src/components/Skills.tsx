@@ -22,6 +22,8 @@ const coreSkills = [
   { name: 'Node.js', icon: SiNodedotjs },
   { name: 'JavaScript', icon: SiJavascript },
   { name: 'Python', icon: SiPython },
+  { name: 'Next.js', icon: SiNextdotjs },
+  { name: 'Payload CMS', icon: SiPayloadcms },
 ];
 
 const otherSkills = [
@@ -29,11 +31,9 @@ const otherSkills = [
   { name: 'HTML5', icon: SiHtml5 },
   { name: 'CSS3', icon: SiCss3 },
   { name: 'TypeScript', icon: SiTypescript },
-  { name: 'Next.js', icon: SiNextdotjs },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
   { name: 'Redux', icon: SiRedux },
   { name: 'Material-UI', icon: SiMui },
-  { name: 'Payload CMS', icon: SiPayloadcms },
   { name: 'RESTful APIs', icon: SiSwagger },
   { name: 'JWT', icon: SiJsonwebtokens },
   { name: 'MySQL', icon: SiMysql },
