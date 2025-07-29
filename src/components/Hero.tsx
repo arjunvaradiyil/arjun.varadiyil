@@ -153,8 +153,9 @@ export default function Hero() {
         </p>
         <div ref={buttonGroupRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="/Arjun_V_Resume.pdf"
-            download
+            href="https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto bg-white text-gray-900 font-semibold py-3 px-8 rounded-full flex items-center justify-center gap-2 transition-transform duration-300 hover:scale-105 hover:bg-gray-200"
           >
             <ArrowDownToLine size={20} />
