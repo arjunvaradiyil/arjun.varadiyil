@@ -3,61 +3,39 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Github } from 'lucide-react';
-import TextHighlight from './TextHighlight';
+import { Github, ExternalLink } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface Project {
   id: number;
   title: string;
-  category: string;
   description: string;
-  features: string[];
   techStack: string[];
   githubUrl?: string;
+  liveUrl?: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
     title: 'Event Scheduler Web Application',
-    category: 'Web Application',
     description: 'A comprehensive scheduling platform that allows users to create, manage, and schedule events with real-time conflict detection and resolution.',
-    features: [
-      'Real-time overlap prevention and conflict resolution',
-      'Robust user authentication with role-based access control',
-      'Secure session management for protected data access',
-      'Interactive calendar interface'
-    ],
     techStack: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'JWT'],
     githubUrl: 'https://github.com/arjunvaradiyil/Event-Scheduler-App',
+    liveUrl: 'https://eventscheduler.arjunvaradiyil.cloud/',
   },
   {
     id: 2,
     title: 'Movie Review and Rating Web Application',
-    category: 'Web Application',
     description: 'A complete movie review platform featuring advanced authentication, role-based access, and a dynamic user interface for real-time rating updates.',
-    features: [
-      'Advanced authentication mechanisms',
-      'Granular role-based access control (Admin/User)',
-      'Responsive design for all devices',
-      'Dynamic UI with real-time rating updates'
-    ],
     techStack: ['React.js', 'Node.js', 'MongoDB', 'Tailwind CSS', 'JWT'],
     githubUrl: 'https://github.com/arjunvaradiyill/moviereviewapp-client',
   },
   {
     id: 3,
     title: 'Personal Assistant for Deaf and Mute',
-    category: 'Mobile Application',
     description: 'An innovative mobile application using Flutter and MediaPipe for enhanced accessibility and seamless communication for the hearing and speech impaired.',
-    features: [
-      'Real-time gesture recognition using MediaPipe',
-      'Sophisticated text-to-speech conversion',
-      'Designed for comprehensive communication support',
-      'B.Tech final year project'
-    ],
     techStack: ['Flutter', 'MediaPipe', 'Python', 'TensorFlow', 'ML'],
     githubUrl: 'https://github.com/arjunvaradiyil',
   },
@@ -67,68 +45,66 @@ const ProjectCard = ({ project }: { project: Project }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const element = cardRef.current;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        element.style.setProperty('--x', `${x}px`);
-        element.style.setProperty('--y', `${y}px`);
+    gsap.fromTo(cardRef.current, 
+      { autoAlpha: 0, y: 50 },
+      { 
+        autoAlpha: 1, 
+        y: 0, 
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        }
       }
-    };
-
-    element?.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      element?.removeEventListener('mousemove', handleMouseMove);
-    };
+    );
   }, []);
 
   return (
-    <div
-      ref={cardRef}
-      className="card-spotlight bg-zinc-900/70 p-6 rounded-lg border border-slate-700/50 transition-transform duration-300 hover:scale-105 hover:border-slate-600 flex flex-col"
-    >
-      <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-      <TextHighlight>
-        <p className="text-gray-300 mb-4 flex-grow">{project.description}</p>
-      </TextHighlight>
-      
-      <div className="mb-4">
-        <h4 className="text-amber-400 font-semibold text-sm mb-2">Key Features</h4>
-        <ul className="text-gray-400 text-sm space-y-1 list-disc list-inside">
-          {project.features.map((feature: string, i: number) => (
-            <li key={i}>{feature}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mb-4">
-        <h4 className="text-amber-400 font-semibold text-sm mb-2">Tech Stack</h4>
-        <div className="flex flex-wrap gap-2">
-          {project.techStack.map((tech: string) => (
-            <span key={tech} className="bg-slate-700 text-gray-200 text-sm font-medium px-2 py-1 rounded">
-              {tech}
-            </span>
-          ))}
+    <div ref={cardRef} className="invisible bg-slate-800/50 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-amber-400/10 hover:-translate-y-1">
+      <div className="p-6 flex-grow">
+        <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+        <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+        
+        <div className="mb-4">
+          <div className="flex flex-wrap gap-2">
+            {project.techStack.map((tech) => (
+              <span key={tech} className="bg-slate-700 text-amber-300 text-xs font-semibold px-2.5 py-1 rounded-full">
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
-      {project.githubUrl && (
-        <div className="mt-auto pt-4">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-white font-semibold hover:text-amber-400 transition-colors"
-          >
-            <Github size={18} />
-            View on GitHub
-          </a>
+      <div className="p-6 bg-slate-800/80 mt-auto flex justify-between items-center">
+        <div>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-amber-400 transition-colors"
+            >
+              <ExternalLink size={16} />
+              View Live
+            </a>
+          )}
         </div>
-      )}
+        <div>
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-amber-400 transition-colors"
+            >
+              <Github size={16} />
+              Source Code
+            </a>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
@@ -138,52 +114,47 @@ export default function Projects() {
 
   useLayoutEffect(() => {
     const el = sectionRef.current;
-    gsap.set(el, { autoAlpha: 0 });
     gsap.fromTo(
       el,
-      { y: 50 },
+      { autoAlpha: 0 },
       {
         autoAlpha: 1,
-        y: 0,
+        duration: 1,
         scrollTrigger: {
           trigger: el,
           start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
         },
-        duration: 1,
       }
     );
   }, []);
 
   return (
-    <section id="projects" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">My Projects</h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Here are some of the projects I&apos;ve worked on. Each one represents a unique challenge 
-            and an opportunity to learn and grow as a developer.
+    <section id="projects" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24 invisible">
+      <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center">
+          <p className="text-base font-semibold leading-7 text-amber-400">Portfolio</p>
+          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Featured Projects</h2>
+          <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
+            A selection of projects that showcase my skills in building robust and user-friendly applications.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+        <div className="mt-16 grid lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="mt-16 text-center">
           <a
             href="https://github.com/arjunvardiyil"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-amber-400 text-gray-900 font-semibold rounded-full hover:bg-amber-500 transition-colors shadow-lg hover:shadow-xl"
           >
-            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            View More on GitHub
+            <Github size={18} />
+            <span>Explore More on GitHub</span>
           </a>
         </div>
       </div>
