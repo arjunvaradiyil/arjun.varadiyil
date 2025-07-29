@@ -1,4 +1,4 @@
-# Arjun V - Portfolio Website
+# Arjun Varadiyil - Portfolio Website
 
 A modern, responsive portfolio website built with Next.js and Tailwind CSS.
 

@@ -4,16 +4,19 @@ import SmoothScroll from "@/components/SmoothScroll";
 import SocialLinks from "@/components/SocialLinks";
 
 const siteConfig = {
-  name: "Arjun V - Full Stack Developer",
-  url: "https://arjunv-portfolio.vercel.app", // Replace with your actual domain
-  ogImage: "https://arjunv-portfolio.vercel.app/og-image.jpg", // Replace with your actual domain and image path
-  description: "The portfolio of Arjun V, a passionate Full Stack Developer specializing in the MERN stack and building scalable web applications.",
-  author: "Arjun V",
+  name: "Arjun Varadiyil - Full Stack Developer",
+  url: "https://arjunvaradiyil.in",
+  ogImage: "https://arjunvaradiyil.in/og-image.jpg",
+  description: "The portfolio of Arjun Varadiyil, a passionate Full Stack Developer specializing in the MERN stack and building scalable web applications.",
+  author: "Arjun Varadiyil",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: siteConfig.name,
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
   keywords: [
     "Full Stack Developer",
@@ -23,10 +26,12 @@ export const metadata: Metadata = {
     "Next.js",
     "TypeScript",
     "Portfolio",
-    "Arjun V",
+    "Arjun Varadiyil",
+    "Web Developer Kerala",
   ],
   authors: [{ name: siteConfig.author, url: siteConfig.url }],
   creator: siteConfig.author,
+
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -42,13 +47,15 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@arjunv", // Replace with your Twitter handle if you have one
+    creator: "@arjunv",
   },
+
   robots: {
     index: true,
     follow: true,
@@ -60,17 +67,17 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
   },
+
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="antialiased">

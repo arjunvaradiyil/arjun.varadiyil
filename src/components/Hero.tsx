@@ -132,7 +132,7 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link href="/" className="text-2xl font-bold text-white hover:text-gray-200 transition-colors">
-              Arjun V
+              Arjun Varadiyil
             </Link>
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#about" className="text-white hover:text-gray-200 transition-colors">About</a>

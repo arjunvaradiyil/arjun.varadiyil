@@ -46,7 +46,7 @@ export default function About() {
           <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-slate-700/50 shadow-lg">
             <Image
               src="/profile-photo.jpg"
-              alt="Arjun V"
+              alt="Arjun Varadiyil"
               layout="fill"
               objectFit="cover"
               className="z-10"
@@ -61,7 +61,7 @@ export default function About() {
           </h2>
           <TextHighlight>
             <p className="text-lg text-gray-300 mb-4">
-              Hello! I&apos;m Arjun, a passionate and results-oriented Full Stack Developer with a strong foundation in the MERN stack. My journey in tech is driven by a love for solving complex problems and building applications that are not only functional but also intuitive and enjoyable to use.
+              Hello! I&apos;m Arjun Varadiyil, a passionate and results-oriented Full Stack Developer with a strong foundation in the MERN stack. My journey in tech is driven by a love for solving complex problems and building applications that are not only functional but also intuitive and enjoyable to use.
             </p>
           </TextHighlight>
           <TextHighlight>
