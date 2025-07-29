@@ -20,13 +20,13 @@ export default function Header() {
             <Link href="/" className="text-amber-100 hover:text-amber-300 transition-colors">
               Home
             </Link>
-            <Link href="#about" className="text-amber-100 hover:text-amber-300 transition-colors">
+            <Link href="about" className="text-amber-100 hover:text-amber-300 transition-colors">
               About
             </Link>
-            <Link href="#projects" className="text-amber-100 hover:text-amber-300 transition-colors">
+            <Link href="projects" className="text-amber-100 hover:text-amber-300 transition-colors">
               Projects
             </Link>
-            <Link href="#contact" className="text-amber-100 hover:text-amber-300 transition-colors">
+            <Link href="contact" className="text-amber-100 hover:text-amber-300 transition-colors">
               Contact
             </Link>
           </nav>

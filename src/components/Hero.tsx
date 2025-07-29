@@ -1,8 +1,7 @@
 'use client';
-
 import { ArrowDownToLine, Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, MouseEvent } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
 
@@ -97,6 +96,17 @@ export default function Hero() {
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
 
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const yOffset = -100; // Offset to account for sticky header
+      const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const title = new SplitType(titleRef1.current!, { types: 'words' });
     const subtitle = new SplitType(subtitleRef.current!, { types: 'words' });
@@ -173,14 +183,14 @@ export default function Hero() {
           <X size={28} />
         </button>
         <nav className="flex flex-col items-center gap-8">
-          <a href="#about" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>About</a>
-          <a href="#experience" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>Experience</a>
-          <a href="#education" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>Education</a>
-          <a href="#skills" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>Skills</a>
-          <a href="#projects" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>Projects</a>
-          <a href="#certifications" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>Certifications</a>
-          <a href="#volunteering" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>Volunteering</a>
-          <a href="#contact" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</a>
+          <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">About</a>
+          <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Experience</a>
+          <a href="#education" onClick={(e) => handleNavClick(e, 'education')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Education</a>
+          <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Skills</a>
+          <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Projects</a>
+          <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Certifications</a>
+          <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Volunteering</a>
+          <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Contact</a>
         </nav>
       </div>
 
@@ -195,14 +205,14 @@ export default function Hero() {
               Arjun Varadiyil
             </Link>
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#about" className="text-white hover:text-gray-200 transition-colors">About</a>
-              <a href="#experience" className="text-white hover:text-gray-200 transition-colors">Experience</a>
-              <a href="#education" className="text-white hover:text-gray-200 transition-colors">Education</a>
-              <a href="#skills" className="text-white hover:text-gray-200 transition-colors">Skills</a>
-              <a href="#projects" className="text-white hover:text-gray-200 transition-colors">Projects</a>
-              <a href="#certifications" className="text-white hover:text-gray-200 transition-colors">Certifications</a>
-              <a href="#volunteering" className="text-white hover:text-gray-200 transition-colors">Volunteering</a>
-              <a href="#contact" className="text-white hover:text-gray-200 transition-colors">Contact</a>
+              <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="text-white hover:text-gray-200 transition-colors">About</a>
+              <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="text-white hover:text-gray-200 transition-colors">Experience</a>
+              <a href="#education" onClick={(e) => handleNavClick(e, 'education')} className="text-white hover:text-gray-200 transition-colors">Education</a>
+              <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="text-white hover:text-gray-200 transition-colors">Skills</a>
+              <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="text-white hover:text-gray-200 transition-colors">Projects</a>
+              <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white hover:text-gray-200 transition-colors">Certifications</a>
+              <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white hover:text-gray-200 transition-colors">Volunteering</a>
+              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white hover:text-gray-200 transition-colors">Contact</a>
             </nav>
             <div className="md:hidden">
               <button onClick={() => setIsMenuOpen(true)} className="text-white">
@@ -215,21 +225,12 @@ export default function Hero() {
 
       {/* Main Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4">
-          <span ref={titleRef1} className="block">Arjun Varadiyil</span>
-          <span ref={titleRef2} className="block text-amber-400 text-4xl sm:text-5xl md:text-6xl mt-2">
-            Full Stack Developer
-          </span>
+        <h1 ref={titleRef1} className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4">
+          Digital Craftsman
         </h1>
-        <p ref={subtitleRef} className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-8">
-          Specializing in the MERN Stack & Modern Web Technologies.
+        <p ref={subtitleRef} className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-12">
+          I&apos;m Arjun Varadiyil, a Full Stack Developer creating things for the web.
         </p>
-        {/* <p ref={descriptionRef} className="text-lg md:text-xl text-white mb-6 max-w-2xl mx-auto">
-          I transform complex ideas into intuitive and performant web applications, building scalable solutions from front to back.
-        </p>
-        <p ref={quoteRef} className="text-lg md:text-xl text-amber-400/80 italic font-light mb-12 max-w-xl mx-auto">
-          &quot;Code with purpose, design with passion.&quot;
-        </p> */}
         <div ref={buttonGroupRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view?usp=sharing"
@@ -242,6 +243,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
+            onClick={(e) => handleNavClick(e, 'contact')}
             className="w-full sm:w-auto bg-transparent border border-white text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900"
           >
             Get In Touch
