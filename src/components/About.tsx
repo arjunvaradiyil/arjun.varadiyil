@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Briefcase, Code, Users, Award } from 'lucide-react';
+import { Briefcase, Code, Users, Award, BrainCircuit } from 'lucide-react';
 import TextHighlight from './TextHighlight';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -46,14 +46,17 @@ const About = () => {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-start">
           <div ref={imageRef} className="relative flex justify-center lg:justify-start">
-            <div className="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-slate-700/50">
-              <Image
-                src="/profile-photo.jpg"
-                alt="Arjun Varadiyil"
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 20rem, (max-width: 1024px) 24rem, 24rem"
-              />
+            <div className="relative group w-80 h-80 sm:w-96 sm:h-96">
+              <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800/50">
+                <Image
+                  src="/profile-photo.jpg"
+                  alt="Arjun Varadiyil"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 20rem, (max-width: 1024px) 24rem, 24rem"
+                />
+              </div>
             </div>
           </div>
           <div ref={contentRef} className="mt-12 lg:mt-0 text-center lg:text-left">
@@ -70,32 +73,6 @@ const About = () => {
               <ul className="space-y-8">
                 <li className="flex items-start">
                   <div className="flex-shrink-0">
-                    <Briefcase className="h-6 w-6 text-amber-400" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-medium leading-6 text-white">Versatile Experience</h3>
-                    <TextHighlight>
-                      <p className="mt-2 text-base text-gray-400">
-                        From dynamic user interfaces to robust back-end APIs and database management, I thrive in agile environments where I can collaborate to bring innovative ideas to life.
-                      </p>
-                    </TextHighlight>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <Code className="h-6 w-6 text-amber-400" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-medium leading-6 text-white">Clean Code Advocate</h3>
-                    <TextHighlight>
-                      <p className="mt-2 text-base text-gray-400">
-                        I believe in writing clean, maintainable, and well-documented code. Open communication and a shared commitment to quality are central to my development philosophy.
-                      </p>
-                    </TextHighlight>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="flex-shrink-0">
                     <Users className="h-6 w-6 text-amber-400" />
                   </div>
                   <div className="ml-4">
@@ -103,6 +80,19 @@ const About = () => {
                     <TextHighlight>
                       <p className="mt-2 text-base text-gray-400">
                         My experience as a computer science faculty member instilled in me a passion for mentoring and sharing knowledge, fostering a collaborative and growth-oriented team environment.
+                      </p>
+                    </TextHighlight>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <BrainCircuit className="h-6 w-6 text-amber-400" />
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-medium leading-6 text-white">Lifelong Learner</h3>
+                    <TextHighlight>
+                      <p className="mt-2 text-base text-gray-400">
+                        I am a lifelong learner, always eager to explore new technologies and refine my skills to stay at the forefront of the ever-evolving tech landscape.
                       </p>
                     </TextHighlight>
                   </div>
