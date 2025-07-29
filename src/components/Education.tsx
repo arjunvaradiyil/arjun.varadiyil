@@ -3,18 +3,12 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { School, BookOpen } from 'lucide-react';
 import TextHighlight from './TextHighlight';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface EducationItem {
-  institution: string;
-  degree: string;
-  years: string;
-  details: string[];
-}
-
-const educationData: EducationItem[] = [
+const educationData = [
   {
     institution: 'Cochin University of Science and Technology',
     degree: 'B.Tech in Computer Science Engineering',
@@ -36,79 +30,85 @@ const educationData: EducationItem[] = [
   },
 ];
 
-const EducationCard = ({ edu }: { edu: EducationItem }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const element = cardRef.current;
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!element) return;
-      const rect = element.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      element.style.setProperty('--x', `${x}px`);
-      element.style.setProperty('--y', `${y}px`);
-    };
-    element?.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      element?.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  return (
-    <div ref={cardRef} className="card-spotlight bg-zinc-900/70 p-6 rounded-lg border border-slate-700/50">
-      <h3 className="text-2xl font-bold text-white">{edu.institution}</h3>
-      <p className="text-amber-400 font-semibold mt-1">{edu.degree}</p>
-      <p className="text-gray-400 text-sm mt-1 mb-4">{edu.years}</p>
-      <TextHighlight>
-        <ul className="text-gray-300 space-y-2 list-disc list-inside">
-          {edu.details.map((detail: string, i: number) => (
-            <li key={i}>{detail}</li>
-          ))}
-        </ul>
-      </TextHighlight>
-    </div>
-  );
-};
-
-export default function Education() {
+const Education = () => {
   const sectionRef = useRef(null);
+  const timelineRef = useRef(null);
 
   useEffect(() => {
-    const el = sectionRef.current;
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
-        },
-        duration: 1,
-      }
-    );
+    const sectionEl = sectionRef.current;
+    const items = gsap.utils.toArray('.timeline-item-edu');
+
+    gsap.set(items, { opacity: 0, y: 50 });
+
+    ScrollTrigger.create({
+      trigger: sectionEl,
+      start: 'top 60%',
+      end: 'bottom 20%',
+      onEnter: () => {
+        gsap.to(items, {
+          opacity: 1,
+          y: 0,
+          stagger: 0.3,
+          duration: 0.8,
+          ease: 'power3.out',
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(items, {
+          opacity: 0,
+          y: 50,
+          stagger: 0.3,
+          duration: 0.8,
+          ease: 'power3.in',
+        });
+      },
+    });
   }, []);
 
   return (
-    <section id="education" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">My Education</h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            My academic journey has provided me with a strong foundation in computer science and a passion for technology.
-          </p>
+    <section id="education" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24">
+      <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center">
+          <p className="text-base font-semibold leading-7 text-amber-400">Academic Journey</p>
+          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">My Education</h2>
         </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
+        <div ref={timelineRef} className="mt-16 relative">
+          <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
           {educationData.map((edu, index) => (
-            <EducationCard key={index} edu={edu} />
+            <div key={index} className="timeline-item-edu relative mb-12">
+              <div className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+                <div className="w-1/2 px-6">
+                  <div className={`text-center ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'}`}>
+                    <p className="text-sm font-semibold text-gray-400">{edu.years}</p>
+                    <h3 className="mt-1 text-2xl font-bold text-white">{edu.institution}</h3>
+                    <p className="mt-1 text-md text-amber-400">{edu.degree}</p>
+                  </div>
+                </div>
+                <div className="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
+                  <School className="w-4 h-4 text-amber-400" />
+                </div>
+              </div>
+              <div className={`w-1/2 px-6 ${index % 2 === 0 ? 'ml-auto' : ''}`}>
+                <div className="bg-slate-800/50 p-6 rounded-lg shadow-lg mt-4">
+                  <TextHighlight>
+                    <ul className="space-y-3 text-gray-300">
+                      {edu.details.map((detail, i) => (
+                        <li key={i} className="flex items-start">
+                          <BookOpen className="w-4 h-4 mr-3 mt-1.5 text-amber-400 flex-shrink-0" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </TextHighlight>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-} 
+};
+
+export default Education; 
