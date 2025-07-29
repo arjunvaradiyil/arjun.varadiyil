@@ -87,26 +87,6 @@ export default function Contact() {
             </div>
           </form>
         </div>
-        <div className="mt-20 text-center">
-          <div className="flex justify-center gap-8">
-            <a href="mailto:arjunvaradiyil203@gmail.com" className="text-gray-400 hover:text-amber-400 transition-colors">
-              <Mail className="w-6 h-6" />
-              <span className="sr-only">Email</span>
-            </a>
-            <a href="https://linkedin.com/in/arjunvaradiyil" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">
-              <Linkedin className="w-6 h-6" />
-              <span className="sr-only">LinkedIn</span>
-            </a>
-            <a href="https://github.com/arjunvardiyil" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">
-              <Github className="w-6 h-6" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <div className="flex items-center text-gray-400">
-              <MapPin className="w-6 h-6 mr-2" />
-              <span>Kochi, India</span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
