@@ -4,11 +4,11 @@ import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-  SiJavascript, SiPython, SiJava, SiC, SiHtml5, SiCss3, SiTypescript,
+  SiJavascript, SiPython, SiC, SiHtml5, SiCss3, SiTypescript,
   SiReact, SiNextdotjs, SiTailwindcss, SiRedux, SiMui,
-  SiNodedotjs, SiExpress, SiJsonwebtokens,
+  SiNodedotjs, SiExpress, SiJsonwebtokens, SiSwagger,
   SiMongodb, SiMysql, SiPostgresql,
-  SiGit, SiGithub, SiVisualstudiocode, SiPostman, SiDocker, SiAmazonaws, SiPayloadcms
+  SiGit, SiGithub, SiPostman, SiDocker, SiPayloadcms
 } from 'react-icons/si';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -16,7 +16,6 @@ gsap.registerPlugin(ScrollTrigger);
 const skillsList = [
   { name: 'JavaScript', icon: SiJavascript },
   { name: 'Python', icon: SiPython },
-  { name: 'Java', icon: SiJava },
   { name: 'C', icon: SiC },
   { name: 'HTML5', icon: SiHtml5 },
   { name: 'CSS3', icon: SiCss3 },
@@ -29,17 +28,16 @@ const skillsList = [
   { name: 'Node.js', icon: SiNodedotjs },
   { name: 'Express.js', icon: SiExpress },
   { name: 'Payload CMS', icon: SiPayloadcms },
-  { name: 'RESTful APIs', icon: SiExpress },
+  { name: 'RESTful APIs', icon: SiSwagger },
   { name: 'JWT', icon: SiJsonwebtokens },
   { name: 'MongoDB', icon: SiMongodb },
   { name: 'MySQL', icon: SiMysql },
   { name: 'PostgreSQL', icon: SiPostgresql },
+  { name: 'MongoDB Atlas', icon: SiMongodb },
   { name: 'Git', icon: SiGit },
   { name: 'GitHub', icon: SiGithub },
-  { name: 'VS Code', icon: SiVisualstudiocode },
   { name: 'Postman', icon: SiPostman },
   { name: 'Docker', icon: SiDocker },
-  { name: 'AWS', icon: SiAmazonaws },
 ];
 
 const Skills = () => {
