@@ -3,6 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import SocialLinks from "@/components/SocialLinks";
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 
 const siteConfig = {
   name: "Arjun Varadiyil - Full Stack Developer",
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SocialLinks />
         <Hero />
         {children}
+        <Footer />
       </body>
     </html>
   );
