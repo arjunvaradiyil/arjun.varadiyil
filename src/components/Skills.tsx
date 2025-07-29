@@ -3,46 +3,58 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code, Database, Terminal, GitBranch, Languages, Layout } from 'lucide-react';
+import {
+  SiJavascript, SiPython, SiJava, SiC, SiHtml5, SiCss3, SiTypescript,
+  SiReact, SiNextdotjs, SiTailwindcss, SiRedux, SiMui,
+  SiNodedotjs, SiExpress, SiJsonwebtokens,
+  SiMongodb, SiMysql, SiPostgresql,
+  SiGit, SiGithub, SiVisualstudiocode, SiPostman, SiDocker, SiAmazonaws, SiPayloadcms
+} from 'react-icons/si';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const skillsData = {
-  "Languages": {
-    icon: Languages,
-    skills: ["JavaScript", "Python", "Java", "C", "HTML", "CSS", "TypeScript"]
-  },
-  "Frontend": {
-    icon: Layout,
-    skills: ["React.js", "Next.js", "Tailwind CSS", "Redux", "Material-UI"]
-  },
-  "Backend": {
-    icon: Code,
-    skills: ["Node.js", "Express.js", "Payload CMS", "RESTful APIs", "JWT"]
-  },
-  "Databases": {
-    icon: Database,
-    skills: ["MongoDB", "MySQL", "PostgreSQL", "MongoDB Atlas"]
-  },
-  "Tools & Platforms": {
-    icon: Terminal,
-    skills: ["Git", "GitHub", "VS Code", "Postman", "Docker", "AWS"]
-  }
-};
+const skillsList = [
+  { name: 'JavaScript', icon: SiJavascript },
+  { name: 'Python', icon: SiPython },
+  { name: 'Java', icon: SiJava },
+  { name: 'C', icon: SiC },
+  { name: 'HTML5', icon: SiHtml5 },
+  { name: 'CSS3', icon: SiCss3 },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'React', icon: SiReact },
+  { name: 'Next.js', icon: SiNextdotjs },
+  { name: 'Tailwind CSS', icon: SiTailwindcss },
+  { name: 'Redux', icon: SiRedux },
+  { name: 'Material-UI', icon: SiMui },
+  { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'Express.js', icon: SiExpress },
+  { name: 'Payload CMS', icon: SiPayloadcms },
+  { name: 'RESTful APIs', icon: SiExpress },
+  { name: 'JWT', icon: SiJsonwebtokens },
+  { name: 'MongoDB', icon: SiMongodb },
+  { name: 'MySQL', icon: SiMysql },
+  { name: 'PostgreSQL', icon: SiPostgresql },
+  { name: 'Git', icon: SiGit },
+  { name: 'GitHub', icon: SiGithub },
+  { name: 'VS Code', icon: SiVisualstudiocode },
+  { name: 'Postman', icon: SiPostman },
+  { name: 'Docker', icon: SiDocker },
+  { name: 'AWS', icon: SiAmazonaws },
+];
 
 const Skills = () => {
   const sectionRef = useRef(null);
-  const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const skillIconsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const addToRefs = (el: HTMLDivElement | null) => {
-    if (el && !skillsRef.current.includes(el)) {
-      skillsRef.current.push(el);
+    if (el && !skillIconsRef.current.includes(el)) {
+      skillIconsRef.current.push(el);
     }
   };
 
   useLayoutEffect(() => {
     const sectionEl = sectionRef.current;
-    const skillElements = skillsRef.current.filter(el => el !== null);
+    const skillElements = skillIconsRef.current.filter(el => el !== null);
 
     gsap.set(skillElements, { autoAlpha: 0, y: 30 });
 
@@ -54,18 +66,18 @@ const Skills = () => {
         gsap.to(skillElements, {
           autoAlpha: 1,
           y: 0,
-          stagger: 0.2,
-          duration: 0.8,
-          ease: 'power3.out',
+          stagger: 0.05,
+          duration: 0.5,
+          ease: 'power2.out',
         });
       },
       onLeaveBack: () => {
         gsap.to(skillElements, {
           autoAlpha: 0,
           y: 30,
-          stagger: 0.2,
-          duration: 0.8,
-          ease: 'power3.in',
+          stagger: 0.05,
+          duration: 0.5,
+          ease: 'power2.in',
         });
       },
     });
@@ -82,25 +94,20 @@ const Skills = () => {
             A snapshot of the primary technologies and tools I work with. My skill set is always growing as I explore new and better ways to build.
           </p>
         </div>
-        <div className="mt-16 max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(skillsData).map(([category, data]) => (
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-8">
+            {skillsList.map((skill) => (
               <div
-                key={category}
+                key={skill.name}
                 ref={addToRefs}
-                className="p-6 bg-slate-800/50 rounded-lg shadow-lg invisible"
+                className="group flex flex-col items-center gap-2 text-center invisible"
               >
-                <div className="flex items-center mb-4">
-                  <data.icon className="w-6 h-6 text-amber-400 mr-4" />
-                  <h3 className="text-xl font-bold text-white">{category}</h3>
+                <div className="p-4 bg-slate-800/50 rounded-full group-hover:bg-amber-400/20 transition-all duration-300">
+                  <skill.icon className="w-10 h-10 text-gray-300 group-hover:text-amber-400 transition-colors duration-300" />
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {data.skills.map((skill) => (
-                    <span key={skill} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
+                  {skill.name}
+                </span>
               </div>
             ))}
           </div>
