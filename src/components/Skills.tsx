@@ -82,8 +82,8 @@ const Skills = () => {
             A snapshot of the primary technologies and tools I work with. My skill set is always growing as I explore new and better ways to build.
           </p>
         </div>
-        <div className="mt-16 max-w-4xl mx-auto">
-          <div className="space-y-12">
+        <div className="mt-16 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(skillsData).map(([category, data]) => (
               <div
                 key={category}

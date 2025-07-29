@@ -82,44 +82,75 @@ const Experience = () => {
         <div ref={timelineRef} className="mt-16 relative">
           <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
           {experienceData.map((exp, index) => (
-            <div key={index} className="timeline-item relative mb-12">
-              <div className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
-                <div className="w-1/2 px-6">
-                  <div className={`text-center ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'}`}>
+            <div key={index} className="timeline-item relative flex justify-center mb-12">
+              <div className={`w-1/2 px-6 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                {index % 2 !== 0 && (
+                  <div>
                     <p className="text-sm font-semibold text-gray-400">{exp.years}</p>
                     <h3 className="mt-1 text-2xl font-bold text-white">{exp.role}</h3>
                     <p className="mt-1 text-md text-amber-400">{exp.company}</p>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
-                  <Building className="w-4 h-4 text-amber-400" />
-                </div>
-              </div>
-              <div className={`w-1/2 px-6 ${index % 2 === 0 ? 'ml-auto' : ''}`}>
-                <div className="bg-slate-800/50 p-6 rounded-lg shadow-lg mt-4">
-                  <TextHighlight>
-                    <ul className="space-y-3 text-gray-300">
-                      {exp.description.map((desc, i) => (
-                        <li key={i} className="flex items-start">
-                          <Code className="w-4 h-4 mr-3 mt-1.5 text-amber-400 flex-shrink-0" />
-                          <span>{desc}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </TextHighlight>
-                  {exp.technologies && (
-                    <div className="mt-6">
-                      <h4 className="font-semibold text-amber-400 mb-3">Key Technologies</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech) => (
-                          <span key={tech} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="bg-slate-800/50 p-6 rounded-lg shadow-lg mt-4">
+                      <TextHighlight>
+                        <ul className="space-y-3 text-gray-300">
+                          {exp.description.map((desc, i) => (
+                            <li key={i} className="flex items-start">
+                              <Code className="w-4 h-4 mr-3 mt-1.5 text-amber-400 flex-shrink-0" />
+                              <span>{desc}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TextHighlight>
+                      {exp.technologies && (
+                        <div className="mt-6">
+                          <h4 className="font-semibold text-amber-400 mb-3">Key Technologies</h4>
+                          <div className="flex flex-wrap gap-2 justify-end">
+                            {exp.technologies.map((tech) => (
+                              <span key={tech} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
+              </div>
+              <div className={`w-1/2 px-6 ${index % 2 !== 0 ? 'text-left' : 'text-right'}`}>
+                {index % 2 === 0 && (
+                  <div>
+                    <p className="text-sm font-semibold text-gray-400">{exp.years}</p>
+                    <h3 className="mt-1 text-2xl font-bold text-white">{exp.role}</h3>
+                    <p className="mt-1 text-md text-amber-400">{exp.company}</p>
+                    <div className="bg-slate-800/50 p-6 rounded-lg shadow-lg mt-4">
+                      <TextHighlight>
+                        <ul className="space-y-3 text-gray-300">
+                          {exp.description.map((desc, i) => (
+                            <li key={i} className="flex items-start">
+                              <Code className="w-4 h-4 mr-3 mt-1.5 text-amber-400 flex-shrink-0" />
+                              <span>{desc}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </TextHighlight>
+                      {exp.technologies && (
+                        <div className="mt-6">
+                          <h4 className="font-semibold text-amber-400 mb-3">Key Technologies</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech) => (
+                              <span key={tech} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
+                <Building className="w-4 h-4 text-amber-400" />
               </div>
             </div>
           ))}
