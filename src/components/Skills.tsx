@@ -91,6 +91,9 @@ const Skills = () => {
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
             A snapshot of the primary technologies and tools I work with. My skill set is always growing as I explore new and better ways to build.
           </p>
+          <p className="mt-4 max-w-2xl mx-auto text-md leading-8 text-amber-300/80">
+            Highlighted skills represent my core expertise in the MERN stack.
+          </p>
         </div>
         <div className="mt-16 max-w-4xl mx-auto">
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-8">
