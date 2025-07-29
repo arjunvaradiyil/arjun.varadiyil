@@ -64,7 +64,6 @@ const fragmentShader = `
 
 function ShaderPlane() {
   const ref = useRef<Mesh<PlaneGeometry, ShaderMaterial>>(null);
-  const mouse = useRef(new Vector2());
 
   const uniforms = useMemo(
     () => ({

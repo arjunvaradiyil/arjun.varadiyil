@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { BrainCircuit, Code, Users } from 'lucide-react';
+import { BrainCircuit, GraduationCap } from 'lucide-react';
 import TextHighlight from './TextHighlight';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -75,7 +75,7 @@ const About = () => {
               <ul className="space-y-8">
                 <li className="flex items-start">
                   <div className="flex-shrink-0">
-                    <Users className="h-6 w-6 text-amber-400" />
+                    <GraduationCap className="h-6 w-6 text-amber-400" />
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium leading-6 text-white">Collaborative Spirit</h3>

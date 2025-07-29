@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { HeartHandshake, Users } from 'lucide-react';
+import { HeartHandshake, Users, type LucideIcon } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +12,7 @@ interface VolunteerExperience {
   organization: string;
   years: string;
   description: string[];
-  icon: React.ElementType;
+  icon: LucideIcon;
 }
 
 const volunteeringData: VolunteerExperience[] = [

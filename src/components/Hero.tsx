@@ -1,5 +1,5 @@
 'use client';
-import { ArrowDownToLine, Github, Linkedin, Mail, Menu, X } from 'lucide-react';
+import { ArrowDownToLine, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState, MouseEvent } from 'react';
 import { gsap } from 'gsap';
@@ -7,13 +7,9 @@ import SplitType from 'split-type';
 
 export default function Hero() {
   const titleRef1 = useRef(null);
-  const titleRef2 = useRef(null);
   const subtitleRef = useRef(null);
-  const descriptionRef = useRef(null);
-  const quoteRef = useRef(null);
   const buttonGroupRef = useRef(null);
   const headerRef = useRef(null);
-  const imageRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
