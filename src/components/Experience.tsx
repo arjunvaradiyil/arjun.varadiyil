@@ -22,17 +22,6 @@ const experienceData = [
     technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Next.js', 'Tailwind CSS', 'Docker'],
   },
   {
-    role: 'Penetration Testing of Websites',
-    company: 'Redteam Hacker Academy, Perinthalmanna',
-    years: 'May 10, 2023 – May 25, 2023',
-    description: [
-      'Completed a focused internship during B.Tech, gaining hands-on experience in cybersecurity principles.',
-      'Participated in workshops and training sessions on ethical hacking and penetration testing.',
-      'Assisted in identifying and analyzing potential security vulnerabilities in web applications.',
-    ],
-    technologies: ['Cybersecurity', 'Ethical Hacking', 'Penetration Testing', 'Vulnerability Assessment'],
-  },
-  {
     role: 'Faculty - Computer Science',
     company: 'Xceed Competitive Examination Center, Malappuram',
     years: 'July 2024 – March 2025',
@@ -44,6 +33,17 @@ const experienceData = [
       'Successfully guided over 50+ students from foundational concepts to deploying their first full-stack applications.',
     ],
     technologies: ['Data Structures', 'Algorithms', 'Web Development', 'Python', 'Programming Fundamentals'],
+  },
+  {
+    role: 'Penetration Testing Intern',
+    company: 'Redteam Hacker Academy, Perinthalmanna',
+    years: 'May 10, 2023 – May 25, 2023',
+    description: [
+      'Completed a focused internship during B.Tech, gaining hands-on experience in cybersecurity principles.',
+      'Participated in workshops and training sessions on ethical hacking and penetration testing.',
+      'Assisted in identifying and analyzing potential security vulnerabilities in web applications.',
+    ],
+    technologies: ['Cybersecurity', 'Ethical Hacking', 'Penetration Testing', 'Vulnerability Assessment'],
   },
 ];
 
