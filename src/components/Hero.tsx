@@ -17,6 +17,7 @@ export default function Hero() {
   const headerRef = useRef(null);
   const imageRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -88,14 +89,29 @@ export default function Hero() {
     }
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center">
       {/* Mobile Menu */}
       <div 
         ref={menuRef}
-        className="fixed top-0 left-0 w-full h-full bg-[#0F172A] z-40 flex flex-col items-center justify-center"
+        className="fixed top-0 left-0 w-full h-full bg-[#0F172A] z-50 flex flex-col items-center justify-center"
         style={{ transform: 'translateX(-100%)' }}
       >
+        <button onClick={() => setIsMenuOpen(false)} className="absolute top-6 right-4 sm:right-6 text-white">
+          <X size={28} />
+        </button>
         <nav className="flex flex-col items-center gap-8">
           <a href="#about" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>About</a>
           <a href="#experience" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors" onClick={() => setIsMenuOpen(false)}>Experience</a>
@@ -109,9 +125,12 @@ export default function Hero() {
       </div>
 
       {/* Header */}
-      <header ref={headerRef} className="absolute top-0 left-0 right-0 z-50">
+      <header 
+        ref={headerRef} 
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'py-4 bg-[#0F172A]/70 backdrop-blur-sm shadow-md' : 'py-6'}`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+          <div className="flex justify-between items-center">
             <Link href="/" className="text-2xl font-bold text-white hover:text-gray-200 transition-colors">
               Arjun V
             </Link>
@@ -126,8 +145,8 @@ export default function Hero() {
               <a href="#contact" className="text-white hover:text-gray-200 transition-colors">Contact</a>
             </nav>
             <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
-                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              <button onClick={() => setIsMenuOpen(true)} className="text-white">
+                <Menu size={28} />
               </button>
             </div>
           </div>

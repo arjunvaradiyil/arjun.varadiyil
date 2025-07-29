@@ -54,7 +54,7 @@ export default function Skills() {
   }, []);
 
   return (
-    <section id="skills" className="py-20 relative bg-[#0F172A]/70 backdrop-blur-sm border-y border-slate-800/50" ref={sectionRef}>
+    <section id="skills" className="py-20 relative bg-[#0F172A]/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 items-start">
           {/* Left Column (Text) */}

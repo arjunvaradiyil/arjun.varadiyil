@@ -86,7 +86,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-20 relative bg-[#0F172A]/70 backdrop-blur-sm border-y border-slate-800/50" ref={sectionRef}>
+    <section id="projects" className="py-20 relative bg-[#0F172A]/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">My Projects</h2>
