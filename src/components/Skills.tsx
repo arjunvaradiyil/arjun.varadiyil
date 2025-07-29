@@ -1,113 +1,113 @@
 'use client';
 
-import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import TextHighlight from './TextHighlight';
+import { Code, Database, Terminal, GitBranch, Languages, Layout } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const skillsData = {
   "Languages": {
-    description: "Fluent in languages for building robust applications, from web to systems programming.",
+    icon: Languages,
     skills: ["JavaScript", "Python", "Java", "C", "HTML", "CSS", "TypeScript"]
   },
   "Frontend": {
-    description: "Proficient in building responsive, dynamic, and intuitive user interfaces.",
+    icon: Layout,
     skills: ["React.js", "Next.js", "Tailwind CSS", "Redux", "Material-UI"]
   },
   "Backend": {
-    description: "Experienced in creating scalable server-side logic and powerful APIs.",
+    icon: Code,
     skills: ["Node.js", "Express.js", "Payload CMS", "RESTful APIs", "JWT"]
   },
   "Databases": {
-    description: "Skilled in both relational and NoSQL databases for optimal data management.",
+    icon: Database,
     skills: ["MongoDB", "MySQL", "PostgreSQL", "MongoDB Atlas"]
   },
   "Tools & Platforms": {
-    description: "Adept with a modern toolchain for efficient and collaborative development.",
+    icon: Terminal,
     skills: ["Git", "GitHub", "VS Code", "Postman", "Docker", "AWS"]
   }
 };
 
-const SkillCategoryCard = ({ category, data }: { category: string, data: { description: string, skills: string[] } }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const element = cardRef.current;
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!element) return;
-      const rect = element.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      element.style.setProperty('--x', `${x}px`);
-      element.style.setProperty('--y', `${y}px`);
-    };
-    element?.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      element?.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  return (
-    <div ref={cardRef} className="card-spotlight bg-zinc-900/70 p-6 rounded-lg border border-slate-700/50">
-      <h3 className="text-xl font-bold text-amber-400 mb-2">{category}</h3>
-      <TextHighlight>
-        <p className="text-gray-400 text-sm mb-4">{data.description}</p>
-      </TextHighlight>
-      <div className="flex flex-wrap gap-2">
-        {data.skills.map((skill) => (
-          <span key={skill} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default function Skills() {
+const Skills = () => {
   const sectionRef = useRef(null);
+  const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  const addToRefs = (el: HTMLDivElement | null) => {
+    if (el && !skillsRef.current.includes(el)) {
+      skillsRef.current.push(el);
+    }
+  };
 
   useEffect(() => {
-    const el = sectionRef.current;
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
-        },
-        duration: 1,
-      }
-    );
+    const sectionEl = sectionRef.current;
+    const skillElements = skillsRef.current.filter(el => el !== null);
+
+    gsap.set(skillElements, { opacity: 0, y: 30 });
+
+    ScrollTrigger.create({
+      trigger: sectionEl,
+      start: 'top 70%',
+      end: 'bottom 20%',
+      onEnter: () => {
+        gsap.to(skillElements, {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: 'power3.out',
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(skillElements, {
+          opacity: 0,
+          y: 30,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: 'power3.in',
+        });
+      },
+    });
   }, []);
 
   return (
-    <section id="skills" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-12 items-start">
-          {/* Left Column (Text) */}
-          <div className="md:col-span-1">
-            <h2 className="text-4xl font-bold text-white mb-4">Skills & Expertise</h2>
-            <p className="text-gray-300 text-lg">
-              A snapshot of the primary technologies and tools I work with. My skill set is always growing as I explore new and better ways to build.
-            </p>
-          </div>
-          {/* Right Column (Skills) */}
-          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <section id="skills" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24">
+      <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center">
+          <p className="text-base font-semibold leading-7 text-amber-400">Technical Expertise</p>
+          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Skills & Technologies</h2>
+          <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
+            A snapshot of the primary technologies and tools I work with. My skill set is always growing as I explore new and better ways to build.
+          </p>
+        </div>
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="space-y-12">
             {Object.entries(skillsData).map(([category, data]) => (
-              <SkillCategoryCard key={category} category={category} data={data} />
+              <div
+                key={category}
+                ref={addToRefs}
+                className="p-6 bg-slate-800/50 rounded-lg shadow-lg"
+              >
+                <div className="flex items-center mb-4">
+                  <data.icon className="w-6 h-6 text-amber-400 mr-4" />
+                  <h3 className="text-xl font-bold text-white">{category}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {data.skills.map((skill) => (
+                    <span key={skill} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </div>
     </section>
   );
-} 
+};
+
+export default Skills; 
