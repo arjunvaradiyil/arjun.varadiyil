@@ -20,17 +20,17 @@ const skillsList = [
   { name: 'HTML5', icon: SiHtml5 },
   { name: 'CSS3', icon: SiCss3 },
   { name: 'TypeScript', icon: SiTypescript },
-  { name: 'React', icon: SiReact },
+  { name: 'React', icon: SiReact, highlight: true },
   { name: 'Next.js', icon: SiNextdotjs },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
   { name: 'Redux', icon: SiRedux },
   { name: 'Material-UI', icon: SiMui },
-  { name: 'Node.js', icon: SiNodedotjs },
-  { name: 'Express.js', icon: SiExpress },
+  { name: 'Node.js', icon: SiNodedotjs, highlight: true },
+  { name: 'Express.js', icon: SiExpress, highlight: true },
   { name: 'Payload CMS', icon: SiPayloadcms },
   { name: 'RESTful APIs', icon: SiSwagger },
   { name: 'JWT', icon: SiJsonwebtokens },
-  { name: 'MongoDB', icon: SiMongodb },
+  { name: 'MongoDB', icon: SiMongodb, highlight: true },
   { name: 'MySQL', icon: SiMysql },
   { name: 'PostgreSQL', icon: SiPostgresql },
   { name: 'MongoDB Atlas', icon: SiMongodb },
@@ -100,10 +100,10 @@ const Skills = () => {
                 ref={addToRefs}
                 className="group flex flex-col items-center gap-2 text-center invisible"
               >
-                <div className="p-4 bg-slate-800/50 rounded-full group-hover:bg-amber-400/20 transition-all duration-300">
-                  <skill.icon className="w-10 h-10 text-gray-300 group-hover:text-amber-400 transition-colors duration-300" />
+                <div className={`p-4 bg-slate-800/50 rounded-full group-hover:bg-amber-400/20 transition-all duration-300 ${skill.highlight ? 'ring-2 ring-amber-400/50 group-hover:ring-amber-400' : ''}`}>
+                  <skill.icon className={`w-10 h-10 text-gray-300 group-hover:text-amber-400 transition-colors duration-300 ${skill.highlight ? 'text-amber-300' : ''}`} />
                 </div>
-                <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
+                <span className={`text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300 ${skill.highlight ? 'font-bold text-white' : ''}`}>
                   {skill.name}
                 </span>
               </div>
