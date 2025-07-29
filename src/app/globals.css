@@ -20,15 +20,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 @layer components {
   .line-clamp-3 {
     display: -webkit-box;
