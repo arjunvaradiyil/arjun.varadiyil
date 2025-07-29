@@ -31,7 +31,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-8 border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
-        © 2025 Arjun Varadiyil. All rights reserved. | Built with Next.js & Tailwind CSS
+        © 2025 <strong className="font-semibold text-gray-300">Arjun Varadiyil</strong>. All rights reserved. | Built with Next.js & Tailwind CSS
       </div>
     </footer>
   );

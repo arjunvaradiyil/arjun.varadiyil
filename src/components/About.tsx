@@ -88,7 +88,7 @@ export default function About() {
           </h2>
           <TextHighlight>
             <p className="text-lg text-gray-300 mb-4">
-              Hello! I&apos;m Arjun Varadiyil, a passionate and results-oriented Full Stack Developer with a strong foundation in the MERN stack. My journey in tech is driven by a love for solving complex problems and building applications that are not only functional but also intuitive and enjoyable to use.
+              Hello! I&apos;m <strong className="font-bold text-white">Arjun Varadiyil</strong>, a passionate and results-oriented Full Stack Developer with a strong foundation in the MERN stack. My journey in tech is driven by a love for solving complex problems and building applications that are not only functional but also intuitive and enjoyable to use.
             </p>
           </TextHighlight>
           <TextHighlight>

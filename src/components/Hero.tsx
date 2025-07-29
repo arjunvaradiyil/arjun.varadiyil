@@ -225,11 +225,11 @@ export default function Hero() {
 
       {/* Main Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl">
-        <h1 ref={titleRef1} className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4">
-          Digital Craftsman
+        <h1 ref={titleRef1} className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 uppercase">
+          Arjun Varadiyil
         </h1>
-        <p ref={subtitleRef} className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-12">
-          I&apos;m Arjun Varadiyil, a Full Stack Developer creating things for the web.
+        <p ref={subtitleRef} className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-12 uppercase tracking-wider">
+          Software Engineer & Full Stack Developer
         </p>
         <div ref={buttonGroupRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
