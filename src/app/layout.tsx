@@ -3,6 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import SocialLinks from "@/components/SocialLinks";
 import Hero from "@/components/Hero";
+import WeatherAnimation from "@/components/WeatherAnimation";
 
 const siteConfig = {
   name: "Arjun Varadiyil - Full Stack Developer",
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <SocialLinks />
         <Hero />
+        <WeatherAnimation />
         {children}
       </body>
     </html>
