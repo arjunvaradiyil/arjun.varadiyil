@@ -4,7 +4,6 @@ import Link from 'next/link';
 import React, { useEffect, useRef, useState, MouseEvent } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
-import { ThemeToggle } from './ThemeToggle';
 
 export default function Hero() {
   const titleRef1 = useRef(null);
@@ -132,13 +131,10 @@ export default function Hero() {
               <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white hover:text-gray-200 transition-colors">Volunteering</a>
               <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white hover:text-gray-200 transition-colors">Contact</a>
             </nav>
-            <div className="flex items-center gap-4">
-              <ThemeToggle />
-              <div className="md:hidden">
-                <button onClick={() => setIsMenuOpen(true)} className="text-white">
-                  <Menu size={28} />
-                </button>
-              </div>
+            <div className="md:hidden">
+              <button onClick={() => setIsMenuOpen(true)} className="text-white">
+                <Menu size={28} />
+              </button>
             </div>
           </div>
         </div>
