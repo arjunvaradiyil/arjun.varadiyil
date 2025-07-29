@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import SocialLinks from "@/components/SocialLinks";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 
@@ -84,7 +83,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="antialiased">
         <SmoothScroll />
-        <SocialLinks />
         <Hero />
         {children}
         <Footer />
