@@ -2,10 +2,87 @@
 
 import { ArrowDownToLine, Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
-import Image from 'next/image';
+
+const Rain = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', handleResize);
+
+    class Raindrop {
+      x: number;
+      y: number;
+      len: number;
+      speed: number;
+      opacity: number;
+
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * -height;
+        this.len = Math.random() * 20 + 10;
+        this.speed = Math.random() * 5 + 4;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+
+      draw() {
+        if (!ctx) return;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + this.len);
+        ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      update() {
+        this.y += this.speed;
+        if (this.y > height) {
+          this.y = Math.random() * -100;
+          this.x = Math.random() * width;
+        }
+        this.draw();
+      }
+    }
+
+    const raindrops: Raindrop[] = [];
+    for (let i = 0; i < 300; i++) {
+      raindrops.push(new Raindrop());
+    }
+
+    let animationFrameId: number;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, width, height);
+      raindrops.forEach((drop) => drop.update());
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0" />;
+};
+
 
 export default function Hero() {
   const titleRef1 = useRef(null);
@@ -21,63 +98,45 @@ export default function Hero() {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    const title1 = new SplitType(titleRef1.current!, { types: 'chars' });
-    const title2 = new SplitType(titleRef2.current!, { types: 'words,chars' });
+    const title = new SplitType(titleRef1.current!, { types: 'words' });
+    const subtitle = new SplitType(subtitleRef.current!, { types: 'words' });
 
-    gsap.set(title1.chars, { y: 100, opacity: 0 });
-    gsap.set(title2.chars, { y: 100, opacity: 0 });
+    gsap.set(title.words, { y: 50, opacity: 0 });
+    gsap.set(subtitle.words, { y: 30, opacity: 0 });
 
     const tl = gsap.timeline();
 
-    tl.from(headerRef.current, { 
-        opacity: 0, 
-        y: -20, 
-        duration: 0.8, 
-        ease: 'power3.out' 
+    tl.from(headerRef.current, {
+        opacity: 0,
+        y: -20,
+        duration: 0.8,
+        ease: 'power3.out'
       })
-      .to(title1.chars, {
+      .to(title.words, {
         y: 0,
         opacity: 1,
-        stagger: 0.05,
-        duration: 0.8,
+        stagger: 0.1,
+        duration: 0.6,
         ease: 'power3.out'
       }, "-=0.6")
-      .to(title2.chars, {
+      .to(subtitle.words, {
         y: 0,
         opacity: 1,
-        stagger: 0.03,
-        duration: 0.8,
-        ease: 'power3.out'
-      }, "-=0.8")
-      .from(subtitleRef.current, {
-        opacity: 0,
-        y: 20,
+        stagger: 0.08,
         duration: 0.5,
         ease: 'power3.out',
       }, "-=0.6")
-      .from(descriptionRef.current, { 
-        opacity: 0, 
-        y: 20, 
-        duration: 0.5, 
-        ease: 'power3.out' 
-      }, "-=0.4")
-      .from(quoteRef.current, {
+      .from(buttonGroupRef.current, {
         opacity: 0,
         y: 20,
         duration: 0.5,
         ease: 'power3.out'
-      }, "-=0.4")
-      .from(buttonGroupRef.current, { 
-        opacity: 0, 
-        y: 20, 
-        duration: 0.5, 
-        ease: 'power3.out' 
       }, "-=0.4");
-      
+    
     return () => {
       tl.kill();
-      title1.revert();
-      title2.revert();
+      title.revert();
+      subtitle.revert();
     };
   }, []);
 
@@ -103,10 +162,11 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center">
+      <Rain />
       {/* Mobile Menu */}
       <div 
         ref={menuRef}
-        className="fixed top-0 left-0 w-full h-full bg-[#0F172A] z-50 flex flex-col items-center justify-center"
+        className="fixed top-0 left-0 w-full h-full bg-zinc-900/70 z-50 flex flex-col items-center justify-center"
         style={{ transform: 'translateX(-100%)' }}
       >
         <button onClick={() => setIsMenuOpen(false)} className="absolute top-6 right-4 sm:right-6 text-white">
@@ -127,7 +187,7 @@ export default function Hero() {
       {/* Header */}
       <header 
         ref={headerRef} 
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'py-4 bg-[#0F172A]/70 backdrop-blur-sm shadow-md' : 'py-6'}`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'py-4 bg-zinc-900/70 backdrop-blur-sm shadow-md' : 'py-6'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
@@ -164,12 +224,12 @@ export default function Hero() {
         <p ref={subtitleRef} className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-8">
           Specializing in the MERN Stack & Modern Web Technologies.
         </p>
-        <p ref={descriptionRef} className="text-lg md:text-xl text-white mb-6 max-w-2xl mx-auto">
+        {/* <p ref={descriptionRef} className="text-lg md:text-xl text-white mb-6 max-w-2xl mx-auto">
           I transform complex ideas into intuitive and performant web applications, building scalable solutions from front to back.
         </p>
         <p ref={quoteRef} className="text-lg md:text-xl text-amber-400/80 italic font-light mb-12 max-w-xl mx-auto">
           &quot;Code with purpose, design with passion.&quot;
-        </p>
+        </p> */}
         <div ref={buttonGroupRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view?usp=sharing"

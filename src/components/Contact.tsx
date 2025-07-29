@@ -12,6 +12,8 @@ export default function Contact() {
   const [currentImage, setCurrentImage] = useState(0);
   const images = ['/hero-bg-1.jpg', '/hero-bg-2.jpg'];
   const sectionRef = useRef(null);
+  const infoCardRef = useRef<HTMLDivElement>(null);
+  const formCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,8 +42,26 @@ export default function Contact() {
     );
   }, []);
 
+  useEffect(() => {
+    const cards = [infoCardRef.current, formCardRef.current];
+    cards.forEach(card => {
+      if (!card) return;
+      const handleMouseMove = (e: MouseEvent) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      };
+      card.addEventListener('mousemove', handleMouseMove);
+      return () => {
+        card.removeEventListener('mousemove', handleMouseMove);
+      };
+    });
+  }, []);
+
   return (
-    <section id="contact" className="py-20 relative bg-[#0F172A]/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
+    <section id="contact" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
@@ -53,7 +73,7 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-8">
+          <div ref={infoCardRef} className="card-spotlight bg-zinc-900/70 p-8 rounded-lg border border-slate-700/50">
             <h3 className="text-2xl font-semibold text-white mb-6">Let&apos;s Connect</h3>
             <p className="text-gray-200 mb-8">
               Whether you have a project in mind, want to collaborate, or just want to say hello, 
@@ -118,7 +138,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-8">
+          <div ref={formCardRef} className="card-spotlight bg-zinc-900/70 p-8 rounded-lg border border-slate-700/50">
             <h3 className="text-2xl font-semibold text-white mb-6">Quick Message</h3>
             <form className="space-y-4">
               <div>

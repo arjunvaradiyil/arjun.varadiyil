@@ -1,20 +1,47 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, FC } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Users, Puzzle, MessageCircle, Star } from 'lucide-react';
+import { Users, Puzzle, MessageCircle, Star, LucideProps } from 'lucide-react';
 import TextHighlight from './TextHighlight';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const strengths = [
+const strengths: { name: string; icon: FC<LucideProps> }[] = [
   { name: 'Problem Solving', icon: Puzzle },
   { name: 'Teamwork', icon: Users },
   { name: 'Communication', icon: MessageCircle },
   { name: 'Leadership', icon: Star },
 ];
+
+const StrengthCard = ({ strength }: { strength: { name: string, icon: FC<LucideProps> } }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = cardRef.current;
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!element) return;
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      element.style.setProperty('--x', `${x}px`);
+      element.style.setProperty('--y', `${y}px`);
+    };
+    element?.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      element?.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <div ref={cardRef} className="card-spotlight bg-zinc-900/70 p-4 rounded-lg text-center">
+      <strength.icon className="h-8 w-8 text-white mx-auto mb-2" />
+      <p className="font-semibold text-gray-200 text-sm">{strength.name}</p>
+    </div>
+  );
+};
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -39,7 +66,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="py-20 relative bg-[#0F172A]/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
+    <section id="about" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-16 items-center">
         {/* Profile Picture */}
         <div className="md:col-span-1 flex justify-center">
@@ -80,10 +107,7 @@ export default function About() {
             <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center md:text-left">Core Strengths</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {strengths.map((strength) => (
-                <div key={strength.name} className="bg-slate-800/50 p-4 rounded-lg text-center">
-                  <strength.icon className="h-8 w-8 text-white mx-auto mb-2" />
-                  <p className="font-semibold text-gray-200 text-sm">{strength.name}</p>
-                </div>
+                <StrengthCard key={strength.name} strength={strength} />
               ))}
             </div>
           </div>

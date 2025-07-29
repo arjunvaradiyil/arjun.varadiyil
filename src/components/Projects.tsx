@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,7 +8,17 @@ import TextHighlight from './TextHighlight';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  features: string[];
+  techStack: string[];
+  githubUrl?: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: 'Event Scheduler Web Application',
@@ -50,21 +59,82 @@ const projects = [
       'B.Tech final year project'
     ],
     techStack: ['Flutter', 'MediaPipe', 'Python', 'TensorFlow', 'ML'],
+    githubUrl: 'https://github.com/arjunvaradiyil',
   },
 ];
 
-export default function Projects() {
-  const [currentImage, setCurrentImage] = useState(0);
-  const images = ['/hero-bg-1.jpg', '/hero-bg-2.jpg'];
-  const sectionRef = useRef(null);
+const ProjectCard = ({ project }: { project: Project }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev === 0 ? 1 : 0));
-    }, 30000);
+    const element = cardRef.current;
 
-    return () => clearInterval(interval);
+    const handleMouseMove = (e: MouseEvent) => {
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        element.style.setProperty('--x', `${x}px`);
+        element.style.setProperty('--y', `${y}px`);
+      }
+    };
+
+    element?.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      element?.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className="card-spotlight bg-zinc-900/70 p-6 rounded-lg border border-slate-700/50 transition-transform duration-300 hover:scale-105 hover:border-slate-600 flex flex-col"
+    >
+      <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+      <TextHighlight>
+        <p className="text-gray-300 mb-4 flex-grow">{project.description}</p>
+      </TextHighlight>
+      
+      <div className="mb-4">
+        <h4 className="text-amber-400 font-semibold text-sm mb-2">Key Features</h4>
+        <ul className="text-gray-400 text-sm space-y-1 list-disc list-inside">
+          {project.features.map((feature: string, i: number) => (
+            <li key={i}>{feature}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mb-4">
+        <h4 className="text-amber-400 font-semibold text-sm mb-2">Tech Stack</h4>
+        <div className="flex flex-wrap gap-2">
+          {project.techStack.map((tech: string) => (
+            <span key={tech} className="bg-slate-700 text-gray-200 text-sm font-medium px-2 py-1 rounded">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {project.githubUrl && (
+        <div className="mt-auto pt-4">
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-white font-semibold hover:text-amber-400 transition-colors"
+          >
+            <Github size={18} />
+            View on GitHub
+          </a>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default function Projects() {
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -86,7 +156,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-20 relative bg-[#0F172A]/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
+    <section id="projects" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">My Projects</h2>
@@ -95,51 +165,10 @@ export default function Projects() {
             and an opportunity to learn and grow as a developer.
           </p>
         </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="bg-slate-800/50 p-6 rounded-lg border border-slate-700/50 transition-transform duration-300 hover:scale-105 hover:border-slate-600 flex flex-col"
-            >
-              <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-              <TextHighlight>
-                <p className="text-gray-300 mb-4 flex-grow">{project.description}</p>
-              </TextHighlight>
-              
-              <div className="mb-4">
-                <h4 className="text-amber-400 font-semibold text-sm mb-2">Key Features</h4>
-                <ul className="text-gray-400 text-sm space-y-1 list-disc list-inside">
-                  {project.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mb-4">
-                <h4 className="text-amber-400 font-semibold text-sm mb-2">Tech Stack</h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span key={tech} className="bg-slate-700 text-gray-200 text-sm font-medium px-2 py-1 rounded">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {project.githubUrl && (
-                <div className="mt-auto pt-4">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-white font-semibold hover:text-amber-400 transition-colors"
-                  >
-                    <Github size={18} />
-                    View on GitHub
-                  </a>
-                </div>
-              )}
-            </div>
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
 

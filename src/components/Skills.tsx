@@ -31,6 +31,42 @@ const skillsData = {
   }
 };
 
+const SkillCategoryCard = ({ category, data }: { category: string, data: { description: string, skills: string[] } }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = cardRef.current;
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!element) return;
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      element.style.setProperty('--x', `${x}px`);
+      element.style.setProperty('--y', `${y}px`);
+    };
+    element?.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      element?.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <div ref={cardRef} className="card-spotlight bg-zinc-900/70 p-6 rounded-lg border border-slate-700/50">
+      <h3 className="text-xl font-bold text-amber-400 mb-2">{category}</h3>
+      <TextHighlight>
+        <p className="text-gray-400 text-sm mb-4">{data.description}</p>
+      </TextHighlight>
+      <div className="flex flex-wrap gap-2">
+        {data.skills.map((skill) => (
+          <span key={skill} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function Skills() {
   const sectionRef = useRef(null);
 
@@ -54,7 +90,7 @@ export default function Skills() {
   }, []);
 
   return (
-    <section id="skills" className="py-20 relative bg-[#0F172A]/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
+    <section id="skills" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 items-start">
           {/* Left Column (Text) */}
@@ -67,19 +103,7 @@ export default function Skills() {
           {/* Right Column (Skills) */}
           <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
             {Object.entries(skillsData).map(([category, data]) => (
-              <div key={category} className="bg-slate-800/50 p-6 rounded-lg border border-slate-700/50">
-                <h3 className="text-xl font-bold text-amber-400 mb-2">{category}</h3>
-                <TextHighlight>
-                  <p className="text-gray-400 text-sm mb-4">{data.description}</p>
-                </TextHighlight>
-                <div className="flex flex-wrap gap-2">
-                  {data.skills.map((skill) => (
-                    <span key={skill} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <SkillCategoryCard key={category} category={category} data={data} />
             ))}
           </div>
         </div>
