@@ -5,6 +5,7 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Briefcase, Code, Users, Award } from 'lucide-react';
+import TextHighlight from './TextHighlight';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,9 +61,11 @@ const About = () => {
             <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Full Stack Developer & Creative Problem-Solver
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
-              Hello! I&apos;m <strong className="font-bold text-white">Arjun Varadiyil</strong>. My journey in technology is driven by a passion for crafting elegant solutions to complex problems. I specialize in the MERN stack, building applications that are not just functional, but also provide an intuitive and engaging user experience.
-            </p>
+            <TextHighlight>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                Hello! I&apos;m <strong className="font-bold text-white">Arjun Varadiyil</strong>. My journey in technology is driven by a passion for crafting elegant solutions to complex problems. I specialize in the MERN stack, building applications that are not just functional, but also provide an intuitive and engaging user experience.
+              </p>
+            </TextHighlight>
             <div className="mt-10 max-w-xl mx-auto lg:mx-0">
               <ul className="space-y-8">
                 <li className="flex items-start">
@@ -71,9 +74,11 @@ const About = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium leading-6 text-white">Versatile Experience</h3>
-                    <p className="mt-2 text-base text-gray-400">
-                      From dynamic user interfaces to robust back-end APIs and database management, I thrive in agile environments where I can collaborate to bring innovative ideas to life.
-                    </p>
+                    <TextHighlight>
+                      <p className="mt-2 text-base text-gray-400">
+                        From dynamic user interfaces to robust back-end APIs and database management, I thrive in agile environments where I can collaborate to bring innovative ideas to life.
+                      </p>
+                    </TextHighlight>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -82,9 +87,11 @@ const About = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium leading-6 text-white">Clean Code Advocate</h3>
-                    <p className="mt-2 text-base text-gray-400">
-                      I believe in writing clean, maintainable, and well-documented code. Open communication and a shared commitment to quality are central to my development philosophy.
-                    </p>
+                    <TextHighlight>
+                      <p className="mt-2 text-base text-gray-400">
+                        I believe in writing clean, maintainable, and well-documented code. Open communication and a shared commitment to quality are central to my development philosophy.
+                      </p>
+                    </TextHighlight>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -93,9 +100,11 @@ const About = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium leading-6 text-white">Collaborative Spirit</h3>
-                    <p className="mt-2 text-base text-gray-400">
-                      My experience as a computer science faculty member instilled in me a passion for mentoring and sharing knowledge, fostering a collaborative and growth-oriented team environment.
-                    </p>
+                    <TextHighlight>
+                      <p className="mt-2 text-base text-gray-400">
+                        My experience as a computer science faculty member instilled in me a passion for mentoring and sharing knowledge, fostering a collaborative and growth-oriented team environment.
+                      </p>
+                    </TextHighlight>
                   </div>
                 </li>
               </ul>
