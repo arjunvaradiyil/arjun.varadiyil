@@ -14,17 +14,17 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Separate skills into MERN and others
-const mernSkills = [
+// Separate skills into Core and others
+const coreSkills = [
   { name: 'MongoDB', icon: SiMongodb },
   { name: 'Express.js', icon: SiExpress },
   { name: 'React', icon: SiReact },
   { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'JavaScript', icon: SiJavascript },
+  { name: 'Python', icon: SiPython },
 ];
 
 const otherSkills = [
-  { name: 'JavaScript', icon: SiJavascript },
-  { name: 'Python', icon: SiPython },
   { name: 'C', icon: SiC },
   { name: 'HTML5', icon: SiHtml5 },
   { name: 'CSS3', icon: SiCss3 },
@@ -116,10 +116,10 @@ const Skills = () => {
         <div className="mt-16 max-w-5xl mx-auto">
           {/* MERN Stack Section */}
           <div className="text-center mb-8">
-            <h3 className="text-xl font-bold text-white">Core Expertise: MERN Stack</h3>
+            <h3 className="text-xl font-bold text-white">Core Expertise</h3>
           </div>
           <div className="flex flex-wrap justify-center gap-6">
-            {mernSkills.map((skill) => (
+            {coreSkills.map((skill) => (
               <SkillBox key={skill.name} skill={skill} />
             ))}
           </div>
