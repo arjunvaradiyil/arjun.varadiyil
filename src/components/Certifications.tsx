@@ -19,23 +19,25 @@ const certificationsData: Certification[] = [
     issuer: 'Illinois Institute of Technology (via Entri)',
     title: 'Full Stack Development (MERN Stack)',
     year: '2025',
+    verifyUrl: 'https://www.credly.com/badges/36595a88-0be9-453a-86bd-2f642d0a0ea3/linked_in_profile',
   },
   {
     issuer: 'National Skill Development Corporation (NSDC)',
     title: 'Full Stack Development (MERN Stack)',
     year: '2025',
+    verifyUrl: 'https://drive.google.com/file/d/1xXO0NrvRFy0YkWglUWc7L0Q7uRfXDa3M/view?usp=sharing',
   },
   {
     issuer: 'HackerRank',
     title: 'JavaScript (Basic)',
     year: '2024',
-    verifyUrl: 'https://www.hackerrank.com/certificates/61e892b1158c',
+    verifyUrl: 'https://www.hackerrank.com/certificates/14db58440180',
   },
   {
     issuer: 'HackerRank',
     title: 'Python (Basic)',
     year: '2024',
-    verifyUrl: 'https://www.hackerrank.com/certificates/06450639ceb8',
+    verifyUrl: 'https://www.hackerrank.com/certificates/862b806b1334',
   },
 ];
 
