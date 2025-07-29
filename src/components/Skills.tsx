@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Code, Database, Terminal, GitBranch, Languages, Layout } from 'lucide-react';
@@ -40,11 +40,11 @@ const Skills = () => {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const sectionEl = sectionRef.current;
     const skillElements = skillsRef.current.filter(el => el !== null);
 
-    gsap.set(skillElements, { opacity: 0, y: 30 });
+    gsap.set(skillElements, { autoAlpha: 0, y: 30 });
 
     ScrollTrigger.create({
       trigger: sectionEl,
@@ -52,7 +52,7 @@ const Skills = () => {
       end: 'bottom 20%',
       onEnter: () => {
         gsap.to(skillElements, {
-          opacity: 1,
+          autoAlpha: 1,
           y: 0,
           stagger: 0.2,
           duration: 0.8,
@@ -61,7 +61,7 @@ const Skills = () => {
       },
       onLeaveBack: () => {
         gsap.to(skillElements, {
-          opacity: 0,
+          autoAlpha: 0,
           y: 30,
           stagger: 0.2,
           duration: 0.8,
@@ -88,7 +88,7 @@ const Skills = () => {
               <div
                 key={category}
                 ref={addToRefs}
-                className="p-6 bg-slate-800/50 rounded-lg shadow-lg"
+                className="p-6 bg-slate-800/50 rounded-lg shadow-lg invisible"
               >
                 <div className="flex items-center mb-4">
                   <data.icon className="w-6 h-6 text-amber-400 mr-4" />

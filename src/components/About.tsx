@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Briefcase, Code, Users, Award, BrainCircuit } from 'lucide-react';
+import { BrainCircuit, Code, Users } from 'lucide-react';
 import TextHighlight from './TextHighlight';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,10 +14,12 @@ const About = () => {
   const imageRef = useRef(null);
   const contentRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const sectionEl = sectionRef.current;
     const imageEl = imageRef.current;
     const contentEl = contentRef.current;
+
+    gsap.set([imageEl, contentEl], { autoAlpha: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -30,12 +32,12 @@ const About = () => {
 
     tl.fromTo(
       imageEl,
-      { opacity: 0, scale: 0.8, x: -100 },
-      { opacity: 1, scale: 1, x: 0, duration: 1, ease: 'power3.out' }
+      { scale: 0.8, x: -100 },
+      { autoAlpha: 1, scale: 1, x: 0, duration: 1, ease: 'power3.out' }
     ).fromTo(
       contentEl,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
+      { y: 50 },
+      { autoAlpha: 1, y: 0, duration: 1, ease: 'power3.out' },
       '-=0.5'
     );
   }, []);
@@ -45,7 +47,7 @@ const About = () => {
       <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-start">
-          <div ref={imageRef} className="relative flex justify-center lg:justify-start">
+          <div ref={imageRef} className="relative flex justify-center lg:justify-start invisible">
             <div className="relative group w-80 h-80 sm:w-96 sm:h-96">
               <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800/50">
@@ -59,7 +61,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div ref={contentRef} className="mt-12 lg:mt-0 text-center lg:text-left">
+          <div ref={contentRef} className="mt-12 lg:mt-0 text-center lg:text-left invisible">
             <p className="text-base font-semibold leading-7 text-amber-400">About Me</p>
             <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Full Stack Developer & Creative Problem-Solver

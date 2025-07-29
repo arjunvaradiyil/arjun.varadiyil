@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TextHighlight from './TextHighlight';
@@ -33,13 +33,14 @@ const volunteeringData = [
 export default function Volunteering() {
   const sectionRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = sectionRef.current;
+    gsap.set(el, { autoAlpha: 0 });
     gsap.fromTo(
       el,
-      { opacity: 0, y: 50 },
+      { y: 50 },
       {
-        opacity: 1,
+        autoAlpha: 1,
         y: 0,
         scrollTrigger: {
           trigger: el,
@@ -53,7 +54,7 @@ export default function Volunteering() {
   }, []);
 
   return (
-    <section id="volunteering" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
+    <section id="volunteering" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24 invisible" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">Volunteering & Leadership</h2>

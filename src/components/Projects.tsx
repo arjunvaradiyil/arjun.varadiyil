@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Github } from 'lucide-react';
@@ -66,7 +66,7 @@ const projects: Project[] = [
 const ProjectCard = ({ project }: { project: Project }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = cardRef.current;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -136,13 +136,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
 export default function Projects() {
   const sectionRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = sectionRef.current;
+    gsap.set(el, { autoAlpha: 0 });
     gsap.fromTo(
       el,
-      { opacity: 0, y: 50 },
+      { y: 50 },
       {
-        opacity: 1,
+        autoAlpha: 1,
         y: 0,
         scrollTrigger: {
           trigger: el,

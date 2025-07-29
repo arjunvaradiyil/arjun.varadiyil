@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Building, Code } from 'lucide-react';
@@ -51,11 +51,11 @@ const Experience = () => {
   const sectionRef = useRef(null);
   const timelineRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const sectionEl = sectionRef.current;
     const items = gsap.utils.toArray('.timeline-item');
 
-    gsap.set(items, { opacity: 0, y: 50 });
+    gsap.set(items, { autoAlpha: 0, y: 50 });
 
     ScrollTrigger.create({
       trigger: sectionEl,
@@ -63,7 +63,7 @@ const Experience = () => {
       end: 'bottom 20%',
       onEnter: () => {
         gsap.to(items, {
-          opacity: 1,
+          autoAlpha: 1,
           y: 0,
           stagger: 0.3,
           duration: 0.8,
@@ -72,7 +72,7 @@ const Experience = () => {
       },
       onLeaveBack: () => {
         gsap.to(items, {
-          opacity: 0,
+          autoAlpha: 0,
           y: 50,
           stagger: 0.3,
           duration: 0.8,
@@ -93,7 +93,7 @@ const Experience = () => {
         <div ref={timelineRef} className="mt-16 relative">
           <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
           {experienceData.map((exp, index) => (
-            <div key={index} className="timeline-item relative mb-12">
+            <div key={index} className="timeline-item relative mb-12 invisible">
               <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8 ml-auto'}`}>
                 <div className={`${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
                   <p className="text-sm font-semibold text-gray-400">{exp.years}</p>

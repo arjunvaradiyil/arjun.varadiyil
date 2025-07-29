@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TextHighlight from './TextHighlight';
@@ -23,13 +23,14 @@ export default function Contact() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = sectionRef.current;
+    gsap.set(el, { autoAlpha: 0 });
     gsap.fromTo(
       el,
-      { opacity: 0, y: 50 },
+      { y: 50 },
       {
-        opacity: 1,
+        autoAlpha: 1,
         y: 0,
         scrollTrigger: {
           trigger: el,
@@ -42,7 +43,7 @@ export default function Contact() {
     );
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const cards = [infoCardRef.current, formCardRef.current];
     cards.forEach(card => {
       if (!card) return;
@@ -61,7 +62,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <section id="contact" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24" ref={sectionRef}>
+    <section id="contact" className="py-20 relative bg-zinc-900/70 backdrop-blur-sm border-y border-slate-800/50 scroll-mt-24 invisible" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
