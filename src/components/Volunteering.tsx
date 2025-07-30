@@ -99,8 +99,8 @@ export default function Volunteering() {
       <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center">
-          <p className="text-base font-semibold leading-7 text-amber-400">Community & Leadership</p>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Volunteering</h2>
+          <p className="text-base font-semibold leading-7 text-amber-400">Volunteering</p>
+          <h2 id="volunteering-heading" className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Volunteering & Leadership</h2>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
             Giving back to the community and taking on leadership roles are important to my personal and professional growth.
           </p>

@@ -66,7 +66,7 @@ const About = () => {
           </div>
           <div ref={contentRef} className="mt-12 lg:mt-0 text-center lg:text-left invisible">
             <p className="text-base font-semibold leading-7 text-amber-400">About Me</p>
-            <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 id="about-heading" className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
               Full Stack Developer & Creative Problem-Solver
             </h2>
             <TextHighlight>

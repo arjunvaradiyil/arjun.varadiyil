@@ -109,8 +109,8 @@ const Skills = () => {
       <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center">
-          <p className="text-base font-semibold leading-7 text-amber-400">Technical Expertise</p>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Skills & Technologies</h2>
+          <p className="text-base font-semibold leading-7 text-amber-400">Skills</p>
+          <h2 id="skills-heading" className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Skills & Technologies</h2>
         </div>
         
         <div className="mt-16 max-w-5xl mx-auto">

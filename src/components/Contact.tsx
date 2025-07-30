@@ -37,7 +37,7 @@ export default function Contact() {
       <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
         <div className="text-center">
           <p className="text-base font-semibold leading-7 text-amber-400">Contact</p>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Get In Touch</h2>
+          <h2 id="contact-heading" className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Get In Touch</h2>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-gray-300">
             I&apos;m currently open to new opportunities and collaborations. Feel free to reach out if you have a project in mind, want to discuss a role, or just want to say hello!
           </p>

@@ -164,6 +164,13 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
     'apple-mobile-web-app-title': siteConfig.name,
+    'author': siteConfig.author,
+    'copyright': `© ${new Date().getFullYear()} ${siteConfig.author}`,
+    'language': 'en',
+    'revisit-after': '7 days',
+    'distribution': 'global',
+    'rating': 'general',
+    'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   },
 
   // Additional SEO

@@ -87,8 +87,8 @@ const Experience = () => {
       <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center">
-          <p className="text-base font-semibold leading-7 text-amber-400">Career Journey</p>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Work Experience</h2>
+          <p className="text-base font-semibold leading-7 text-amber-400">Experience</p>
+          <h2 id="experience-heading" className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Work Experience</h2>
         </div>
         <div ref={timelineRef} className="mt-16 relative">
           <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
