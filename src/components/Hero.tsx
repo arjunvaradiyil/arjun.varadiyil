@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useEffect, useRef, useState, MouseEvent } from 'react';
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
+import { usePathname } from 'next/navigation';
 
 export default function Hero() {
   const titleRef1 = useRef(null);
@@ -13,16 +14,29 @@ export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
+  const pathname = usePathname();
+
+  // Check if we're on the homepage
+  const isHomePage = pathname === '/';
 
   const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (!isHomePage) return; // Only handle scroll on homepage
+    
     e.preventDefault();
     setIsMenuOpen(false);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      const yOffset = -100; // Offset to account for sticky header
-      const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+    
+    // Add a small delay to ensure menu closes smoothly
+    setTimeout(() => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const yOffset = -120; // Increased offset to account for sticky header
+        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ 
+          top: y, 
+          behavior: 'smooth' 
+        });
+      }
+    }, 100);
   };
 
   useEffect(() => {
@@ -88,6 +102,18 @@ export default function Hero() {
     };
   }, []);
 
+  // Navigation items configuration
+  const navItems = [
+    { href: '/about', anchor: '#about', label: 'About' },
+    { href: '/experience', anchor: '#experience', label: 'Experience' },
+    { href: '/education', anchor: '#education', label: 'Education' },
+    { href: '/skills', anchor: '#skills', label: 'Skills' },
+    { href: '/projects', anchor: '#projects', label: 'Projects' },
+    { href: '/certifications', anchor: '#certifications', label: 'Certifications' },
+    { href: '/volunteering', anchor: '#volunteering', label: 'Volunteering' },
+    { href: '/contact', anchor: '#contact', label: 'Contact' }
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center">
       {/* Mobile Menu */}
@@ -100,14 +126,27 @@ export default function Hero() {
           <X size={28} />
         </button>
         <nav className="flex flex-col items-center gap-8">
-          <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">About</a>
-          <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Experience</a>
-          <a href="#education" onClick={(e) => handleNavClick(e, 'education')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Education</a>
-          <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Skills</a>
-          <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Projects</a>
-          <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Certifications</a>
-          <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Volunteering</a>
-          <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Contact</a>
+          {navItems.map((item) => (
+            isHomePage ? (
+              <a 
+                key={item.label}
+                href={item.anchor} 
+                onClick={(e) => handleNavClick(e, item.anchor.slice(1))} 
+                className="text-white text-3xl font-bold hover:text-amber-400 transition-colors"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link 
+                key={item.label}
+                href={item.href} 
+                onClick={() => setIsMenuOpen(false)} 
+                className="text-white text-3xl font-bold hover:text-amber-400 transition-colors"
+              >
+                {item.label}
+              </Link>
+            )
+          ))}
         </nav>
       </div>
 
@@ -123,14 +162,26 @@ export default function Hero() {
             </Link>
             <div className="hidden md:flex items-center">
               <nav className="flex items-center space-x-8">
-                <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="text-white hover:text-gray-200 transition-colors">About</a>
-                <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="text-white hover:text-gray-200 transition-colors">Experience</a>
-                <a href="#education" onClick={(e) => handleNavClick(e, 'education')} className="text-white hover:text-gray-200 transition-colors">Education</a>
-                <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="text-white hover:text-gray-200 transition-colors">Skills</a>
-                <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="text-white hover:text-gray-200 transition-colors">Projects</a>
-                <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white hover:text-gray-200 transition-colors">Certifications</a>
-                <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white hover:text-gray-200 transition-colors">Volunteering</a>
-                <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white hover:text-gray-200 transition-colors">Contact</a>
+                {navItems.map((item) => (
+                  isHomePage ? (
+                    <a 
+                      key={item.label}
+                      href={item.anchor} 
+                      onClick={(e) => handleNavClick(e, item.anchor.slice(1))} 
+                      className="text-white hover:text-gray-200 transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link 
+                      key={item.label}
+                      href={item.href} 
+                      className="text-white hover:text-gray-200 transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                ))}
               </nav>
             </div>
             <div className="md:hidden">
@@ -160,13 +211,22 @@ export default function Hero() {
             <ArrowDownToLine size={20} />
             Download CV
           </a>
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, 'contact')}
-            className="w-full sm:w-auto bg-transparent border border-white text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900"
-          >
-            Get In Touch
-          </a>
+          {isHomePage ? (
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, 'contact')}
+              className="w-full sm:w-auto bg-transparent border border-white text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900"
+            >
+              Get In Touch
+            </a>
+          ) : (
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto bg-transparent border border-white text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900"
+            >
+              Get In Touch
+            </Link>
+          )}
         </div>
       </div>
     </section>
