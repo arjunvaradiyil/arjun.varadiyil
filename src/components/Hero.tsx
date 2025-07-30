@@ -1,5 +1,5 @@
 'use client';
-import { ArrowDownToLine, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState, MouseEvent, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
@@ -161,7 +161,7 @@ export default function Hero() {
           </p>
         </div>
       }>
-        <HeroContent navItems={navItems} isHomePage={isHomePage} handleNavClick={handleNavClick} />
+        <HeroContent isHomePage={isHomePage} handleNavClick={handleNavClick} />
       </Suspense>
     </section>
   );

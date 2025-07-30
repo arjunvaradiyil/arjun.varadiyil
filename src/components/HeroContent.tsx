@@ -6,12 +6,11 @@ import { gsap } from 'gsap';
 import SplitType from 'split-type';
 
 interface HeroContentProps {
-  navItems: Array<{ href: string; anchor: string; label: string }>;
   isHomePage: boolean;
   handleNavClick: (e: MouseEvent<HTMLAnchorElement>, targetId: string) => void;
 }
 
-export default function HeroContent({ navItems, isHomePage, handleNavClick }: HeroContentProps) {
+export default function HeroContent({ isHomePage, handleNavClick }: HeroContentProps) {
   const titleRef1 = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const buttonGroupRef = useRef<HTMLDivElement>(null);
