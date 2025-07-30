@@ -6,8 +6,8 @@ export default function StaticBackground() {
   return (
     <div className="fixed inset-0 -z-10">
       <Image
-        src="/hero-bg.jpg"
-        alt="Abstract background"
+        src="/arjun-varadiyil-hero-background.webp"
+        alt="Abstract background of purple and black waves"
         layout="fill"
         objectFit="cover"
         className="blur-sm"
