@@ -72,11 +72,11 @@ const Education = () => {
           <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">My Education</h2>
         </div>
         <div ref={timelineRef} className="mt-16 relative">
-          <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
+          <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
           {educationData.map((edu, index) => (
             <div key={index} className="timeline-item-edu relative mb-12 invisible">
-              <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8 ml-auto'}`}>
-                <div className={`${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+              <div className={`w-full pl-12 lg:w-1/2 lg:pl-0 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8 lg:ml-auto'}`}>
+                <div className={`text-left ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'}`}>
                   <p className="text-sm font-semibold text-gray-400">{edu.years}</p>
                   <h3 className="mt-1 text-2xl font-bold text-white">{edu.institution}</h3>
                   <p className="mt-1 text-md text-amber-400">{edu.degree}</p>
@@ -94,7 +94,7 @@ const Education = () => {
                   </TextHighlight>
                 </div>
               </div>
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
+              <div className="absolute top-4 left-4 lg:left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
                 <School className="w-4 h-4 text-amber-400" />
               </div>
             </div>

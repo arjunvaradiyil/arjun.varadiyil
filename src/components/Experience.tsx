@@ -91,11 +91,11 @@ const Experience = () => {
           <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">Work Experience</h2>
         </div>
         <div ref={timelineRef} className="mt-16 relative">
-          <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
+          <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
           {experienceData.map((exp, index) => (
             <div key={index} className="timeline-item relative mb-12 invisible">
-              <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8 ml-auto'}`}>
-                <div className={`${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+              <div className={`w-full pl-12 lg:w-1/2 lg:pl-0 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8 lg:ml-auto'}`}>
+                <div className={`text-left ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'}`}>
                   <p className="text-sm font-semibold text-gray-400">{exp.years}</p>
                   <h3 className="mt-1 text-2xl font-bold text-white">{exp.role}</h3>
                   <p className="mt-1 text-md text-amber-400">{exp.company}</p>
@@ -114,7 +114,7 @@ const Experience = () => {
                   {exp.technologies && (
                     <div className="mt-6">
                       <h4 className="font-semibold text-amber-400 mb-3">Key Technologies</h4>
-                      <div className={`flex flex-wrap gap-2 ${index % 2 !== 0 ? 'justify-end' : ''}`}>
+                      <div className={`flex flex-wrap gap-2 ${index % 2 !== 0 ? 'lg:justify-end' : ''}`}>
                         {exp.technologies.map((tech) => (
                           <span key={tech} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
                             {tech}
@@ -125,7 +125,7 @@ const Experience = () => {
                   )}
                 </div>
               </div>
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
+              <div className="absolute top-4 left-4 lg:left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
                 <Building className="w-4 h-4 text-amber-400" />
               </div>
             </div>
