@@ -47,7 +47,6 @@ const Footer = () => {
     { name: 'Projects', href: '#projects' },
     { name: 'Certifications', href: '#certifications' },
     { name: 'Volunteering', href: '#volunteering' },
-    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -83,15 +82,9 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map(link => (
                 <li key={link.name}>
-                  {link.href.startsWith('/') ? (
-                    <Link href={link.href} className="text-gray-400 hover:text-amber-400 transition-colors">
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <a href={link.href} onClick={(e) => handleNavClick(e, link.href.substring(1))} className="text-gray-400 hover:text-amber-400 transition-colors">
-                      {link.name}
-                    </a>
-                  )}
+                  <a href={link.href} onClick={(e) => handleNavClick(e, link.href.substring(1))} className="text-gray-400 hover:text-amber-400 transition-colors">
+                    {link.name}
+                  </a>
                 </li>
               ))}
             </ul>
