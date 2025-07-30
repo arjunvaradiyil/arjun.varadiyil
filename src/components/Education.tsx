@@ -14,7 +14,6 @@ const educationData = [
     degree: 'B.Tech in Computer Science Engineering',
     years: '2020 – 2024',
     details: [
-      'CGPA: 7.5',
       'Relevant Coursework: Data Structures, Web Development, AI/ML',
       'Key Project: Developed a "Personal Assistant for Deaf and Mute" using Flutter and MediaPipe, showcasing skills in mobile development and machine learning.'
     ]
@@ -24,7 +23,6 @@ const educationData = [
     degree: 'Class XII – Computer Science',
     years: '2018 – 2020',
     details: [
-      'Percentage: 74%',
       'Focused on core computer science principles and programming fundamentals.'
     ]
   },
