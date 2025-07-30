@@ -107,6 +107,7 @@ export default function Hero() {
           <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Projects</a>
           <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Certifications</a>
           <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Volunteering</a>
+          <Link href="/blog" className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Blog</Link>
           <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white text-3xl font-bold hover:text-amber-400 transition-colors">Contact</a>
         </nav>
       </div>
@@ -130,6 +131,7 @@ export default function Hero() {
                 <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="text-white hover:text-gray-200 transition-colors">Projects</a>
                 <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white hover:text-gray-200 transition-colors">Certifications</a>
                 <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white hover:text-gray-200 transition-colors">Volunteering</a>
+                <Link href="/blog" className="text-white hover:text-gray-200 transition-colors">Blog</Link>
               </nav>
               <a
                 href="#contact"
