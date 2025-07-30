@@ -1,21 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import dynamic from "next/dynamic";
+import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
-
-// Dynamic imports for better performance
-const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
-  ssr: false,
-  loading: () => null,
-});
-
-const Hero = dynamic(() => import("@/components/Hero"), {
-  ssr: true,
-});
-
-const Footer = dynamic(() => import("@/components/Footer"), {
-  ssr: true,
-});
 
 const siteConfig = {
   name: "Arjun Varadiyil - Full Stack Developer",
