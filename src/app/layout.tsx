@@ -84,8 +84,8 @@ export const metadata: Metadata = {
   },
   
   icons: {
-    icon: "/arjun-varadiyil-profile.webp",
-    shortcut: "/arjun-varadiyil-profile.webp",
+    icon: "/DP2.jpg",
+    shortcut: "/DP2.jpg",
     apple: "/apple-touch-icon.png",
   },
 
