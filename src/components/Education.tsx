@@ -26,14 +26,6 @@ const educationData = [
       'Focused on core computer science principles and programming fundamentals.'
     ]
   },
-  {
-    institution: 'GHSS Karuvarkundu',
-    degree: 'High School',
-    years: '2017 – 2018',
-    details: [
-      'Completed secondary school education with a focus on foundational subjects.'
-    ]
-  },
 ];
 
 const Education = () => {
