@@ -114,24 +114,28 @@ const Skills = () => {
         </div>
         
         <div className="mt-16 max-w-5xl mx-auto">
-          {/* MERN Stack Section */}
-          <div className="text-center mb-8">
-            <h3 className="text-xl font-bold text-white">Core Expertise</h3>
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-white mb-4">Core Expertise</h3>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" role="list" aria-label="Core technical skills">
+              {coreSkills.filter(skill => ['JavaScript', 'Python', 'Next.js', 'Payload CMS'].includes(skill.name)).map((skill) => (
+                <li key={skill.name} className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg border-2 border-amber-400/50 hover:border-amber-400 transition-colors">
+                  <skill.icon className="text-amber-400 text-xl" aria-hidden="true" />
+                  <span className="text-white font-medium text-sm">{skill.name}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            {coreSkills.map((skill) => (
-              <SkillBox key={skill.name} skill={skill} />
-            ))}
-          </div>
-
-          {/* Other Technologies Section */}
-          <div className="text-center mt-16 mb-8">
-            <h3 className="text-xl font-bold text-white">Additional Technologies & Tools</h3>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            {otherSkills.map((skill) => (
-              <SkillBox key={skill.name} skill={skill} />
-            ))}
+          
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Additional Technologies</h3>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" role="list" aria-label="Additional technical skills">
+              {coreSkills.filter(skill => !['JavaScript', 'Python', 'Next.js', 'Payload CMS'].includes(skill.name)).map((skill) => (
+                <li key={skill.name} className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-slate-600 transition-colors">
+                  <skill.icon className="text-gray-400 text-xl" aria-hidden="true" />
+                  <span className="text-gray-300 text-sm">{skill.name}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

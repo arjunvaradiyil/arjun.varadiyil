@@ -43,46 +43,67 @@ export default function Contact() {
           </p>
         </div>
         <div className="mt-16">
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <form className="space-y-6" role="form" aria-labelledby="contact-heading">
+            <fieldset className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <legend className="sr-only">Contact Information</legend>
               <div>
-                <label htmlFor="name" className="sr-only">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
+                  Name <span className="text-red-400" aria-label="required">*</span>
+                </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  required
+                  aria-required="true"
                   className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300"
                   placeholder="Your name"
+                  aria-describedby="name-error"
                 />
+                <div id="name-error" className="sr-only" role="alert"></div>
               </div>
               <div>
-                <label htmlFor="email" className="sr-only">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                  Email <span className="text-red-400" aria-label="required">*</span>
+                </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
+                  required
+                  aria-required="true"
                   className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300"
                   placeholder="Your email"
+                  aria-describedby="email-error"
                 />
+                <div id="email-error" className="sr-only" role="alert"></div>
               </div>
-            </div>
+            </fieldset>
             <div>
-              <label htmlFor="message" className="sr-only">Message</label>
+              <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
+                Message <span className="text-red-400" aria-label="required">*</span>
+              </label>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
+                required
+                aria-required="true"
                 className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300"
                 placeholder="Tell me about your project or just say hello!"
+                aria-describedby="message-error"
               ></textarea>
+              <div id="message-error" className="sr-only" role="alert"></div>
             </div>
             <div className="text-center">
               <button
                 type="submit"
-                className="inline-block bg-amber-400 text-gray-900 py-3 px-8 rounded-full hover:bg-amber-500 transition-colors font-semibold shadow-lg hover:shadow-xl"
+                className="inline-block bg-amber-400 text-gray-900 py-3 px-8 rounded-full hover:bg-amber-500 transition-colors font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                aria-describedby="submit-status"
               >
                 Send Message
               </button>
+              <div id="submit-status" className="sr-only" role="status" aria-live="polite"></div>
             </div>
           </form>
         </div>

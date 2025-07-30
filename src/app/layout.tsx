@@ -198,8 +198,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body className="antialiased">
+        {/* Skip to main content link for screen readers */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-amber-400 text-gray-900 px-4 py-2 rounded-md z-50 font-semibold"
+        >
+          Skip to main content
+        </a>
+        
         <Hero />
-        <main role="main">
+        <main id="main-content" role="main" aria-label="Portfolio content">
           {children}
         </main>
         <Footer />

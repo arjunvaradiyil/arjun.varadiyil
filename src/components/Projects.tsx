@@ -84,9 +84,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-amber-400 transition-colors"
+              className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-amber-400 transition-colors focus:outline-none focus:text-amber-400"
+              aria-label={`View live demo of ${project.title} (opens in new tab)`}
             >
-              <ExternalLink size={16} />
+              <ExternalLink size={16} aria-hidden="true" />
               View Live
             </a>
           )}
@@ -97,9 +98,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-amber-400 transition-colors"
+              className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-amber-400 transition-colors focus:outline-none focus:text-amber-400"
+              aria-label={`View source code for ${project.title} on GitHub (opens in new tab)`}
             >
-              <Github size={16} />
+              <Github size={16} aria-hidden="true" />
               Source Code
             </a>
           )}
