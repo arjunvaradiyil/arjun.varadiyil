@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Mail, Linkedin, Github, ArrowUp } from 'lucide-react';
+import { Mail, Linkedin, Github, Instagram, ArrowUp } from 'lucide-react';
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -70,6 +70,9 @@ const Footer = () => {
               <a href="https://github.com/arjunvaradiyil" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-400 hover:text-amber-400 transition-colors">
                 <Github className="w-6 h-6" />
               </a>
+              <a href="https://www.instagram.com/arjunvardiyil/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-gray-400 hover:text-amber-400 transition-colors">
+                <Instagram className="w-6 h-6" />
+              </a>
             </div>
           </div>
 
@@ -96,6 +99,9 @@ const Footer = () => {
               </li>
               <li>
                 <a href="https://github.com/arjunvaradiyil" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">GitHub</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/arjunvardiyil/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">Instagram</a>
               </li>
               <li>
                 <a href="mailto:arjunvaradiyil203@gmail.com" className="text-gray-400 hover:text-amber-400 transition-colors">Email Me</a>
