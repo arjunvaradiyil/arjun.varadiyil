@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import Hero from "@/components/Hero";
-import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
 import { Analytics } from "@vercel/analytics/react";
+
+// Dynamic imports for better performance
+const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
+  ssr: false,
+  loading: () => null,
+});
+
+const Hero = dynamic(() => import("@/components/Hero"), {
+  ssr: true,
+});
+
+const Footer = dynamic(() => import("@/components/Footer"), {
+  ssr: true,
+});
 
 const siteConfig = {
   name: "Arjun Varadiyil - Full Stack Developer",
@@ -125,7 +137,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@arjunvardiyil",
+    creator: "@arjunv",
   },
 
   robots: {
@@ -146,11 +158,23 @@ export const metadata: Metadata = {
   },
 
   manifest: `${siteConfig.url}/site.webmanifest`,
+  
+  // Performance optimizations
+  other: {
+    'theme-color': '#000000',
+    'color-scheme': 'dark',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://vercel.live" />
+      </head>
       <body className="antialiased">
         <Hero />
         {children}

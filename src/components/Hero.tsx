@@ -1,19 +1,16 @@
 'use client';
 import { ArrowDownToLine, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import React, { useEffect, useRef, useState, MouseEvent } from 'react';
-import { gsap } from 'gsap';
-import SplitType from 'split-type';
+import React, { useEffect, useRef, useState, MouseEvent, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 
+// Lazy load heavy dependencies
+const HeroContent = React.lazy(() => import('./HeroContent'));
+
 export default function Hero() {
-  const titleRef1 = useRef(null);
-  const subtitleRef = useRef(null);
-  const buttonGroupRef = useRef(null);
-  const headerRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   // Check if we're on the homepage
@@ -40,57 +37,6 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    const title = new SplitType(titleRef1.current!, { types: 'words' });
-    const subtitle = new SplitType(subtitleRef.current!, { types: 'words' });
-
-    gsap.set(title.words, { y: 50, opacity: 0 });
-    gsap.set(subtitle.words, { y: 30, opacity: 0 });
-
-    const tl = gsap.timeline();
-
-    tl.from(headerRef.current, {
-        opacity: 0,
-        y: -20,
-        duration: 0.8,
-        ease: 'power3.out'
-      })
-      .to(title.words, {
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, "-=0.6")
-      .to(subtitle.words, {
-        y: 0,
-        opacity: 1,
-        stagger: 0.08,
-        duration: 0.5,
-        ease: 'power3.out',
-      }, "-=0.6")
-      .from(buttonGroupRef.current, {
-        opacity: 0,
-        y: 20,
-        duration: 0.5,
-        ease: 'power3.out'
-      }, "-=0.4");
-    
-    return () => {
-      tl.kill();
-      title.revert();
-      subtitle.revert();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      gsap.to(menuRef.current, { x: '0%', duration: 0.5, ease: 'power3.out' });
-    } else {
-      gsap.to(menuRef.current, { x: '-100%', duration: 0.5, ease: 'power3.in' });
-    }
-  }, [isMenuOpen]);
-
-  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
@@ -101,6 +47,18 @@ export default function Hero() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      if (menuRef.current) {
+        menuRef.current.style.transform = 'translateX(0%)';
+      }
+    } else {
+      if (menuRef.current) {
+        menuRef.current.style.transform = 'translateX(-100%)';
+      }
+    }
+  }, [isMenuOpen]);
 
   // Navigation items configuration
   const navItems = [
@@ -119,7 +77,7 @@ export default function Hero() {
       {/* Mobile Menu */}
       <div 
         ref={menuRef}
-        className="fixed top-0 left-0 w-full h-full bg-zinc-900/70 z-50 flex flex-col items-center justify-center"
+        className="fixed top-0 left-0 w-full h-full bg-zinc-900/70 z-50 flex flex-col items-center justify-center transition-transform duration-500 ease-in-out"
         style={{ transform: 'translateX(-100%)' }}
       >
         <button onClick={() => setIsMenuOpen(false)} className="absolute top-6 right-4 sm:right-6 text-white">
@@ -152,7 +110,6 @@ export default function Hero() {
 
       {/* Header */}
       <header 
-        ref={headerRef} 
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'py-4 bg-zinc-900/70 backdrop-blur-sm shadow-md' : 'py-6'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -194,41 +151,18 @@ export default function Hero() {
       </header>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl">
-        <h1 ref={titleRef1} className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 uppercase">
-          Arjun Varadiyil
-        </h1>
-        <p ref={subtitleRef} className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-12 uppercase tracking-wider">
-          Software Engineer & Full Stack Developer
-        </p>
-        <div ref={buttonGroupRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-white text-gray-900 font-semibold py-3 px-8 rounded-full flex items-center justify-center gap-2 transition-transform duration-300 hover:scale-105 hover:bg-gray-200"
-          >
-            <ArrowDownToLine size={20} />
-            Download CV
-          </a>
-          {isHomePage ? (
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, 'contact')}
-              className="w-full sm:w-auto bg-transparent border border-white text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900"
-            >
-              Get In Touch
-            </a>
-          ) : (
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto bg-transparent border border-white text-white font-semibold py-3 px-8 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white hover:text-gray-900"
-            >
-              Get In Touch
-            </Link>
-          )}
+      <Suspense fallback={
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 uppercase">
+            Arjun Varadiyil
+          </h1>
+          <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-12 uppercase tracking-wider">
+            Software Engineer & Full Stack Developer
+          </p>
         </div>
-      </div>
+      }>
+        <HeroContent navItems={navItems} isHomePage={isHomePage} handleNavClick={handleNavClick} />
+      </Suspense>
     </section>
   );
 } 
