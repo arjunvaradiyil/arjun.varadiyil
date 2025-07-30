@@ -132,14 +132,8 @@ export default function Hero() {
                 <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white hover:text-gray-200 transition-colors">Certifications</a>
                 <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white hover:text-gray-200 transition-colors">Volunteering</a>
                 <Link href="/blog" className="text-white hover:text-gray-200 transition-colors">Blog</Link>
+                <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white hover:text-gray-200 transition-colors">Contact</a>
               </nav>
-              <a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, 'contact')}
-                className="ml-8 bg-amber-400 text-gray-900 font-semibold py-2 px-5 rounded-full transition-all duration-300 hover:bg-amber-500 hover:scale-105"
-              >
-                Contact Me
-              </a>
             </div>
             <div className="md:hidden">
               <button onClick={() => setIsMenuOpen(true)} className="text-white">
