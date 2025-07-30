@@ -64,10 +64,10 @@ const Footer = () => {
               <a href="mailto:arjunvaradiyil203@gmail.com" aria-label="Email" className="text-gray-400 hover:text-amber-400 transition-colors">
                 <Mail className="w-6 h-6" />
               </a>
-              <a href="https://linkedin.com/in/arjunvaradiyil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-amber-400 transition-colors">
+              <a href="https://www.linkedin.com/in/arjun-varadiyil/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-amber-400 transition-colors">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href="https://github.com/arjunvardiyil" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-400 hover:text-amber-400 transition-colors">
+              <a href="https://github.com/arjunvaradiyil" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-gray-400 hover:text-amber-400 transition-colors">
                 <Github className="w-6 h-6" />
               </a>
             </div>
@@ -92,10 +92,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-4">Connect</h3>
             <ul className="space-y-2">
               <li>
-                <a href="https://linkedin.com/in/arjunvaradiyil" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/arjun-varadiyil/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">LinkedIn</a>
               </li>
               <li>
-                <a href="https://github.com/arjunvardiyil" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">GitHub</a>
+                <a href="https://github.com/arjunvaradiyil" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-amber-400 transition-colors">GitHub</a>
               </li>
               <li>
                 <a href="mailto:arjunvaradiyil203@gmail.com" className="text-gray-400 hover:text-amber-400 transition-colors">Email Me</a>
