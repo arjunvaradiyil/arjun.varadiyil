@@ -102,6 +102,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: siteConfig.author, url: siteConfig.url }],
   creator: siteConfig.author,
+  publisher: siteConfig.author,
+  category: "Technology",
+  classification: "Portfolio",
+  referrer: "origin-when-cross-origin",
 
   openGraph: {
     type: "website",
@@ -109,12 +113,14 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
+    siteName: siteConfig.name,
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
+        type: "image/webp",
       },
     ],
   },
@@ -125,6 +131,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
     creator: "@arjunv",
+    site: "@arjunv",
   },
 
   robots: {
@@ -142,6 +149,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 
   manifest: `${siteConfig.url}/site.webmanifest`,
@@ -150,21 +158,43 @@ export const metadata: Metadata = {
   other: {
     'theme-color': '#000000',
     'color-scheme': 'dark',
+    'viewport': 'width=device-width, initial-scale=1',
+    'format-detection': 'telephone=no',
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+    'apple-mobile-web-app-title': siteConfig.name,
+  },
+
+  // Additional SEO
+  alternates: {
+    canonical: siteConfig.url,
+  },
+
+  verification: {
+    google: 'your-google-verification-code',
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://vercel.live" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="application-name" content="Arjun Varadiyil Portfolio" />
+        <meta name="apple-mobile-web-app-title" content="Arjun Varadiyil" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body className="antialiased">
         <Hero />
-        {children}
+        <main role="main">
+          {children}
+        </main>
         <Footer />
         <Analytics />
         <script

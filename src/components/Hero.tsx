@@ -36,6 +36,17 @@ export default function Hero() {
     }, 100);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent, targetId: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const syntheticEvent = {
+        preventDefault: () => {},
+        target: e.target
+      } as MouseEvent<HTMLAnchorElement>;
+      handleNavClick(syntheticEvent, targetId);
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -73,24 +84,36 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
+    <section className="relative min-h-screen flex items-center justify-center" role="banner" aria-label="Hero section">
       {/* Mobile Menu */}
       <div 
         ref={menuRef}
         className="fixed top-0 left-0 w-full h-full bg-zinc-900/70 z-50 flex flex-col items-center justify-center transition-transform duration-500 ease-in-out"
         style={{ transform: 'translateX(-100%)' }}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation menu"
+        aria-hidden={!isMenuOpen}
       >
-        <button onClick={() => setIsMenuOpen(false)} className="absolute top-6 right-4 sm:right-6 text-white">
+        <button 
+          onClick={() => setIsMenuOpen(false)} 
+          className="absolute top-6 right-4 sm:right-6 text-white"
+          aria-label="Close mobile menu"
+        >
           <X size={28} />
         </button>
-        <nav className="flex flex-col items-center gap-8">
+        <nav className="flex flex-col items-center gap-8" role="navigation" aria-label="Mobile navigation">
           {navItems.map((item) => (
             isHomePage ? (
               <a 
                 key={item.label}
                 href={item.anchor} 
                 onClick={(e) => handleNavClick(e, item.anchor.slice(1))} 
-                className="text-white text-3xl font-bold hover:text-amber-400 transition-colors"
+                onKeyDown={(e) => handleKeyDown(e, item.anchor.slice(1))}
+                className="text-white text-3xl font-bold hover:text-amber-400 transition-colors focus:outline-none focus:text-amber-400"
+                tabIndex={0}
+                role="menuitem"
+                aria-label={`Navigate to ${item.label} section`}
               >
                 {item.label}
               </a>
@@ -99,7 +122,9 @@ export default function Hero() {
                 key={item.label}
                 href={item.href} 
                 onClick={() => setIsMenuOpen(false)} 
-                className="text-white text-3xl font-bold hover:text-amber-400 transition-colors"
+                className="text-white text-3xl font-bold hover:text-amber-400 transition-colors focus:outline-none focus:text-amber-400"
+                role="menuitem"
+                aria-label={`Navigate to ${item.label} page`}
               >
                 {item.label}
               </Link>
@@ -111,21 +136,27 @@ export default function Hero() {
       {/* Header */}
       <header 
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'py-4 bg-zinc-900/70 backdrop-blur-sm shadow-md' : 'py-6'}`}
+        role="banner"
+        aria-label="Site header"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold text-white hover:text-gray-200 transition-colors">
+            <Link href="/" className="text-2xl font-bold text-white hover:text-gray-200 transition-colors focus:outline-none focus:text-gray-200" aria-label="Go to homepage">
               Arjun Varadiyil
             </Link>
             <div className="hidden md:flex items-center">
-              <nav className="flex items-center space-x-8">
+              <nav className="flex items-center space-x-8" role="navigation" aria-label="Main navigation">
                 {navItems.map((item) => (
                   isHomePage ? (
                     <a 
                       key={item.label}
                       href={item.anchor} 
                       onClick={(e) => handleNavClick(e, item.anchor.slice(1))} 
-                      className="text-white hover:text-gray-200 transition-colors"
+                      onKeyDown={(e) => handleKeyDown(e, item.anchor.slice(1))}
+                      className="text-white hover:text-gray-200 transition-colors focus:outline-none focus:text-gray-200"
+                      tabIndex={0}
+                      role="menuitem"
+                      aria-label={`Navigate to ${item.label} section`}
                     >
                       {item.label}
                     </a>
@@ -133,7 +164,9 @@ export default function Hero() {
                     <Link 
                       key={item.label}
                       href={item.href} 
-                      className="text-white hover:text-gray-200 transition-colors"
+                      className="text-white hover:text-gray-200 transition-colors focus:outline-none focus:text-gray-200"
+                      role="menuitem"
+                      aria-label={`Navigate to ${item.label} page`}
                     >
                       {item.label}
                     </Link>
@@ -142,7 +175,12 @@ export default function Hero() {
               </nav>
             </div>
             <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(true)} className="text-white">
+              <button 
+                onClick={() => setIsMenuOpen(true)} 
+                className="text-white focus:outline-none focus:text-gray-200"
+                aria-label="Open mobile menu"
+                aria-expanded={isMenuOpen}
+              >
                 <Menu size={28} />
               </button>
             </div>
@@ -152,7 +190,7 @@ export default function Hero() {
 
       {/* Main Content */}
       <Suspense fallback={
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl">
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl" role="main" aria-label="Hero content">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 uppercase">
             Arjun Varadiyil
           </h1>
