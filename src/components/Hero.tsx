@@ -121,16 +121,24 @@ export default function Hero() {
             <Link href="/" className="text-2xl font-bold text-white hover:text-gray-200 transition-colors">
               Arjun Varadiyil
             </Link>
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="text-white hover:text-gray-200 transition-colors">About</a>
-              <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="text-white hover:text-gray-200 transition-colors">Experience</a>
-              <a href="#education" onClick={(e) => handleNavClick(e, 'education')} className="text-white hover:text-gray-200 transition-colors">Education</a>
-              <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="text-white hover:text-gray-200 transition-colors">Skills</a>
-              <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="text-white hover:text-gray-200 transition-colors">Projects</a>
-              <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white hover:text-gray-200 transition-colors">Certifications</a>
-              <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white hover:text-gray-200 transition-colors">Volunteering</a>
-              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white hover:text-gray-200 transition-colors">Contact</a>
-            </nav>
+            <div className="hidden md:flex items-center">
+              <nav className="flex items-center space-x-8">
+                <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="text-white hover:text-gray-200 transition-colors">About</a>
+                <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="text-white hover:text-gray-200 transition-colors">Experience</a>
+                <a href="#education" onClick={(e) => handleNavClick(e, 'education')} className="text-white hover:text-gray-200 transition-colors">Education</a>
+                <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="text-white hover:text-gray-200 transition-colors">Skills</a>
+                <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="text-white hover:text-gray-200 transition-colors">Projects</a>
+                <a href="#certifications" onClick={(e) => handleNavClick(e, 'certifications')} className="text-white hover:text-gray-200 transition-colors">Certifications</a>
+                <a href="#volunteering" onClick={(e) => handleNavClick(e, 'volunteering')} className="text-white hover:text-gray-200 transition-colors">Volunteering</a>
+              </nav>
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, 'contact')}
+                className="ml-8 bg-amber-400 text-gray-900 font-semibold py-2 px-5 rounded-full transition-all duration-300 hover:bg-amber-500 hover:scale-105"
+              >
+                Contact Me
+              </a>
+            </div>
             <div className="md:hidden">
               <button onClick={() => setIsMenuOpen(true)} className="text-white">
                 <Menu size={28} />
