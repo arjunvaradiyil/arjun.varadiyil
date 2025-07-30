@@ -3,6 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const siteConfig = {
   name: "Arjun Varadiyil - Full Stack Developer",
@@ -10,6 +11,18 @@ const siteConfig = {
   url: "https://arjunvaradiyil.in",
   ogImage: "https://arjunvaradiyil.in/arjun-varadiyil-og-image.webp",
   author: "Arjun Varadiyil",
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: siteConfig.name,
+  url: siteConfig.url,
+  sameAs: [
+    'https://github.com/arjunvaradiyil',
+    'https://www.linkedin.com/in/arjun-varadiyil/',
+    'https://www.instagram.com/arjunvardiyil/',
+  ],
 };
 
 export const metadata: Metadata = {
@@ -86,6 +99,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Hero />
         {children}
         <Footer />
+        <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );
