@@ -52,7 +52,7 @@ const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800/50">
                 <Image
-                  src="/profile-photo.jpg"
+                  src="/arjun-varadiyil-profile.webp"
                   alt="Arjun Varadiyil"
                   fill
                   className="object-cover"

@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 
 const siteConfig = {
   name: "Arjun Varadiyil - Full Stack Developer",
+  description: "Portfolio of Arjun Varadiyil, a full-stack developer based in Kerala, India. Specializing in building exceptional digital experiences.",
   url: "https://arjunvaradiyil.in",
-  ogImage: "https://arjunvaradiyil.in/og-image.jpg",
-  description: "The portfolio of Arjun Varadiyil, a passionate Full Stack Developer specializing in the MERN stack and building scalable web applications.",
+  ogImage: "https://arjunvaradiyil.in/arjun-varadiyil-og-image.webp",
   author: "Arjun Varadiyil",
 };
 
