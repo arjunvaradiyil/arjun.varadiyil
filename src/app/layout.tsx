@@ -15,13 +15,102 @@ const siteConfig = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: siteConfig.name,
+  name: 'Arjun Varadiyil',
+  alternateName: 'Arjun Vardiyil',
+  jobTitle: 'Full Stack Developer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Freelance'
+  },
   url: siteConfig.url,
   sameAs: [
     'https://github.com/arjunvaradiyil',
     'https://www.linkedin.com/in/arjun-varadiyil/',
     'https://www.instagram.com/arjunvardiyil/',
+    'https://twitter.com/arjunv',
+    'https://www.facebook.com/arjun.varadiyil',
+    'https://www.youtube.com/@arjunvaradiyil',
+    'https://medium.com/@arjunvaradiyil',
+    'https://dev.to/arjunvaradiyil',
+    'https://stackoverflow.com/users/arjunvaradiyil',
+    'https://www.behance.net/arjunvaradiyil',
+    'https://dribbble.com/arjunvaradiyil',
+    'https://www.figma.com/@arjunvaradiyil'
   ],
+  knowsAbout: [
+    'Full Stack Development',
+    'MERN Stack',
+    'React.js',
+    'Node.js',
+    'Next.js',
+    'TypeScript',
+    'JavaScript',
+    'Python',
+    'MongoDB',
+    'Express.js',
+    'Payload CMS',
+    'Web Development',
+    'API Development',
+    'Database Design',
+    'Frontend Development',
+    'Backend Development',
+    'Responsive Design',
+    'SEO Optimization',
+    'Performance Optimization'
+  ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Full Stack Developer',
+    occupationLocation: {
+      '@type': 'Place',
+      name: 'Kerala, India'
+    }
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Kerala',
+    addressCountry: 'India'
+  },
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Your University Name'
+  },
+  description: 'Full Stack Developer specializing in MERN stack, React.js, Node.js, and Next.js. Based in Kerala, India. Creating exceptional digital experiences with modern web technologies.',
+  image: `${siteConfig.url}/arjun-varadiyil-profile.webp`,
+  email: 'arjunvaradiyil@gmail.com',
+  telephone: '+91-XXXXXXXXXX'
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Arjun Varadiyil - Portfolio',
+  url: siteConfig.url,
+  description: 'Portfolio website of Arjun Varadiyil, a Full Stack Developer based in Kerala, India. Specializing in MERN stack, React.js, Node.js, and Next.js development.',
+  author: {
+    '@type': 'Person',
+    name: 'Arjun Varadiyil',
+    url: siteConfig.url,
+    sameAs: [
+      'https://github.com/arjunvaradiyil',
+      'https://www.linkedin.com/in/arjun-varadiyil/',
+      'https://www.instagram.com/arjunvardiyil/'
+    ]
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Arjun Varadiyil'
+  },
+  inLanguage: 'en',
+  isAccessibleForFree: true,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteConfig.url}/search?q={search_term_string}`
+    },
+    'query-input': 'required name=search_term_string'
+  }
 };
 
 export const metadata: Metadata = {
@@ -119,8 +208,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
-        type: "image/webp",
+        alt: "Arjun Varadiyil - Full Stack Developer Portfolio",
       },
     ],
   },
@@ -171,6 +259,28 @@ export const metadata: Metadata = {
     'distribution': 'global',
     'rating': 'general',
     'robots': 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    // Social Media Specific
+    'twitter:creator': '@arjunv',
+    'twitter:site': '@arjunv',
+    'og:site_name': siteConfig.name,
+    'og:locale': 'en_US',
+    'og:type': 'website',
+    'og:title': siteConfig.name,
+    'og:description': siteConfig.description,
+    'og:url': siteConfig.url,
+    'og:image': siteConfig.ogImage,
+    'og:image:width': '1200',
+    'og:image:height': '630',
+    'og:image:alt': 'Arjun Varadiyil - Full Stack Developer Portfolio',
+    // LinkedIn specific
+    'linkedin:owner': 'arjun-varadiyil',
+    'linkedin:profile': 'arjun-varadiyil',
+    // Facebook specific
+    'fb:app_id': 'your-facebook-app-id',
+    'fb:admins': 'your-facebook-admin-id',
+    // Additional social
+    'instagram:owner': 'arjunvardiyil',
+    'github:owner': 'arjunvaradiyil',
   },
 
   // Additional SEO
@@ -215,6 +325,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </body>
     </html>

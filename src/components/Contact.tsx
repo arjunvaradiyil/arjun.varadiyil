@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook, FaYoutube, FaMedium, FaDev, FaStackOverflow, FaBehance, FaDribbble, FaFigma } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,6 +31,21 @@ export default function Contact() {
       }
     );
   }, []);
+
+  const socialLinks = [
+    { name: 'GitHub', url: 'https://github.com/arjunvaradiyil', icon: FaGithub, color: 'hover:text-gray-400' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arjun-varadiyil/', icon: FaLinkedin, color: 'hover:text-blue-400' },
+    { name: 'Instagram', url: 'https://www.instagram.com/arjunvardiyil/', icon: FaInstagram, color: 'hover:text-pink-400' },
+    { name: 'Twitter', url: 'https://twitter.com/arjunv', icon: FaTwitter, color: 'hover:text-blue-400' },
+    { name: 'Facebook', url: 'https://www.facebook.com/arjun.varadiyil', icon: FaFacebook, color: 'hover:text-blue-600' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@arjunvaradiyil', icon: FaYoutube, color: 'hover:text-red-400' },
+    { name: 'Medium', url: 'https://medium.com/@arjunvaradiyil', icon: FaMedium, color: 'hover:text-green-400' },
+    { name: 'Dev.to', url: 'https://dev.to/arjunvaradiyil', icon: FaDev, color: 'hover:text-black' },
+    { name: 'Stack Overflow', url: 'https://stackoverflow.com/users/arjunvaradiyil', icon: FaStackOverflow, color: 'hover:text-orange-400' },
+    { name: 'Behance', url: 'https://www.behance.net/arjunvaradiyil', icon: FaBehance, color: 'hover:text-blue-600' },
+    { name: 'Dribbble', url: 'https://dribbble.com/arjunvaradiyil', icon: FaDribbble, color: 'hover:text-pink-400' },
+    { name: 'Figma', url: 'https://www.figma.com/@arjunvaradiyil', icon: FaFigma, color: 'hover:text-purple-400' },
+  ];
 
   return (
     <section id="contact" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24 invisible">
@@ -106,6 +122,34 @@ export default function Contact() {
               <div id="submit-status" className="sr-only" role="status" aria-live="polite"></div>
             </div>
           </form>
+        </div>
+
+        {/* Social Media Links Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-white mb-8">Connect With Me</h3>
+          <div className="flex flex-wrap justify-center gap-6">
+            {socialLinks.map((social) => {
+              const IconComponent = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex flex-col items-center p-4 rounded-lg bg-slate-800/30 border border-slate-700/30 hover:bg-slate-700/50 hover:border-slate-600/50 transition-all duration-300 group ${social.color}`}
+                  aria-label={`Visit ${social.name} profile`}
+                >
+                  <IconComponent className="w-8 h-8 mb-2 text-gray-300 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
+                    {social.name}
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+          <p className="mt-8 text-gray-400 text-sm">
+            Follow me on social media for the latest updates, tech insights, and project showcases.
+          </p>
         </div>
       </div>
     </section>
