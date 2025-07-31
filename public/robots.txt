@@ -1,6 +1,40 @@
-# Allow all user-agents to crawl the site
+# Robots.txt for Arjun Varadiyil Portfolio
+# Allow all search engines to crawl the site
+
 User-agent: *
 Allow: /
- 
+
+# Specific directives for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Specific directives for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow access to important files
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.ico
+
 # Point to the sitemap
-Sitemap: https://arjunvaradiyil.in/sitemap.xml 
+Sitemap: https://arjunvaradiyil.in/sitemap.xml
+
+# Additional meta information
+# Last updated: 2024-12-31
+# Contact: arjunvaradiyil@gmail.com 
