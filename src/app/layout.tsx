@@ -25,17 +25,11 @@ const jsonLd = {
   url: siteConfig.url,
   sameAs: [
     'https://github.com/arjunvaradiyil',
-    'https://www.linkedin.com/in/arjun-varadiyil/',
+    'https://www.linkedin.com/in/arjunvaradiyil/',
     'https://www.instagram.com/arjunvardiyil/',
-    'https://twitter.com/arjunv',
+    'https://twitter.com/arjunvaradiyill',
     'https://www.facebook.com/arjun.varadiyil',
-    'https://www.youtube.com/@arjunvaradiyil',
-    'https://medium.com/@arjunvaradiyil',
-    'https://dev.to/arjunvaradiyil',
-    'https://stackoverflow.com/users/arjunvaradiyil',
-    'https://www.behance.net/arjunvaradiyil',
-    'https://dribbble.com/arjunvaradiyil',
-    'https://www.figma.com/@arjunvaradiyil'
+    'https://medium.com/@arjunvaradiyil203',
   ],
   knowsAbout: [
     'Full Stack Development',
@@ -93,8 +87,11 @@ const websiteJsonLd = {
     url: siteConfig.url,
     sameAs: [
       'https://github.com/arjunvaradiyil',
-      'https://www.linkedin.com/in/arjun-varadiyil/',
-      'https://www.instagram.com/arjunvardiyil/'
+      'https://www.linkedin.com/in/arjunvaradiyil/',
+      'https://www.instagram.com/arjunvardiyil/',
+      'https://twitter.com/arjunvaradiyill',
+      'https://www.facebook.com/arjun.varadiyil',
+      'https://medium.com/@arjunvaradiyil203',
     ]
   },
   publisher: {

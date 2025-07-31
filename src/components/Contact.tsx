@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook, FaYoutube, FaMedium, FaDev, FaStackOverflow, FaBehance, FaDribbble, FaFigma } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook, FaMedium } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,17 +34,11 @@ export default function Contact() {
 
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/arjunvaradiyil', icon: FaGithub, color: 'hover:text-gray-400' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arjun-varadiyil/', icon: FaLinkedin, color: 'hover:text-blue-400' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arjunvaradiyil/', icon: FaLinkedin, color: 'hover:text-blue-400' },
     { name: 'Instagram', url: 'https://www.instagram.com/arjunvardiyil/', icon: FaInstagram, color: 'hover:text-pink-400' },
-    { name: 'Twitter', url: 'https://twitter.com/arjunv', icon: FaTwitter, color: 'hover:text-blue-400' },
+    { name: 'Twitter', url: 'https://twitter.com/arjunvaradiyill', icon: FaTwitter, color: 'hover:text-blue-400' },
     { name: 'Facebook', url: 'https://www.facebook.com/arjun.varadiyil', icon: FaFacebook, color: 'hover:text-blue-600' },
-    { name: 'YouTube', url: 'https://www.youtube.com/@arjunvaradiyil', icon: FaYoutube, color: 'hover:text-red-400' },
-    { name: 'Medium', url: 'https://medium.com/@arjunvaradiyil', icon: FaMedium, color: 'hover:text-green-400' },
-    { name: 'Dev.to', url: 'https://dev.to/arjunvaradiyil', icon: FaDev, color: 'hover:text-black' },
-    { name: 'Stack Overflow', url: 'https://stackoverflow.com/users/arjunvaradiyil', icon: FaStackOverflow, color: 'hover:text-orange-400' },
-    { name: 'Behance', url: 'https://www.behance.net/arjunvaradiyil', icon: FaBehance, color: 'hover:text-blue-600' },
-    { name: 'Dribbble', url: 'https://dribbble.com/arjunvaradiyil', icon: FaDribbble, color: 'hover:text-pink-400' },
-    { name: 'Figma', url: 'https://www.figma.com/@arjunvaradiyil', icon: FaFigma, color: 'hover:text-purple-400' },
+    { name: 'Medium', url: 'https://medium.com/@arjunvaradiyil203', icon: FaMedium, color: 'hover:text-green-400' },
   ];
 
   return (
