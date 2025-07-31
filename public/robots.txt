@@ -14,6 +14,26 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# Allow hash links for homepage sections
+Allow: /#about
+Allow: /#experience
+Allow: /#education
+Allow: /#skills
+Allow: /#projects
+Allow: /#certifications
+Allow: /#volunteering
+Allow: /#contact
+
+# Allow individual page routes
+Allow: /about
+Allow: /experience
+Allow: /education
+Allow: /skills
+Allow: /projects
+Allow: /certifications
+Allow: /volunteering
+Allow: /contact
+
 # Block access to admin areas (if any)
 Disallow: /admin/
 Disallow: /private/
@@ -37,4 +57,5 @@ Sitemap: https://arjunvaradiyil.in/sitemap.xml
 
 # Additional meta information
 # Last updated: 2024-12-31
-# Contact: arjunvaradiyil@gmail.com 
+# Contact: arjunvaradiyil@gmail.com
+# Navigation: Hash links (#) for homepage sections, individual pages for standalone content 
