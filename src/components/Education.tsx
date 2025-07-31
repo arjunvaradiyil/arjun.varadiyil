@@ -36,7 +36,9 @@ const Education = () => {
     const sectionEl = sectionRef.current;
     const items = gsap.utils.toArray('.timeline-item-edu');
 
-    gsap.set(items, { autoAlpha: 0, y: 50 });
+    if (!sectionEl) return;
+
+    gsap.set(items, { autoAlpha: 1, y: 0 });
 
     ScrollTrigger.create({
       trigger: sectionEl,
@@ -74,12 +76,12 @@ const Education = () => {
         <div ref={timelineRef} className="mt-16 relative">
           <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
           {educationData.map((edu, index) => (
-            <div key={index} className="timeline-item-edu relative mb-12 invisible">
+            <div key={index} className="timeline-item-edu relative mb-12">
               <div className={`w-full pl-12 lg:w-1/2 lg:pl-0 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8 lg:ml-auto'}`}>
                 <div className={`text-left ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'}`}>
                   <p className="text-sm font-semibold text-gray-400">{edu.years}</p>
                   <h3 className="mt-1 text-2xl font-bold text-white">{edu.institution}</h3>
-                  <p className="mt-1 text-md text-amber-400">{edu.degree}</p>
+                  <p className="mt-1 text-lg text-amber-400">{edu.degree}</p>
                 </div>
                 <div className="bg-slate-800/50 p-6 rounded-lg shadow-lg mt-4 text-left">
                   <TextHighlight>
@@ -94,8 +96,8 @@ const Education = () => {
                   </TextHighlight>
                 </div>
               </div>
-              <div className="absolute top-4 left-4 lg:left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
-                <School className="w-4 h-4 text-amber-400" />
+              <div className="absolute top-4 left-4 lg:left-1/2 -translate-x-1/2 w-8 h-8 bg-amber-400 rounded-full border-4 border-slate-800 flex items-center justify-center">
+                <School className="w-4 h-4 text-slate-800" />
               </div>
             </div>
           ))}

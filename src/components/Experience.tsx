@@ -55,7 +55,9 @@ const Experience = () => {
     const sectionEl = sectionRef.current;
     const items = gsap.utils.toArray('.timeline-item');
 
-    gsap.set(items, { autoAlpha: 0, y: 50 });
+    if (!sectionEl) return;
+
+    gsap.set(items, { autoAlpha: 1, y: 0 });
 
     ScrollTrigger.create({
       trigger: sectionEl,
@@ -93,40 +95,37 @@ const Experience = () => {
         <div ref={timelineRef} className="mt-16 relative">
           <div className="absolute left-4 lg:left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-700/50"></div>
           {experienceData.map((exp, index) => (
-            <div key={index} className="timeline-item relative mb-12 invisible">
+            <div key={index} className="timeline-item relative mb-12">
               <div className={`w-full pl-12 lg:w-1/2 lg:pl-0 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8 lg:ml-auto'}`}>
                 <div className={`text-left ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'}`}>
                   <p className="text-sm font-semibold text-gray-400">{exp.years}</p>
                   <h3 className="mt-1 text-2xl font-bold text-white">{exp.role}</h3>
-                  <p className="mt-1 text-md text-amber-400">{exp.company}</p>
-                </div>
-                <div className="bg-slate-800/50 p-6 rounded-lg shadow-lg mt-4 text-left">
-                  <TextHighlight>
-                    <ul className="space-y-3 text-gray-300">
-                      {exp.description.map((desc, i) => (
-                        <li key={i} className="flex items-start">
-                          <Code className="w-4 h-4 mr-3 mt-1.5 text-amber-400 flex-shrink-0" />
-                          <span>{desc}</span>
-                        </li>
+                  <p className="mt-1 text-lg text-amber-400">{exp.company}</p>
+                  <div className="mt-4 space-y-3">
+                    {exp.description.map((desc, descIndex) => (
+                      <TextHighlight key={descIndex}>
+                        <p className="text-gray-300 leading-relaxed">{desc}</p>
+                      </TextHighlight>
+                    ))}
+                  </div>
+                  <div className="mt-6">
+                    <h4 className="text-sm font-semibold text-gray-400 mb-3">Key Technologies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-800/50 text-amber-300 border border-slate-700/50"
+                        >
+                          <Code className="w-3 h-3 mr-1" />
+                          {tech}
+                        </span>
                       ))}
-                    </ul>
-                  </TextHighlight>
-                  {exp.technologies && (
-                    <div className="mt-6">
-                      <h4 className="font-semibold text-amber-400 mb-3">Key Technologies</h4>
-                      <div className={`flex flex-wrap gap-2 ${index % 2 !== 0 ? 'lg:justify-end' : ''}`}>
-                        {exp.technologies.map((tech) => (
-                          <span key={tech} className="bg-slate-700 text-gray-200 text-sm font-medium px-3 py-1 rounded-full">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
-              <div className="absolute top-4 left-4 lg:left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-800 rounded-full border-4 border-gray-900/50 flex items-center justify-center">
-                <Building className="w-4 h-4 text-amber-400" />
+              <div className={`absolute top-0 w-8 h-8 bg-amber-400 rounded-full border-4 border-slate-800 flex items-center justify-center ${index % 2 === 0 ? 'left-0 lg:left-1/2 lg:-translate-x-1/2' : 'left-0 lg:left-1/2 lg:-translate-x-1/2'}`}>
+                <Building className="w-4 h-4 text-slate-800" />
               </div>
             </div>
           ))}

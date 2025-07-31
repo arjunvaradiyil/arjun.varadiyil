@@ -45,14 +45,17 @@ const ProjectCard = ({ project }: { project: Project }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    gsap.fromTo(cardRef.current, 
-      { autoAlpha: 0, y: 50 },
+    const el = cardRef.current;
+    if (!el) return;
+
+    gsap.set(el, { autoAlpha: 1 });
+    gsap.fromTo(el, 
+      { y: 50 },
       { 
-        autoAlpha: 1, 
         y: 0, 
         duration: 0.8,
         scrollTrigger: {
-          trigger: cardRef.current,
+          trigger: el,
           start: 'top 85%',
           toggleActions: 'play none none none',
         }
@@ -61,7 +64,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   }, []);
 
   return (
-    <div ref={cardRef} className="invisible bg-slate-800/50 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-amber-400/10 hover:-translate-y-1">
+    <div ref={cardRef} className="bg-slate-800/50 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-amber-400/10 hover:-translate-y-1">
       <div className="p-6 flex-grow">
         <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
         <p className="text-gray-300 text-sm mb-4">{project.description}</p>
@@ -99,7 +102,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:text-amber-400 transition-colors focus:outline-none focus:text-amber-400"
-              aria-label={`View source code for ${project.title} on GitHub (opens in new tab)`}
+              aria-label={`View source code of ${project.title} on GitHub (opens in new tab)`}
             >
               <Github size={16} aria-hidden="true" />
               Source Code
@@ -131,7 +134,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24 invisible">
+    <section id="projects" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24">
       <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center">

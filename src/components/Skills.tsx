@@ -67,16 +67,21 @@ export default function Skills() {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    const containerEl = containerRef.current;
+    const marqueeEl = marqueeRef.current;
+
+    if (!containerEl) return;
+
     // Fade in animation for the section
-    gsap.fromTo(containerRef.current, 
-      { autoAlpha: 0, y: 50 },
+    gsap.set(containerEl, { autoAlpha: 1 });
+    gsap.fromTo(containerEl, 
+      { y: 50 },
       { 
-        autoAlpha: 1, 
         y: 0, 
         duration: 0.8,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: containerEl,
           start: 'top 80%',
           toggleActions: 'play none none none',
         }
@@ -84,8 +89,8 @@ export default function Skills() {
     );
 
     // Animate the marquee
-    if (marqueeRef.current) {
-      gsap.to(marqueeRef.current, {
+    if (marqueeEl) {
+      gsap.to(marqueeEl, {
         x: '-50%',
         duration: 25,
         ease: 'none',
@@ -98,27 +103,17 @@ export default function Skills() {
     <section id="skills" className="py-20 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
       <div ref={containerRef} className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Skills & Technologies
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base font-semibold leading-7 text-amber-400">Skills & Technologies</p>
+          <h2 id="skills-heading" className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
             A comprehensive toolkit of modern technologies and frameworks I use to build exceptional digital experiences.
-          </p>
+          </h2>
         </div>
-
-        {/* Single Line Marquee */}
-        <div className="relative w-full overflow-hidden">
-          <div className="flex items-center py-8">
-            <div 
-              ref={marqueeRef}
-              className="flex items-center"
-              style={{ width: 'max-content' }}
-            >
-              {/* Duplicate skills for seamless loop */}
-              {[...skillsData, ...skillsData].map((skill, index) => (
-                <SkillItem key={`${skill.name}-${index}`} skill={skill} />
-              ))}
-            </div>
+        
+        <div className="relative overflow-hidden">
+          <div ref={marqueeRef} className="flex items-center space-x-8">
+            {[...skillsData, ...skillsData].map((skill, index) => (
+              <SkillItem key={index} skill={skill} />
+            ))}
           </div>
         </div>
       </div>

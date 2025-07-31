@@ -44,14 +44,17 @@ const VolunteerCard = ({ exp }: { exp: VolunteerExperience }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    gsap.fromTo(cardRef.current,
-      { autoAlpha: 0, y: 30 },
+    const el = cardRef.current;
+    if (!el) return;
+
+    gsap.set(el, { autoAlpha: 1 });
+    gsap.fromTo(el,
+      { y: 30 },
       {
-        autoAlpha: 1,
         y: 0,
         duration: 0.6,
         scrollTrigger: {
-          trigger: cardRef.current,
+          trigger: el,
           start: 'top 90%',
           toggleActions: 'play none none none'
         }
@@ -60,7 +63,7 @@ const VolunteerCard = ({ exp }: { exp: VolunteerExperience }) => {
   }, []);
 
   return (
-    <div ref={cardRef} className="invisible bg-slate-800/50 p-6 rounded-lg shadow-lg flex flex-col transition-all duration-300 hover:bg-slate-800 hover:shadow-amber-400/10 hover:shadow-2xl hover:-translate-y-1">
+    <div ref={cardRef} className="bg-slate-800/50 p-6 rounded-lg shadow-lg flex flex-col transition-all duration-300 hover:bg-slate-800 hover:shadow-amber-400/10 hover:shadow-2xl hover:-translate-y-1">
       <div className="flex items-center mb-4">
         <exp.icon className="w-8 h-8 text-amber-400 mr-4 flex-shrink-0" />
         <div>
@@ -81,13 +84,17 @@ export default function Volunteering() {
   const sectionRef = useRef(null);
 
   useLayoutEffect(() => {
-    gsap.fromTo(sectionRef.current,
-      { autoAlpha: 0 },
+    const el = sectionRef.current;
+    if (!el) return;
+
+    gsap.set(el, { autoAlpha: 1 });
+    gsap.fromTo(el,
+      { y: 50 },
       {
-        autoAlpha: 1,
+        y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: el,
           start: 'top 80%',
         },
       }
@@ -95,7 +102,7 @@ export default function Volunteering() {
   }, []);
 
   return (
-    <section id="volunteering" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24 invisible">
+    <section id="volunteering" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24">
       <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center">
@@ -105,7 +112,7 @@ export default function Volunteering() {
             Giving back to the community and taking on leadership roles are important to my personal and professional growth.
           </p>
         </div>
-        <div className="mt-16 grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           {volunteeringData.map((exp, index) => (
             <VolunteerCard key={index} exp={exp} />
           ))}
