@@ -45,14 +45,18 @@ const CertificationCard = ({ cert }: { cert: Certification }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    gsap.fromTo(cardRef.current,
+    const el = cardRef.current;
+    if (!el) return;
+    
+    gsap.set(el, { autoAlpha: 1 });
+    gsap.fromTo(el,
       { autoAlpha: 0, y: 30 },
       {
         autoAlpha: 1,
         y: 0,
         duration: 0.6,
         scrollTrigger: {
-          trigger: cardRef.current,
+          trigger: el,
           start: 'top 90%',
           toggleActions: 'play none none none'
         }
@@ -61,7 +65,7 @@ const CertificationCard = ({ cert }: { cert: Certification }) => {
   }, []);
 
   return (
-    <div ref={cardRef} className="invisible bg-slate-800/50 p-6 rounded-lg shadow-lg flex items-center justify-between transition-all duration-300 hover:bg-slate-800 hover:shadow-amber-400/10 hover:shadow-2xl hover:-translate-y-1">
+    <div ref={cardRef} className="bg-slate-800/50 p-6 rounded-lg shadow-lg flex items-center justify-between transition-all duration-300 hover:bg-slate-800 hover:shadow-amber-400/10 hover:shadow-2xl hover:-translate-y-1">
       <div className="flex items-center">
         <Award className="w-8 h-8 text-amber-400 mr-5 flex-shrink-0" />
         <div>
@@ -88,21 +92,27 @@ export default function Certifications() {
   const sectionRef = useRef(null);
 
   useLayoutEffect(() => {
-    gsap.fromTo(sectionRef.current,
-      { autoAlpha: 0 },
+    const el = sectionRef.current;
+    if (!el) return;
+    
+    gsap.set(el, { autoAlpha: 1 });
+    gsap.fromTo(el,
+      { y: 50 },
       {
-        autoAlpha: 1,
+        y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: el,
           start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse',
         },
       }
     );
   }, []);
 
   return (
-    <section id="certifications" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24 invisible">
+    <section id="certifications" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24">
       <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
       <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
         <div className="text-center">
