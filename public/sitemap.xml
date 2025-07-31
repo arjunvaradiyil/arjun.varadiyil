@@ -7,39 +7,51 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://github.com/arjunvaradiyil</loc>
+    <loc>https://arjunvaradiyil.in/about</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://arjunvaradiyil.in/experience</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://arjunvaradiyil.in/education</loc>
     <lastmod>2024-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.linkedin.com/in/arjunvaradiyil/</loc>
+    <loc>https://arjunvaradiyil.in/skills</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://arjunvaradiyil.in/projects</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://arjunvaradiyil.in/certifications</loc>
     <lastmod>2024-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.instagram.com/arjunvardiyil/</loc>
-    <lastmod>2024-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://twitter.com/arjunvaradiyill</loc>
-    <lastmod>2024-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.facebook.com/arjun.varadiyil</loc>
-    <lastmod>2024-12-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://medium.com/@arjunvaradiyil203</loc>
+    <loc>https://arjunvaradiyil.in/volunteering</loc>
     <lastmod>2024-12-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arjunvaradiyil.in/contact</loc>
+    <lastmod>2024-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset> 
