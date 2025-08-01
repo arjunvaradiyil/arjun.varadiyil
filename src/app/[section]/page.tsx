@@ -4,7 +4,6 @@ import Education from '@/components/Education';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Certifications from '@/components/Certifications';
-import Volunteering from '@/components/Volunteering';
 import Contact from '@/components/Contact';
 import { notFound } from 'next/navigation';
 
@@ -21,7 +20,6 @@ const sections = {
   skills: Skills,
   projects: Projects,
   certifications: Certifications,
-  volunteering: Volunteering,
   contact: Contact,
 };
 
