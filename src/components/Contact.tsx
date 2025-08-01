@@ -1,14 +1,29 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook, FaMedium } from 'react-icons/fa';
+import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function Contact() {
   const sectionRef = useRef(null);
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useLayoutEffect(() => {
     const el = sectionRef.current;
@@ -32,6 +47,47 @@ export default function Contact() {
     );
   }, []);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/arjunvaradiyil', icon: FaGithub, color: 'hover:text-gray-400' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arjunvaradiyil/', icon: FaLinkedin, color: 'hover:text-blue-400' },
@@ -53,7 +109,7 @@ export default function Contact() {
           </p>
         </div>
         <div className="mt-16">
-          <form className="space-y-6" role="form" aria-labelledby="contact-heading">
+          <form onSubmit={handleSubmit} className="space-y-6" role="form" aria-labelledby="contact-heading">
             <fieldset className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <legend className="sr-only">Contact Information</legend>
               <div>
@@ -64,9 +120,12 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   required
                   aria-required="true"
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your name"
                   aria-describedby="name-error"
                 />
@@ -80,9 +139,12 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                   aria-required="true"
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your email"
                   aria-describedby="email-error"
                 />
@@ -96,22 +158,49 @@ export default function Contact() {
               <textarea
                 id="message"
                 name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 rows={4}
                 required
                 aria-required="true"
-                className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300"
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="Tell me about your project or just say hello!"
                 aria-describedby="message-error"
               ></textarea>
               <div id="message-error" className="sr-only" role="alert"></div>
             </div>
+
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <div className="flex items-center justify-center p-4 bg-green-900/20 border border-green-500/30 rounded-md">
+                <CheckCircle className="w-5 h-5 text-green-400 mr-2" />
+                <span className="text-green-400">Message sent successfully! I&apos;ll get back to you soon.</span>
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="flex items-center justify-center p-4 bg-red-900/20 border border-red-500/30 rounded-md">
+                <AlertCircle className="w-5 h-5 text-red-400 mr-2" />
+                <span className="text-red-400">{errorMessage}</span>
+              </div>
+            )}
+
             <div className="text-center">
               <button
                 type="submit"
-                className="inline-block bg-amber-400 text-gray-900 py-3 px-8 rounded-full hover:bg-amber-500 transition-colors font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                disabled={isSubmitting}
+                className="inline-flex items-center bg-amber-400 text-gray-900 py-3 px-8 rounded-full hover:bg-amber-500 transition-colors font-semibold shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-describedby="submit-status"
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
               <div id="submit-status" className="sr-only" role="status" aria-live="polite"></div>
             </div>
