@@ -79,7 +79,6 @@ export default function Hero() {
     { href: '/skills', anchor: '#skills', label: 'Skills' },
     { href: '/projects', anchor: '#projects', label: 'Projects' },
     { href: '/certifications', anchor: '#certifications', label: 'Certifications' },
-    { href: '/volunteering', anchor: '#volunteering', label: 'Volunteering' },
     { href: '/contact', anchor: '#contact', label: 'Contact' }
   ];
 

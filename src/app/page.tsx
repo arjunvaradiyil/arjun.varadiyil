@@ -4,7 +4,6 @@ import Education from "@/components/Education";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
-import Volunteering from "@/components/Volunteering";
 import Contact from "@/components/Contact";
 import { Metadata } from "next";
 
@@ -122,9 +121,7 @@ export default function Home() {
         <section id="certifications" className="scroll-mt-20" aria-labelledby="certifications-heading">
           <Certifications />
         </section>
-        <section id="volunteering" className="scroll-mt-20" aria-labelledby="volunteering-heading">
-          <Volunteering />
-        </section>
+        
         <section id="contact" className="scroll-mt-20" aria-labelledby="contact-heading">
           <Contact />
         </section>
