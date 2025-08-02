@@ -116,6 +116,9 @@ export default function Home() {
         <section id="skills" className="scroll-mt-20" aria-labelledby="skills-heading">
           <Skills />
         </section>
+        <section id="services" className="scroll-mt-20" aria-labelledby="services-heading">
+          <Services />
+        </section>
         <section id="projects" className="scroll-mt-20" aria-labelledby="projects-heading">
           <Projects />
         </section>
@@ -124,9 +127,6 @@ export default function Home() {
         </section>
         <section id="contact" className="scroll-mt-20" aria-labelledby="contact-heading">
           <Contact />
-        </section>
-        <section id="services" className="scroll-mt-20" aria-labelledby="services-heading">
-          <Services />
         </section>
       </main>
     </>

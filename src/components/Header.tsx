@@ -29,11 +29,11 @@ export default function Header() {
             <Link href="#skills" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Skills
             </Link>
-            <Link href="#projects" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
-              Projects
-            </Link>
             <Link href="#services" className="text-amber-400 hover:text-amber-300 transition-colors text-xs lg:text-sm font-bold border-2 border-amber-400 px-2 py-1 rounded bg-amber-400/10">
               Services
+            </Link>
+            <Link href="#projects" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
+              Projects
             </Link>
             <Link href="#certifications" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Certifications
@@ -88,18 +88,18 @@ export default function Header() {
                   Skills
                 </Link>
                 <Link 
-                  href="#projects" 
-                  className="block px-4 py-4 text-white hover:text-amber-300 transition-colors rounded-lg hover:bg-amber-400/10 text-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Projects
-                </Link>
-                <Link 
                   href="#services" 
                   className="block px-4 py-4 text-amber-400 hover:text-amber-300 transition-colors font-bold bg-amber-400/30 rounded-lg border-2 border-amber-400 text-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Services
+                </Link>
+                <Link 
+                  href="#projects" 
+                  className="block px-4 py-4 text-white hover:text-amber-300 transition-colors rounded-lg hover:bg-amber-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Projects
                 </Link>
                 <Link 
                   href="#certifications" 
