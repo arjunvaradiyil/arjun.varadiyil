@@ -74,6 +74,7 @@ export default function Hero() {
   // Navigation items configuration
   const navItems = [
     { href: '/about', anchor: '#about', label: 'About' },
+    { href: '/services', anchor: '#services', label: 'Services' },
     { href: '/experience', anchor: '#experience', label: 'Experience' },
     { href: '/education', anchor: '#education', label: 'Education' },
     { href: '/skills', anchor: '#skills', label: 'Skills' },

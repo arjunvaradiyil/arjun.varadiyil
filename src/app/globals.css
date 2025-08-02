@@ -59,6 +59,55 @@
       position: absolute;
     }
   }
+
+  /* Text Selection Styles */
+  ::selection {
+    background-color: rgba(251, 191, 36, 0.3); /* amber-400 with transparency */
+    color: #ffffff;
+  }
+
+  ::-moz-selection {
+    background-color: rgba(251, 191, 36, 0.3); /* amber-400 with transparency */
+    color: #ffffff;
+  }
+
+  /* Disable text selection on interactive elements */
+  button, 
+  a, 
+  [role="button"], 
+  [role="menuitem"],
+  .cursor-pointer {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Allow text selection on content areas */
+  p, 
+  h1, h2, h3, h4, h5, h6,
+  span,
+  div:not(.cursor-pointer):not([role="button"]):not([role="menuitem"]) {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  /* Improve text selection on dark backgrounds */
+  .text-white::selection,
+  .text-gray-300::selection,
+  .text-gray-400::selection {
+    background-color: rgba(251, 191, 36, 0.4);
+    color: #ffffff;
+  }
+
+  .text-white::-moz-selection,
+  .text-gray-300::-moz-selection,
+  .text-gray-400::-moz-selection {
+    background-color: rgba(251, 191, 36, 0.4);
+    color: #ffffff;
+  }
 }
 
 @layer components {
@@ -97,6 +146,21 @@
 
   .card-spotlight:hover::before {
     opacity: 1;
+  }
+
+  /* Custom text selection for specific components */
+  .selectable-text {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  .non-selectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
 

@@ -1,220 +1,389 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  Code, 
-  Smartphone, 
-  Zap, 
-  Shield,
-  Palette,
-  Cpu,
-  Cloud
-} from 'lucide-react';
-import TextHighlight from './TextHighlight';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useState, useRef, useEffect } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 
 interface Service {
+  id: number;
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: string;
   features: string[];
+  gradient: string;
+  category: string;
   color: string;
 }
 
 const servicesData: Service[] = [
   {
+    id: 1,
+    title: "Full Stack Development",
+    description: "Complete web application development from frontend to backend with modern technologies.",
+    icon: "💻",
+    gradient: "from-blue-600 to-purple-600",
+    category: "Development",
+    color: "blue",
+    features: [
+      "React.js & Next.js Development",
+      "Node.js & Express.js Backend",
+      "MongoDB & Database Design",
+      "RESTful API Development",
+      "Responsive Web Design",
+      "Performance Optimization"
+    ]
+  },
+  {
+    id: 2,
     title: "Frontend Development",
-    description: "Building responsive, modern user interfaces with React, Next.js, and cutting-edge web technologies.",
-    icon: Palette,
-    features: ["React.js & Next.js", "TypeScript", "Tailwind CSS", "Responsive Design", "Performance Optimization"],
-    color: "from-blue-500 to-cyan-500"
+    description: "Creating stunning user interfaces with modern frontend technologies and frameworks.",
+    icon: "🎨",
+    gradient: "from-pink-500 to-rose-500",
+    category: "UI/UX",
+    color: "pink",
+    features: [
+      "React.js & TypeScript",
+      "Next.js 13+ with App Router",
+      "Tailwind CSS & Styled Components",
+      "Responsive Design",
+      "Component Architecture",
+      "State Management"
+    ]
   },
   {
+    id: 3,
     title: "Backend Development",
-    description: "Creating robust server-side applications with scalable architecture and efficient data management.",
-    icon: Cpu,
-    features: ["Node.js & Express", "RESTful APIs", "Authentication", "Database Design", "API Integration"],
-    color: "from-green-500 to-emerald-500"
+    description: "Building robust, scalable server-side applications and APIs.",
+    icon: "⚙️",
+    gradient: "from-green-500 to-emerald-500",
+    category: "Backend",
+    color: "green",
+    features: [
+      "Node.js & Express.js",
+      "MongoDB & Database Design",
+      "RESTful & GraphQL APIs",
+      "Authentication & Authorization",
+      "File Upload & Processing",
+      "Performance Optimization"
+    ]
   },
   {
-    title: "Full Stack Solutions",
-    description: "End-to-end web applications with seamless frontend-backend integration and modern deployment.",
-    icon: Code,
-    features: ["MERN Stack", "Real-time Features", "Cloud Deployment", "CI/CD Pipeline", "Performance Monitoring"],
-    color: "from-purple-500 to-pink-500"
+    id: 4,
+    title: "CMS Development",
+    description: "Custom content management systems and headless CMS solutions.",
+    icon: "📝",
+    gradient: "from-orange-500 to-red-500",
+    category: "CMS",
+    color: "orange",
+    features: [
+      "Payload CMS Development",
+      "Custom Admin Panels",
+      "Content Modeling",
+      "API Integration",
+      "Multi-language Support",
+      "SEO Optimization"
+    ]
   },
   {
-    title: "Mobile Development",
-    description: "Cross-platform mobile applications with native performance and modern user experience.",
-    icon: Smartphone,
-    features: ["React Native", "Progressive Web Apps", "Mobile Optimization", "App Store Deployment", "Push Notifications"],
-    color: "from-orange-500 to-red-500"
+    id: 5,
+    title: "API Development",
+    description: "Designing and implementing robust APIs for web and mobile applications.",
+    icon: "🔌",
+    gradient: "from-indigo-500 to-blue-500",
+    category: "API",
+    color: "indigo",
+    features: [
+      "RESTful API Design",
+      "GraphQL Development",
+      "Authentication & Security",
+      "Rate Limiting",
+      "API Documentation",
+      "Testing & Validation"
+    ]
   },
   {
-    title: "Database & Cloud",
-    description: "Scalable database solutions and cloud infrastructure for modern applications.",
-    icon: Cloud,
-    features: ["MongoDB & SQL", "AWS/Azure/GCP", "Serverless Architecture", "Data Security", "Backup & Recovery"],
-    color: "from-indigo-500 to-blue-500"
-  },
-  {
-    title: "Performance & Security",
-    description: "Optimizing applications for speed, security, and reliability with industry best practices.",
-    icon: Shield,
-    features: ["Performance Optimization", "Security Audits", "SEO Implementation", "Analytics Integration", "Monitoring"],
-    color: "from-amber-500 to-yellow-500"
+    id: 6,
+    title: "Database Design",
+    description: "Designing efficient database schemas and optimizing data storage solutions.",
+    icon: "🗄️",
+    gradient: "from-teal-500 to-cyan-500",
+    category: "Database",
+    color: "teal",
+    features: [
+      "MongoDB Schema Design",
+      "SQL Database Design",
+      "Data Modeling",
+      "Query Optimization",
+      "Data Migration",
+      "Backup & Recovery"
+    ]
   }
 ];
 
-const ServiceCard = ({ service, index }: { service: Service; index: number }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    const cardEl = cardRef.current;
-    if (!cardEl) return;
-
-    gsap.set(cardEl, { autoAlpha: 1 });
-    gsap.fromTo(
-      cardEl,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        delay: index * 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: cardEl,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        }
-      }
-    );
-  }, [index]);
-
-  return (
-    <div
-      ref={cardRef}
-      className="group relative bg-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-slate-900/50 overflow-hidden"
-    >
-      {/* Gradient overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-      
-      {/* Card content */}
-      <div className="relative p-8">
-        {/* Icon */}
-        <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-          <service.icon className="h-8 w-8" />
-        </div>
-
-        {/* Title */}
-        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-amber-600 transition-all duration-300">
-          {service.title}
-        </h3>
-
-        {/* Description */}
-        <TextHighlight>
-          <p className="text-gray-300 mb-6 leading-relaxed">
-            {service.description}
-          </p>
-        </TextHighlight>
-
-        {/* Features */}
-        <div className="space-y-3">
-          {service.features.map((feature, idx) => (
-            <div key={idx} className="flex items-center space-x-3">
-              <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color} flex-shrink-0`}></div>
-              <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                {feature}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Hover effect overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      </div>
-    </div>
-  );
-};
-
 export default function Services() {
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  useLayoutEffect(() => {
-    const sectionEl = sectionRef.current;
-    const titleEl = titleRef.current;
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.1
+      }
+    }
+  };
 
-    if (!sectionEl || !titleEl) return;
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6
+      }
+    },
+    hover: {
+      scale: 1.02,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
 
-    gsap.set([sectionEl, titleEl], { autoAlpha: 1 });
+  const modalVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 50 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.4
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      y: 50,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionEl,
-        start: 'top 80%',
-        end: 'top 20%',
-        scrub: 1,
-      },
-    });
-
-    tl.fromTo(
-      titleEl,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
-    );
-  }, []);
+  const handleServiceClick = (service: Service) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
 
   return (
     <section id="services" ref={sectionRef} className="relative py-24 sm:py-32 bg-gray-900/50 backdrop-blur-sm overflow-hidden border-y border-slate-800/50 scroll-mt-24">
-      {/* Background pattern */}
+      {/* Background */}
+      <div className="absolute inset-0 bg-gray-900/50 backdrop-blur-sm"></div>
       <div className="absolute inset-0 bg-grid-slate-800/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-amber-400/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-blue-400/20 to-transparent rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
-        <div ref={titleRef} className="text-center mb-16">
-          <p className="text-base font-semibold leading-7 text-amber-400">What I Offer</p>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Development Services
-          </h2>
-          <TextHighlight>
-            <p className="mt-6 text-lg leading-8 text-gray-300 max-w-3xl mx-auto">
-              Comprehensive full stack development solutions that combine modern technologies 
-              with proven methodologies to deliver exceptional digital experiences.
-            </p>
-          </TextHighlight>
-        </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="text-center mb-20"
+        >
+          <motion.div
+            variants={cardVariants}
+            className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-amber-400/10 to-orange-400/10 border border-amber-400/20 text-amber-400 text-sm font-medium mb-8"
+          >
+            <div className="w-2 h-2 bg-amber-400 rounded-full mr-3 animate-pulse"></div>
+            Services
+          </motion.div>
+          
+          <motion.h2 
+            variants={cardVariants}
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8"
+          >
+            <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+              Development
+            </span>
+            <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+              {" "}Services
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            variants={cardVariants}
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          >
+            Comprehensive web development solutions tailored to your needs. From concept to deployment, 
+            I deliver high-quality, scalable applications that drive results.
+          </motion.p>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {servicesData.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
+            <motion.div
+              key={service.id}
+              variants={cardVariants}
+              whileHover="hover"
+              onClick={() => handleServiceClick(service)}
+              className="group cursor-pointer"
+            >
+              <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 backdrop-blur-sm transition-all duration-500 group-hover:border-white/20 group-hover:bg-white/15">
+                {/* Gradient Overlay */}
+                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} bg-opacity-20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <span className="text-3xl">{service.icon}</span>
+                  </div>
+                  
+                  {/* Category */}
+                  <div className="mb-4">
+                    <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                      {service.category}
+                    </span>
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-gray-300 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  
+                  {/* Features Preview */}
+                  <div className="space-y-2">
+                    {service.features.slice(0, 3).map((feature, idx) => (
+                      <div key={idx} className="flex items-center space-x-3 text-sm text-gray-400">
+                        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                    {service.features.length > 3 && (
+                      <div className="text-sm text-amber-400 font-medium">
+                        +{service.features.length - 3} more features
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* CTA */}
+                  <div className="mt-6 pt-6 border-t border-white/10">
+                    <div className={`inline-flex items-center text-sm font-medium text-amber-400 group-hover:text-amber-300 transition-colors duration-300`}>
+                      Learn More
+                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-400 to-amber-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-amber-400/25 transition-all duration-300 hover:scale-105">
-            <Zap className="h-5 w-5" />
-            <span>Ready to Start Your Project?</span>
-          </div>
-          <TextHighlight>
-            <p className="mt-4 text-gray-400">
-              Let&apos;s discuss how I can help bring your ideas to life
-            </p>
-          </TextHighlight>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {isModalOpen && selectedService && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          >
+            <motion.div
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl border border-white/10 shadow-2xl"
+            >
+              {/* Header */}
+              <div className="sticky top-0 p-8 pb-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-t-3xl border-b border-white/10">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedService.gradient} bg-opacity-20 flex items-center justify-center`}>
+                      <span className="text-3xl">{selectedService.icon}</span>
+                    </div>
+                    <div>
+                      <div className="flex items-center space-x-2 mb-2">
+                        <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                          {selectedService.category}
+                        </span>
+                      </div>
+                      <h3 className="text-3xl font-bold text-white mb-2">
+                        {selectedService.title}
+                      </h3>
+                      <p className="text-gray-300 leading-relaxed">
+                        {selectedService.description}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300"
+                  >
+                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-8 pt-6">
+                <div className="space-y-6">
+                  <h4 className="text-xl font-semibold text-white mb-6 flex items-center">
+                    <span className="w-8 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 mr-3"></span>
+                    Key Features
+                  </h4>
+                  <div className="grid gap-4">
+                    {selectedService.features.map((feature, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="flex items-center space-x-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/5 hover:bg-white/10 transition-all duration-300"
+                      >
+                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${selectedService.gradient}`}></div>
+                        <span className="text-gray-200 font-medium">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="mt-8 pt-6 border-t border-white/10"
+                >
+                  <button className="w-full bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 text-gray-900 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    Get Started
+                  </button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 } 

@@ -98,23 +98,23 @@ const Experience = () => {
             <div key={index} className="timeline-item relative mb-12">
               <div className={`w-full pl-12 lg:w-1/2 lg:pl-0 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8 lg:ml-auto'}`}>
                 <div className={`text-left ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'}`}>
-                  <p className="text-sm font-semibold text-gray-400">{exp.years}</p>
-                  <h3 className="mt-1 text-2xl font-bold text-white">{exp.role}</h3>
-                  <p className="mt-1 text-lg text-amber-400">{exp.company}</p>
+                  <p className="text-sm font-semibold text-gray-400 selectable-text">{exp.years}</p>
+                  <h3 className="mt-1 text-2xl font-bold text-white selectable-text">{exp.role}</h3>
+                  <p className="mt-1 text-lg text-amber-400 selectable-text">{exp.company}</p>
                   <div className="mt-4 space-y-3">
                     {exp.description.map((desc, descIndex) => (
                       <TextHighlight key={descIndex}>
-                        <p className="text-gray-300 leading-relaxed">{desc}</p>
+                        <p className="text-gray-300 leading-relaxed selectable-text">{desc}</p>
                       </TextHighlight>
                     ))}
                   </div>
                   <div className="mt-6">
-                    <h4 className="text-sm font-semibold text-gray-400 mb-3">Key Technologies</h4>
+                    <h4 className="text-sm font-semibold text-gray-400 mb-3 selectable-text">Key Technologies</h4>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-800/50 text-amber-300 border border-slate-700/50"
+                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-800/50 text-amber-300 border border-slate-700/50 selectable-text"
                         >
                           <Code className="w-3 h-3 mr-1" />
                           {tech}

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -158,7 +157,6 @@ export const metadata: Metadata = {
     "Remote Developer",
     "Contract Developer",
     "Independent Developer",
-    "Web Development Services",
     "Custom Web Development",
     "E-commerce Development",
     "API Development",
@@ -313,7 +311,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to main content
         </a>
         
-        <Hero />
         <main id="main-content" role="main" aria-label="Portfolio content">
           {children}
         </main>

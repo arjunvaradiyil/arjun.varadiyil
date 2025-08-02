@@ -88,7 +88,20 @@ const TextHighlight = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-  return <div ref={textRef}>{children}</div>;
+  return (
+    <div 
+      ref={textRef} 
+      className="selectable-text"
+      style={{ 
+        userSelect: 'text',
+        WebkitUserSelect: 'text',
+        MozUserSelect: 'text',
+        msUserSelect: 'text'
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default TextHighlight; 
