@@ -17,23 +17,20 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-3 lg:space-x-4">
-            <Link href="#hero" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
-              Home
-            </Link>
             <Link href="#about" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               About
             </Link>
             <Link href="#experience" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Experience
             </Link>
+            <Link href="#education" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
+              Education
+            </Link>
             <Link href="#skills" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Skills
             </Link>
             <Link href="#projects" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Projects
-            </Link>
-            <Link href="#education" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
-              Education
             </Link>
             <Link href="#certifications" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Certifications
@@ -60,13 +57,6 @@ export default function Header() {
             <div className="flex flex-col h-full pt-8 px-6">
               <div className="space-y-4">
                 <Link 
-                  href="#hero" 
-                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Home
-                </Link>
-                <Link 
                   href="#about" 
                   className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
                   onClick={() => setIsMenuOpen(false)}
@@ -81,6 +71,13 @@ export default function Header() {
                   Experience
                 </Link>
                 <Link 
+                  href="#education" 
+                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Education
+                </Link>
+                <Link 
                   href="#skills" 
                   className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
                   onClick={() => setIsMenuOpen(false)}
@@ -93,13 +90,6 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Projects
-                </Link>
-                <Link 
-                  href="#education" 
-                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Education
                 </Link>
                 <Link 
                   href="#certifications" 
