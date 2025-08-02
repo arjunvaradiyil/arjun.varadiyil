@@ -5,6 +5,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
+import Hero from "@/components/Hero";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -103,14 +104,14 @@ export default function Home() {
       />
       
       <main className="pt-0" role="main" aria-label="Portfolio content">
+        <section id="hero" className="scroll-mt-20" aria-labelledby="hero-heading">
+          <Hero />
+        </section>
         <section id="about" className="scroll-mt-20" aria-labelledby="about-heading">
           <About />
         </section>
         <section id="experience" className="scroll-mt-20" aria-labelledby="experience-heading">
           <Experience />
-        </section>
-        <section id="education" className="scroll-mt-20" aria-labelledby="education-heading">
-          <Education />
         </section>
         <section id="skills" className="scroll-mt-20" aria-labelledby="skills-heading">
           <Skills />
@@ -118,10 +119,12 @@ export default function Home() {
         <section id="projects" className="scroll-mt-20" aria-labelledby="projects-heading">
           <Projects />
         </section>
+        <section id="education" className="scroll-mt-20" aria-labelledby="education-heading">
+          <Education />
+        </section>
         <section id="certifications" className="scroll-mt-20" aria-labelledby="certifications-heading">
           <Certifications />
         </section>
-        
         <section id="contact" className="scroll-mt-20" aria-labelledby="contact-heading">
           <Contact />
         </section>
