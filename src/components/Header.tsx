@@ -16,17 +16,29 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-amber-100 hover:text-amber-300 transition-colors">
-              Home
-            </Link>
-            <Link href="about" className="text-amber-100 hover:text-amber-300 transition-colors">
+          <nav className="hidden md:flex space-x-3 lg:space-x-4">
+            <Link href="#about" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               About
             </Link>
-            <Link href="projects" className="text-amber-100 hover:text-amber-300 transition-colors">
+            <Link href="#experience" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
+              Experience
+            </Link>
+            <Link href="#education" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
+              Education
+            </Link>
+            <Link href="#services" className="text-amber-400 hover:text-amber-300 transition-colors text-xs lg:text-sm font-semibold border border-amber-400 px-1 rounded">
+              Services
+            </Link>
+            <Link href="#skills" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
+              Skills
+            </Link>
+            <Link href="#projects" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Projects
             </Link>
-            <Link href="contact" className="text-amber-100 hover:text-amber-300 transition-colors">
+            <Link href="#certifications" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
+              Certifications
+            </Link>
+            <Link href="#contact" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Contact
             </Link>
           </nav>
@@ -44,20 +56,66 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/70 backdrop-blur-sm border-t border-amber-300/30">
-              <Link href="/" className="block px-3 py-2 text-amber-100 hover:text-amber-300 transition-colors">
-                Home
-              </Link>
-              <Link href="#about" className="block px-3 py-2 text-amber-100 hover:text-amber-300 transition-colors">
-                About
-              </Link>
-              <Link href="#projects" className="block px-3 py-2 text-amber-100 hover:text-amber-300 transition-colors">
-                Projects
-              </Link>
-              <Link href="#contact" className="block px-3 py-2 text-amber-100 hover:text-amber-300 transition-colors">
-                Contact
-              </Link>
+          <div className="md:hidden fixed inset-0 top-16 bg-red-500/95 backdrop-blur-md z-[9999]">
+            <div className="flex flex-col h-full pt-8 px-6">
+              <div className="space-y-4">
+                <Link 
+                  href="#about" 
+                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link 
+                  href="#experience" 
+                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Experience
+                </Link>
+                <Link 
+                  href="#education" 
+                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Education
+                </Link>
+                <Link 
+                  href="#services" 
+                  className="block px-4 py-6 text-black hover:text-white transition-colors font-bold bg-yellow-400 rounded-lg border-4 border-yellow-600 text-xl"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  🔥 SERVICES 🔥
+                </Link>
+                <Link 
+                  href="#skills" 
+                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Skills
+                </Link>
+                <Link 
+                  href="#projects" 
+                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Projects
+                </Link>
+                <Link 
+                  href="#certifications" 
+                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Certifications
+                </Link>
+                <Link 
+                  href="#contact" 
+                  className="block px-4 py-4 text-white hover:text-yellow-300 transition-colors rounded-lg hover:bg-yellow-400/10 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+              </div>
             </div>
           </div>
         )}
