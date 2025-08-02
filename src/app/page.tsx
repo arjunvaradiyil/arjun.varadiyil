@@ -2,7 +2,6 @@ import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Skills from "@/components/Skills";
-import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
@@ -115,9 +114,6 @@ export default function Home() {
         </section>
         <section id="skills" className="scroll-mt-20" aria-labelledby="skills-heading">
           <Skills />
-        </section>
-        <section id="services" className="scroll-mt-20" aria-labelledby="services-heading">
-          <Services />
         </section>
         <section id="projects" className="scroll-mt-20" aria-labelledby="projects-heading">
           <Projects />

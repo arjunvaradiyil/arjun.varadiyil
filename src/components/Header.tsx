@@ -26,9 +26,6 @@ export default function Header() {
             <Link href="#education" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Education
             </Link>
-            <Link href="#services" className="text-amber-400 hover:text-amber-300 transition-colors text-xs lg:text-sm font-semibold border border-amber-400 px-1 rounded">
-              Services
-            </Link>
             <Link href="#skills" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Skills
             </Link>
@@ -79,13 +76,6 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Education
-                </Link>
-                <Link 
-                  href="#services" 
-                  className="block px-4 py-6 text-black hover:text-white transition-colors font-bold bg-yellow-400 rounded-lg border-4 border-yellow-600 text-xl"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  🔥 SERVICES 🔥
                 </Link>
                 <Link 
                   href="#skills" 
