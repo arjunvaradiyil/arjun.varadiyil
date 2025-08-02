@@ -38,6 +38,9 @@ export default function Header() {
             <Link href="#contact" className="text-amber-100 hover:text-amber-300 transition-colors text-xs lg:text-sm">
               Contact
             </Link>
+            <Link href="#services" className="text-amber-400 hover:text-amber-300 transition-colors text-xs lg:text-sm font-semibold border border-amber-400 px-1 rounded">
+              Services
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -104,6 +107,13 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
+                </Link>
+                <Link 
+                  href="#services" 
+                  className="block px-4 py-4 text-yellow-400 hover:text-yellow-300 transition-colors font-bold bg-yellow-400/20 rounded-lg border border-yellow-400/30 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Services
                 </Link>
               </div>
             </div>

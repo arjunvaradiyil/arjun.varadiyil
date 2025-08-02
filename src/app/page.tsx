@@ -5,6 +5,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
+import Services from "@/components/Services";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -123,6 +124,9 @@ export default function Home() {
         </section>
         <section id="contact" className="scroll-mt-20" aria-labelledby="contact-heading">
           <Contact />
+        </section>
+        <section id="services" className="scroll-mt-20" aria-labelledby="services-heading">
+          <Services />
         </section>
       </main>
     </>
