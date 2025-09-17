@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,12 +11,14 @@ export default function Sidebar() {
       {/* Top Navbar */}
       <div className="flex justify-between items-center px-2 py-4 bg-transparent text-[#34ebd2]">
         <div className="flex items-center space-x-2 text-6xl font-bold bebas-neue-regular">
-          <span>≋</span>
-          <span>G</span>
+          <Link to="/" className="flex items-center space-x-2">
+            <span>≋</span>
+            <span>G</span>
+          </Link>
         </div>
         <button
           onClick={() => setMenuOpen(true)}
-          className="bebas-neue-regular text-[#34ebd2] text-6xl font-bold transition-all duration-300 hover:text-7xl"
+          className="bebas-neue-regular text-[##04b3b3] text-6xl font-bold transition-all duration-300 hover:text-7xl"
         >
           MENU
         </button>
@@ -42,16 +45,22 @@ export default function Sidebar() {
 
             {/* Right Side Nav */}
             <div className="flex-1 flex flex-col justify-center items-center space-y-4 text-7xl md:text-8xl font-extrabold">
-              {navItems.map((item, idx) => (
-                <motion.a
-                  key={idx}
-                  href={`#${item.toLowerCase().replace(" ", "")}`}
-                  whileHover={{ scale: 1.3 }}
-                  className="transition-transform duration-300"
-                >
-                  {item}
-                </motion.a>
-              ))}
+              {navItems.map((item, idx) => {
+                const path = item.toLowerCase() === "contact" ? "/contact" : `#${item.toLowerCase()}`;
+                return (
+                  <motion.div key={idx} whileHover={{ scale: 1.3 }} className="transition-transform duration-300">
+                    {item.toLowerCase() === "contact" ? (
+                      <Link to={path} onClick={() => setMenuOpen(false)}>
+                        {item}
+                      </Link>
+                    ) : (
+                      <a href={path} onClick={() => setMenuOpen(false)}>
+                        {item}
+                      </a>
+                    )}
+                  </motion.div>
+                );
+              })}
 
               {/* Close Button */}
               <button
