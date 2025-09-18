@@ -1,6 +1,7 @@
 import React,  { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import bgImg from '../assets/images/portfolio_bg.jpg';
 
 export default function Banner() {
 
@@ -87,7 +88,7 @@ export default function Banner() {
       <div 
         className="absolute inset-0 -z-20 bg-cover bg-center"
         style={{ 
-          backgroundImage: `url('https://e0.pxfuel.com/wallpapers/627/591/desktop-wallpaper-better-start-of-a-future-technology-background-portfolio.jpg')`
+          backgroundImage: `url(${bgImg})`
         }}
       />
       <div className="absolute inset-0 -z-10 bg-black/70" /> 

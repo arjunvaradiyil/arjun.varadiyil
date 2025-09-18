@@ -3,6 +3,8 @@ import React, { useState } from "react";
 export default function Contactform() {
   const [step, setStep] = useState(1);
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,6 +17,10 @@ export default function Contactform() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setErrorMessage("");
+    setSuccessMessage("");
+
     try {
       const res = await fetch("https://my-portfolio-backend-qb87.onrender.com/api/contact", {
         method: "POST",
@@ -22,17 +28,21 @@ export default function Contactform() {
         body: JSON.stringify(formData),
       });
 
+      setLoading(false);
+
       if (res.ok) {
         setSuccessMessage("Thank you! Your message has been sent successfully.");
         setFormData({ name: "", email: "", message: "" });
         setStep(1);
         setTimeout(() => setSuccessMessage(""), 5000);
       } else {
-        setSuccessMessage(" Oops! Something went wrong. Please try again.");
+        setErrorMessage("Oops! Something went wrong. Please try again.");
+        setTimeout(() => setErrorMessage(""), 5000);
       }
     } catch (error) {
       console.error(error);
-      setSuccessMessage(" Server error. Please try again later.");
+      setErrorMessage("Server error. Please try again later.");
+      setTimeout(() => setErrorMessage(""), 5000);
     }
   };
 
@@ -62,9 +72,9 @@ export default function Contactform() {
         {/* Right Side Form */}
         <div className="w-full md:w-1/2 bg-[#110f0f] border border-[#747373] rounded-2xl p-6 sm:p-8 shadow-lg">
           {/* Step Indicator */}
-          <div className="text-sm mb-4 sm:mb-6 text-[#34ebd2] font-medium">
+          {/* <div className="text-sm mb-4 sm:mb-6 text-[#34ebd2] font-medium">
             {step}/2 Steps
-          </div>
+          </div> */}
           {/* Text */}
           <div className="oswald-font text-4xl mb-4 sm:mb-6 text-white font-extrabold">
             Drop a mail, Lets Make it Happen.
@@ -168,6 +178,16 @@ export default function Contactform() {
             </form>
           )}
 
+          {/* ✅ Loading Modal */}
+          {loading && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg text-center animate-pulse">
+                <div className="text-5xl mb-2">⏳</div>
+                <h2 className="text-xl font-bold">Sending your message...</h2>
+              </div>
+            </div>
+          )}
+
            {/* ✅ Success Message */}
             {successMessage && (
               <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
@@ -178,6 +198,15 @@ export default function Contactform() {
               </div>
             )}
 
+            {/* ✅ Error Modal */}
+            {errorMessage && (
+              <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+                <div className="bg-white text-black p-6 rounded-2xl shadow-lg text-center animate-fadeIn">
+                  <div className="text-5xl mb-2">❌</div>
+                  <h2 className="text-xl font-bold">{errorMessage}</h2>
+                </div>
+              </div>
+            )}
         </div>
       </div>
     </div>
