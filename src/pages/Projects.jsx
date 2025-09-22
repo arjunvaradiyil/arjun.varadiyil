@@ -1,52 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import * as THREE from "three";
-
-// Mock projects data
-const projects = [
-  {
-    id: "001",
-    title: "Syncorp",
-    description:
-      "For Syncorp, we developed a comprehensive sales software suite featuring a custom CRM, call center tools, AI-driven automations, local payment integration, and a multilingual client portal.",
-    industry: "Sales",
-    duration: "1 year",
-    services: "Full Stack Development",
-    image: "https://via.placeholder.com/500x300", // replace with your screenshot/mockup
-    link: "#",
-    logo: "https://via.placeholder.com/40x40", // replace with small logo
-  },
-  {
-    id: "002",
-    title: "VanguardTech",
-    description:
-      "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
-    industry: "Technology",
-    duration: "6 months",
-    services: "UI/UX + Backend",
-    image: "https://via.placeholder.com/500x300",
-    link: "#",
-    logo: "https://via.placeholder.com/40x40",
-  },
-  {
-    id: "002",
-    title: "VanguardTech",
-    description:
-      "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
-    industry: "Technology",
-    duration: "6 months",
-    services: "UI/UX + Backend",
-    image: "https://via.placeholder.com/500x300",
-    link: "#",
-    logo: "https://via.placeholder.com/40x40",
-  },
-];
+import { projects } from "../data/projectData";
 
 export default function Projects() {
   const mountRef = useRef(null);
 
   useEffect(() => {
-    // THREE.js scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -60,7 +20,6 @@ export default function Projects() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
 
-    // Stars
     const starGeometry = new THREE.BufferGeometry();
     const starCount = 5000;
     const starPositions = new Float32Array(starCount * 3);
@@ -83,7 +42,6 @@ export default function Projects() {
     const stars = new THREE.Points(starGeometry, starMaterial);
     scene.add(stars);
 
-    // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
 
@@ -94,7 +52,6 @@ export default function Projects() {
     };
     animate();
 
-    // Handle resize
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -102,7 +59,6 @@ export default function Projects() {
     };
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
     return () => {
       if (mountRef.current && renderer.domElement) {
         mountRef.current.removeChild(renderer.domElement);
@@ -145,18 +101,32 @@ export default function Projects() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             className="grid md:grid-cols-2 gap-10 items-center"
           >
-            {/* Left - Image */}
+            {/* Left - Conditional Rendering: Image or Video */}
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               className="relative group"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="rounded-xl shadow-lg transform group-hover:scale-[1.02] transition duration-300"
-              />
+              {project.type === "video" ? (
+                <video
+                  src={project.image}
+                  alt={project.title}
+                  className="rounded-xl shadow-lg transform group-hover:scale-[1.02] transition duration-300"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="rounded-xl shadow-lg transform group-hover:scale-[1.02] transition duration-300"
+                />
+              )}
               <span className="oswald-sub absolute bottom-4 right-4 bg-white/90 text-black px-4 py-2 text-sm rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition">
                 View project →
               </span>
@@ -174,7 +144,7 @@ export default function Projects() {
                 <img
                   src={project.logo}
                   alt={`${project.title} logo`}
-                  className="w-10 h-10 rounded-md"
+                  className="w-20 h-10 rounded-md"
                 />
                 <h3 className=" text-[#34ebd2] text-2xl md:text-3xl font-bold">{project.title}</h3>
               </div>
@@ -185,17 +155,14 @@ export default function Projects() {
               {/* Meta Info */}
               <div className="grid grid-cols-2 gap-y-3 text-sm">
                 <div>
-                  <span className="block text-gray-500">Industry</span>
+                  <span className="block text-gray-500">Domain</span>
                   <span className="font-semibold">{project.industry}</span>
                 </div>
                 <div>
-                  <span className="block text-gray-500">Services</span>
+                  <span className="block text-gray-500">Technologies Used</span>
                   <span className="font-semibold">{project.services}</span>
                 </div>
-                <div>
-                  <span className="block text-gray-500">Duration</span>
-                  <span className="font-semibold">{project.duration}</span>
-                </div>
+               
               </div>
             </div>
           </motion.div>
