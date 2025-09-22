@@ -91,23 +91,20 @@ export default function AboutPreview() {
           </div>
           {/* Right Side - Profile Card with Parallax */}
           <div className="relative flex justify-center lg:justify-end">
-            <div 
-              ref={cardRef}
-              className="relative transition-transform duration-75 ease-out"
-              style={{
-                transform: parallaxOffset()
-              }}
-            >
-              {/* Profile Card */}
-              <div className="bg-white p-3 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300 max-w-sm">
-                {/* Profile Image */}
-                <div className="mb-4 overflow-hidden">
-                  <img 
-                    src={ProfileImg}
-                    alt="Me" 
-                    className="w-full h-96 object-cover"
-                  />
-                </div>             
+            <div className="bg-white p-3 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300 max-w-sm">
+              {/* Profile Image with Parallax */}
+              <div
+                ref={cardRef}
+                className="overflow-hidden transition-transform duration-75 ease-out"
+                style={{
+                  transform: parallaxOffset(),
+                }}
+              >
+                <img
+                  src={ProfileImg}
+                  alt="Me"
+                  className="w-full h-96 object-cover"
+                />
               </div>
             </div>
           </div>

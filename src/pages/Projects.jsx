@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import * as THREE from "three";
+import Navbar from '../components/Navbar'
 import { projects } from "../data/projectData";
 
 export default function Projects() {
@@ -70,6 +71,7 @@ export default function Projects() {
 
   return (
     <section className="relative bg-black text-white py-20 px-6 md:px-16 overflow-hidden">
+      <Navbar/>
       {/* Three.js Background */}
       <div
         ref={mountRef}
