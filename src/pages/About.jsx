@@ -1,49 +1,95 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import ProfileImg from '../assets/images/profilepic.png'
+import SectionHeader from "../components/SectionHeader";
+import StorySection from "../components/StorySection";
+import Timeline from "../components/Timeline";
+import TechStackGrid from "../components/TechStackGrid";
+import CallToAction from "../components/CallToAction";
+import AboutHero from "../components/AboutHero";
+
+import DanceImg from "../assets/images/dance.jpg";
+import SketchImg from "../assets/images/sketch.jpg";
+import MoviesImg from "../assets/images/movies.jpg";
+import ReadingImg from "../assets/images/reading.jpg";
+import Schl1Img from "../assets/images/school1.png"
+import Schl2Img from "../assets/images/school2.png"
+import CollegeImg from "../assets/images/college.jpg"
 
 export default function About() {
   return (
-    <div className="bg-gray-50 min-h-screen">
-     <section
-           className="min-h-screen relative bg-cover bg-center text-white px-8"
-           style={{
-             backgroundImage:
-               `url(${ProfileImg})`,
-           }}
-         >
-           {/* Overlay */}
-           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/1"></div>
-     
-           {/* Content */}
-           <div className="relative max-w-xl py-40">
-             <h2 className="bebas-neue-regular text-6xl md:text-8xl font-extrabold leading-tight">
-               HI <br /><span className="text-8xl md:text-9xl">THERE</span><span className="ms-5 text-8xl md:text-9xl text-[#34ebd2]">!</span>
-             </h2>
-     
-             <p className="mt-6 oswald-sub text-lg text-gray-200">
-               Hi, I’m <span className="font-bold">Gouri Nandhana</span>, a passionate
-               frontend developer who loves building clean, responsive, and
-               user-friendly web applications. I believe in creating digital
-               experiences that not only look good but also feel intuitive and
-               impactful.
-             </p>
-     
-             <p className="mt-4 oswald-sub text-gray-300">
-               My journey includes projects with <strong>React</strong>,{" "}
-               <strong>Next.js</strong>, <strong>Node.js</strong>, and{" "}
-               <strong>MongoDB</strong>, where I’ve worked on real-world UI
-               challenges like dashboards, RBAC systems, and pixel-perfect designs.
-             </p>
-     
-             <Link
-               to="/about"
-               className="mt-8 inline-block oswald-sub font-semibold text-[#34ebd2] hover:text-yellow-300 transition"
-             >
-               → Know More
-             </Link>
-           </div>
-         </section>
+    <div className="bg-black text-white overflow-hidden">
+      {/* Hero */}
+      <AboutHero />
+
+      {/* Story sections */}
+      <StorySection
+        title="Coding is My Craft"
+        text="Building clean, interactive web applications is where I shine. From MERN stack to Remix and Three.js, I love pushing boundaries."
+        img={DanceImg}
+      />
+      <StorySection
+        title="Dance – My Soul Language"
+        text="I am a trained classical dancer. Dance has taught me discipline, rhythm, and expression – qualities I carry into my code."
+        img={DanceImg}
+        reverse
+      />
+      <StorySection
+        title="Sketching & Creativity"
+        text="Art is another part of me. I love sketching and drawing, which fuels my eye for design and detail in development."
+        img={SketchImg}
+      />
+      <StorySection
+        title="Movies & Series"
+        text="A storyteller at heart, I watch movies and series to learn narratives, emotions, and design inspiration."
+        img={MoviesImg}
+        reverse
+      />
+      <StorySection
+        title="My New Passion – Reading"
+        text="Recently, I started reading books and it has become my favorite hobby. Every book is a new world, inspiring me more than anything else."
+        img={ReadingImg}
+      />
+
+      {/* Education Timeline */}
+      <section className="py-20 px-6 max-w-5xl mx-auto oswald-sub ">
+        <SectionHeader
+          title="Education"
+          subtitle="A timeline of my academic background"
+        />
+        <Timeline
+          items={[
+            {
+              year: "2018",
+              title: "Albab Central School",
+              description: "Completed 10th grade with strong focus on Science & Math.",
+              grade: "Grade: 85%",
+              image: Schl1Img,
+            },
+            {
+              year: "2018 – 2020",
+              title: "Government Higher Secondary School, Kerala",
+              description: "Higher Secondary in Computer Science stream.",
+              grade: "Grade: 92%",
+              image: Schl2Img,
+            },
+            {
+              year: "2020 – 2024",
+              title: "B.Tech in Computer Science – XYZ College",
+              description: "Focused on MERN stack, React.js, Node.js, and full-stack dev.",
+              grade: "CGPA: 8.7",
+              image: CollegeImg,
+            },
+          ]}
+        />
+      </section>
+
+      {/* Tech Stack */}
+      <section className="py-20 px-6 max-w-6xl mx-auto">
+        <SectionHeader title="Tech I Work With" subtitle="Tools that empower my creativity" />
+        <TechStackGrid />
+      </section>
+
+      {/* Call to Action */}
+      <CallToAction />
     </div>
   );
 }

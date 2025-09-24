@@ -129,7 +129,7 @@ export default function Projects() {
                   className="rounded-xl shadow-lg transform group-hover:scale-[1.02] transition duration-300"
                 />
               )}
-              <span className="oswald-sub absolute bottom-4 right-4 bg-white/90 text-black px-4 py-2 text-sm rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition">
+              <span className="oswald-sub absolute bottom-4 right-4 bg-black/80 text-white px-4 py-2 text-sm rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition">
                 View project →
               </span>
             </a>
