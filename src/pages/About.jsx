@@ -5,6 +5,7 @@ import Timeline from "../components/Timeline";
 import TechStackGrid from "../components/TechStackGrid";
 import CallToAction from "../components/CallToAction";
 import AboutHero from "../components/AboutHero";
+import Sidebar from "../components/Navbar";
 
 import DanceImg from "../assets/images/dance.jpg";
 import SketchImg from "../assets/images/sketch.jpg";
@@ -18,6 +19,7 @@ export default function About() {
   return (
     <div className="bg-black text-white overflow-hidden">
       {/* Hero */}
+      <Sidebar/>
       <AboutHero />
 
       {/* Story sections */}

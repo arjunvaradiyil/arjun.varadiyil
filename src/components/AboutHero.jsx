@@ -18,7 +18,7 @@ export default function AboutHero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 1 }}
       >
-        Hi, I’m <span className="text-[#34ebd2]">Gouri Nandhana</span>,  
+        Hi, I’m <span className="text-[#34ebd2]">Gourinandhana E S</span>,  
         a frontend developer and classical dancer, blending logic with creativity.  
         Other than coding, I sketch, dance, watch movies, and recently fell in love with reading.
       </motion.p>
