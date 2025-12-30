@@ -136,7 +136,7 @@ export default function Contactform() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:border-[#34ebd2] focus:ring-2 focus:ring-[#34ebd2] outline-none"
+                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:border-[#ff4925] focus:ring-2 focus:ring-[#ff4925] outline-none"
                   rows="4"
                   placeholder="Tell me about your project..."
                   required
