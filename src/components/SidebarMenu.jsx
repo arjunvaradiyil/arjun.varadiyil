@@ -71,14 +71,14 @@ export default function SidebarMenu({ open, setOpen }) {
         <div className="mt-12 px-10 space-y-8 text-sm lg:absolute lg:bottom-12 lg:left-0 lg:right-0">
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-2">(Email)</p>
-            <p className="text-[#ff4925] text-[22px] sm:text-[22px] md:text-[22px] lg:text-[22px] font-semibold">
+            <p className="text-[#ff4925] text-[22px] sm:text-[20px] md:text-[24px] lg:text-[22px] font-semibold">
               gourinandhana028@gmail.com
             </p>
           </div>
 
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-3">(Socials)</p>
-            <div className="grid grid-cols-2 gap-x-16 gap-y-3 text-[#cacaca] text-[22px]">
+            <div className="grid grid-cols-2 gap-x-16 gap-y-3 text-[#cacaca] text-[22px] sm:text-[20px] md:text-[24px] lg:text-[22px]">
                 {["LinkedIn", "Whatsapp", "Github", "Resume"].map((item, i) => (
                     <a
                     key={i}
