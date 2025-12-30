@@ -45,7 +45,7 @@ export default function SidebarMenu({ open, setOpen }) {
                 return (
                 <div key={i} className="group">
                     <Link
-                        to={`/${item.toLowerCase()}`}
+                        to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
                         onClick={() => {
                             setActive(item);
                             setOpen(false);
