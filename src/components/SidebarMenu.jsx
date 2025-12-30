@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SidebarMenu({ open, setOpen }) {
     const [active, setActive] = useState("HOME");
@@ -43,24 +44,27 @@ export default function SidebarMenu({ open, setOpen }) {
 
                 return (
                 <div key={i} className="group">
-                    <a
-                    href={`/${item.toLowerCase()}`}
-                    onClick={() => {
-                        setActive(item);
-                        setOpen(false);
-                    }}
-                    className="relative block py-2 mt-5 text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#cacaca] transition-all duration-300 leading-none scale-x-[0.9] origin-left " style={{ letterSpacing: "-0.02em" }} >
-
+                    <Link
+                        to={`/${item.toLowerCase()}`}
+                        onClick={() => {
+                            setActive(item);
+                            setOpen(false);
+                        }}
+                        className="relative block py-2 mt-5 text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#cacaca]
+                        transition-all duration-300 leading-none scale-x-[0.9] origin-left"
+                        style={{ letterSpacing: "-0.02em" }}
+                        >
                         {item}
+
                         {isActive && (
-                        <span className="inline-block ml-2 w-2 h-2 bg-[#ff4925] translate-y-[-0.15em]" />
+                            <span className="inline-block ml-2 w-2 h-2 bg-[#ff4925] translate-y-[-0.15em]" />
                         )}
 
                         <span
-                        className={` absolute left-0 bottom-0 h-[1px] w-0 bg-[#ff4925] transition-all duration-500 
-                         group-hover:w-[50%]  `}
+                            className="absolute left-0 bottom-0 h-[1px] w-0 bg-[#ff4925]
+                            transition-all duration-500 group-hover:w-[50%]"
                         />
-                    </a>
+                    </Link>
                     <div className="h-px w-full bg-[#2b2b2b] mt-5" />
                 </div>
                 );
@@ -71,7 +75,7 @@ export default function SidebarMenu({ open, setOpen }) {
         <div className="mt-12 px-10 space-y-8 text-sm lg:absolute lg:bottom-12 lg:left-0 lg:right-0">
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-2">(Email)</p>
-            <p className="text-[#ff4925] text-[22px] sm:text-[15px] md:text-[24px] lg:text-[22px] font-semibold">
+            <p className="text-[#ff4925] text-[22px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-semibold">
               gourinandhana028@gmail.com
             </p>
           </div>
