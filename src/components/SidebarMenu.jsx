@@ -75,7 +75,7 @@ export default function SidebarMenu({ open, setOpen }) {
         <div className="mt-12 px-10 space-y-8 text-sm lg:absolute lg:bottom-12 lg:left-0 lg:right-0">
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-2">(Email)</p>
-            <p className="text-[#ff4925] text-[22px] sm:text-[20px] md:text-[20px] lg:text-[20px] font-semibold">
+            <p className="text-[#ff4925] text-[20px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-semibold">
               gourinandhana028@gmail.com
             </p>
           </div>
