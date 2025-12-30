@@ -86,7 +86,7 @@ export default function SidebarMenu({ open, setOpen }) {
                     className="group relative inline-block w-fit"
                     >
                     <span className="relative inline-block pb-1">
-                        {item} ↗
+                        {item} 
 
                         {/* underline */}
                         <span
