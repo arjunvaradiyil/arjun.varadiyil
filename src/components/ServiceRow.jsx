@@ -8,13 +8,17 @@ export default function ServiceRow({ service, active, setActive }) {
 
   return (
     <motion.div
-      onMouseEnter={() => setActive(service.id)}
-      onMouseLeave={() => setActive(null)}
-      className="border-t border-white/15 cursor-pointer "
+      onMouseEnter={() => {
+            if (window.innerWidth >= 768) setActive(service.id);
+       }}
+       onMouseLeave={() => {
+        if (window.innerWidth >= 768) setActive(null);
+       }}
+      className='border-t border-[#333] cursor-pointer font-["Geist","Geist Placeholder",sans-serif]'
     >
       {/* HEADER */}
       <motion.div
-        className="flex items-center justify-between py-16"
+        className="flex items-center justify-between py-12"
         animate={{
           scale: isOpen ? 1.05 : 1,
         }}
@@ -44,6 +48,16 @@ export default function ServiceRow({ service, active, setActive }) {
             >
             {service.title}
         </motion.h3>
+        {/* PLUS BUTTON (mobile & tablet only) */}
+        <button
+        onClick={(e) => {
+            e.stopPropagation();
+            setActive(isOpen ? null : service.id);
+        }}
+        className="md:hidden text-[#ff4925] text-3xl font-light"
+        >
+        {isOpen ? "−" : "+"}
+        </button>
       </motion.div>
 
       {/* EXPAND CONTENT */}
@@ -94,9 +108,28 @@ export default function ServiceRow({ service, active, setActive }) {
                   {service.title}
                 </h4>
 
-                <p className="text-gray-400 mb-8 max-w-md text-lg">
+                <p className="text-[#8f8f8f] mb-8 max-w-md text-lg">
                   {service.description}
                 </p>
+
+                <ul className="mb-8 space-y-3">
+                  {service.features.map((feature, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{
+                        delay: 0.1 * index,
+                        duration: 0.5,
+                        ease: easeSlow,
+                      }}
+                      className="flex items-start gap-3 text-[#8f8f8f] text-[16px]"
+                    >
+                      <span className="text-[#ff4925] mt-1">•</span>
+                      <span>{feature}</span>
+                    </motion.li>
+                  ))}
+                </ul>
 
                 <div className="flex flex-wrap gap-4">
                   {service.tags.map((tag) => (
@@ -108,7 +141,7 @@ export default function ServiceRow({ service, active, setActive }) {
                         duration: 0.5,
                         ease: easeSlow,
                       }}
-                      className="px-5 py-2 rounded-full border border-white/20 text-sm text-gray-300"
+                      className="px-5 py-2 rounded-full border border-[#333] text-sm text-[#8f8f8f]"
                     >
                       {tag}
                     </motion.span>
