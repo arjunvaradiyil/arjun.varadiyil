@@ -4,7 +4,8 @@ import Navbar from '../components/Navbar'
 import Skills from '../components/Skills'
 import Contactform from '../components/Contactform'
 import AboutPreview from '../components/AboutPreview'
-import Testing from '../components/Testing'
+// import Testing from '../components/Testing'
+import ServicesSection from '../components/Services'
 
 const Home = () => {
   return (
@@ -12,7 +13,8 @@ const Home = () => {
         <Navbar />
         <Banner/>
         <AboutPreview/>
-        <Testing/>
+        {/* <Testing/> */}
+        <ServicesSection/>
         <Skills/>        
         <Contactform/>
     </div>
