@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"],
         anton: ['"Anton"', '"Anton Placeholder"', 'sans-serif'],
+        antonio: ["Antonio", "sans-serif"],
       },
     },
   },

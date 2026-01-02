@@ -34,7 +34,7 @@ export default function ServiceRow({ service, active, setActive }) {
           transition={{ duration: 0.8, ease: easeSlow }}
         >
           {service.id}
-          <span className="h-1 w-1 text-[#ff4925]">.</span>
+          <span className="h-1 w-1 text-lime-400">.</span>
         </motion.span>
 
         {/* Title */}
@@ -54,7 +54,7 @@ export default function ServiceRow({ service, active, setActive }) {
             e.stopPropagation();
             setActive(isOpen ? null : service.id);
         }}
-        className="md:hidden text-[#ff4925] text-3xl font-light"
+        className="md:hidden text-lime-400 text-3xl font-light"
         >
         {isOpen ? "−" : "+"}
         </button>
@@ -125,7 +125,7 @@ export default function ServiceRow({ service, active, setActive }) {
                       }}
                       className="flex items-start gap-3 text-[#8f8f8f] text-[16px]"
                     >
-                      <span className="text-[#ff4925] mt-1">•</span>
+                      <span className="text-lime-400 mt-1">•</span>
                       <span>{feature}</span>
                     </motion.li>
                   ))}

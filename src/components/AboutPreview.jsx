@@ -64,7 +64,7 @@ export default function AboutPreview() {
             <h1 className="bebas-neue-regular text-6xl lg:text-9xl font-bold text-white leading-tight">
               BUILDING
               <br />
-              <span className="text-[#34ebd2] ">IDEAS INTO </span>
+              <span className="text-lime-400 ">IDEAS INTO </span>
               <br />
               REALITY
             </h1>
@@ -79,7 +79,7 @@ export default function AboutPreview() {
             <div className="pt-4">
               <a href="/about">
                 <button 
-                    className="inline-flex items-center gap-2 border border-gray-400 bg-black oswald-sub text-[#34ebd2] px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-400 transition-colors duration-200"
+                    className="inline-flex items-center gap-2 border border-gray-400 bg-black oswald-sub text-lime-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-400 transition-colors duration-200"
                 >
                     Know More
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

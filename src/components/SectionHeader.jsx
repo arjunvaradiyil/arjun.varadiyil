@@ -10,10 +10,10 @@ export default function SectionHeader({ title, subtitle }) {
       viewport={{ once: true }}
       className="text-center mb-16"
     >
-      <h2 className="text-4xl md:text-6xl bebas-neue-regular tracking-wide text-[#34ebd2]">
+      <h2 className="text-4xl md:text-6xl bebas-neue-regular tracking-wide text-lime-400">
         {title}
       </h2>
-      <p className="mt-3 oswald-sub text-gray-400 text-lg md:text-xl">
+      <p className="mt-3 text-gray-400 text-lg md:text-xl">
         {subtitle}
       </p>
     </motion.div>

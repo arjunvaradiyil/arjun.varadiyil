@@ -1,127 +1,80 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import React from "react";
+import { Linkedin, Github, Mail, Download } from "lucide-react";
+import img1 from "../assets/images/profilepic.png"
 
-const ease = [0.22, 1, 0.36, 1];
+export default function AboutSection() {
 
-const sections = [
-  {
-    image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61",
-  },
-];
+  const imageSrc = img1;
 
-export default function AboutHero() {
-  const containerRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
 
   return (
-    <section
-      ref={containerRef}
-      className="relative bg-black text-gray-400 px-6 md:px-16 py-32"
-    >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
-
-        {/* LEFT CONTENT */}
-        <div className="space-y-[90vh]">
-
-          {/* ABOUT ME */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, ease }}
-            className="max-w-xl"
-          >
-            <h2 className="text-6xl md:text-8xl font-bold uppercase text-white mb-10">
-              About Me
-            </h2>
-
-            <h3 className="text-sm tracking-widest text-gray-300 mb-6">
-              DUNCAN ROBERT
-            </h3>
-
-            <p className="text-lg leading-relaxed text-gray-400 space-y-4">
-              I’m a digital designer and Framer developer passionate about crafting meaningful, user-centered experiences.
-              <br /><br />
-              With a strong foundation in visual design and a deep understanding of interactive systems, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.
-            </p>
-
-            {/* Social icons (visual placeholders) */}
-            <div className="flex gap-6 mt-10 text-white">
-              <span>X</span>
-              <span>IG</span>
-              <span>BE</span>
-              <span>DR</span>
-            </div>
-          </motion.div>
-
-          {/* WHAT I CAN DO */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, ease }}
-            className="max-w-xl"
-          >
-            <h2 className="text-6xl md:text-7xl font-bold uppercase text-white mb-8">
-              What I Can Do<br />For You
-            </h2>
-
-            <p className="text-lg text-gray-400 mb-12">
-              As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.
-            </p>
-
-            <ul className="space-y-6 text-xl text-white">
-              <li className="border-b border-gray-700 pb-4">1. UI/UX Design</li>
-              <li className="border-b border-gray-700 pb-4 text-orange-400">
-                2. Graphic Design
-              </li>
-              <li className="border-b border-gray-700 pb-4">3. Web Design</li>
-              <li className="border-b border-gray-700 pb-4">4. Branding</li>
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* RIGHT STICKY IMAGE */}
-        <div className="relative hidden md:block">
-          <div className="sticky top-28 h-[540px] rounded-3xl overflow-hidden">
-            {sections.map((item, i) => {
-              const start = i / sections.length;
-              const end = (i + 1) / sections.length;
-
-              const opacity = useTransform(
-                scrollYProgress,
-                [start, start + 0.2, end - 0.2, end],
-                [0, 1, 1, 0]
-              );
-
-              const scale = useTransform(
-                scrollYProgress,
-                [start, end],
-                [1.05, 1]
-              );
-
-              return (
-                <motion.img
-                  key={i}
-                  src={item.image}
-                  className="absolute inset-0 w-full h-full object-cover rounded-3xl"
-                  style={{ opacity, scale }}
-                />
-              );
-            })}
+  <>
+    {/* FIRST ABOUT HERO SECTION */}
+    <section className="w-full bg-black px-6 md:px-20 py-24 mt-12">
+      {/* AVAILABLE BADGE */}
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10">
+          <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-black/80 px-4 py-1.5 backdrop-blur">
+            <span className="h-2 w-2 rounded-full bg-lime-400 animate-pulse" />
+            <span className="text-sm font-sans text-gray-300 tracking-wide">
+              Available for work
+            </span>
           </div>
         </div>
+      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-16 relative">
 
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="w-full md:w-1/2"
+        >
+          <h1 className="text-[48px] md:text-[120px] font-antonio font-bold text-white leading-none">
+            ABOUT ME
+          </h1>
+
+          <h3 className="mt-10 text-[32px] font-antonio font-semibold text-lime-400">
+            GOURINANDHANA E S
+          </h3>
+
+          <p className="mt-4 max-w-xl text-[#cacaca] text-[18px] leading-relaxed">
+            I'm a digital designer and Framer developer passionate about crafting
+            meaningful, user-centered experiences.
+          </p>
+
+          <p className="mt-4 max-w-xl text-gray-400 text-[18px] leading-relaxed">
+            With a strong foundation in visual design and a deep understanding of
+            interactive systems, I bring ideas to life through thoughtful design,
+            smooth animations, and responsive layouts.
+          </p>
+
+          <div className="mt-8 flex items-center gap-6 text-[#cacaca] text-2xl">
+            <Linkedin className="hover:text-orange-500 cursor-pointer" />
+            <Github className="hover:text-orange-500 cursor-pointer" />
+            <Mail className="hover:text-orange-500 cursor-pointer" />
+            <Download className="hover:text-orange-500 cursor-pointer" />
+          </div>
+        </motion.div>
+
+        {/* IMAGE (SHARED) */}
+        <div className="rounded-2xl overflow-hidden bg-gray-900 shadow-xl relative">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={imageSrc}
+              src={imageSrc}
+              alt="About profile"
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="w-[280px] md:w-[280px] lg:w-[350px] h-[470px] object-cover"
+            />
+          </AnimatePresence>
+        </div>
       </div>
     </section>
-  );
+  </>
+);
 }

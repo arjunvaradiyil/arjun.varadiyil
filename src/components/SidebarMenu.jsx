@@ -1,9 +1,20 @@
 import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link , useLocation } from "react-router-dom";
 
 export default function SidebarMenu({ open, setOpen }) {
-    const [active, setActive] = useState("HOME");
+    const location = useLocation();
+
+    const getActiveFromPath = () => {
+      if (location.pathname === "/") return "HOME";
+      return location.pathname.replace("/", "").toUpperCase();
+    };
+
+    const [active, setActive] = useState(getActiveFromPath());
+
+    useEffect(() => {
+      setActive(getActiveFromPath());
+    }, [location.pathname]);
 
   return (
     <>
@@ -25,7 +36,7 @@ export default function SidebarMenu({ open, setOpen }) {
         {/* HEADER */}
         <div className="flex items-center justify-between px-8 py-6 border-b border-[#2b2b2b]">
           <div className="text-[16px] text-[#8f8f8f] tracking-wide uppercase">
-            <span className="text-[#ff4925] mr-3">■</span>
+            <span className="text-lime-400 mr-3">■</span>
             Menu
           </div>
 
@@ -39,43 +50,37 @@ export default function SidebarMenu({ open, setOpen }) {
 
         {/* NAV LINKS */}
         <nav className="px-10 py-2 font-anton">
-            {["HOME", "WORKS", "ABOUT", "CONTACT"].map((item, i) => {
-                const isActive = active === item;
+        {["HOME", "PROJECTS", "ABOUT", "CONTACT"].map((item, i) => {
+          const isActive = active === item;
+          return (
+            <div key={i} className="group">
+              <Link
+                to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
+                onClick={() => setOpen(false)}
+                className="relative block py-2 mt-5 text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#cacaca]
+                  transition-all duration-300 leading-none scale-x-[0.9] origin-left"
+                style={{ letterSpacing: "-0.02em" }}
+              >
+                {item}
 
-                return (
-                <div key={i} className="group">
-                    <Link
-                        to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
-                        onClick={() => {
-                            setActive(item);
-                            setOpen(false);
-                        }}
-                        className="relative block py-2 mt-5 text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#cacaca]
-                        transition-all duration-300 leading-none scale-x-[0.9] origin-left"
-                        style={{ letterSpacing: "-0.02em" }}
-                        >
-                        {item}
+                {isActive && (
+                  <span className="inline-block ml-2 w-2 h-2 bg-lime-400 translate-y-[-0.15em]" />
+                )}
 
-                        {isActive && (
-                            <span className="inline-block ml-2 w-2 h-2 bg-[#ff4925] translate-y-[-0.15em]" />
-                        )}
-
-                        <span
-                            className="absolute left-0 bottom-0 h-[1px] w-0 bg-[#ff4925]
-                            transition-all duration-500 group-hover:w-[50%]"
-                        />
-                    </Link>
-                    <div className="h-px w-full bg-[#2b2b2b] mt-5" />
-                </div>
-                );
-            })}
-        </nav>
+                <span className="absolute left-0 bottom-0 h-[1px] w-0 bg-lime-400
+                  transition-all duration-500 group-hover:w-[50%]" />
+              </Link>
+              <div className="h-px w-full bg-[#2b2b2b] mt-5" />
+            </div>
+          );
+        })}
+      </nav>
 
         {/* FOOTER INFO */}
         <div className="mt-12 px-10 space-y-8 text-sm lg:absolute lg:bottom-12 lg:left-0 lg:right-0">
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-2">(Email)</p>
-            <p className="text-[#ff4925] text-[20px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-semibold">
+            <p className="text-lime-400 text-[20px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-semibold">
               gourinandhana028@gmail.com
             </p>
           </div>
@@ -96,7 +101,7 @@ export default function SidebarMenu({ open, setOpen }) {
                         <span
                         className="
                             absolute left-0 bottom-0 h-[1px] w-0
-                            bg-[#ff4925]
+                            bg-lime-400
                             transition-all duration-300
                             group-hover:w-full
                         "

@@ -1,9 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
-import React, { useState } from "react";
-import ServiceRow from './ServiceRow';
-import { skills } from "../data/skills";
-
-const services = [
+export const skills = [
   {
     id: "01",
     title: "Frontend",
@@ -22,8 +17,7 @@ const services = [
   {
     id: "02",
     title: "Full Stack",
-    description:
-      "Scalable, secure, production-ready web applications.",
+    description: "Scalable, secure, production-ready web applications.",
     features: [
       "MERN stack application development",
       "REST & GraphQL APIs",
@@ -37,8 +31,7 @@ const services = [
   {
     id: "03",
     title: "CMS",
-    description:
-      "Flexible content management solutions with powerful admin control.",
+    description: "Flexible content management solutions with powerful admin control.",
     features: [
       "Headless CMS using Strapi",
       "WordPress custom themes & integrations",
@@ -52,8 +45,7 @@ const services = [
   {
     id: "04",
     title: "Deployment",
-    description:
-      "From development to launch with reliable hosting and integrations.",
+    description: "From development to launch with reliable hosting and integrations.",
     features: [
       "Vercel deployment & CI/CD",
       "Firebase authentication & database",
@@ -61,38 +53,7 @@ const services = [
       "Third-party API integrations",
     ],
     image:
-      "https://i.ytimg.com/vi/7WrU5KQRw2o/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA0JgOnaQbzeVlKoc_CWWeVH-3t5A",
-    tags: ["Firebase", "Vercel", "Git", "APIs"],
+      "https://i.ytimg.com/vi/7WrU5KQRw2o/hq720.jpg",
+    tags: ["Firebase", "Vercel", "Git", "APIs", "Postman"],
   },
 ];
-
-export default function Services() {
-  const [active, setActive] = useState(null);
-
-  return (
-    <section className="bg-black text-white px-6 md:px-36 py-36">
-      {/* Heading */}
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="text-[12vw] md:text-9xl font-anton font-bold uppercase tracking-wide mb-20 text-gray-200"
-      >
-        What can I do for you
-      </motion.h2>
-
-      {/* Services */}
-      <div className="space-y-1">
-        {skills.map((service) => (
-          <ServiceRow
-            key={service.id}
-            service={service}
-            active={active}
-            setActive={setActive}
-          />
-        ))}
-      </div>
-    </section>
-  );
-}
