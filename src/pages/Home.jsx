@@ -1,10 +1,8 @@
 import React from 'react'
 import Banner from '../components/Banner'
 import Navbar from '../components/Navbar'
-import Skills from '../components/Skills'
 import Contactform from '../components/Contactform'
 import AboutPreview from '../components/AboutPreview'
-// import Testing from '../components/Testing'
 import ServicesSection from '../components/Services'
 
 const Home = () => {
@@ -13,9 +11,7 @@ const Home = () => {
         <Navbar />
         <Banner/>
         <AboutPreview/>
-        {/* <Testing/> */}
-        <ServicesSection/>
-        <Skills/>        
+        <ServicesSection/>      
         <Contactform/>
     </div>
   )

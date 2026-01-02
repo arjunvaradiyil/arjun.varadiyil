@@ -13,7 +13,7 @@ export default function AboutSection() {
     {/* FIRST ABOUT HERO SECTION */}
     <section className="w-full bg-black px-6 md:px-20 py-24 mt-12">
       {/* AVAILABLE BADGE */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10">
+        <div className="fixed top-8 left-1/2 -translate-x-1/2 z-10">
           <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-black/80 px-4 py-1.5 backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-lime-400 animate-pulse" />
             <span className="text-sm font-sans text-gray-300 tracking-wide">
@@ -51,10 +51,10 @@ export default function AboutSection() {
           </p>
 
           <div className="mt-8 flex items-center gap-6 text-[#cacaca] text-2xl">
-            <Linkedin className="hover:text-orange-500 cursor-pointer" />
-            <Github className="hover:text-orange-500 cursor-pointer" />
-            <Mail className="hover:text-orange-500 cursor-pointer" />
-            <Download className="hover:text-orange-500 cursor-pointer" />
+            <Linkedin className="hover:text-lime-400 cursor-pointer" />
+            <Github className="hover:text-lime-400 cursor-pointer" />
+            <Mail className="hover:text-lime-400 cursor-pointer" />
+            <Download className="hover:text-lime-400 cursor-pointer" />
           </div>
         </motion.div>
 

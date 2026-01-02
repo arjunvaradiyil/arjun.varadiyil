@@ -11,16 +11,19 @@ export const projects = [
     title: "Learnt Accademy",
     description:
       "For Syncorp, we developed a comprehensive sales software suite featuring a custom CRM, call center tools, AI-driven automations, local payment integration, and a multilingual client portal.",
-    industry: "Sales",
+    industry: "E-learning",
     services: "Full Stack Development",
     image: image1,
     link: "#",
     logo: "https://learnt-accademy-frontend.vercel.app/assets/logoImg-BiGmV2N8.png",
     type: "image",
+    gitLink: "https://github.com/your-username/learnt-academy", 
+    previewLink: "https://learnt-accademy-frontend.vercel.app", 
+    linkedinLink: "https://www.linkedin.com/in/your-linkedin-profile",  
   },
   {
     id: "002",
-    title: "VanguardTech",
+    title: "Design Declares UK",
     description:
       "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
     industry: "Technology",
@@ -29,10 +32,13 @@ export const projects = [
     link: "#",
     logo: "https://via.placeholder.com/40x40",
     type: "video",
+    gitLink: "https://github.com/your-username/learnt-academy", 
+    previewLink: "https://learnt-accademy-frontend.vercel.app", 
+    linkedinLink: "https://www.linkedin.com/in/your-linkedin-profile", 
   },
   {
     id: "003",
-    title: "VanguardTech",
+    title: "RBAC Project",
     description:
       "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
     industry: "Technology",
@@ -41,6 +47,9 @@ export const projects = [
     link: "#",
     logo: "https://via.placeholder.com/40x40",
     type: "image",
+    gitLink: "https://github.com/your-username/learnt-academy", 
+    previewLink: "https://learnt-accademy-frontend.vercel.app", 
+    linkedinLink: "https://www.linkedin.com/in/your-linkedin-profile", 
   },
   {
     id: "004",
@@ -53,10 +62,13 @@ export const projects = [
     link: "#",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ikea_logo.svg/1280px-Ikea_logo.svg.png",
     type: "video",
+    gitLink: "https://github.com/your-username/learnt-academy", 
+    previewLink: "https://learnt-accademy-frontend.vercel.app", 
+    linkedinLink: "https://www.linkedin.com/in/your-linkedin-profile", 
   },
   {
     id: "005",
-    title: "VanguardTech",
+    title: "E-cart",
     description:
       "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
     industry: "Technology",
@@ -65,10 +77,13 @@ export const projects = [
     link: "#",
     logo: "https://via.placeholder.com/40x40",
     type: "image",
+    gitLink: "https://github.com/your-username/learnt-academy", 
+    previewLink: "https://learnt-accademy-frontend.vercel.app", 
+    linkedinLink: "https://www.linkedin.com/in/your-linkedin-profile", 
   },
   {
     id: "006",
-    title: "VanguardTech",
+    title: "Dashboard UI",
     description:
       "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
     industry: "Technology",
@@ -77,5 +92,8 @@ export const projects = [
     link: "#",
     logo: "https://via.placeholder.com/40x40",
     type: "image",
+    gitLink: "https://github.com/your-username/learnt-academy", 
+    previewLink: "https://learnt-accademy-frontend.vercel.app", 
+    linkedinLink: "", 
   },
 ];

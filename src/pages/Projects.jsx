@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import * as THREE from "three";
 import Navbar from '../components/Navbar'
 import { projects } from "../data/projectData";
+import { Github, Link, Linkedin } from "lucide-react";
 
 export default function Projects() {
   const mountRef = useRef(null);
@@ -85,8 +86,8 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h2 className="bebas-neue-regular text-7xl lg:text-8xl font-extrabold tracking-tight">
-            My Projects
+          <h2 className="font-antonio text-7xl lg:text-8xl font-bold text-lime-400">
+            MY PROJECTS
           </h2>
           <p className="bebas-neue-regular mt-4 text-lg text-gray-400">
             Take a look at some of the works I’ve built
@@ -129,15 +130,17 @@ export default function Projects() {
                   className="rounded-xl shadow-lg transform group-hover:scale-[1.02] transition duration-300"
                 />
               )}
-              <span className="oswald-sub absolute bottom-4 right-4 bg-black/80 text-white px-4 py-2 text-sm rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition">
-                View project →
-              </span>
+              <a href={project.previewLink}>
+                <span className=" absolute bottom-4 right-4 bg-black/80 text-white px-4 py-2 text-sm rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition">
+                  View project →
+                </span>
+              </a>
             </a>
 
             {/* Right - Info */}
-            <div className="relative oswald-sub ">
+            <div className="relative ">
               {/* Project Number */}
-              <span className="absolute top-0 right-0 text-[#34ebd2] font-bold text-lg">
+              <span className="absolute top-0 right-0 text-lime-400 font-bold text-lg">
                 {project.id}
               </span>
 
@@ -148,7 +151,7 @@ export default function Projects() {
                   alt={`${project.title} logo`}
                   className="w-20 h-10 rounded-md"
                 />
-                <h3 className=" text-[#34ebd2] text-2xl md:text-3xl font-bold">{project.title}</h3>
+                <h3 className=" text-lime-400 text-2xl md:text-3xl font-bold">{project.title}</h3>
               </div>
 
               {/* Description */}
@@ -164,6 +167,40 @@ export default function Projects() {
                   <span className="block text-gray-500">Technologies Used</span>
                   <span className="font-semibold">{project.services}</span>
                 </div>
+
+                {/* Social Links */}
+              <div className="flex gap-4 mt-6">
+                {project.gitLink && (
+                  <a
+                    href={project.gitLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-lime-400 transition"
+                  >
+                    <Github size={24} />
+                  </a>
+                )}
+                {project.previewLink && (
+                  <a
+                    href={project.previewLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-lime-400 transition"
+                  >
+                    <Link size={24} />
+                  </a>
+                )}
+                {project.linkedinLink && (
+                  <a
+                    href={project.linkedinLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-lime-400 transition"
+                  >
+                    <Linkedin size={24} />
+                  </a>
+                )}
+              </div>
                
               </div>
             </div>
