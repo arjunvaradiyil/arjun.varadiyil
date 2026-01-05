@@ -22,5 +22,5 @@ function App() {
   );
 }
 
-// ref sites : https://nakula.framer.website/ , https://portavia.framer.website/
+// ref sites : https://nakula.framer.website/ , https://portavia.framer.website/, https://motion.dev/examples?utm_source=chatgpt.com
 export default App;

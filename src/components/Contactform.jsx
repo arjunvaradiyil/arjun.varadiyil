@@ -6,7 +6,7 @@ export default function Contactform() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
+    name: "", 
     email: "",
     message: "",
   });
@@ -63,7 +63,7 @@ export default function Contactform() {
       <div className="relative z-10 flex flex-col md:flex-row w-11/12 lg:w-9/12 mx-auto gap-8">
         {/* Left Side Heading */}
         <div className="flex flex-col justify-center w-full md:w-1/2 pr-0 md:pr-12 text-center md:text-left">
-          <h1 className="bebas-neue-regular text-4xl sm:text-4xl md:text-9xl lg:text-10xl font-extrabold leading-tight">
+          <h1 className="bebas-neue-regular text-4xl sm:text-4xl md:text-9xl lg:text-10xl font-extrabold leading-tight text-gray-100">
             Ready? <br />
             <span className="text-lime-400">Let's Talk</span>
           </h1>
@@ -76,7 +76,7 @@ export default function Contactform() {
             {step}/2 Steps
           </div> */}
           {/* Text */}
-          <div className="oswald-font text-4xl mb-4 sm:mb-6 text-white font-extrabold">
+          <div className=" text-3xl mb-4 sm:mb-6 text-gray-100 font-semibold">
             Drop a mail, Lets Make it Happen.
           </div>
 

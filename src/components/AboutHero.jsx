@@ -40,14 +40,13 @@ export default function AboutSection() {
           </h3>
 
           <p className="mt-4 max-w-xl text-[#cacaca] text-[18px] leading-relaxed">
-            I'm a digital designer and Framer developer passionate about crafting
-            meaningful, user-centered experiences.
+            I’m a web developer who loves creating clean, responsive, and dynamic websites.  
           </p>
 
           <p className="mt-4 max-w-xl text-gray-400 text-[18px] leading-relaxed">
-            With a strong foundation in visual design and a deep understanding of
-            interactive systems, I bring ideas to life through thoughtful design,
-            smooth animations, and responsive layouts.
+              With a strong foundation in React, Next.js, and the MERN stack, I focus on building  
+              user-friendly interfaces and efficient solutions. From designing to deployment,  
+              I enjoy bringing ideas to life with detail and precision.
           </p>
 
           <div className="mt-8 flex items-center gap-6 text-[#cacaca] text-2xl">

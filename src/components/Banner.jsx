@@ -1,97 +1,128 @@
-import React,  { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import bgImg from '../assets/images/portfolio_bg.jpg';
+import { motion } from "framer-motion";
+import { Hand } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import ProfileImg from "../assets/images/profilepic.png";
 
 export default function Banner() {
+  const fullText = "GOURI";
+  const [typedText, setTypedText] = useState("");
+  const [showContent, setShowContent] = useState(false);
 
-   const designations = [
-    'FRONTEND DEVELOPER',
-    'BACKEND DEVELOPER',
-    'WORDPRESS DEVELOPER',
-    'UI/UX DESIGNER',
-  ];
-  
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-  
+  // Typewriter Effect
   useEffect(() => {
+    let index = 0;
     const interval = setInterval(() => {
-      setIsVisible(false);
-      
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => 
-          prevIndex === designations.length - 1 ? 0 : prevIndex + 1
-        );
-        setIsVisible(true);
-      }, 300);
-    }, 2500);
-    
-    return () => clearInterval(interval);
-  }, [designations.length]);
+      setTypedText(fullText.slice(0, index + 1));
+      index++;
 
+      if (index === fullText.length) {
+        clearInterval(interval);
+        setTimeout(() => setShowContent(true), 400);
+      }
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="relative flex h-screen w-full text-white overflow-hidden">
+    <section className="relative min-h-screen w-full bg-black flex flex-col items-center justify-center px-4 overflow-hidden">
 
-      {/* Content */}
-      <div className="flex-1 flex flex-col justify-center items-center text-center px-6 relative z-10 mt-16">
+      {/* TYPEWRITER BG TEXT */}
+      <motion.h1
+        initial={{ opacity: 1 }}
+        animate={{ opacity: showContent ? 0 : 1 }}
+        transition={{ duration: 0.6 }}
+        className="absolute text-[120px] sm:text-[160px] lg:text-[260px] font-anton text-white/5 select-none pointer-events-none"
+      >
+        {typedText}
+      </motion.h1>
 
-      {/* Profile splash image (only visible on <530px) */}
-     <div className="splash-wrapper mb-6 mt-12">
-        <img
-          src="https://cdn.pixabay.com/photo/2024/01/16/22/25/ai-generated-8513200_1280.jpg"
-          alt="menu visual"
-          className="splash-image"
-        />
-      </div>
+      {/* MAIN CONTENT */}
+      {showContent && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 text-white w-full max-w-6xl"
+        >
+          {/* Name */}
+          <p className="tracking-widest font-anton text-[16px] sm:text-[18px] text-gray-400 text-center mb-4">
+            GOURINANDHANA ES
+          </p>
 
+          {/* DESKTOP SPLIT / MOBILE STACK */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6">
 
-      {/* Heading */}
-      <div className="bebas-neue-regular text-white/80 text-2xl sm:text-2xl md:text-3xl tracking-widest font-light uppercase mb-10">
-        GOURINANDHANA E S
-      </div>
-      
-      {/* Title */}
-      <div className="text-white">
-        
-        {/* Animated Line */}
-        <div className="flex items-center mt-2 sm:mt-4">
-          <div className="relative overflow-hidden">
-            <div 
-              className={`bebas-neue-regular text-7xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-none transition-all duration-300 ease-in-out ${
-                isVisible 
-                  ? 'opacity-100 transform translate-y-0' 
-                  : 'opacity-0 transform -translate-y-4'
-              }`}
+            {/* SOFTWARE */}
+            <motion.h1
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="
+                font-anton tracking-wide
+                text-[42px]
+                sm:text-[56px]
+                lg:text-[100px]
+                hidden lg:block
+              "
             >
-              {designations[currentIndex]}
-            </div>
-          </div>
-        </div>
-      </div>
-      
+              SOFTWARE
+            </motion.h1>
 
-      {/* button */}
-      <div className="mt-32 flex justify-start">
-        <button className="group relative">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:bg-gray-500/40 hover:border-gray-400/70">
-            <ChevronDown 
-              className="w-10 h-10 sm:w-10 sm:h-10 md:w-10 md:h-10 text-white/80 transition-all duration-1000 ease-in-out animate-bounce group-hover:text-white" 
-            />
-          </div>
-        </button>
-      </div>
-    </div>
+            {/* IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4 }}
+              className="relative"
+            >
+              <div className="w-[260px] sm:w-[300px] lg:w-[350px] h-[360px] sm:h-[420px] lg:h-[450px] rounded-2xl overflow-hidden bg-zinc-900">
+                <img
+                  src={ProfileImg}
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-      {/* Background Image with dark overlay */}
-      <div 
-        className="absolute inset-0 -z-20 bg-cover bg-center"
-        style={{ 
-          backgroundImage: `url(${bgImg})`
-        }}
-      />
-      <div className="absolute inset-0 -z-10 bg-black/70" /> 
-    </div>
+              {/* Hand Button */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="absolute left-[-18px] bottom-[40%] w-12 h-12 rounded-full bg-lime-400 flex items-center justify-center cursor-pointer shadow-lg"
+              >
+                <Hand className="text-black w-5 h-5" />
+              </motion.div>
+            </motion.div>
+
+            {/* DEVELOPER */}
+            <motion.h2
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="
+                font-anton tracking-wide
+                text-[42px]
+                sm:text-[56px]
+                lg:text-[100px]
+                hidden lg:block
+              "
+            >
+              DEVELOPER
+            </motion.h2>
+          </div>
+
+          {/* MOBILE / TABLET TEXT */}
+          <div className="lg:hidden text-center mt-6">
+            <h1 className="text-[42px] sm:text-[56px] font-anton">
+              SOFTWARE
+            </h1>
+            <h2 className="text-[42px] sm:text-[56px] font-anton">
+              DEVELOPER
+            </h2>
+          </div>
+
+        </motion.div>
+      )}
+    </section>
   );
 }
