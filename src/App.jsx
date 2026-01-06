@@ -7,17 +7,23 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Hobbies from './pages/Hobbies';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import ScrollToTop from './components/ScrollToTop';
+import ProjectDetails from './pages/ProjectDetails';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path='/projects' element={<Projects/>}/>
+        <Route path="/projects/:projectId" element={<ProjectDetails />} />
         <Route path='/hobbies' element={<Hobbies/>}/>
       </Routes>
+      <ScrollToTopButton/>
     </Router>
   );
 }

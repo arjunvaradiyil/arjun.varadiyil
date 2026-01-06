@@ -78,9 +78,11 @@ export default function WhyMe() {
             user-focused web applications using MERN stack and other modern
             technologies — delivering clean code, smooth UX, and real results.
             <br />
-            <button className="px-6 py-2 rounded-full border border-gray-600 text-[15px] uppercase tracking-widest font-medium text-[#8f8f8f] hover:bg-[#8f8f8f] hover:text-[#cacaca] hover:border-[#8f8f8f] transition mt-6">
-              MY STORY
-            </button>
+            <a href="/about">
+              <button className="px-6 py-2 rounded-full border border-gray-600 text-[15px] uppercase tracking-widest font-medium text-[#8f8f8f] hover:bg-[#8f8f8f] hover:text-[#cacaca] hover:border-[#8f8f8f] transition mt-6">
+                MY STORY
+              </button>
+            </a>
           </motion.p>
         </div>
 
@@ -102,7 +104,7 @@ export default function WhyMe() {
             className="space-y-4"
           >
             <h3 className="text-[#cacaca] text-6xl md:text-8xl font-bold">
-              <Counter to={15} />
+              <Counter to={10} />
               <span className="text-lime-400">+</span>
             </h3>
             <p className="text-[#cacaca] text-[16px]">

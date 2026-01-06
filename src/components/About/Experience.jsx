@@ -1,5 +1,5 @@
 import React from "react";
-import { experienceData } from "../data/experienceData";
+import { experienceData } from "../../data/experienceData";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 

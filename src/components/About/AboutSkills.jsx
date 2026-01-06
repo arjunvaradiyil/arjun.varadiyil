@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
-import {skills} from "../data/skills";
+import {skills} from "../../data/skills";
 
 export default function AboutSkills() {
   const [activeId, setActiveId] = useState(null);

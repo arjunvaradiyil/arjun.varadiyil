@@ -4,6 +4,7 @@ import * as THREE from "three";
 import Navbar from '../components/Navbar'
 import { projects } from "../data/projectData";
 import { Github, Link, Linkedin } from "lucide-react";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Projects() {
   const mountRef = useRef(null);
@@ -81,17 +82,14 @@ export default function Projects() {
 
       {/* Heading Section */}
         <motion.div
-          className="text-center mb-16"
+          className="text-left mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h2 className="font-antonio text-7xl lg:text-8xl font-bold text-lime-400">
+          <h2 className="font-anton text-[100px] lg:text-[140px] font-medium px-4 text-[#cacaca]">
             MY PROJECTS
           </h2>
-          <p className="bebas-neue-regular mt-4 text-lg text-gray-400">
-            Take a look at some of the works I’ve built
-          </p>
         </motion.div>
 
       <div className="max-w-7xl mx-auto space-y-24 relative z-10">
@@ -109,13 +107,13 @@ export default function Projects() {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group"
+              className="relative group transform transition duration-300 hover:scale-[0.96]"
             >
               {project.type === "video" ? (
                 <video
                   src={project.image}
                   alt={project.title}
-                  className="rounded-xl shadow-lg transform group-hover:scale-[1.02] transition duration-300"
+                  className="rounded-xl shadow-lg w-full"
                   autoPlay
                   loop
                   muted
@@ -127,20 +125,20 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-xl shadow-lg transform group-hover:scale-[1.02] transition duration-300"
+                  className="rounded-xl shadow-lg w-full"
                 />
               )}
-              <a href={project.previewLink}>
-                <span className=" absolute bottom-4 right-4 bg-black/80 text-white px-4 py-2 text-sm rounded-lg font-semibold opacity-0 group-hover:opacity-100 transition">
-                  View project →
+              <RouterLink to={`/projects/${project.id}`}>
+                <span className="absolute bottom-4 right-4 border border-[#8f8f8f] bg-black/80 text-[#8f8f8f] px-4 py-2 text-sm rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
+                  VIEW PROJECT →
                 </span>
-              </a>
+              </RouterLink>
             </a>
 
             {/* Right - Info */}
             <div className="relative ">
               {/* Project Number */}
-              <span className="absolute top-0 right-0 text-lime-400 font-bold text-lg">
+              <span className="absolute top-0 right-0 text-[#cacaca] font-bold text-lg">
                 {project.id}
               </span>
 
@@ -151,11 +149,11 @@ export default function Projects() {
                   alt={`${project.title} logo`}
                   className="w-20 h-10 rounded-md"
                 />
-                <h3 className=" text-lime-400 text-2xl md:text-3xl font-bold">{project.title}</h3>
+                <h3 className=" text-[#cacaca] text-2xl md:text-3xl font-bold">{project.title}</h3>
               </div>
 
               {/* Description */}
-              <p className="text-gray-300 mb-6">{project.description}</p>
+              <p className="text-[#8f8f8f] mb-6">{project.description}</p>
 
               {/* Meta Info */}
               <div className="grid grid-cols-2 gap-y-3 text-sm">

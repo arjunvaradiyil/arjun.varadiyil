@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Hand } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import ProfileImg from "../assets/images/profilepic.png";
+import ProfileImg from "../../assets/images/profilepic.png";
 
 export default function Banner() {
   const fullText = "GOURI";
@@ -32,7 +32,7 @@ export default function Banner() {
         initial={{ opacity: 1 }}
         animate={{ opacity: showContent ? 0 : 1 }}
         transition={{ duration: 0.6 }}
-        className="absolute text-[120px] sm:text-[160px] lg:text-[260px] font-anton text-white/5 select-none pointer-events-none"
+        className="absolute text-[120px] sm:text-[160px] lg:text-[260px] font-anton text-white/20 select-none pointer-events-none"
       >
         {typedText}
       </motion.h1>
@@ -64,6 +64,7 @@ export default function Banner() {
                 sm:text-[56px]
                 lg:text-[100px]
                 hidden lg:block
+                text-gray-300
               "
             >
               SOFTWARE
@@ -76,7 +77,7 @@ export default function Banner() {
               transition={{ delay: 0.4 }}
               className="relative"
             >
-              <div className="w-[260px] sm:w-[300px] lg:w-[350px] h-[360px] sm:h-[420px] lg:h-[450px] rounded-2xl overflow-hidden bg-zinc-900">
+              <div className="w-[260px] sm:w-[300px] lg:w-[350px] h-[380px] sm:h-[420px] lg:h-[450px] rounded-2xl overflow-hidden bg-zinc-900">
                 <img
                   src={ProfileImg}
                   alt="Profile"
@@ -105,6 +106,7 @@ export default function Banner() {
                 sm:text-[56px]
                 lg:text-[100px]
                 hidden lg:block
+                text-gray-300
               "
             >
               DEVELOPER

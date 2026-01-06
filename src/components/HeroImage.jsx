@@ -1,4 +1,5 @@
 import React from "react";
+import proImg from "../assets/images/profilepic.png"
 
 const HeroImage = () => {
   return (
@@ -6,7 +7,7 @@ const HeroImage = () => {
       {/* Back Image */}
       <div className="absolute inset-0 rounded-[20px] overflow-hidden">
         <img
-          src="https://c.animaapp.com/mg0le636yAWRYq/assets/VRQgkdWsjawSg1qpCm45HfSY1I.jpeg"
+          src={proImg}
           alt="Portrait of portfolio creator – back view"
           className="w-full h-full object-cover"
         />
@@ -15,7 +16,7 @@ const HeroImage = () => {
       {/* Front Image */}
       <div className="absolute inset-0 rounded-[20px] overflow-hidden">
         <img
-          src="https://c.animaapp.com/mg0le636yAWRYq/assets/qrxY8NagVO40NBrdhFEGgFR3PYY.jpg"
+          src={proImg}
           alt="Portrait of portfolio creator – front view"
           className="w-full h-full object-cover"
         />

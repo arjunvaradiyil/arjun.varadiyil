@@ -9,12 +9,21 @@ export const projects = [
   {
     id: "001",
     title: "Learnt Accademy",
+    tagline: "A clean and strategic portfolio website for a design engineer, built in Framer to showcase projects, personality, and process.",
     description:
       "For Syncorp, we developed a comprehensive sales software suite featuring a custom CRM, call center tools, AI-driven automations, local payment integration, and a multilingual client portal.",
+    year: "2024",
+    timeline: "3 Months",
+    services: "Website • Branding",
     industry: "E-learning",
     services: "Full Stack Development",
+    about:
+      "Learnt Academy is an e-learning platform focused on delivering structured, accessible education through modern digital experiences.",
+    challenges:
+      "The client had a strong product but lacked an online presence that reflected credibility and scalability. The existing layout lacked structure, clarity, and storytelling.",
+    solutions:
+      "We designed a clear, modular layout focused on storytelling, smooth scrolling, and concise content blocks. A scalable structure was introduced to support future expansion.",
     image: image1,
-    link: "#",
     logo: "https://learnt-accademy-frontend.vercel.app/assets/logoImg-BiGmV2N8.png",
     type: "image",
     gitLink: "https://github.com/your-username/learnt-academy", 
@@ -29,7 +38,6 @@ export const projects = [
     industry: "Technology",
     services: "UI/UX + Backend",
     image: video2,
-    link: "#",
     logo: "https://via.placeholder.com/40x40",
     type: "video",
     gitLink: "https://github.com/your-username/learnt-academy", 

@@ -1,9 +1,9 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import React from "react";
 import { Linkedin, Github, Mail, Download } from "lucide-react";
-import img1 from "../assets/images/profilepic.png"
+import img1 from "../../assets/images/profilepic.png"
 
-export default function AboutSection() {
+export default function AboutHero() {
 
   const imageSrc = img1;
 

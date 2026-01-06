@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import ServiceRow from './ServiceRow';
-import { skills } from "../data/skills";
+import { skills } from "../../data/skills";
 
 const services = [
   {

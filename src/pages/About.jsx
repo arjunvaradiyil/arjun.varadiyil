@@ -1,14 +1,14 @@
 import React from "react";
-import SectionHeader from "../components/SectionHeader";
-import Timeline from "../components/Timeline";
-import AboutHero from "../components/AboutHero";
+import SectionHeader from "../components/About/SectionHeader";
+import Timeline from "../components/About/Timeline";
 import Sidebar from "../components/Navbar";
 import Schl1Img from "../assets/images/school1.png"
 import Schl2Img from "../assets/images/school2.png"
 import CollegeImg from "../assets/images/college.jpg"
 import Contactform from "../components/Contactform";
-import AboutSkills from "../components/AboutSkills";
-import Experience from "../components/Experience";
+import AboutSkills from "../components/About/AboutSkills";
+import Experience from "../components/About/Experience";
+import AboutHero from "../components/About/AboutHero";
 
 export default function About() {
   return (

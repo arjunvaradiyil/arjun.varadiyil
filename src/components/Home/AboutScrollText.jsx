@@ -11,11 +11,13 @@ export default function AboutPinnedText() {
   useEffect(() => {
     const words = textRef.current.querySelectorAll(".word");
 
+    const isMobile = window.innerWidth < 768;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: `+=${words.length * 100}`, 
+        end: `+=${words.length * (isMobile ? 40 : 100)}`, 
         scrub: true,
         pin: true,
         anticipatePin: 1,
@@ -24,7 +26,7 @@ export default function AboutPinnedText() {
 
     tl.to(words, {
       color: "#cacaca",
-      stagger: 1,
+      stagger: isMobile ? 0.25 : 1,
       ease: "none",
     });
 
