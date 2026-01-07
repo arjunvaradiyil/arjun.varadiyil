@@ -19,7 +19,7 @@ export default function ProjectDetails() {
       <Navbar />
 
       {/* HERO */}
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 mb-32">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 mb-10">
         {/* Left */}
         <div>
           <h1 className="font-anton text-[80px] md:text-[120px] leading-none text-[#cacaca]">
@@ -44,7 +44,7 @@ export default function ProjectDetails() {
 
           <div>
             <span className="block text-gray-500">(SERVICES)</span>
-            <span className="text-lg">{project.services}</span>
+            <span className="text-lg"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
           </div>
 
           {project.previewLink && (
@@ -82,10 +82,10 @@ export default function ProjectDetails() {
 
       {/* ABOUT PROJECT */}
       <div className="max-w-7xl mx-auto mb-10">
-        <h3 className="font-anton text-3xl mt-4 text-[#cacaca]">
+        <h3 className="font-anton text-4xl mt-4 mb-5 text-[#cacaca]">
           About the Project<span className="text-lime-400">.</span>
         </h3>
-        <p className="font-sans text-[#8f8f8f] max-w-3xl leading-relaxed">
+        <p className="font-sans text-[#8f8f8f] max-w-7xl text-[16px] lg:text-[20px] leading-relaxed">
           {project.about}
         </p>
       </div>
@@ -93,19 +93,19 @@ export default function ProjectDetails() {
       {/* CHALLENGES & SOLUTIONS */}
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 ">
         <div>
-          <h3 className="font-anton text-3xl mb-6 text-[#cacaca]">
+          <h3 className="font-anton text-4xl mb-6 text-[#cacaca]">
             Challenges<span className="text-lime-400">.</span>
           </h3>
-          <p className="font-sans text-[#8f8f8f] leading-relaxed">
+          <p className="font-sans text-[#8f8f8f] text-[16px] lg:text-[20px] leading-relaxed">
             {project.challenges}
           </p>
         </div>
 
         <div>
-          <h3 className="font-anton text-3xl mb-6 text-[#cacaca]">
+          <h3 className="font-anton text-4xl mb-6 text-[#cacaca]">
             Solutions<span className="text-lime-400">.</span>
           </h3>
-          <p className="font-sans text-[#8f8f8f] leading-relaxed">
+          <p className="font-sans text-[#8f8f8f] text-[16px] lg:text-[20px] leading-relaxed">
             {project.solutions}
           </p>
         </div>

@@ -87,7 +87,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h2 className="font-anton text-[100px] lg:text-[140px] font-medium px-4 text-[#cacaca]">
+          <h2 className="font-anton text-[70px] lg:text-[140px] font-medium px-4 text-[#cacaca]">
             MY PROJECTS
           </h2>
         </motion.div>
@@ -163,7 +163,7 @@ export default function Projects() {
                 </div>
                 <div>
                   <span className="block text-gray-500">Technologies Used</span>
-                  <span className="font-semibold">{project.services}</span>
+                  <span className="font-semibold"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
                 </div>
 
                 {/* Social Links */}
