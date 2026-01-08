@@ -50,9 +50,9 @@ export default function AboutHero() {
           </p>
 
           <div className="mt-8 flex items-center gap-6 text-[#cacaca] text-2xl">
-            <Linkedin className="hover:text-lime-400 cursor-pointer" />
-            <Github className="hover:text-lime-400 cursor-pointer" />
-            <Mail className="hover:text-lime-400 cursor-pointer" />
+            <a href="https://www.linkedin.com/in/gourinandhana-e-s-353991251/"><Linkedin className="hover:text-lime-400 cursor-pointer" /></a>
+            <a href="https://github.com/GourinandhanaES"><Github className="hover:text-lime-400 cursor-pointer" /></a>
+            <a href="mailto:www.gourinandhana028@gmail.com"><Mail className="hover:text-lime-400 cursor-pointer" /></a>
             <Download className="hover:text-lime-400 cursor-pointer" />
           </div>
         </motion.div>

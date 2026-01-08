@@ -88,27 +88,34 @@ export default function SidebarMenu({ open, setOpen }) {
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-3">(Socials)</p>
             <div className="grid grid-cols-2 gap-x-16 gap-y-3 text-[#cacaca] text-[22px] sm:text-[20px] md:text-[24px] lg:text-[22px]">
-                {["LinkedIn", "Whatsapp", "Github", "Resume"].map((item, i) => (
-                    <a
-                    key={i}
-                    href="#"
-                    className="group relative inline-block w-fit"
-                    >
-                    <span className="relative inline-block pb-1">
-                        {item} 
+              {[
+                { name: "LinkedIn", url: "https://www.linkedin.com/in/gourinandhana-e-s-353991251/" },
+                { name: "Whatsapp", url: "https://wa.me/9495067805" },
+                { name: "Github", url: "https://github.com/GourinandhanaES" },
+                { name: "Resume", url: "/resume.pdf" }
+              ].map((item, i) => (
+                <a
+                  key={i}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-block w-fit"
+                >
+                  <span className="relative inline-block pb-1">
+                    {item.name}
 
-                        {/* underline */}
-                        <span
-                        className="
-                            absolute left-0 bottom-0 h-[1px] w-0
-                            bg-lime-400
-                            transition-all duration-300
-                            group-hover:w-full
-                        "
-                        />
-                    </span>
-                    </a>
-                ))}
+                    {/* underline */}
+                    <span
+                      className="
+                        absolute left-0 bottom-0 h-[1px] w-0
+                        bg-lime-400
+                        transition-all duration-300
+                        group-hover:w-full
+                      "
+                    />
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
