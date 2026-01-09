@@ -2,6 +2,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import React from "react";
 import { Linkedin, Github, Mail, Download } from "lucide-react";
 import img1 from "../../assets/images/profilepic.png"
+import resume from "../../assets/images/GourinandhanaESResume.pdf"
 
 export default function AboutHero() {
 
@@ -53,7 +54,10 @@ export default function AboutHero() {
             <a href="https://www.linkedin.com/in/gourinandhana-e-s-353991251/"><Linkedin className="hover:text-lime-400 cursor-pointer" /></a>
             <a href="https://github.com/GourinandhanaES"><Github className="hover:text-lime-400 cursor-pointer" /></a>
             <a href="mailto:www.gourinandhana028@gmail.com"><Mail className="hover:text-lime-400 cursor-pointer" /></a>
-            <Download className="hover:text-lime-400 cursor-pointer" />
+            {/* <Download className="hover:text-lime-400 cursor-pointer" /> */}
+            <a href={resume} download="GourinandhaESResume.pdf">
+              <Download className="hover:text-lime-400 cursor-pointer"  />
+            </a>
           </div>
         </motion.div>
 

@@ -1,12 +1,14 @@
 import image1 from "../assets/images/learnt.png";
-import video2 from "../assets/images/design.webm";
 import image3 from "../assets/images/vrv.png";
 import image4 from "../assets/images/fitpeo.png";
 import image5 from "../assets/images/ecart.png";
-import video1 from "../assets/images/ikea.webm";
 import image6 from "../assets/images/carelabs.png";
 import image7 from "../assets/images/docApp.png";
 import image8 from "../assets/images/movieApp.png";
+import image9 from "../assets/images/tolirwa.png"; 
+import video1 from "../assets/images/ikea.webm";
+import video2 from "../assets/images/design.webm";
+import video3 from "../assets/images/weather.webm";
 
 
 export const projects = [
@@ -52,7 +54,7 @@ export const projects = [
     solutions:
       "I structured the UI using modular SCSS with a BEM-inspired approach and built reusable React components for sections like headers, footers, menus, country pages, and interactive elements. Framer Motion was used to implement smooth scroll-based and reveal animations, while React Router enabled multi-page navigation. Props-driven components allowed flexible styling and content variations for different country pages.",
     image: video2,
-    logo: "https://via.placeholder.com/40x40",
+    logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
     type: "video",
     gitLink: "https://github.com/GourinandhanaES/fitpeo-web",
     previewLink: "https://fitpeo-web.vercel.app/",
@@ -101,7 +103,7 @@ export const projects = [
     solutions:
       "React Quill was integrated for rich text editing, enabling users to format document content easily. Firebase Firestore was used for real-time CRUD operations and state synchronization. React Router handled seamless navigation between document listing and detail pages, while Material UI components ensured a consistent, accessible, and responsive interface.",
     image: image7,
-    logo: "",
+    logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
     type: "image",
     gitLink: "https://github.com/GourinandhanaES/Document-App", 
     previewLink: "https://document-app-six.vercel.app/", 
@@ -125,7 +127,7 @@ export const projects = [
     solutions:
       "The OMDb API was integrated using asynchronous requests to fetch movie data dynamically. React state management was used to track the watchlist and watched status, ensuring real-time UI updates. Conditional rendering was applied to manage different movie states, while responsive styling ensured usability across various screen sizes.",
     image: image8,
-    logo: "",
+    logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
     type: "image",
     gitLink: "https://github.com/GourinandhanaES/movie-watchlist", 
     previewLink: "https://movie-watchlist-neon.vercel.app/", 
@@ -150,8 +152,7 @@ export const projects = [
     solutions:
       "Role-based permissions were handled through conditional rendering and centralized access checks based on role data stored in local storage. Protected UI actions ensured that users could only access features allowed by their role. CRUD operations were integrated via REST APIs, and responsive layouts were implemented using Bootstrap for consistent usability across devices.",
     image: image3,
-    link: "#",
-    logo: "https://via.placeholder.com/40x40",
+    logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
     type: "image",
     gitLink: "https://github.com/GourinandhanaES/employee-management", 
     previewLink: "https://employee-management-dun.vercel.app/", 
@@ -188,86 +189,98 @@ export const projects = [
   },
   {
     id: "005",
-    title: "E-cart",
+    title: "ECart website",
+    tagline: "A modern shopping web app with wishlist, cart, and checkout built using React and Vite.",
     description:
-      "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
-    industry: "Technology",
-    services: "UI/UX + Backend",
-    image: image5,
-    link: "#",
-    logo: "https://via.placeholder.com/40x40",
-    type: "image",
-    gitLink: "https://github.com/your-username/learnt-academy", 
-    previewLink: "https://learnt-accademy-frontend.vercel.app", 
-    linkedinLink: "https://www.linkedin.com/in/your-linkedin-profile", 
-  },
-  {
-    id: "007",
-    title: "Tolirwa",
-    tagline: "A clean and strategic portfolio website for a design engineer, built in Framer to showcase projects, personality, and process.",
-    description:
-      "For Syncorp, we developed a comprehensive sales software suite featuring a custom CRM, call center tools, AI-driven automations, local payment integration, and a multilingual client portal.",
+      "E-Cart is a responsive shopping website built with React and Vite that allows users to browse products, view detailed information, manage wishlists and carts, and review a checkout summary with total pricing.",
     year: "2024",
-    timeline: "3 Months",
-    services: "Website • Branding",
-    industry: "E-learning",
-    services: "Full Stack Development",
+    timeline: "Personal Project",
+    services: "Frontend Development • State Management",
+    industry: "E-Commerce & Retail",
+    services: ["React", "Redux", "Tailwind CSS", "JavaScript", "Vercel"],
     about:
-      "Learnt Academy is an e-learning platform focused on delivering structured, accessible education through modern digital experiences.",
+    "E-Cart is a modern shopping web application built with React and Vite, designed to demonstrate global state management using Redux Toolkit. The application uses Redux to manage shared data such as product listings, cart items, and wishlist items across multiple pages, including Home, Product View, Cart, Wishlist, and the Header component. Redux slices were created separately for cart, products, and wishlist to ensure clean and scalable state management. Actions such as adding items to the cart, updating quantities, managing wishlists, and calculating totals are handled centrally, allowing consistent behavior throughout the app without prop drilling. This approach ensures a smooth shopping experience with real-time UI updates, predictable state changes, and a responsive, user-friendly interface across all devices.",
     challenges:
-      "The client had a strong product but lacked an online presence that reflected credibility and scalability. The existing layout lacked structure, clarity, and storytelling.",
+      "The primary challenges included managing global state for cart and wishlist functionality, ensuring accurate price calculations during checkout, and maintaining a responsive layout across different screen sizes.",
     solutions:
-      "We designed a clear, modular layout focused on storytelling, smooth scrolling, and concise content blocks. A scalable structure was introduced to support future expansion.",
-    image: image6,
-    logo: "https://carelabs-khaki.vercel.app/_next/image?url=https%3A%2F%2Fstriking-pleasure-03fbdffa08.media.strapiapp.com%2Fcarelab_logo_7d51f198e5.png&w=640&q=75",
-    type: "image",
-    gitLink: "https://github.com/your-username/learnt-academy", 
-    previewLink: "https://carelabs-khaki.vercel.app/", 
-    linkedinLink: "",  
-  },
-  {
-    id: "010",
-    title: "Fitness App",
-    description:
-      "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
-    industry: "Technology",
-    services: "UI/UX + Backend",
+      "Redux was implemented to handle global state management for cart and wishlist features, enabling predictable and scalable state updates. Vite improved development speed and performance, while Tailwind CSS provided utility-based styling to build a clean, responsive UI efficiently.",
     image: image5,
     link: "#",
-    logo: "https://via.placeholder.com/40x40",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ikea_logo.svg/1280px-Ikea_logo.svg.png",
     type: "image",
-    gitLink: "https://github.com/GourinandhanaES/static-react", 
-    previewLink: "https://static-react-rosy.vercel.app/", 
-    linkedinLink: "", 
+    gitLink: "https://github.com/GourinandhanaES/E-Cart",
+    previewLink: "https://e-cart-green.vercel.app/",
+    linkedinLink: ""
   },
   {
-    id: "009",
-    title: "Weather App",
+    id: "004",
+    title: "Tolirwa Website Migration",
+    tagline: "A high-performance Next.js conversion of an existing WordPress business website with headless data fetching.",
     description:
-      "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
-    industry: "Technology",
-    services: "UI/UX + Backend",
-    image: image5,
-    link: "#",
-    logo: "https://via.placeholder.com/40x40",
+      "A complete migration of the Tolirwa business website from WordPress to a modern, SEO-optimized Next.js frontend. All content is dynamically fetched from the existing WordPress backend using GraphQL, with no hard-coded data, while maintaining design fidelity and improving performance.",
+    year: "2025",
+    timeline: "Company Project",
+    services: "Frontend Development • Headless CMS Integration",
+    industry: "Corporate Website / Business Services",
+    services: ["Next.js","React","GraphQL","Appolo-client","WordPress (Headless)","SEO Optimization","Responsive Design", "Vercel", "Tailwind CSS"],
+    about:
+      "Tolirwa is a business website for Tolirwa Ltd (a company based in Kigali, Rwanda), originally built in WordPress. The project’s goal was to convert this WordPress site into a modern Next.js frontend without changing the original design, while achieving better performance, maintainability, and SEO. Instead of hard-coding content, the application uses GraphQL to fetch all data from the existing WordPress backend dynamically. Pages, menus, and content blocks are rendered at build time or on demand using Next.js rendering strategies to ensure fast loading and strong SEO performance. The site preserves the client’s visual identity and content structure while leveraging server-side and static generation features of Next.js for optimal user experience and search ranking.",
+    challenges:
+      "The primary challenge was replicating the existing WordPress site’s design and content structure while ensuring that all data was sourced dynamically via GraphQL. Maintaining SEO attributes and performance without disrupting the client’s existing search presence was also critical.",
+    solutions:
+      "A headless WordPress architecture was implemented, using GraphQL APIs to fetch all content. Next.js was used to pre-render pages with static generation where possible and server-side rendering where necessary to optimize SEO and performance. CSS and responsive layouts were rebuilt in the Next.js project to match the original WordPress theme precisely, while ensuring improved performance and maintainability.",
+    image: image9,
+    logo: "https://dev.tolirwa.com/wp-content/themes/sreyas/logo.png",
     type: "image",
+    gitLink: "https://github.com/GourinandhanaES/tolirwa",
+    previewLink: "https://tolirwa.vercel.app/",
+    linkedinLink: "" 
+  },
+  {
+    id: "002",
+    tagline: "A real-time weather forecast app built with React and public APIs.",
+    description:
+      "A dynamic React-based weather application that allows users to search for any city and view real-time weather data, including temperature, humidity, and current weather conditions, fetched from an external API.",
+    year: "2024",
+    timeline: "Personal Project",
+    services: "Frontend Development • API Integration",
+    industry: "Weather & Utility Applications",
+    services: [ "React", "OpenWeatherMap API", "JavaScript","CSS", "Vercel"],
+    about:
+      "The Weather App is a responsive and user-friendly React application designed to provide real-time weather information for any location. Users can search by city name to view current temperature, humidity levels, and weather conditions fetched dynamically from the OpenWeatherMap API. The project focuses on API integration, asynchronous data handling, and clean UI presentation. With a modern and minimal design, the app ensures a smooth experience across mobile, tablet, and desktop devices.",
+    challenges:
+      "The main challenges involved handling asynchronous API requests, managing loading and error states, and ensuring accurate data display while keeping the interface clean and responsive.",
+    solutions:
+      "The OpenWeatherMap API was integrated using asynchronous fetch requests to retrieve real-time weather data. Conditional rendering was used to manage loading and error states, while responsive styling ensured usability across different screen sizes.",
+    image: video3,
+    logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
+    type: "video",
     gitLink: "https://github.com/GourinandhanaES/Weather-App", 
     previewLink: "https://weather-app-one-omega-45.vercel.app/", 
     linkedinLink: "", 
   },
   {
-    id: "006",
-    title: "Dashboard UI",
+    id: "001",
+    title: "Healthcare Dashboard UI",
+    tagline: "A modern, pixel-perfect healthcare dashboard UI built with React.",
     description:
-      "For VanguardTech, we designed and built an award-winning data visualization platform with cutting-edge UI/UX and scalable backend infrastructure.",
-    industry: "Technology",
-    services: "UI/UX + Backend",
+      "A frontend-focused healthcare dashboard UI built with React, designed to replicate a pixel-perfect layout from a reference design. The project emphasizes responsive design, reusable components, and clean visual hierarchy using modern CSS techniques.",
+    year: "2024",
+    timeline: "Personal UI Project",
+    services: "Frontend UI Development • Component Design",
+    industry: "Healthcare & UI Design",
+    services: ["React", "CSS3", "Flexbox", "CSS Grid", "Responsive Design", "Vite", "Vercel"],
+    about:
+      "The Healthcare Dashboard UI is a frontend design project focused on recreating a modern, real-world healthcare dashboard using React. The application was built by breaking down the layout into reusable and well-structured components such as sidebar navigation, header, calendar view, health status cards, anatomy section, activity feed, and upcoming schedules. Static mock data was used to simulate real dashboard content without a backend. The project highlights strong UI engineering skills, including responsive layouts, component reusability, and precise control over spacing, colors, and visual hierarchy using Flexbox and CSS Grid.",
+    challenges:
+      "The primary challenge was translating a complex dashboard reference image into a fully responsive React layout while maintaining pixel accuracy, clean component separation, and visual balance across different screen sizes.",
+    solutions:
+      "The dashboard was decomposed into modular React components, each responsible for a specific section of the UI. Flexbox and CSS Grid were used extensively to manage layout structure and responsiveness. Static data files were organized separately to keep presentation and data concerns cleanly separated, resulting in a maintainable and scalable UI architecture.",
     image: image4,
-    link: "#",
-    logo: "https://via.placeholder.com/40x40",
+    logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
     type: "image",
-    gitLink: "https://github.com/your-username/learnt-academy", 
-    previewLink: "https://learnt-accademy-frontend.vercel.app", 
-    linkedinLink: "", 
+    gitLink: "https://github.com/GourinandhanaES/fitpeo-healthcare",
+    previewLink: "https://fitpeo-healthcare.vercel.app/",
+    linkedinLink: ""
   },
 ];

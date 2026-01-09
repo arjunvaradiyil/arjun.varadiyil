@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link , useLocation } from "react-router-dom";
+import resume from "../assets/images/GourinandhanaESResume.pdf"
 
 export default function SidebarMenu({ open, setOpen }) {
     const location = useLocation();
@@ -92,7 +93,7 @@ export default function SidebarMenu({ open, setOpen }) {
                 { name: "LinkedIn", url: "https://www.linkedin.com/in/gourinandhana-e-s-353991251/" },
                 { name: "Whatsapp", url: "https://wa.me/9495067805" },
                 { name: "Github", url: "https://github.com/GourinandhanaES" },
-                { name: "Resume", url: "/resume.pdf" }
+                { name: "Resume", url: resume }
               ].map((item, i) => (
                 <a
                   key={i}
