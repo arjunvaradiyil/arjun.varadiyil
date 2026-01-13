@@ -57,8 +57,8 @@ export default function Timeline({ items }) {
 
             {/* Text */}
             <div>
-              <h4 className="text-xl font-bold bebas-neue-regular">{item.year}</h4>
-              <p className="text-lg ">{item.title}</p>
+              <h4 className="text-xl text-gray-800 dark:text-white font-bold bebas-neue-regular">{item.year}</h4>
+              <p className="text-lg text-gray-800 dark:text-white">{item.title}</p>
               <motion.p
                 className="text-gray-800 dark:text-gray-400"
                 initial={{ opacity: 0 }}
