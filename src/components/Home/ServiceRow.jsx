@@ -26,7 +26,7 @@ export default function ServiceRow({ service, active, setActive }) {
       >
         {/* Number */}
         <motion.span
-          className="text-5xl md:text-6xl font-semibold text-gray-500"
+          className="text-5xl md:text-6xl font-semibold text-gray-800 dark:text-gray-500"
           animate={{
             scale: isOpen ? 1.2 : 1,
             color: isOpen ? "#555555]" : "#555555",
@@ -34,11 +34,11 @@ export default function ServiceRow({ service, active, setActive }) {
           transition={{ duration: 0.8, ease: easeSlow }}
         >
           {service.id}
-          <span className="h-1 w-1 text-lime-400">.</span>
+          <span className="h-1 w-1 text-purple-500 dark:text-lime-400">.</span>
         </motion.span>
 
         {/* Title */}
-        <motion.h3 className="text-2xl md:text-5xl text-[#cacaca] font-semibold origin-right"
+        <motion.h3 className="text-2xl md:text-5xl text-gray-800 dark:text-[#cacaca] font-semibold origin-right"
             animate={{
                 opacity: isOpen ? 0 : 1,
                 scale: isOpen ? 0.95 : 1,
@@ -54,7 +54,7 @@ export default function ServiceRow({ service, active, setActive }) {
             e.stopPropagation();
             setActive(isOpen ? null : service.id);
         }}
-        className="md:hidden text-lime-400 text-3xl font-light"
+        className="md:hidden text-purple-500 dark:text-lime-400 text-3xl font-light"
         >
         {isOpen ? "−" : "+"}
         </button>
@@ -104,11 +104,11 @@ export default function ServiceRow({ service, active, setActive }) {
                   ease: easeSlow,
                 }}
               >
-                <h4 className="text-4xl md:text-5xl font-semibold mb-5">
+                <h4 className="text-4xl md:text-5xl text-gray-800 dark:text-gray-200 font-semibold mb-5">
                   {service.title}
                 </h4>
 
-                <p className="text-[#8f8f8f] mb-8 max-w-md text-lg">
+                <p className="text-gray-800 dark:text-[#8f8f8f] mb-8 max-w-md text-lg">
                   {service.description}
                 </p>
 
@@ -123,9 +123,9 @@ export default function ServiceRow({ service, active, setActive }) {
                         duration: 0.5,
                         ease: easeSlow,
                       }}
-                      className="flex items-start gap-3 text-[#8f8f8f] text-[16px]"
+                      className="flex items-start gap-3 text-gray-800 dark:text-[#8f8f8f] text-[16px]"
                     >
-                      <span className="text-lime-400 mt-1">•</span>
+                      <span className="text-purple-500 dark:text-lime-400 mt-1">•</span>
                       <span>{feature}</span>
                     </motion.li>
                   ))}
@@ -141,7 +141,7 @@ export default function ServiceRow({ service, active, setActive }) {
                         duration: 0.5,
                         ease: easeSlow,
                       }}
-                      className="px-5 py-2 rounded-full border border-[#333] text-sm text-[#8f8f8f]"
+                      className="px-5 py-2 rounded-full border border-[#333] text-sm text-gray-800 dark:text-[#8f8f8f]"
                     >
                       {tag}
                     </motion.span>

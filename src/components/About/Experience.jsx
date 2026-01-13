@@ -23,7 +23,7 @@ const itemVariants = {
 
 export default function Experience() {
   return (
-    <section className="w-full bg-black px-6 md:px-20 py-24 overflow-hidden">
+    <section className="w-full px-6 md:px-20 py-24 overflow-hidden">
       <motion.div
         className="max-w-6xl mx-auto"
         initial={{ opacity: 0 }}
@@ -37,7 +37,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[64px] font-antonio text-lime-400"
+          className="text-[64px] font-antonio text-purple-500 dark:text-lime-400"
         >
           DISCOVER MY JOURNEY IN DESIGN
         </motion.h2>
@@ -47,7 +47,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-gray-400 text-lg mt-6 max-w-3xl"
+          className="text-gray-800 dark:text-gray-400 text-lg mt-6 max-w-3xl"
         >
           From curious creator to full-time designer, my path has been shaped by a
           passion for crafting purposeful, user-centered digital experiences—
@@ -71,7 +71,7 @@ export default function Experience() {
               className="flex flex-col gap-4 border-b border-white/10 pb-10"
             >
               {/* Role */}
-              <h3 className="text-3xl font-antonio text-white">
+              <h3 className="text-3xl font-antonio text-black dark:text-white">
                 {item.role}
               </h3>
 
@@ -83,11 +83,11 @@ export default function Experience() {
                   className="h-8 w-8 object-contain"
                 />
 
-                <span className="text-lime-400 font-medium">
+                <span className="text-purple-500 dark:text-lime-400 font-medium">
                   {item.company}
                 </span>
 
-                <span className="text-gray-500 text-sm">
+                <span className="text-gray-800 dark:text-gray-500 text-sm">
                   {item.period}
                 </span>
               </div>
@@ -101,11 +101,11 @@ export default function Experience() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="flex items-start gap-3 text-gray-400"
+                    className="flex items-start gap-3 text-gray-800 dark:text-gray-400"
                   >
                     <Check
                       size={16}
-                      className="text-lime-400 mt-1 flex-shrink-0"
+                      className="text-purple-500 dark:text-lime-400 mt-1 flex-shrink-0"
                     />
                     <span>{point}</span>
                   </motion.li>

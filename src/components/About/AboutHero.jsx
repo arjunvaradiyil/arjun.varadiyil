@@ -12,11 +12,11 @@ export default function AboutHero() {
   return (
   <>
     {/* FIRST ABOUT HERO SECTION */}
-    <section className="w-full bg-black px-6 md:px-20 py-24 mt-12">
+    <section className="w-full px-6 md:px-20 py-24 mt-12">
       {/* AVAILABLE BADGE */}
         <div className="fixed top-8 left-1/2 -translate-x-1/2 z-10">
           <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-black/80 px-4 py-1.5 backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-lime-400 animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-purple-400 dark:bg-lime-400 animate-pulse" />
             <span className="text-sm font-sans text-gray-300 tracking-wide">
               Available for work
             </span>
@@ -32,31 +32,30 @@ export default function AboutHero() {
           viewport={{ once: true }}
           className="w-full md:w-1/2"
         >
-          <h1 className="text-[48px] md:text-[120px] font-antonio font-bold text-white leading-none">
+          <h1 className="text-[48px] md:text-[120px] font-antonio font-bold text-gray-800 dark:text-white leading-none">
             ABOUT ME
           </h1>
 
-          <h3 className="mt-10 text-[32px] font-antonio font-semibold text-lime-400">
+          <h3 className="mt-10 text-[32px] font-antonio font-semibold text-purple-500 dark:text-lime-400">
             GOURINANDHANA E S
           </h3>
 
-          <p className="mt-4 max-w-xl text-[#cacaca] text-[18px] leading-relaxed">
+          <p className="mt-4 max-w-xl text-gray-600 dark:text-[#cacaca] text-[18px] leading-relaxed">
             I’m a web developer who loves creating clean, responsive, and dynamic websites.  
           </p>
 
-          <p className="mt-4 max-w-xl text-gray-400 text-[18px] leading-relaxed">
+          <p className="mt-4 max-w-xl text-gray-600 dark:text-gray-400 text-[18px] leading-relaxed">
               With a strong foundation in React, Next.js, and the MERN stack, I focus on building  
               user-friendly interfaces and efficient solutions. From designing to deployment,  
               I enjoy bringing ideas to life with detail and precision.
           </p>
 
-          <div className="mt-8 flex items-center gap-6 text-[#cacaca] text-2xl">
-            <a href="https://www.linkedin.com/in/gourinandhana-e-s-353991251/"><Linkedin className="hover:text-lime-400 cursor-pointer" /></a>
-            <a href="https://github.com/GourinandhanaES"><Github className="hover:text-lime-400 cursor-pointer" /></a>
-            <a href="mailto:www.gourinandhana028@gmail.com"><Mail className="hover:text-lime-400 cursor-pointer" /></a>
-            {/* <Download className="hover:text-lime-400 cursor-pointer" /> */}
+          <div className="mt-8 flex items-center gap-6 text-gray-800 dark:text-[#cacaca] text-2xl">
+            <a href="https://www.linkedin.com/in/gourinandhana-e-s-353991251/"><Linkedin className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
+            <a href="https://github.com/GourinandhanaES"><Github className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
+            <a href="mailto:www.gourinandhana028@gmail.com"><Mail className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
             <a href={resume} download="GourinandhaESResume.pdf">
-              <Download className="hover:text-lime-400 cursor-pointer"  />
+              <Download className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer"  />
             </a>
           </div>
         </motion.div>

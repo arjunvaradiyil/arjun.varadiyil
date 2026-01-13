@@ -9,14 +9,14 @@ export default function AboutSkills() {
 
 
   return (
-    <section className="w-full bg-black px-6 md:px-20 py-24">
+    <section className="w-full px-6 md:px-20 py-24">
         <div className="max-w-6xl mx-auto">
 
-            <h2 className="text-[64px] font-antonio text-lime-400">
+            <h2 className="text-[64px] font-antonio text-purple-500 dark:text-lime-400">
             WHAT I CAN DO FOR YOU
             </h2>
 
-            <p className="mt-6 max-3w-xl text-gray-400 text-lg">
+            <p className="mt-6 max-3w-xl text-gray-800 dark:text-gray-400 text-lg">
             As a digital designer, I craft high-quality experiences that connect,
             convert, and scale.
             </p>
@@ -41,12 +41,12 @@ export default function AboutSkills() {
                     >
                     <h3
                         className={`text-3xl font-antonio transition-colors ${
-                        isOpen ? "text-lime-400" : "text-white"
+                        isOpen ? "text-purple-500 dark:text-lime-400" : "text-gray-800 dark:text-white"
                         }`}
                     >
                         {skill.id}. {skill.title}
                     </h3>
-                    <span className="text-gray-400">
+                    <span className="text-gray-800 dark:text-gray-400">
                         {isOpen ? "—" : "+"}
                     </span>
                     </div>
@@ -61,7 +61,7 @@ export default function AboutSkills() {
                         transition={{ duration: 0.4 }}
                         className="overflow-hidden"
                         >
-                        <p className="mt-4 text-gray-400 max-w-xl">
+                        <p className="mt-4 text-gray-800 dark:text-gray-400 max-w-xl">
                             {skill.description}
                         </p>
 
@@ -69,9 +69,9 @@ export default function AboutSkills() {
                             {skill.features.map((item) => (
                             <li
                                 key={item}
-                                className="flex gap-3 text-gray-300"
+                                className="flex gap-3 text-gray-600 dark:text-gray-300"
                             >
-                                <Check size={16} className="text-lime-400 mt-1" />
+                                <Check size={16} className="text-purple-500 dark:text-lime-400 mt-1" />
                                 {item}
                             </li>
                             ))}

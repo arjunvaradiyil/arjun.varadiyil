@@ -25,7 +25,7 @@ export default function Banner() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full bg-black flex flex-col items-center justify-center px-4 overflow-hidden">
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 overflow-hidden">
 
       {/* TYPEWRITER BG TEXT */}
       <motion.h1
@@ -43,10 +43,10 @@ export default function Banner() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="relative z-10 text-white w-full max-w-6xl"
+          className="relative z-10 text-white w-full max-w-6xl mt-10 sm:mt-16 lg:mt-1"
         >
           {/* Name */}
-          <p className="tracking-widest font-anton text-[16px] sm:text-[18px] text-gray-400 text-center mb-4">
+          <p className="tracking-widest font-anton text-[16px] sm:text-[18px] text-gray-500 dark:text-gray-400 text-center mb-4">
             GOURINANDHANA ES
           </p>
 
@@ -59,12 +59,12 @@ export default function Banner() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
               className="
-                font-anton tracking-wide
-                text-[42px]
-                sm:text-[56px]
-                lg:text-[100px]
+                tracking-wide
+                text-[85px]
+                min-[1375px]:text-[140px]
                 hidden lg:block
-                text-gray-300
+                text-gray-800 dark:text-gray-300
+                bebas-neue-regular font-bold leading-none 
               "
             >
               SOFTWARE
@@ -89,7 +89,7 @@ export default function Banner() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="absolute left-[-18px] bottom-[40%] w-12 h-12 rounded-full bg-lime-400 flex items-center justify-center cursor-pointer shadow-lg"
+                className="absolute left-[-18px] bottom-[40%] w-12 h-12 rounded-full bg-purple-400 dark:bg-lime-400 flex items-center justify-center cursor-pointer shadow-lg"
               >
                 <Hand className="text-black w-5 h-5" />
               </motion.div>
@@ -101,27 +101,40 @@ export default function Banner() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
               className="
-                font-anton tracking-wide
-                text-[42px]
-                sm:text-[56px]
-                lg:text-[100px]
+                tracking-wide
+                text-[85px]
+                min-[1375px]:text-[140px]
                 hidden lg:block
-                text-gray-300
+                text-gray-800 dark:text-gray-300
+                bebas-neue-regular font-bold leading-none 
               "
             >
               DEVELOPER
             </motion.h2>
           </div>
 
-          {/* MOBILE / TABLET TEXT */}
+          {/* MOBILE & TABLET TEXT */}
           <div className="lg:hidden text-center mt-6">
-            <h1 className="text-[42px] sm:text-[56px] font-anton">
-              SOFTWARE
-            </h1>
-            <h2 className="text-[42px] sm:text-[56px] font-anton">
-              DEVELOPER
-            </h2>
+            
+            {/* MOBILE (two lines) */}
+            <div className="md:hidden">
+              <h1 className="text-[42px] sm:text-[48px] font-anton text-gray-800 dark:text-gray-300">
+                SOFTWARE
+              </h1>
+              <h2 className="text-[42px] sm:text-[48px] font-anton text-gray-800 dark:text-gray-300">
+                DEVELOPER
+              </h2>
+            </div>
+
+            {/* TABLET (single line) */}
+            <div className="hidden md:block">
+              <h1 className="text-[56px] font-anton text-gray-800 dark:text-gray-300 tracking-wide">
+                SOFTWARE DEVELOPER
+              </h1>
+            </div>
+
           </div>
+
 
         </motion.div>
       )}

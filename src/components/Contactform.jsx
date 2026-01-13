@@ -48,7 +48,7 @@ export default function Contactform() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-black text-white relative"
+      className="min-h-screen flex items-center justify-center text-white relative"
       style={{
         backgroundImage:
           "url('https://getwallpapers.com/wallpaper/full/6/c/d/129192.jpg')",
@@ -65,7 +65,7 @@ export default function Contactform() {
         <div className="flex flex-col justify-center w-full md:w-1/2 pr-0 md:pr-12 text-center md:text-left">
           <h1 className="bebas-neue-regular text-4xl sm:text-4xl md:text-9xl lg:text-10xl font-extrabold leading-tight text-gray-100">
             Ready? <br />
-            <span className="text-lime-400">Let's Talk</span>
+            <span className="text-purple-400 dark:text-lime-400">Let's Talk</span>
           </h1>
         </div>
 
@@ -95,7 +95,12 @@ export default function Contactform() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:border-lime-400 focus:ring-2 focus:ring-lime-400 outline-none"
+                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:outline-none
+                  focus:ring-2
+                  focus:ring-purple-400
+                  dark:focus:ring-lime-400
+                  focus:border-purple-400
+                  dark:focus:border-lime-400 outline-none"
                   placeholder="Your Name"
                   required
                 />
@@ -108,7 +113,12 @@ export default function Contactform() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:border-lime-400 focus:ring-2 focus:ring-lime-400 outline-none"
+                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:outline-none
+                  focus:ring-2
+                  focus:ring-purple-400
+                  dark:focus:ring-lime-400
+                  focus:border-purple-400
+                  dark:focus:border-lime-400 outline-none"
                   placeholder="you@example.com"
                   required
                 />
@@ -116,7 +126,7 @@ export default function Contactform() {
 
               <button
                 type="submit"
-                className="w-full bg-lime-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition"
+                className="w-full bg-purple-400 dark:bg-lime-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition"
               >
                 Continue
               </button>
@@ -136,7 +146,12 @@ export default function Contactform() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:border-lime-400 focus:ring-2 focus:ring-lime-400 outline-none"
+                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:outline-none
+                    focus:ring-2
+                    focus:ring-purple-400
+                    dark:focus:ring-lime-400
+                    focus:border-purple-400
+                    dark:focus:border-lime-400 outline-none"
                   rows="4"
                   placeholder="Tell me about your project..."
                   required
@@ -147,11 +162,11 @@ export default function Contactform() {
                 <input type="checkbox" required />
                 <p>
                   I accept the{" "}
-                  <a href="#" className="text-lime-400 underline">
+                  <a href="#" className="text-purple-400 dark:text-lime-400 underline">
                     Terms and Conditions
                   </a>{" "}
                   and{" "}
-                  <a href="#" className="text-lime-400 underline">
+                  <a href="#" className="text-purple-400 dark:text-lime-400 underline">
                     Privacy Policy
                   </a>
                   .
@@ -170,7 +185,7 @@ export default function Contactform() {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="w-full sm:w-1/2 bg-lime-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition"
+                  className="w-full sm:w-1/2 bg-purple-400 dark:bg-lime-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition"
                 >
                   Submit
                 </button>

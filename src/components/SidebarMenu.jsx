@@ -37,7 +37,7 @@ export default function SidebarMenu({ open, setOpen }) {
         {/* HEADER */}
         <div className="flex items-center justify-between px-8 py-6 border-b border-[#2b2b2b]">
           <div className="text-[16px] text-[#8f8f8f] tracking-wide uppercase">
-            <span className="text-lime-400 mr-3">■</span>
+            <span className="text-purple-500 dark:text-lime-400 mr-3">■</span>
             Menu
           </div>
 
@@ -65,10 +65,10 @@ export default function SidebarMenu({ open, setOpen }) {
                 {item}
 
                 {isActive && (
-                  <span className="inline-block ml-2 w-2 h-2 bg-lime-400 translate-y-[-0.15em]" />
+                  <span className="inline-block ml-2 w-2 h-2 bg-purple-500 dark:bg-lime-400 translate-y-[-0.15em]" />
                 )}
 
-                <span className="absolute left-0 bottom-0 h-[1px] w-0 bg-lime-400
+                <span className="absolute left-0 bottom-0 h-[1px] w-0 bg-purple-500 dark:bg-lime-400
                   transition-all duration-500 group-hover:w-[50%]" />
               </Link>
               <div className="h-px w-full bg-[#2b2b2b] mt-5" />
@@ -81,7 +81,7 @@ export default function SidebarMenu({ open, setOpen }) {
         <div className="mt-12 px-10 space-y-8 text-sm lg:absolute lg:bottom-12 lg:left-0 lg:right-0">
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-2">(Email)</p>
-            <p className="text-lime-400 text-[20px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-semibold">
+            <p className="text-purple-400 dark:text-lime-400 text-[20px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-semibold">
               gourinandhana028@gmail.com
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function SidebarMenu({ open, setOpen }) {
                     <span
                       className="
                         absolute left-0 bottom-0 h-[1px] w-0
-                        bg-lime-400
+                        bg-purple-500 dark:bg-lime-400
                         transition-all duration-300
                         group-hover:w-full
                       "

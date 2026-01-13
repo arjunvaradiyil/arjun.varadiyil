@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "../data/projectData";
 import Navbar from "../components/Navbar";
 import React from "react";
+import { ArrowLeft } from "lucide-react";
 
 export default function ProjectDetails() {
   const { projectId } = useParams();
+  const navigate = useNavigate();
 
   const project = projects.find(
     (p) => String(p.id) === projectId
@@ -15,17 +17,21 @@ export default function ProjectDetails() {
   }
 
   return (
-    <section className="bg-black text-white min-h-screen px-6 md:px-16 py-20">
-      <Navbar />
+    <section className=" text-gray-700 dark:text-white min-h-screen px-6 md:px-16 py-20">
+
+      <button onClick={()=>navigate(-1)} className="fixed top-6 left-6 z-50 flex items-center gap-2  transition-colors w-12 h-12 rounded-full border border-gray-600 justify-center hover:border-[#8f8f8f] hover:bg-[#8f8f8f] text-gray-800 dark:text-[#cacaca] hover:text-purple-500 dark:hover:text-lime-400">
+        <ArrowLeft className="w-7 h-7"/>
+
+      </button>
 
       {/* HERO */}
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 mb-10">
         {/* Left */}
         <div>
-          <h1 className="font-anton text-[80px] md:text-[120px] leading-none text-[#cacaca]">
+          <h1 className="font-anton text-[80px] md:text-[120px] leading-none text-gray-800 dark:text-[#cacaca]">
             {project.title}
           </h1>
-          <p className="font-sans text-[#8f8f8f] mt-6 max-w-xl">
+          <p className="font-sans text-gray-800 dark:text-[#8f8f8f] mt-6 max-w-xl">
             {project.tagline}
           </p>
         </div>
@@ -33,17 +39,17 @@ export default function ProjectDetails() {
         {/* Right Meta */}
         <div className="space-y-6 font-sans text-sm">
           <div>
-            <span className="block text-gray-500">(YEAR)</span>
+            <span className="block text-gray-800 dark:text-gray-500">(YEAR)</span>
             <span className="text-lg">{project.year}</span>
           </div>
 
           <div>
-            <span className="block text-gray-500">(TIMELINE)</span>
+            <span className="block text-gray-800 dark:text-gray-500">(TIMELINE)</span>
             <span className="text-lg">{project.timeline}</span>
           </div>
 
           <div>
-            <span className="block text-gray-500">(SERVICES)</span>
+            <span className="block text-gray-800 dark:text-gray-500">(SERVICES)</span>
             <span className="text-lg"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
           </div>
 
@@ -52,7 +58,7 @@ export default function ProjectDetails() {
               href={project.previewLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-lime-400 text-lg font-semibold mt-4"
+              className="inline-block text-purple-500 dark:text-lime-400 text-lg font-semibold mt-4"
             >
               Live Website ↗
             </a>
@@ -82,10 +88,10 @@ export default function ProjectDetails() {
 
       {/* ABOUT PROJECT */}
       <div className="max-w-7xl mx-auto mb-10">
-        <h3 className="font-anton text-4xl mt-4 mb-5 text-[#cacaca]">
-          About the Project<span className="text-lime-400">.</span>
+        <h3 className="font-anton text-4xl mt-4 mb-5 text-gray-800 dark:text-[#cacaca]">
+          About the Project<span className="text-purple-500 dark:text-lime-400">.</span>
         </h3>
-        <p className="font-sans text-[#8f8f8f] max-w-7xl text-[16px] lg:text-[20px] leading-relaxed">
+        <p className="font-sans text-gray-600 dark:text-[#8f8f8f] max-w-7xl text-[16px] lg:text-[20px] leading-relaxed">
           {project.about}
         </p>
       </div>
@@ -93,19 +99,19 @@ export default function ProjectDetails() {
       {/* CHALLENGES & SOLUTIONS */}
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 ">
         <div>
-          <h3 className="font-anton text-4xl mb-6 text-[#cacaca]">
-            Challenges<span className="text-lime-400">.</span>
+          <h3 className="font-anton text-4xl mb-6 text-gray-800 dark:text-[#cacaca]">
+            Challenges<span className="text-purple-500 dark:text-lime-400">.</span>
           </h3>
-          <p className="font-sans text-[#8f8f8f] text-[16px] lg:text-[20px] leading-relaxed">
+          <p className="font-sans text-gray-600 dark:text-[#8f8f8f] text-[16px] lg:text-[20px] leading-relaxed">
             {project.challenges}
           </p>
         </div>
 
         <div>
-          <h3 className="font-anton text-4xl mb-6 text-[#cacaca]">
-            Solutions<span className="text-lime-400">.</span>
+          <h3 className="font-anton text-4xl mb-6 text-gray-800 dark:text-[#cacaca]">
+            Solutions<span className="text-purple-500 dark:text-lime-400">.</span>
           </h3>
-          <p className="font-sans text-[#8f8f8f] text-[16px] lg:text-[20px] leading-relaxed">
+          <p className="font-sans text-gray-600 dark:text-[#8f8f8f] text-[16px] lg:text-[20px] leading-relaxed">
             {project.solutions}
           </p>
         </div>

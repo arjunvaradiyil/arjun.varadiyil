@@ -26,10 +26,10 @@ export default function Timeline({ items }) {
   };
 
   return (
-    <div ref={timelineRef} className="relative pl-8 border-l-2 border-gray-700">
+    <div ref={timelineRef} className="relative pl-8 border-l-2 border-gray-400 dark:border-gray-700">
       {/* Animated line */}
       <motion.div
-        className="absolute left-0 top-0 w-[2px] bg-lime-400"
+        className="absolute left-0 top-0 w-[2px] bg-purple-500 dark:bg-lime-400"
         style={{ height: `${progress * 100}%` }}
       />
 
@@ -43,7 +43,7 @@ export default function Timeline({ items }) {
           viewport={{ once: true }}
         >
           {/* Dot on timeline */}
-          <div className="absolute -left-4 top-2 w-6 h-6 bg-lime-400 rounded-full shadow-lg" />
+          <div className="absolute -left-4 top-2 w-6 h-6 bg-purple-500 dark:bg-lime-400 rounded-full shadow-lg" />
 
           <div className="ml-8 flex flex-col md:flex-row items-start gap-6">
             {/* Image */}
@@ -60,7 +60,7 @@ export default function Timeline({ items }) {
               <h4 className="text-xl font-bold bebas-neue-regular">{item.year}</h4>
               <p className="text-lg ">{item.title}</p>
               <motion.p
-                className="text-gray-400"
+                className="text-gray-800 dark:text-gray-400"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -69,7 +69,7 @@ export default function Timeline({ items }) {
                 {item.description}
               </motion.p>
               <motion.p
-                className="text-lime-400 font-semibold mt-2"
+                className="text-purple-500 dark:text-lime-400 font-semibold mt-2"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}

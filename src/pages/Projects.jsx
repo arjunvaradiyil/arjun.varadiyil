@@ -72,9 +72,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="relative bg-black text-white py-20 px-6 md:px-16 overflow-hidden">
-      <Navbar/>
-      {/* Three.js Background */}
+    <section className="relative text-gray-700 dark:text-white py-20 px-6 md:px-16 overflow-hidden">
       <div
         ref={mountRef}
         className="absolute inset-0 -z-10 pointer-events-none"
@@ -87,7 +85,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h2 className="font-anton text-[70px] lg:text-[140px] font-medium px-4 text-[#cacaca]">
+          <h2 className="font-anton text-[70px] lg:text-[140px] font-medium px-4 text-gray-800 dark:text-[#cacaca]">
             MY PROJECTS
           </h2>
         </motion.div>
@@ -129,7 +127,7 @@ export default function Projects() {
                 />
               )}
               <RouterLink to={`/projects/${project.id}`}>
-                <span className="absolute bottom-4 right-4 border border-[#8f8f8f] bg-black/80 text-[#8f8f8f] px-4 py-2 text-sm rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
+                <span className="absolute bottom-4 right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-4 py-2 text-sm rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
                   VIEW PROJECT →
                 </span>
               </RouterLink>
@@ -138,7 +136,7 @@ export default function Projects() {
             {/* Right - Info */}
             <div className="relative ">
               {/* Project Number */}
-              <span className="absolute top-0 right-0 text-[#cacaca] font-bold text-lg">
+              <span className="absolute top-0 right-0 text-gray-800 dark:text-[#cacaca] font-bold text-lg">
                 {project.id}
               </span>
 
@@ -149,20 +147,19 @@ export default function Projects() {
                   alt={`${project.title} logo`}
                   className="w-20 h-10 rounded-md"
                 />
-                <h3 className=" text-[#cacaca] text-2xl md:text-3xl font-bold">{project.title}</h3>
+                <h3 className=" text-gray-800 dark:text-[#cacaca] text-2xl md:text-3xl font-bold">{project.title}</h3>
               </div>
 
               {/* Description */}
-              <p className="text-[#8f8f8f] mb-6">{project.description}</p>
-
+              <p className="text-gray-800 dark:text-[#8f8f8f] mb-6">{project.description}</p>
               {/* Meta Info */}
               <div className="grid grid-cols-2 gap-y-3 text-sm">
                 <div>
-                  <span className="block text-gray-500">Domain</span>
+                  <span className="block text-gray-800 dark:text-gray-500">Domain</span>
                   <span className="font-semibold">{project.industry}</span>
                 </div>
                 <div>
-                  <span className="block text-gray-500">Technologies Used</span>
+                  <span className="block text-gray-800 dark:text-gray-500">Technologies Used</span>
                   <span className="font-semibold"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
                 </div>
 
@@ -173,7 +170,7 @@ export default function Projects() {
                     href={project.gitLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-lime-400 transition"
+                    className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
                   >
                     <Github size={24} />
                   </a>
@@ -183,7 +180,7 @@ export default function Projects() {
                     href={project.previewLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-lime-400 transition"
+                    className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
                   >
                     <Link size={24} />
                   </a>
@@ -193,7 +190,7 @@ export default function Projects() {
                     href={project.linkedinLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-lime-400 transition"
+                    className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
                   >
                     <Linkedin size={24} />
                   </a>

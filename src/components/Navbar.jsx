@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import SidebarMenu from "./SidebarMenu";
+import { Sun, Moon } from "lucide-react";
 
-export default function Navbar() {
+export default function Navbar({ theme, setTheme }) {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       {/* TOP BAR */}
       <div className="fixed top-6 right-6 z-50 flex items-center gap-3 font-sans">
-        {/* LETS TALK */}
-        <a href="/contact">
-          <button className="hidden sm:block px-6 py-2 rounded-full border border-gray-600 text-[15px] uppercase tracking-widest font-medium text-[#8f8f8f] hover:bg-[#8f8f8f] hover:text-[#cacaca] hover:border-[#8f8f8f] transition">
-            LET’S TALK
-          </button>
-        </a>
+        {/* THEME TOGGLE BUTTON */}
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#8f8f8f] transition hover:bg-[#8f8f8f]"
+        >
+          {theme === "dark" ? (
+            <Sun className="w-6 h-6 text-purple-500 dark:text-lime-400" />
+          ) : (
+            <Moon className="w-6 h-6 text-purple-400" />
+          )}
+        </button>
 
         {/* MENU BUTTON */}
         <button
@@ -21,10 +27,10 @@ export default function Navbar() {
           className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#8f8f8f] transition hover:bg-[#8f8f8f] "
         >
           <span
-            className="relative block mt-2 w-5 h-[2px] bg-[#cacaca] 
+            className="relative block mt-2 w-5 h-[2px] bg-gray-800 dark:bg-[#cacaca] 
             before:content-['']
             before:absolute before:left-0 before:-top-2
-            before:w-5 before:h-[2px] before:bg-[#cacaca]"
+            before:w-5 before:h-[2px] before:bg-gray-800 dark:before:bg-[#cacaca]"
           />
         </button>
       </div>

@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutPinnedText() {
+export default function AboutPinnedText({ theme }) {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
 
@@ -12,6 +12,7 @@ export default function AboutPinnedText() {
     const words = textRef.current.querySelectorAll(".word");
 
     const isMobile = window.innerWidth < 768;
+    const targetColor = theme === "dark" ? "#cacaca" : "#000000";
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -25,7 +26,7 @@ export default function AboutPinnedText() {
     });
 
     tl.to(words, {
-      color: "#cacaca",
+      color: targetColor,
       stagger: isMobile ? 0.25 : 1,
       ease: "none",
     });
@@ -33,7 +34,7 @@ export default function AboutPinnedText() {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, []);
+  }, [theme]);
 
   const text =
     "I design and develop complete web applications from frontend to backend.";
@@ -41,18 +42,18 @@ export default function AboutPinnedText() {
   return (
     <section
       ref={sectionRef}
-      className="w-full h-screen bg-black flex items-center justify-center px-6"
+      className="w-full h-screen flex items-center justify-center px-6"
     >
       <div className="max-w-6xl">
         {/* Label */}
-        <p className="text-sm tracking-widest text-lime-400 mb-6">
+        <p className="text-3xl sm:text-4xl lg:text-5xl tracking-widest text-purple-500 dark:text-lime-400 mb-6">
           (ABOUT)
         </p> 
 
         {/* Pinned Text */}
         <h1
           ref={textRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-medium"
+          className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl leading-tight font-medium"
         >
           {text.split(" ").map((word, i) => (
             <span

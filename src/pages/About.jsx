@@ -1,7 +1,6 @@
 import React from "react";
 import SectionHeader from "../components/About/SectionHeader";
 import Timeline from "../components/About/Timeline";
-import Sidebar from "../components/Navbar";
 import Schl1Img from "../assets/images/school1.png"
 import Schl2Img from "../assets/images/school2.png"
 import CollegeImg from "../assets/images/college.jpg"
@@ -12,9 +11,8 @@ import AboutHero from "../components/About/AboutHero";
 
 export default function About() {
   return (
-    <div className="bg-black text-white overflow-hidden">
+    <div className=" text-white overflow-hidden">
       {/* Hero */}
-      <Sidebar/>
       <AboutHero />
       <AboutSkills/>
       <Experience/>
