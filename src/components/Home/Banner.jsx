@@ -43,7 +43,7 @@ export default function Banner() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="relative z-10 text-white w-full max-w-6xl mt-10 sm:mt-5 lg:mt-1"
+          className="relative z-10 text-white w-full max-w-6xl mt-3 sm:mt-3 lg:mt-1"
         >
           {/* Name */}
           <p className="tracking-widest font-anton text-[16px] sm:text-[18px] text-gray-500 dark:text-gray-400 text-center mb-4">
