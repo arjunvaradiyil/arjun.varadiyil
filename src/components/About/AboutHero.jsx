@@ -17,7 +17,7 @@ export default function AboutHero() {
         <div className="fixed top-8 left-1/2 -translate-x-1/2 z-10">
           <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-black/80 px-4 py-1.5 backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-purple-400 dark:bg-lime-400 animate-pulse" />
-            <span className="text-sm font-sans text-gray-300 tracking-wide">
+            <span className="text-xs sm:text-sm font-sans text-gray-300 tracking-wide">
               Available for work
             </span>
           </div>
