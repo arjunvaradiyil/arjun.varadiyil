@@ -13,7 +13,10 @@ import ProjectDetails from './pages/ProjectDetails';
 import Navbar from './components/Navbar';
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
+
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "dark";
@@ -21,9 +24,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    document.documentElement.className = theme;
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
+
 
   return (
     <Router>

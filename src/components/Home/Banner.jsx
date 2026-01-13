@@ -32,7 +32,7 @@ export default function Banner() {
         initial={{ opacity: 1 }}
         animate={{ opacity: showContent ? 0 : 1 }}
         transition={{ duration: 0.6 }}
-        className="absolute text-[120px] sm:text-[160px] lg:text-[260px] font-anton text-white/20 select-none pointer-events-none"
+        className="absolute text-[120px] sm:text-[160px] lg:text-[260px] font-anton text-gray-800/20 dark:text-white/20 select-none pointer-events-none"
       >
         {typedText}
       </motion.h1>
