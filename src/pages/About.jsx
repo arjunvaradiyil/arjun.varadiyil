@@ -34,16 +34,16 @@ export default function About() {
             },
             {
               year: "2018 – 2020",
-              title: "Government Higher Secondary School, Kerala",
+              title: "Chentrappinni Higher Secondary School, Kerala",
               description: "Higher Secondary in Computer Science stream.",
-              grade: "Grade: 92%",
+              grade: "Grade: 83.66%",
               image: Schl2Img,
             },
             {
               year: "2020 – 2024",
-              title: "B.Tech in Computer Science – XYZ College",
-              description: "Focused on MERN stack, React.js, Node.js, and full-stack dev.",
-              grade: "CGPA: 8.7",
+              title: "IES College of Entgineering, Chittilappilly",
+              description: "B.Tech in Computer Science",
+              grade: "CGPA: 7.61/10",
               image: CollegeImg,
             },
           ]}
