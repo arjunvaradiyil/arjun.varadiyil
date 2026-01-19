@@ -24,11 +24,11 @@ export default function ProjectDetails() {
 
       </button>
 
-      {/* HERO */}
+
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 mb-10">
         {/* Left */}
         <div>
-          <h1 className="font-anton text-[80px] md:text-[120px] leading-none text-gray-800 dark:text-[#cacaca]">
+          <h1 className="font-anton text-[65px] md:text-[80px] leading-none text-gray-800 dark:text-[#cacaca]">
             {project.title}
           </h1>
           <p className="font-sans text-gray-800 dark:text-[#8f8f8f] mt-6 max-w-xl">
@@ -36,7 +36,7 @@ export default function ProjectDetails() {
           </p>
         </div>
 
-        {/* Right Meta */}
+        {/* Right */}
         <div className="space-y-6 font-sans text-sm">
           <div>
             <span className="block text-gray-800 dark:text-gray-500">(YEAR)</span>
@@ -49,7 +49,7 @@ export default function ProjectDetails() {
           </div>
 
           <div>
-            <span className="block text-gray-800 dark:text-gray-500">(SERVICES)</span>
+            <span className="block text-gray-800 dark:text-gray-500">(TECH STACK)</span>
             <span className="text-lg"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
           </div>
 

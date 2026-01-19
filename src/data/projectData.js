@@ -6,12 +6,60 @@ import image6 from "../assets/images/carelabs.png";
 import image7 from "../assets/images/docApp.png";
 import image8 from "../assets/images/movieApp.png";
 import image9 from "../assets/images/tolirwa.png"; 
+import image10 from "../assets/images/project-man.png";
+import image11 from "../assets/images/event.png"; 
 import video1 from "../assets/images/ikea.webm";
 import video2 from "../assets/images/design.webm";
 import video3 from "../assets/images/weather.webm";
 
 
 export const projects = [
+  {
+    id: "014",
+    title: "Event Scheduler Web Application",
+    tagline: "A full-stack event management system with admin control and user-friendly scheduling.",
+    description:
+      "A responsive full-stack event scheduler that allows users to view upcoming events and administrators to securely create, update, and delete events. Built with React, Node.js, Express, and MongoDB, the project focuses on usability, performance, and real-world admin workflows.",
+    year: "2026",
+    timeline: "1 day",
+    industry: "Event Management / Productivity",
+    services: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT Authentication"],
+    about:
+      "This project was built as part of my journey to strengthen my full-stack development skills using the MERN stack. I wanted to create a real-world application where users can easily view events while administrators can manage them efficiently. The app includes authentication, date-based filtering, calendar integration, and toast notifications for better user experience. Through this project, I improved my understanding of API integration, protected routes, and clean UI design using Tailwind CSS.",
+    challenges:
+      "One of the major challenges was implementing secure admin authentication and route protection. Another challenge was synchronizing the calendar view with backend data, ensuring upcoming events were correctly sorted and displayed. Designing a responsive admin dashboard without making the interface look cluttered was also a key concern.",
+    solutions:
+      "I implemented JWT-based authentication and protected routes to secure the admin panel. I used date-based filtering and sorting logic to dynamically fetch and display upcoming events. To improve usability and layout, I refactored the admin event form into a modal and enhanced feedback using React Toastify. Tailwind CSS helped maintain a clean and responsive UI across devices.",
+    image: image11,
+    logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
+    type: "image",
+    gitLink: "https://github.com/GourinandhanaES/Event-scheduler",
+    previewLink: "https://event-scheduler-frontend-reactapp.vercel.app/",
+    linkedinLink: "",
+  },
+  {
+    id: "013",
+    title: "Project Management System",
+    tagline: "A modern dashboard to plan, track, and manage projects efficiently.",
+    description:
+      "A responsive Project Management System built using React and Tailwind CSS that allows users to create projects, track tasks, manage assignees, and set reminders — all from a clean and intuitive dashboard.",
+    year: "2026",
+    timeline: "1 day",
+    industry: "Productivity / Project Management",
+    services: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "Local Storage"],
+    about:
+      "This project was developed as part of a frontend interview assignment to demonstrate strong UI/UX design, component architecture, and state handling in React. I designed a single-dashboard workflow where users can create and edit projects using a reusable modal, view detailed project information, manage tasks, and set reminders. The app focuses on usability, clarity, and real-world dashboard experience.",
+    challenges:
+      "Designing a clean and scalable UI while keeping the file structure simple was a key challenge. Managing nested data like projects, tasks, assignees, and reminders within a single state source and keeping the completion percentage in sync dynamically also required careful logic planning.",
+    solutions:
+      "I implemented a reusable project modal for both creation and editing, used structured state management, and applied helper functions to calculate task progress automatically. Tailwind CSS was used to maintain consistent spacing, responsiveness, and modern design while keeping the codebase lightweight and easy to maintain.",
+    image: image10,
+    logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
+    type: "image",
+    gitLink: "https://github.com/GourinandhanaES/project-manager",
+    previewLink: "https://project-management-reactweb.vercel.app/",
+    linkedinLink: "",
+  },
   {
     id: "012",
     title: "Carelabs",

@@ -85,7 +85,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <h2 className="font-anton text-[70px] lg:text-[140px] font-medium px-4 text-gray-800 dark:text-[#cacaca]">
+          <h2 className="font-anton text-[65px] lg:text-[140px] font-medium px-4 text-gray-800 dark:text-[#cacaca]">
             MY PROJECTS
           </h2>
         </motion.div>
@@ -136,7 +136,7 @@ export default function Projects() {
             {/* Right - Info */}
             <div className="relative ">
               {/* Project Number */}
-              <span className="absolute top-0 right-0 text-gray-800 dark:text-[#cacaca] font-bold text-lg">
+              <span className="absolute top-0 right-0 text-purple-500 dark:text-lime-400 font-bold text-lg">
                 {project.id}
               </span>
 
@@ -155,11 +155,11 @@ export default function Projects() {
               {/* Meta Info */}
               <div className="grid grid-cols-2 gap-y-3 text-sm">
                 <div>
-                  <span className="block text-gray-800 dark:text-gray-500">Domain</span>
+                  <span className="block text-purple-500 dark:text-lime-400">Domain</span>
                   <span className="font-semibold">{project.industry}</span>
                 </div>
                 <div>
-                  <span className="block text-gray-800 dark:text-gray-500">Technologies Used</span>
+                  <span className="block text-purple-500 dark:text-lime-400">Technologies Used</span>
                   <span className="font-semibold"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
                 </div>
 
