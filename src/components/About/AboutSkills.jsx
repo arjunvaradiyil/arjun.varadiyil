@@ -17,8 +17,7 @@ export default function AboutSkills() {
             </h2>
 
             <p className="mt-6 max-3w-xl text-gray-800 dark:text-gray-400 text-lg">
-            As a digital designer, I craft high-quality experiences that connect,
-            convert, and scale.
+            I build websites that work well, look good, and scale over time.
             </p>
 
             <div className="relative mt-20 space-y-6">
