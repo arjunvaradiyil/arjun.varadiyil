@@ -62,8 +62,8 @@ export default function Banner() {
               transition={{ delay: 0.3 }}
               className="
                 tracking-wide
-                text-[60px]
-                min-[1375px]:text-[100px]
+                text-[45px]
+                min-[1375px]:text-[70px]
                 hidden lg:block
                 text-gray-800 dark:text-gray-300
                 bebas-neue-regular font-bold leading-none 
@@ -106,8 +106,8 @@ export default function Banner() {
               transition={{ delay: 0.3 }}
               className="
                 tracking-wide
-                text-[60px]
-                min-[1375px]:text-[100px]
+                text-[45px]
+                min-[1375px]:text-[70px]
                 hidden lg:block
                 text-gray-800 dark:text-gray-300
                 bebas-neue-regular font-bold leading-none 
@@ -122,17 +122,17 @@ export default function Banner() {
             
             {/* MOBILE (two lines) */}
             <div className="md:hidden">
-              <h1 className="text-[32px] sm:text-[36px] font-anton text-gray-800 dark:text-gray-300">
+              <h1 className="text-[28px] sm:text-[30px] font-anton text-gray-800 dark:text-gray-300">
                 SOFTWARE
               </h1>
-              <h2 className="text-[32px] sm:text-[36px] font-anton text-gray-800 dark:text-gray-300">
+              <h2 className="text-[28px] sm:text-[30px] font-anton text-gray-800 dark:text-gray-300">
                 DEVELOPER
               </h2>
             </div>
 
             {/* TABLET (single line) */}
             <div className="hidden md:block">
-              <h1 className="text-[42px] font-anton text-gray-800 dark:text-gray-300 tracking-wide">
+              <h1 className="text-[36px] font-anton text-gray-800 dark:text-gray-300 tracking-wide">
                 SOFTWARE DEVELOPER
               </h1>
             </div>
