@@ -74,24 +74,24 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <section className="relative text-gray-700 dark:text-white py-20 px-6 md:px-16 overflow-hidden">
+    <section className="relative text-gray-700 dark:text-white pt-20 pb-12 md:pt-28 md:pb-20 px-4 md:px-16 overflow-hidden">
       <div
         ref={mountRef}
         className="absolute inset-0 -z-10 pointer-events-none"
       />
 
       <motion.div
-        className="text-left mb-16"
+        className="text-left mb-8 md:mb-16"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <h2 className="font-anton text-[65px] lg:text-[140px] font-medium px-4 text-gray-800 dark:text-[#cacaca]">
+        <h2 className="font-anton text-[40px] sm:text-[50px] lg:text-[140px] font-medium px-2 md:px-4 text-gray-800 dark:text-[#cacaca]">
           MY PROJECTS
         </h2>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto space-y-24 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 md:space-y-24 relative z-10">
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="grid md:grid-cols-2 gap-10 items-center"
+            className="grid md:grid-cols-2 gap-6 md:gap-10 items-center"
           >
             <a
               href={project.link}
@@ -130,19 +130,19 @@ export default function ProjectsPage() {
                 </div>
               )}
               <NextLink href={`/projects/${project.id}`}>
-                <span className="absolute bottom-4 right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-4 py-2 text-sm rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
+                <span className="absolute bottom-2 right-2 md:bottom-4 md:right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded-xl md:rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
                   VIEW PROJECT →
                 </span>
               </NextLink>
             </a>
 
             <div className="relative ">
-              <span className="absolute top-0 right-0 text-purple-500 dark:text-lime-400 font-bold text-lg">
+              <span className="absolute top-0 right-0 text-purple-500 dark:text-lime-400 font-bold text-sm md:text-lg">
                 {project.id}
               </span>
 
-              <div className="flex items-center gap-3 mb-6">
-                <div className="relative w-20 h-10 rounded-md overflow-hidden">
+              <div className="flex items-center gap-3 md:gap-4 mb-5 md:mb-8 pr-10 md:pr-14">
+                <div className="relative w-12 h-6 md:w-20 md:h-10 rounded-md overflow-hidden flex-shrink-0">
                   <Image
                     src={project.logo}
                     alt={`${project.title} logo`}
@@ -150,11 +150,11 @@ export default function ProjectsPage() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className=" text-gray-800 dark:text-[#cacaca] text-2xl md:text-3xl font-bold">{project.title}</h3>
+                <h3 className="text-gray-800 dark:text-[#cacaca] text-lg sm:text-xl md:text-3xl font-bold leading-tight">{project.title}</h3>
               </div>
 
-              <p className="text-gray-800 dark:text-[#8f8f8f] mb-6">{project.description}</p>
-              <div className="grid grid-cols-2 gap-y-3 text-sm">
+              <p className="text-gray-800 dark:text-[#8f8f8f] mb-5 md:mb-8 text-sm md:text-base leading-relaxed">{project.description}</p>
+              <div className="grid grid-cols-2 gap-y-3 md:gap-y-4 text-xs md:text-sm">
                 <div>
                   <span className="block text-purple-500 dark:text-lime-400">Domain</span>
                   <span className="font-semibold">{project.industry}</span>
@@ -164,7 +164,7 @@ export default function ProjectsPage() {
                   <span className="font-semibold"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
                 </div>
 
-              <div className="flex gap-4 mt-6">
+              <div className="flex gap-4 md:gap-5 mt-5 md:mt-8">
                 {project.gitLink && (
                   <a
                     href={project.gitLink}
@@ -172,7 +172,7 @@ export default function ProjectsPage() {
                     rel="noopener noreferrer"
                     className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
                   >
-                    <Github size={24} />
+                    <Github size={20} className="md:w-6 md:h-6" />
                   </a>
                 )}
                 {project.previewLink && (
@@ -182,7 +182,7 @@ export default function ProjectsPage() {
                     rel="noopener noreferrer"
                     className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
                   >
-                    <Link size={24} />
+                    <Link size={20} className="md:w-6 md:h-6" />
                   </a>
                 )}
                 {project.linkedinLink && (
@@ -192,7 +192,7 @@ export default function ProjectsPage() {
                     rel="noopener noreferrer"
                     className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
                   >
-                    <Linkedin size={24} />
+                    <Linkedin size={20} className="md:w-6 md:h-6" />
                   </a>
                 )}
               </div>

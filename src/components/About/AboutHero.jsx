@@ -14,8 +14,8 @@ export default function AboutHero() {
     {/* FIRST ABOUT HERO SECTION */}
     <section className="w-full px-6 md:px-20 py-16 md:py-20 mt-12">
       {/* AVAILABLE BADGE */}
-        <div className="fixed top-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-black/80 px-4 py-1.5 backdrop-blur">
+        <div className="fixed top-6 left-6 md:left-8 z-50 flex items-center gap-3">
+          <div className="flex items-center gap-2 rounded-full border border-gray-600 bg-black/80 px-4 py-1.5 backdrop-blur hover:border-[#8f8f8f] transition">
             <span className="h-2 w-2 rounded-full bg-purple-400 dark:bg-lime-400 animate-pulse" />
             <span className="text-xs sm:text-sm font-sans text-gray-300 tracking-wide">
               Available for work
@@ -60,7 +60,7 @@ export default function AboutHero() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="rounded-2xl overflow-hidden bg-gray-900 shadow-xl relative w-[220px] md:w-[240px] lg:w-[280px] h-[330px] md:h-[360px] lg:h-[400px]"
+          className="rounded-2xl overflow-hidden bg-gray-900 shadow-xl relative w-[220px] md:w-[240px] lg:w-[280px] h-[330px] md:h-[360px] lg:h-[400px] mt-8 md:mt-12"
         >
           <Image
             src="/assets/images/arjunvaradiyil.jpeg"

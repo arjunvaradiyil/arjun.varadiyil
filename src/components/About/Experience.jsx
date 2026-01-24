@@ -40,7 +40,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[64px] font-antonio text-purple-500 dark:text-lime-400"
+          className="text-[36px] sm:text-[48px] md:text-[64px] font-antonio text-purple-500 dark:text-lime-400"
         >
           PROFESSIONAL EXPERIENCE
         </motion.h2>
@@ -77,7 +77,7 @@ export default function Experience() {
               </h3>
 
               {/* Company Row */}
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 <div className={`relative h-8 w-8 flex-shrink-0 rounded ${
                   item.company.toLowerCase().includes('faircode') 
                     ? 'bg-white dark:bg-white p-1' 
@@ -91,11 +91,11 @@ export default function Experience() {
                   />
                 </div>
 
-                <span className="text-purple-500 dark:text-lime-400 font-medium">
+                <span className="text-purple-500 dark:text-lime-400 font-medium text-sm md:text-base">
                   {item.company}
                 </span>
 
-                <span className="text-gray-800 dark:text-gray-500 text-sm">
+                <span className="text-gray-800 dark:text-gray-500 text-xs md:text-sm ml-auto">
                   {item.period}
                 </span>
               </div>
