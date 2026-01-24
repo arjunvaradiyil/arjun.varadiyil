@@ -1,7 +1,9 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { Hand } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import ProfileImg from "../../assets/images/arjunvaradiyil.jpeg";
+import Image from "next/image";
 
 export default function Banner() {
   const fullText = "ARJUN";
@@ -25,14 +27,14 @@ export default function Banner() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center px-4 overflow-hidden">
+    <section className="relative min-h-[80vh] w-full flex flex-col items-center justify-center px-4 overflow-hidden py-20">
 
       {/* TYPEWRITER BG TEXT */}
       <motion.h1
         initial={{ opacity: 1 }}
         animate={{ opacity: showContent ? 0 : 1 }}
         transition={{ duration: 0.6 }}
-        className="absolute text-[120px] sm:text-[160px] lg:text-[260px] font-anton text-gray-800/20 dark:text-white/20 select-none pointer-events-none"
+        className="absolute text-[80px] sm:text-[100px] lg:text-[180px] font-anton text-gray-800/20 dark:text-white/20 select-none pointer-events-none"
       >
         {typedText}
       </motion.h1>
@@ -60,8 +62,8 @@ export default function Banner() {
               transition={{ delay: 0.3 }}
               className="
                 tracking-wide
-                text-[85px]
-                min-[1375px]:text-[140px]
+                text-[60px]
+                min-[1375px]:text-[100px]
                 hidden lg:block
                 text-gray-800 dark:text-gray-300
                 bebas-neue-regular font-bold leading-none 
@@ -77,11 +79,13 @@ export default function Banner() {
               transition={{ delay: 0.4 }}
               className="relative"
             >
-              <div className="w-[260px] sm:w-[300px] lg:w-[350px] h-[380px] sm:h-[420px] lg:h-[450px] rounded-2xl overflow-hidden bg-zinc-900">
-                <img
-                  src={ProfileImg}
+              <div className="w-[200px] sm:w-[240px] lg:w-[280px] h-[280px] sm:h-[320px] lg:h-[360px] rounded-2xl overflow-hidden bg-zinc-900 relative">
+                <Image
+                  src="/assets/images/arjunvaradiyil.jpeg"
                   alt="Profile"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  priority
                 />
               </div>
 
@@ -102,8 +106,8 @@ export default function Banner() {
               transition={{ delay: 0.3 }}
               className="
                 tracking-wide
-                text-[85px]
-                min-[1375px]:text-[140px]
+                text-[60px]
+                min-[1375px]:text-[100px]
                 hidden lg:block
                 text-gray-800 dark:text-gray-300
                 bebas-neue-regular font-bold leading-none 
@@ -118,17 +122,17 @@ export default function Banner() {
             
             {/* MOBILE (two lines) */}
             <div className="md:hidden">
-              <h1 className="text-[42px] sm:text-[48px] font-anton text-gray-800 dark:text-gray-300">
+              <h1 className="text-[32px] sm:text-[36px] font-anton text-gray-800 dark:text-gray-300">
                 SOFTWARE
               </h1>
-              <h2 className="text-[42px] sm:text-[48px] font-anton text-gray-800 dark:text-gray-300">
+              <h2 className="text-[32px] sm:text-[36px] font-anton text-gray-800 dark:text-gray-300">
                 DEVELOPER
               </h2>
             </div>
 
             {/* TABLET (single line) */}
             <div className="hidden md:block">
-              <h1 className="text-[56px] font-anton text-gray-800 dark:text-gray-300 tracking-wide">
+              <h1 className="text-[42px] font-anton text-gray-800 dark:text-gray-300 tracking-wide">
                 SOFTWARE DEVELOPER
               </h1>
             </div>

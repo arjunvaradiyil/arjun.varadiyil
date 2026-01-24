@@ -1,7 +1,10 @@
+'use client';
+
 import React from "react";
 import { experienceData } from "../../data/experienceData";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const containerVariants = {
   hidden: {},
@@ -75,11 +78,18 @@ export default function Experience() {
 
               {/* Company Row */}
               <div className="flex items-center gap-4">
-                <img
-                  src={item.logo}
-                  alt={item.company}
-                  className="h-8 w-8 object-contain"
-                />
+                <div className={`relative h-8 w-8 flex-shrink-0 rounded ${
+                  item.company.toLowerCase().includes('faircode') 
+                    ? 'bg-white dark:bg-white p-1' 
+                    : 'bg-transparent'
+                }`}>
+                  <Image
+                    src={item.logo}
+                    alt={item.company}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
 
                 <span className="text-purple-500 dark:text-lime-400 font-medium">
                   {item.company}

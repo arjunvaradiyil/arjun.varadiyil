@@ -1,21 +1,24 @@
+'use client';
+
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link , useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 const resume = "https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view";
 
 export default function SidebarMenu({ open, setOpen }) {
-    const location = useLocation();
+    const pathname = usePathname();
 
     const getActiveFromPath = () => {
-      if (location.pathname === "/") return "HOME";
-      return location.pathname.replace("/", "").toUpperCase();
+      if (pathname === "/") return "HOME";
+      return pathname.replace("/", "").toUpperCase();
     };
 
     const [active, setActive] = useState(getActiveFromPath());
 
     useEffect(() => {
       setActive(getActiveFromPath());
-    }, [location.pathname]);
+    }, [pathname]);
 
   return (
     <>
@@ -56,7 +59,7 @@ export default function SidebarMenu({ open, setOpen }) {
           return (
             <div key={i} className="group">
               <Link
-                to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
+                href={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
                 onClick={() => setOpen(false)}
                 className="relative block py-2 mt-5 text-[32px] sm:text-[40px] md:text-[48px] uppercase text-[#cacaca]
                   transition-all duration-300 leading-none scale-x-[0.9] origin-left"
@@ -92,7 +95,7 @@ export default function SidebarMenu({ open, setOpen }) {
               {[
                 { name: "LinkedIn", url: "https://www.linkedin.com/in/arjunvaradiyil" },
                 { name: "Instagram", url: "https://www.instagram.com/_arjuo__?igsh=MWZiOXdxMmg3c3Bodw%3D%3D&utm_source=qr" },
-                { name: "Github", url: "https://github.com/arjunvaradiyil" },
+                { name: "Github", url: "https://github.com/arjunvaradiyil/arjun.varadiyil" },
                 { name: "Whatsapp", url: "https://wa.me/9946642065" },
                 { name: "Resume", url: resume }
               ].map((item, i) => (

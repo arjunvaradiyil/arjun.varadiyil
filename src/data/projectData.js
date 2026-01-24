@@ -1,7 +1,3 @@
-import image8 from "../assets/images/movieApp.png";
-import image11 from "../assets/images/event.png"; 
-
-
 export const projects = [
   {
     id: "01",
@@ -42,7 +38,7 @@ export const projects = [
       "The major challenges included implementing real-time overlap detection and conflict resolution algorithms, ensuring secure authentication with role-based access control, and managing session state effectively across the application.",
     solutions:
       "I developed algorithms to detect and prevent event overlaps in real-time, ensuring no scheduling conflicts occur. JWT-based authentication was implemented with role-based access control to secure different user roles. RESTful APIs were used for efficient data communication, and secure session management was implemented to protect user data throughout the application lifecycle.",
-    image: image11,
+    image: "/assets/images/event.png",
     logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
     type: "image",
     gitLink: "https://github.com/GourinandhanaES/Event-scheduler",
@@ -65,7 +61,7 @@ export const projects = [
       "The main challenges included implementing advanced authentication with granular role-based access control, ensuring real-time rating updates across the application, and creating a responsive design that works seamlessly across all devices.",
     solutions:
       "I implemented JWT-based authentication with role-based access control to manage different user permissions effectively. Real-time rating updates were achieved through efficient state management and API integration. Tailwind CSS was used to create a fully responsive design, and RESTful APIs ensured smooth communication between frontend and backend components.",
-    image: image8,
+    image: "/assets/images/movieApp.png",
     logo: "https://media.istockphoto.com/id/2173059563/vector/coming-soon-image-on-white-background-no-photo-available.jpg?s=612x612&w=0&k=20&c=v0a_B58wPFNDPULSiw_BmPyhSNCyrP_d17i2BPPyDTk=",
     type: "image",
     gitLink: "https://github.com/GourinandhanaES/movie-watchlist", 

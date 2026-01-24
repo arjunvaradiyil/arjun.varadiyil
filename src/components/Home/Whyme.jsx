@@ -1,3 +1,5 @@
+'use client';
+
 import React,{ useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate,useInView} from "framer-motion";
 
@@ -53,37 +55,39 @@ export default function WhyMe() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
-        {/* Top Label */}
-        <motion.p
-          variants={itemVariants}
-          className="text-sm tracking-widest text-purple-600 dark:text-lime-400 mb-6"
-        >
-          (WHY ME)
-        </motion.p>
-
         {/* Heading + Description */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <motion.h2
-            variants={itemVariants}
-            className="font-anton font-bold uppercase tracking-wide text-[48px] sm:text-[64px] md:text-[140px] leading-[1] text-gray-800 dark:text-[#cacaca]"
-          >
-            Numbers <br /> Don’t Lie
-          </motion.h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          {/* Left Side - Heading */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            {/* Top Label */}
+            <motion.p
+              variants={itemVariants}
+              className="text-sm tracking-widest text-purple-600 dark:text-lime-400"
+            >
+              (WHY ME)
+            </motion.p>
+            
+            <h2 className="font-anton font-bold uppercase tracking-wide text-[48px] sm:text-[64px] md:text-[100px] lg:text-[120px] leading-[0.9] text-gray-800 dark:text-[#cacaca]">
+              NUMBERS <br /> DON'T <br /> LIE
+            </h2>
+          </motion.div>
 
-          <motion.p
+          {/* Right Side - Description */}
+          <motion.div
             variants={itemVariants}
-            className="text-gray-800 dark:text-[#8f8f8f] text-base md:text-lg leading-relaxed max-w-xl"
+            className="flex flex-col justify-start pt-8 lg:pt-16"
           >
-            With over a year of hands-on industry experience, I build scalable,
-            user-focused web applications using MERN stack and other modern
-            technologies — delivering clean code, smooth UX, and real results.
-            <br />
+            <p className="text-gray-800 dark:text-[#8f8f8f] text-base md:text-lg leading-relaxed max-w-xl mb-6">
+              With over a year of hands-on industry experience, I build scalable,
+              user-focused web applications using MERN stack and other modern
+              techniques – delivering clean code, smooth UX, and real results.
+            </p>
             <a href="/about">
-              <button className="px-6 py-2 rounded-full border border-gray-600 text-[15px] uppercase tracking-widest font-medium text-gray-800 dark:text-[#8f8f8f] hover:bg-[#8f8f8f] hover:text-[#cacaca] hover:border-[#8f8f8f] transition mt-6">
+              <button className="px-8 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-transparent text-[14px] uppercase tracking-widest font-medium text-gray-800 dark:text-[#8f8f8f] hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200">
                 MY STORY
               </button>
             </a>
-          </motion.p>
+          </motion.div>
         </div>
 
         {/* Divider */}

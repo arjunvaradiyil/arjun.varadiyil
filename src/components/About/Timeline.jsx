@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Timeline({ items }) {
   const [progress, setProgress] = useState(0);
@@ -47,13 +50,18 @@ export default function Timeline({ items }) {
 
           <div className="ml-8 flex flex-col md:flex-row items-start gap-6">
             {/* Image */}
-            <motion.img
-              src={item.image}
-              alt={item.title}
-              className="w-64 h-40 object-cover rounded-lg shadow-lg cursor-pointer"
+            <motion.div
+              className="relative w-64 h-40 rounded-lg shadow-lg cursor-pointer overflow-hidden"
               whileHover={{ scale: 1.05 }}
               onClick={() => handleSearch(item.title)}
-            />
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover"
+              />
+            </motion.div>
 
             {/* Text */}
             <div>

@@ -1,6 +1,3 @@
-import sreyasLogo from "../assets/images/sreyas.jpg";
-import faircodeLogo from "../assets/images/fclogo.png";
-
 export const experienceData = [
   {
     period: "April 2025 - Present",
@@ -10,7 +7,7 @@ export const experienceData = [
       "Developed scalable web applications using the MERN stack with optimized backend architecture for improved performance.",
       "Collaborated with cross-functional teams to deliver high-quality software solutions and enhance API efficiency.",
     ],
-    logo: faircodeLogo, 
+    logo: "/assets/images/fclogo.png", 
   },
   {
     period: "July 2024 - March 2025",
@@ -20,6 +17,6 @@ export const experienceData = [
       "Mentored students in programming fundamentals and advanced computer science concepts.",
       "Designed and implemented comprehensive curriculum for computer science education.",
     ],
-    logo: sreyasLogo,
+    logo: "/assets/images/images.png",
   },
 ];

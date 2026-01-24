@@ -1,18 +1,18 @@
+'use client';
+
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import React from "react";
 import { Linkedin, Github, Mail, Download } from "lucide-react";
-import img1 from "../../assets/images/arjunvaradiyil.jpeg"
+import Image from "next/image";
 const resume = "https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view";
 
 export default function AboutHero() {
-
-  const imageSrc = img1;
 
 
   return (
   <>
     {/* FIRST ABOUT HERO SECTION */}
-    <section className="w-full px-6 md:px-20 py-24 mt-12">
+    <section className="w-full px-6 md:px-20 py-16 md:py-20 mt-12">
       {/* AVAILABLE BADGE */}
         <div className="fixed top-8 left-1/2 -translate-x-1/2 z-10">
           <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-black/80 px-4 py-1.5 backdrop-blur">
@@ -22,7 +22,7 @@ export default function AboutHero() {
             </span>
           </div>
         </div>
-      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-16 relative">
+      <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 relative">
 
         {/* LEFT CONTENT */}
         <motion.div
@@ -32,11 +32,11 @@ export default function AboutHero() {
           viewport={{ once: true }}
           className="w-full md:w-1/2"
         >
-          <h1 className="text-[48px] md:text-[120px] font-antonio font-bold text-gray-800 dark:text-white leading-none">
+          <h1 className="text-[40px] md:text-[80px] lg:text-[100px] font-antonio font-bold text-gray-800 dark:text-white leading-none">
             ABOUT ME
           </h1>
 
-          <h3 className="mt-10 text-[32px] font-antonio font-semibold text-purple-500 dark:text-lime-400">
+          <h3 className="mt-6 text-[24px] md:text-[28px] font-antonio font-semibold text-purple-500 dark:text-lime-400">
             ARJUN VARADIYIL
           </h3>
 
@@ -55,20 +55,21 @@ export default function AboutHero() {
         </motion.div>
 
         {/* IMAGE (SHARED) */}
-        <div className="rounded-2xl overflow-hidden bg-gray-900 shadow-xl relative">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={imageSrc}
-              src={imageSrc}
-              alt="About profile"
-              initial={{ opacity: 0, scale: 1.02 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="w-[280px] md:w-[280px] lg:w-[350px] h-[470px] object-cover"
-            />
-          </AnimatePresence>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 1.02 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="rounded-2xl overflow-hidden bg-gray-900 shadow-xl relative w-[220px] md:w-[240px] lg:w-[280px] h-[330px] md:h-[360px] lg:h-[400px]"
+        >
+          <Image
+            src="/assets/images/arjunvaradiyil.jpeg"
+            alt="About profile"
+            fill
+            className="object-cover"
+            priority
+          />
+        </motion.div>
       </div>
     </section>
   </>

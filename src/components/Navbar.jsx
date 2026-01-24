@@ -1,9 +1,13 @@
+'use client';
+
 import React, { useState } from "react";
 import SidebarMenu from "./SidebarMenu";
 import { Sun, Moon } from "lucide-react";
+import { useTheme } from "./ThemeProvider";
 
-export default function Navbar({ theme, setTheme }) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   return (
     <>
