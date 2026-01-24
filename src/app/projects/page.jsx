@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import * as THREE from "three";
 import { projects } from "../../data/projectData";
-import { Github, Link, Linkedin } from "lucide-react";
 import NextLink from "next/link";
 import Image from "next/image";
 
@@ -164,38 +163,6 @@ export default function ProjectsPage() {
                   <span className="font-semibold"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
                 </div>
 
-              <div className="flex gap-4 md:gap-5 mt-5 md:mt-8">
-                {project.gitLink && (
-                  <a
-                    href={project.gitLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
-                  >
-                    <Github size={20} className="md:w-6 md:h-6" />
-                  </a>
-                )}
-                {project.previewLink && (
-                  <a
-                    href={project.previewLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
-                  >
-                    <Link size={20} className="md:w-6 md:h-6" />
-                  </a>
-                )}
-                {project.linkedinLink && (
-                  <a
-                    href={project.linkedinLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-800 hover:text-purple-500 dark:text-gray-400 dark:hover:text-lime-400 transition"
-                  >
-                    <Linkedin size={20} className="md:w-6 md:h-6" />
-                  </a>
-                )}
-              </div>
                
               </div>
             </div>
