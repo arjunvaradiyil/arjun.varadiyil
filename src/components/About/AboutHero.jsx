@@ -1,8 +1,8 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import React from "react";
 import { Linkedin, Github, Mail, Download } from "lucide-react";
-import img1 from "../../assets/images/profilepic.png"
-import resume from "../../assets/images/GourinandhanaESResume.pdf"
+import img1 from "../../assets/images/arjunvaradiyil.jpeg"
+const resume = "https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view";
 
 export default function AboutHero() {
 
@@ -37,24 +37,18 @@ export default function AboutHero() {
           </h1>
 
           <h3 className="mt-10 text-[32px] font-antonio font-semibold text-purple-500 dark:text-lime-400">
-            GOURINANDHANA E S
+            ARJUN VARADIYIL
           </h3>
 
           <p className="mt-4 max-w-xl text-gray-600 dark:text-[#cacaca] text-[18px] leading-relaxed">
-            I’m a web developer who loves creating clean, responsive, and dynamic websites.  
-          </p>
-
-          <p className="mt-4 max-w-xl text-gray-600 dark:text-gray-400 text-[18px] leading-relaxed">
-              With a strong foundation in React, Next.js, and the MERN stack, I focus on building  
-              user-friendly interfaces and efficient solutions. From designing to deployment,  
-              I enjoy bringing ideas to life with detail and precision.
+            Hello! I'm Arjun Varadiyil. My journey in technology is driven by a passion for crafting elegant solutions to complex problems. I specialize in the MERN stack, building applications that are not just functional, but also provide an intuitive and engaging user experience.
           </p>
 
           <div className="mt-8 flex items-center gap-6 text-gray-800 dark:text-[#cacaca] text-2xl">
-            <a href="https://www.linkedin.com/in/gourinandhana-e-s-353991251/"><Linkedin className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
-            <a href="https://github.com/GourinandhanaES"><Github className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
-            <a href="mailto:www.gourinandhana028@gmail.com"><Mail className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
-            <a href={resume} download="GourinandhaESResume.pdf">
+            <a href="https://www.linkedin.com/in/arjunvaradiyil" target="_blank" rel="noopener noreferrer"><Linkedin className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
+            <a href="https://github.com/arjunvaradiyil" target="_blank" rel="noopener noreferrer"><Github className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
+            <a href="mailto:arjunvaradiyil203@gmail.com"><Mail className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
+            <a href={resume} target="_blank" rel="noopener noreferrer">
               <Download className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer"  />
             </a>
           </div>

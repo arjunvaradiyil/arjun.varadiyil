@@ -77,7 +77,7 @@ export default function Contactform() {
           </div> */}
           {/* Text */}
           <div className=" text-3xl mb-4 sm:mb-6 text-gray-100 font-semibold">
-            Drop a mail, Lets Make it Happen.
+            Let's Connect and Build Something Amazing Together.
           </div>
 
           {step === 1 && (
@@ -89,7 +89,7 @@ export default function Contactform() {
               className="space-y-4 sm:space-y-6"
             >
               <div>
-                <label className="block text-sm font-medium mb-1 sm:mb-2">Name *</label>
+                <label className="block text-sm font-medium mb-1 sm:mb-2">Your Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -101,7 +101,7 @@ export default function Contactform() {
                   dark:focus:ring-lime-400
                   focus:border-purple-400
                   dark:focus:border-lime-400 outline-none"
-                  placeholder="Your Name"
+                  placeholder="Enter your name"
                   required
                 />
               </div>

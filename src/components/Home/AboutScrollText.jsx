@@ -37,7 +37,7 @@ export default function AboutPinnedText({ theme }) {
   }, [theme]);
 
   const text =
-    "I design and develop complete web applications from frontend to backend.";
+    "I craft elegant solutions to complex problems, building scalable web applications with the MERN stack.";
 
   return (
     <section

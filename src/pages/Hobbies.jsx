@@ -8,7 +8,7 @@ const Hobbies = () => {
         {/* Left Side */}
         <div className="flex-1 text-center md:text-left">
           <p className="text-lime-400 text-2xl md:text-[32px] bebas-neue-regular uppercase leading-tight mb-4">
-            Gourinandhana E S
+            ARJUN VARADIYIL
           </p>
           <h1 className="bebas-neue-regular text-gray-300 text-6xl md:text-[120px] font-bold leading-none tracking-tight">
             software

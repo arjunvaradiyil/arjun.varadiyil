@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Hand } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import ProfileImg from "../../assets/images/profilepic.png";
+import ProfileImg from "../../assets/images/arjunvaradiyil.jpeg";
 
 export default function Banner() {
-  const fullText = "GOURI";
+  const fullText = "ARJUN";
   const [typedText, setTypedText] = useState("");
   const [showContent, setShowContent] = useState(false);
 
@@ -47,7 +47,7 @@ export default function Banner() {
         >
           {/* Name */}
           <p className="tracking-widest font-anton text-[16px] sm:text-[18px] text-gray-500 dark:text-gray-400 text-center mb-4">
-            GOURINANDHANA ES
+            ARJUN VARADIYIL
           </p>
 
           {/* DESKTOP SPLIT / MOBILE STACK */}

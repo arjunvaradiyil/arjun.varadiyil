@@ -36,6 +36,21 @@ const services = [
   },
   {
     id: "03",
+    title: "Backend",
+    description:
+      "Robust server-side solutions with optimized performance and security.",
+    features: [
+      "RESTful & GraphQL API development",
+      "Database design & optimization",
+      "Authentication & authorization systems",
+      "Server performance optimization",
+    ],
+    image:
+      "https://www.mindinventory.com/blog/wp-content/uploads/2022/03/react-nodejs.webp",
+    tags: ["Node.js", "Express", "MongoDB", "PostgreSQL", "JWT"],
+  },
+  {
+    id: "04",
     title: "CMS",
     description:
       "Flexible content management solutions with powerful admin control.",
@@ -50,7 +65,7 @@ const services = [
     tags: ["Strapi", "WordPress", "MySQL", "Headless CMS"],
   },
   {
-    id: "04",
+    id: "05",
     title: "Deployment",
     description:
       "From development to launch with reliable hosting and integrations.",

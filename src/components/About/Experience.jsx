@@ -39,7 +39,7 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-[64px] font-antonio text-purple-500 dark:text-lime-400"
         >
-          DISCOVER MY JOURNEY IN DESIGN
+          PROFESSIONAL EXPERIENCE
         </motion.h2>
 
         <motion.p
@@ -49,9 +49,7 @@ export default function Experience() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-gray-800 dark:text-gray-400 text-lg mt-6 max-w-3xl"
         >
-          From curious creator to full-time designer, my path has been shaped by a
-          passion for crafting purposeful, user-centered digital experiences—
-          blending storytelling, structure, and design into every project.
+          My professional journey reflects a commitment to building scalable solutions and sharing knowledge. From developing high-performance applications to mentoring the next generation of developers, each role has contributed to my growth as a full-stack developer.
         </motion.p>
 
         {/* Experience List */}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link , useLocation } from "react-router-dom";
-import resume from "../assets/images/GourinandhanaESResume.pdf"
+const resume = "https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view";
 
 export default function SidebarMenu({ open, setOpen }) {
     const location = useLocation();
@@ -82,7 +82,7 @@ export default function SidebarMenu({ open, setOpen }) {
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-2">(Email)</p>
             <p className="text-purple-400 dark:text-lime-400 text-[20px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-semibold">
-              gourinandhana028@gmail.com
+              arjunvaradiyil203@gmail.com
             </p>
           </div>
 
@@ -90,9 +90,10 @@ export default function SidebarMenu({ open, setOpen }) {
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-3">(Socials)</p>
             <div className="grid grid-cols-2 gap-x-16 gap-y-3 text-[#cacaca] text-[22px] sm:text-[20px] md:text-[24px] lg:text-[22px]">
               {[
-                { name: "LinkedIn", url: "https://www.linkedin.com/in/gourinandhana-e-s-353991251/" },
-                { name: "Whatsapp", url: "https://wa.me/9495067805" },
-                { name: "Github", url: "https://github.com/GourinandhanaES" },
+                { name: "LinkedIn", url: "https://www.linkedin.com/in/arjunvaradiyil" },
+                { name: "Instagram", url: "https://www.instagram.com/_arjuo__?igsh=MWZiOXdxMmg3c3Bodw%3D%3D&utm_source=qr" },
+                { name: "Github", url: "https://github.com/arjunvaradiyil" },
+                { name: "Whatsapp", url: "https://wa.me/9946642065" },
                 { name: "Resume", url: resume }
               ].map((item, i) => (
                 <a
