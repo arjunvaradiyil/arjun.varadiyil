@@ -81,17 +81,17 @@ export default function SidebarMenu({ open, setOpen }) {
       </nav>
 
         {/* FOOTER INFO */}
-        <div className="mt-12 px-10 space-y-8 text-sm lg:absolute lg:bottom-12 lg:left-0 lg:right-0">
+        <div className="mt-12 px-10 pb-12 space-y-8 text-sm">
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-2">(Email)</p>
-            <p className="text-purple-400 dark:text-lime-400 text-[20px] sm:text-[20px] md:text-[20px] lg:text-[22px] font-semibold">
+            <p className="text-purple-400 dark:text-lime-400 text-[16px] sm:text-[18px] md:text-[18px] lg:text-[20px] font-semibold break-all">
               arjunvaradiyil203@gmail.com
             </p>
           </div>
 
           <div>
             <p className="text-[#8f8f8f] uppercase text-[14px] tracking-wide mb-3">(Socials)</p>
-            <div className="grid grid-cols-2 gap-x-16 gap-y-3 text-[#cacaca] text-[22px] sm:text-[20px] md:text-[24px] lg:text-[22px]">
+            <div className="grid grid-cols-2 gap-x-8 sm:gap-x-12 md:gap-x-16 gap-y-3">
               {[
                 { name: "LinkedIn", url: "https://www.linkedin.com/in/arjunvaradiyil" },
                 { name: "Instagram", url: "https://www.instagram.com/_arjuo__?igsh=MWZiOXdxMmg3c3Bodw%3D%3D&utm_source=qr" },
@@ -106,7 +106,7 @@ export default function SidebarMenu({ open, setOpen }) {
                   rel="noopener noreferrer"
                   className="group relative inline-block w-fit"
                 >
-                  <span className="relative inline-block pb-1">
+                  <span className="relative inline-block pb-1 text-[#cacaca] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[18px] hover:text-purple-400 dark:hover:text-lime-400 transition-colors">
                     {item.name}
 
                     {/* underline */}
