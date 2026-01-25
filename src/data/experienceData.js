@@ -2,7 +2,7 @@ export const experienceData = [
   {
     period: "April 2025 - Present",
     role: "Full Stack Developer",
-    company: "faircode infotech pvt ltd",
+    company: "Faircode Infotech Pvt Ltd",
     points: [
       "Developed scalable web applications using the MERN stack with optimized backend architecture for improved performance.",
       "Collaborated with cross-functional teams to deliver high-quality software solutions and enhance API efficiency.",
