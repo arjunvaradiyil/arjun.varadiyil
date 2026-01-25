@@ -24,7 +24,7 @@ export default function Contactform() {
     setSuccessMessage("");
 
     try {
-      const res = await fetch("https://my-portfolio-backend-qb87.onrender.com/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
