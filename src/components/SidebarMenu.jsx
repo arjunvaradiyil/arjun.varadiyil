@@ -54,7 +54,7 @@ export default function SidebarMenu({ open, setOpen }) {
 
         {/* NAV LINKS */}
         <nav className="px-10 py-2 font-anton">
-        {["HOME", "PROJECTS", "ABOUT", "CERTIFICATIONS", "CONTACT"].map((item, i) => {
+        {["HOME", "PROJECTS", "ABOUT", "BLOG", "CERTIFICATIONS", "CONTACT"].map((item, i) => {
           const isActive = active === item;
           return (
             <div key={i} className="group">
