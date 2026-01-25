@@ -1,14 +1,13 @@
 'use client';
 
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 import { Linkedin, Github, Mail, Download } from "lucide-react";
 import Image from "next/image";
+
 const resume = "https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view";
 
 export default function AboutHero() {
-
-
   return (
   <>
     {/* FIRST ABOUT HERO SECTION */}
@@ -16,7 +15,7 @@ export default function AboutHero() {
       {/* AVAILABLE BADGE */}
         <div className="fixed top-6 left-6 md:left-8 z-50 flex items-center gap-3">
           <div className="flex items-center gap-2 rounded-full border border-gray-600 bg-black/80 px-4 py-1.5 backdrop-blur hover:border-[#8f8f8f] transition">
-            <span className="h-2 w-2 rounded-full bg-purple-400 dark:bg-lime-400 animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-blue-400 dark:bg-cyan-400 animate-pulse" />
             <span className="text-xs sm:text-sm font-sans text-gray-300 tracking-wide">
               Available for work
             </span>
@@ -36,7 +35,7 @@ export default function AboutHero() {
             ABOUT ME
           </h1>
 
-          <h3 className="mt-6 text-[24px] md:text-[28px] font-antonio font-semibold text-purple-500 dark:text-lime-400">
+          <h3 className="mt-6 text-[24px] md:text-[28px] font-antonio font-semibold text-blue-500 dark:text-cyan-400">
             ARJUN VARADIYIL
           </h3>
 
@@ -45,11 +44,11 @@ export default function AboutHero() {
           </p>
 
           <div className="mt-8 flex items-center gap-6 text-gray-800 dark:text-[#cacaca] text-2xl">
-            <a href="https://www.linkedin.com/in/arjunvaradiyil" target="_blank" rel="noopener noreferrer"><Linkedin className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
-            <a href="https://github.com/arjunvaradiyil" target="_blank" rel="noopener noreferrer"><Github className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
-            <a href="mailto:arjunvaradiyil203@gmail.com"><Mail className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer" /></a>
+            <a href="https://www.linkedin.com/in/arjunvaradiyil" target="_blank" rel="noopener noreferrer"><Linkedin className="hover:text-blue-500 dark:hover:text-cyan-400 cursor-pointer" /></a>
+            <a href="https://github.com/arjunvaradiyil" target="_blank" rel="noopener noreferrer"><Github className="hover:text-blue-500 dark:hover:text-cyan-400 cursor-pointer" /></a>
+            <a href="mailto:arjunvaradiyil203@gmail.com"><Mail className="hover:text-blue-500 dark:hover:text-cyan-400 cursor-pointer" /></a>
             <a href={resume} target="_blank" rel="noopener noreferrer">
-              <Download className="hover:text-purple-500 dark:hover:text-lime-400 cursor-pointer"  />
+              <Download className="hover:text-blue-500 dark:hover:text-cyan-400 cursor-pointer"  />
             </a>
           </div>
         </motion.div>

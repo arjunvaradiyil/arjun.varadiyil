@@ -19,9 +19,9 @@ export default function Navbar() {
           className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#8f8f8f] transition hover:bg-[#8f8f8f]"
         >
           {theme === "dark" ? (
-            <Sun className="w-6 h-6 text-purple-500 dark:text-lime-400" />
+            <Sun className="w-6 h-6 text-blue-500 dark:text-cyan-400" />
           ) : (
-            <Moon className="w-6 h-6 text-purple-400" />
+            <Moon className="w-6 h-6 text-blue-400" />
           )}
         </button>
 

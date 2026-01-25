@@ -1,7 +1,7 @@
 'use client';
 
-import React,{ useEffect, useRef } from "react";
-import { motion, useMotionValue, useTransform, animate,useInView} from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
 const containerVariants = {
   hidden: {},
@@ -62,7 +62,7 @@ export default function WhyMe() {
             {/* Top Label */}
             <motion.p
               variants={itemVariants}
-              className="text-sm tracking-widest text-purple-600 dark:text-lime-400"
+              className="text-sm tracking-widest text-blue-600 dark:text-cyan-400"
             >
               (WHY ME)
             </motion.p>
@@ -109,7 +109,7 @@ export default function WhyMe() {
           >
             <h3 className="text-gray-800 dark:text-[#cacaca] text-6xl md:text-8xl font-bold">
               <Counter to={10} />
-              <span className="text-purple-500 dark:text-lime-400">+</span>
+              <span className="text-blue-500 dark:text-cyan-400">+</span>
             </h3>
             <p className="text-gray-800 dark:text-[#cacaca] text-[16px]">
               Real-world projects built across web platforms
@@ -124,7 +124,7 @@ export default function WhyMe() {
           >
             <h3 className="text-gray-800 dark:text-[#cacaca] text-6xl md:text-8xl font-bold">
               <Counter to={1.5} />
-              <span className="text-purple-500 dark:text-lime-400">+</span>
+              <span className="text-blue-500 dark:text-cyan-400">+</span>
             </h3>
             <p className="text-gray-800 dark:text-[#cacaca] text-[16px]">
               Years of professional software development experience
@@ -139,7 +139,7 @@ export default function WhyMe() {
           >
             <h3 className="text-gray-800 dark:text-[#cacaca] text-6xl md:text-8xl font-bold">
               <Counter to={100} />
-              <span className="text-purple-500 dark:text-lime-400">%</span>
+              <span className="text-blue-500 dark:text-cyan-400">%</span>
             </h3>
             <p className="text-gray-800 dark:text-[#cacaca] text-[16px]">
               Commitment to clean code, performance & best practices
@@ -154,7 +154,7 @@ export default function WhyMe() {
           >
             <h3 className="text-gray-800 dark:text-[#cacaca] text-6xl md:text-8xl font-bold">
               <Counter to={10} />
-              <span className="text-purple-500 dark:text-lime-400">+</span>
+              <span className="text-blue-500 dark:text-cyan-400">+</span>
             </h3>
             <p className="text-gray-800 dark:text-[#cacaca] text-[16px]">
               Technologies used including MERN & modern frontend tools

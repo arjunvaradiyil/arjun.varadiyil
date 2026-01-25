@@ -93,7 +93,7 @@ export default function Banner() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="absolute left-[-18px] bottom-[40%] w-12 h-12 rounded-full bg-purple-400 dark:bg-lime-400 flex items-center justify-center cursor-pointer shadow-lg"
+                className="absolute left-[-18px] bottom-[40%] w-12 h-12 rounded-full bg-blue-400 dark:bg-cyan-400 flex items-center justify-center cursor-pointer shadow-lg"
               >
                 <Hand className="text-black w-5 h-5" />
               </motion.div>

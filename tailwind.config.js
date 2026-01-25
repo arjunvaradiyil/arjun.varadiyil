@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui"],
+        sans: ["Syne", "Inter", "ui-sans-serif", "system-ui"],
+        syne: ["Syne", "sans-serif"],
         anton: ['"Anton"', '"Anton Placeholder"', 'sans-serif'],
         antonio: ["Antonio", "sans-serif"],
       },

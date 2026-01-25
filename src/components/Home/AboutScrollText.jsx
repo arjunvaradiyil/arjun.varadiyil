@@ -6,7 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutPinnedText({ theme }) {
+import { useTheme } from "../ThemeProvider";
+
+export default function AboutPinnedText() {
+  const { theme } = useTheme();
   const sectionRef = useRef(null);
   const textRef = useRef(null);
 
@@ -48,7 +51,7 @@ export default function AboutPinnedText({ theme }) {
     >
       <div className="max-w-6xl">
         {/* Label */}
-        <p className="text-3xl sm:text-4xl lg:text-5xl tracking-widest text-purple-500 dark:text-lime-400 mb-6">
+        <p className="text-3xl sm:text-4xl lg:text-5xl tracking-widest text-blue-500 dark:text-cyan-400 mb-6">
           (ABOUT)
         </p> 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import "@fontsource/inter";
+import "@fontsource/syne";
 import ThemeProvider from '../components/ThemeProvider';
 import Navbar from '../components/Navbar';
 import ScrollToTopButton from '../components/ScrollToTopButton';

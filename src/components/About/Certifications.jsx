@@ -39,7 +39,7 @@ export default function Certifications() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[36px] sm:text-[48px] md:text-[64px] font-antonio text-purple-500 dark:text-lime-400 mb-6"
+          className="text-[36px] sm:text-[48px] md:text-[64px] font-antonio text-blue-500 dark:text-cyan-400 mb-6"
         >
           CERTIFICATIONS
         </motion.h2>
@@ -72,7 +72,7 @@ export default function Certifications() {
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 mt-1">
-                  <Award className="w-6 h-6 text-purple-500 dark:text-lime-400" />
+                      <Award className="w-6 h-6 text-blue-500 dark:text-cyan-400" />
                 </div>
                 
                 <div className="flex-1">
@@ -81,7 +81,7 @@ export default function Certifications() {
                       <h3 className="text-xl md:text-2xl font-antonio text-black dark:text-white mb-1">
                         {cert.title}
                       </h3>
-                      <p className="text-purple-500 dark:text-lime-400 font-medium text-sm md:text-base">
+                          <p className="text-blue-500 dark:text-cyan-400 font-medium text-sm md:text-base">
                         {cert.issuer}
                       </p>
                     </div>

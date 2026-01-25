@@ -1,21 +1,30 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
+import Modal from "./ui/Modal";
+import Input from "./ui/Input";
+
+const INITIAL_FORM_DATA = { name: "", email: "", message: "" };
 
 export default function Contactform() {
   const [step, setStep] = useState(1);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "", 
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = useCallback((e) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  }, []);
+
+  const resetForm = useCallback(() => {
+    setFormData(INITIAL_FORM_DATA);
+    setStep(1);
+  }, []);
+
+  const clearMessage = useCallback((setter) => {
+    setTimeout(() => setter(""), 5000);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,17 +43,16 @@ export default function Contactform() {
 
       if (res.ok) {
         setSuccessMessage("Thank you! Your message has been sent successfully.");
-        setFormData({ name: "", email: "", message: "" });
-        setStep(1);
-        setTimeout(() => setSuccessMessage(""), 5000);
+        resetForm();
+        clearMessage(setSuccessMessage);
       } else {
         setErrorMessage("Oops! Something went wrong. Please try again.");
-        setTimeout(() => setErrorMessage(""), 5000);
+        clearMessage(setErrorMessage);
       }
     } catch (error) {
       console.error(error);
       setErrorMessage("Server error. Please try again later.");
-      setTimeout(() => setErrorMessage(""), 5000);
+      clearMessage(setErrorMessage);
     }
   };
 
@@ -67,7 +75,7 @@ export default function Contactform() {
         <div className="flex flex-col justify-center w-full md:w-1/2 pr-0 md:pr-12 text-center md:text-left">
           <h1 className="bebas-neue-regular text-4xl sm:text-4xl md:text-9xl lg:text-10xl font-extrabold leading-tight text-gray-100">
             Ready? <br />
-            <span className="text-purple-400 dark:text-lime-400">Let's Talk</span>
+            <span className="text-blue-400 dark:text-cyan-400">Let's Talk</span>
           </h1>
         </div>
 
@@ -90,45 +98,26 @@ export default function Contactform() {
               }}
               className="space-y-4 sm:space-y-6"
             >
-              <div>
-                <label className="block text-sm font-medium mb-1 sm:mb-2">Your Name *</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:outline-none
-                  focus:ring-2
-                  focus:ring-purple-400
-                  dark:focus:ring-lime-400
-                  focus:border-purple-400
-                  dark:focus:border-lime-400 outline-none"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1 sm:mb-2">Email *</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:outline-none
-                  focus:ring-2
-                  focus:ring-purple-400
-                  dark:focus:ring-lime-400
-                  focus:border-purple-400
-                  dark:focus:border-lime-400 outline-none"
-                  placeholder="you@example.com"
-                  required
-                />
-              </div>
-
+              <Input
+                label="Your Name *"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your name"
+                required
+              />
+              <Input
+                label="Email *"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="you@example.com"
+                required
+              />
               <button
                 type="submit"
-                className="w-full bg-purple-400 dark:bg-lime-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition"
+                className="w-full bg-blue-400 dark:bg-cyan-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition"
               >
                 Continue
               </button>
@@ -140,35 +129,25 @@ export default function Contactform() {
               onSubmit={handleSubmit} 
               className="space-y-4 sm:space-y-6"
             >
-              <div>
-                <label className="block text-sm font-medium mb-1 sm:mb-2">
-                  Explain your idea *
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full p-2 sm:p-3 rounded-lg bg-black border border-gray-700 focus:outline-none
-                    focus:ring-2
-                    focus:ring-purple-400
-                    dark:focus:ring-lime-400
-                    focus:border-purple-400
-                    dark:focus:border-lime-400 outline-none"
-                  rows="4"
-                  placeholder="Tell me about your project..."
-                  required
-                ></textarea>
-              </div>
+              <Input
+                label="Explain your idea *"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Tell me about your project..."
+                rows="4"
+                required
+              />
 
               <div className="flex items-center space-x-2 sm:space-x-3 text-xs sm:text-sm">
                 <input type="checkbox" required />
                 <p>
                   I accept the{" "}
-                  <a href="#" className="text-purple-400 dark:text-lime-400 underline">
+                  <a href="#" className="text-blue-400 dark:text-cyan-400 underline">
                     Terms and Conditions
                   </a>{" "}
                   and{" "}
-                  <a href="#" className="text-purple-400 dark:text-lime-400 underline">
+                  <a href="#" className="text-blue-400 dark:text-cyan-400 underline">
                     Privacy Policy
                   </a>
                   .
@@ -186,8 +165,7 @@ export default function Contactform() {
                 </button>
                 <button
                   type="submit"
-                  onClick={handleSubmit}
-                  className="w-full sm:w-1/2 bg-purple-400 dark:bg-lime-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition"
+                  className="w-full sm:w-1/2 bg-blue-400 dark:bg-cyan-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition"
                 >
                   Submit
                 </button>
@@ -195,35 +173,25 @@ export default function Contactform() {
             </form>
           )}
 
-          {/* ✅ Loading Modal */}
-          {loading && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg text-center animate-pulse">
-                <div className="text-5xl mb-2">⏳</div>
-                <h2 className="text-xl font-bold">Sending your message...</h2>
-              </div>
-            </div>
-          )}
-
-           {/* ✅ Success Message */}
-            {successMessage && (
-              <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-                <div className="bg-white text-black p-6 rounded-2xl shadow-lg text-center animate-fadeIn">
-                  <div className="text-5xl mb-2">✅</div>
-                  <h2 className="text-xl font-bold">{successMessage}</h2>
-                </div>
-              </div>
-            )}
-
-            {/* ✅ Error Modal */}
-            {errorMessage && (
-              <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-                <div className="bg-white text-black p-6 rounded-2xl shadow-lg text-center animate-fadeIn">
-                  <div className="text-5xl mb-2">❌</div>
-                  <h2 className="text-xl font-bold">{errorMessage}</h2>
-                </div>
-              </div>
-            )}
+          <Modal
+            isOpen={loading}
+            icon="⏳"
+            title="Sending your message..."
+            closable={false}
+            onClose={() => {}}
+          />
+          <Modal
+            isOpen={!!successMessage}
+            icon="✅"
+            title={successMessage}
+            onClose={() => setSuccessMessage("")}
+          />
+          <Modal
+            isOpen={!!errorMessage}
+            icon="❌"
+            title={errorMessage}
+            onClose={() => setErrorMessage("")}
+          />
         </div>
       </div>
     </div>

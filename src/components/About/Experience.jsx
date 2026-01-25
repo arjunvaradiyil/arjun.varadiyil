@@ -40,7 +40,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[36px] sm:text-[48px] md:text-[64px] font-antonio text-purple-500 dark:text-lime-400"
+          className="text-[36px] sm:text-[48px] md:text-[64px] font-antonio text-blue-500 dark:text-cyan-400"
         >
           PROFESSIONAL EXPERIENCE
         </motion.h2>
@@ -91,7 +91,7 @@ export default function Experience() {
                   />
                 </div>
 
-                <span className="text-purple-500 dark:text-lime-400 font-medium text-sm md:text-base">
+                <span className="text-blue-500 dark:text-cyan-400 font-medium text-sm md:text-base">
                   {item.company}
                 </span>
 
@@ -113,7 +113,7 @@ export default function Experience() {
                   >
                     <Check
                       size={16}
-                      className="text-purple-500 dark:text-lime-400 mt-1 flex-shrink-0"
+                      className="text-blue-500 dark:text-cyan-400 mt-1 flex-shrink-0"
                     />
                     <span>{point}</span>
                   </motion.li>

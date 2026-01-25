@@ -23,7 +23,7 @@ export default function ProjectDetailsPage() {
     <section className=" text-gray-700 dark:text-white min-h-screen px-6 md:px-16 py-20">
       <button 
         onClick={() => router.back()} 
-        className="fixed top-6 left-6 z-50 flex items-center gap-2 transition-colors w-12 h-12 rounded-full border border-gray-600 justify-center hover:border-[#8f8f8f] hover:bg-[#8f8f8f] text-gray-800 dark:text-[#cacaca] hover:text-purple-500 dark:hover:text-lime-400"
+        className="fixed top-6 left-6 z-50 flex items-center gap-2 transition-colors w-12 h-12 rounded-full border border-gray-600 justify-center hover:border-[#8f8f8f] hover:bg-[#8f8f8f] text-gray-800 dark:text-[#cacaca] hover:text-blue-500 dark:hover:text-cyan-400"
       >
         <ArrowLeft className="w-7 h-7"/>
       </button>
@@ -59,7 +59,7 @@ export default function ProjectDetailsPage() {
               href={project.previewLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-purple-500 dark:text-lime-400 text-lg font-semibold mt-4"
+              className="inline-block text-blue-500 dark:text-cyan-400 text-lg font-semibold mt-4"
             >
               Live Website ↗
             </a>
@@ -91,7 +91,7 @@ export default function ProjectDetailsPage() {
 
       <div className="max-w-7xl mx-auto mb-10">
         <h3 className="font-anton text-4xl mt-4 mb-5 text-gray-800 dark:text-[#cacaca]">
-          About the Project<span className="text-purple-500 dark:text-lime-400">.</span>
+          About the Project<span className="text-blue-500 dark:text-cyan-400">.</span>
         </h3>
         <p className="font-sans text-gray-600 dark:text-[#8f8f8f] max-w-7xl text-[16px] lg:text-[20px] leading-relaxed">
           {project.about}
@@ -101,7 +101,7 @@ export default function ProjectDetailsPage() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 ">
         <div>
           <h3 className="font-anton text-4xl mb-6 text-gray-800 dark:text-[#cacaca]">
-            Challenges<span className="text-purple-500 dark:text-lime-400">.</span>
+            Challenges<span className="text-blue-500 dark:text-cyan-400">.</span>
           </h3>
           <p className="font-sans text-gray-600 dark:text-[#8f8f8f] text-[16px] lg:text-[20px] leading-relaxed">
             {project.challenges}
@@ -110,7 +110,7 @@ export default function ProjectDetailsPage() {
 
         <div>
           <h3 className="font-anton text-4xl mb-6 text-gray-800 dark:text-[#cacaca]">
-            Solutions<span className="text-purple-500 dark:text-lime-400">.</span>
+            Solutions<span className="text-blue-500 dark:text-cyan-400">.</span>
           </h3>
           <p className="font-sans text-gray-600 dark:text-[#8f8f8f] text-[16px] lg:text-[20px] leading-relaxed">
             {project.solutions}

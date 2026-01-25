@@ -136,7 +136,7 @@ export default function ProjectsPage() {
             </a>
 
             <div className="relative ">
-              <span className="absolute top-0 right-0 text-purple-500 dark:text-lime-400 font-bold text-sm md:text-lg">
+              <span className="absolute top-0 right-0 text-blue-500 dark:text-cyan-400 font-bold text-sm md:text-lg">
                 {project.id}
               </span>
 
@@ -155,11 +155,11 @@ export default function ProjectsPage() {
               <p className="text-gray-800 dark:text-[#8f8f8f] mb-5 md:mb-8 text-sm md:text-base leading-relaxed">{project.description}</p>
               <div className="grid grid-cols-2 gap-y-3 md:gap-y-4 text-xs md:text-sm">
                 <div>
-                  <span className="block text-purple-500 dark:text-lime-400">Domain</span>
+                  <span className="block text-blue-500 dark:text-cyan-400">Domain</span>
                   <span className="font-semibold">{project.industry}</span>
                 </div>
                 <div>
-                  <span className="block text-purple-500 dark:text-lime-400">Technologies Used</span>
+                  <span className="block text-blue-500 dark:text-cyan-400">Technologies Used</span>
                   <span className="font-semibold"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
                 </div>
 

@@ -12,7 +12,7 @@ export default function SectionHeader({ title, subtitle }) {
       viewport={{ once: true }}
       className="text-center mb-16"
     >
-      <h2 className="text-4xl md:text-6xl bebas-neue-regular tracking-wide text-purple-500 dark:text-lime-400">
+      <h2 className="text-4xl md:text-6xl bebas-neue-regular tracking-wide text-blue-500 dark:text-cyan-400">
         {title}
       </h2>
       <p className="mt-3 text-gray-800 dark:text-gray-400 text-lg md:text-xl">

@@ -8,7 +8,7 @@ export default function HobbiesPage() {
     <section className="min-h-screen flex items-center justify-center bg-black px-4">
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1 text-center md:text-left">
-          <p className="text-lime-400 text-2xl md:text-[32px] bebas-neue-regular uppercase leading-tight mb-4">
+          <p className="text-cyan-400 text-2xl md:text-[32px] bebas-neue-regular uppercase leading-tight mb-4">
             ARJUN VARADIYIL
           </p>
           <h1 className="bebas-neue-regular text-gray-300 text-6xl md:text-[120px] font-bold leading-none tracking-tight">
