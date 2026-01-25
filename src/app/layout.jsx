@@ -10,8 +10,8 @@ import StructuredData from '../components/StructuredData';
 
 export const metadata = {
   title: {
-    default: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer | Arjun Varadiyil',
-    template: '%s | Arjun Varadiyil - Web Developer Kerala',
+    default: 'Arjun Varadiyil',
+    template: '%s | Arjun Varadiyil',
   },
   description: 'Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. Expert in React, Node.js, MongoDB. Hire the best web developer near you for modern web applications.',
   keywords: [
@@ -33,7 +33,7 @@ export const metadata = {
     locale: 'en_IN',
     url: 'https://arjunvaradiyil.in',
     siteName: 'Arjun Varadiyil - Web Developer Kerala',
-    title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer',
+    title: 'Arjun Varadiyil',
     description: 'Professional Web Developer & Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. Expert in React, Node.js, MongoDB.',
     images: [
       {
@@ -46,7 +46,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer',
+    title: 'Arjun Varadiyil',
     description: 'Professional Web Developer & Designer in Kerala. Freelance Full Stack Developer specializing in MERN stack.',
     images: ['/assets/images/arjunvaradiyil.jpeg'],
   },
@@ -65,11 +65,21 @@ export const metadata = {
     // Add your Google Search Console verification code here
     // google: 'your-verification-code',
   },
+  icons: {
+    icon: '/assets/images/arjunvaradiyil.jpeg',
+    apple: '/assets/images/arjunvaradiyil.jpeg',
+    shortcut: '/assets/images/arjunvaradiyil.jpeg',
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/assets/images/arjunvaradiyil.jpeg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/assets/images/arjunvaradiyil.jpeg" />
+        <link rel="shortcut icon" href="/assets/images/arjunvaradiyil.jpeg" type="image/jpeg" />
+      </head>
       <body>
         <StructuredData />
         <ThemeProvider>

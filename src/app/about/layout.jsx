@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer | About',
+  title: 'About | Arjun Varadiyil',
   description: 'Arjun Varadiyil - Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. View portfolio, experience, and certifications.',
   keywords: [
     'Web Developer Kerala', 'Web Designer Kerala', 'Web Developer Kochi', 'Web Developer Perinthalmanna',
@@ -8,7 +8,7 @@ export const metadata = {
     'Professional Web Developer', 'Web Development Services Kerala', 'Arjun Varadiyil'
   ],
   openGraph: {
-    title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer',
+    title: 'Arjun Varadiyil',
     description: 'Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack.',
     url: 'https://arjunvaradiyil.in/about',
     type: 'website',
@@ -16,7 +16,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer',
+    title: 'Arjun Varadiyil',
     description: 'Professional Web Developer & Web Designer in Kerala. Freelance Full Stack Developer specializing in MERN stack.',
   },
   alternates: {
