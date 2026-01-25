@@ -1,17 +1,23 @@
 export const metadata = {
-  title: 'Full Stack Developer | Arjun Varadiyil',
-  description: 'Arjun Varadiyil - Full Stack Developer & Software Engineer specializing in MERN stack. Based in Kerala, India. View my portfolio, professional experience, education, and certifications.',
-  keywords: ['Full Stack Developer', 'Software Engineer', 'MERN Stack', 'React Developer', 'Node.js Developer', 'Arjun Varadiyil', 'Kerala', 'India'],
+  title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer | About',
+  description: 'Arjun Varadiyil - Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. View portfolio, experience, and certifications.',
+  keywords: [
+    'Web Developer Kerala', 'Web Designer Kerala', 'Web Developer Kochi', 'Web Developer Perinthalmanna',
+    'Freelance Web Developer Kerala', 'Best Web Developer Kerala', 'Full Stack Developer Kerala',
+    'MERN Stack Developer Kerala', 'React Developer Kerala', 'Node.js Developer Kerala',
+    'Professional Web Developer', 'Web Development Services Kerala', 'Arjun Varadiyil'
+  ],
   openGraph: {
-    title: 'Full Stack Developer | Arjun Varadiyil',
-    description: 'Full Stack Developer & Software Engineer specializing in MERN stack. Based in Kerala, India.',
+    title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer',
+    description: 'Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack.',
     url: 'https://arjunvaradiyil.in/about',
     type: 'website',
+    locale: 'en_IN',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Full Stack Developer | Arjun Varadiyil',
-    description: 'Full Stack Developer & Software Engineer specializing in MERN stack.',
+    title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer',
+    description: 'Professional Web Developer & Web Designer in Kerala. Freelance Full Stack Developer specializing in MERN stack.',
   },
   alternates: {
     canonical: '/about',

@@ -4,19 +4,19 @@ import { blogPosts } from '../data/blogData';
 export default function sitemap() {
   const baseUrl = 'https://arjunvaradiyil.in';
   
-  // Static routes
+  // Static routes - optimized for SEO with location-based keywords
   const routes = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
+      changeFrequency: 'weekly',
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/projects`,
@@ -28,6 +28,18 @@ export default function sitemap() {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/certifications`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
@@ -36,19 +48,7 @@ export default function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
-        {
-          url: `${baseUrl}/certifications`,
-          lastModified: new Date(),
-          changeFrequency: 'monthly',
-          priority: 0.7,
-        },
-        {
-          url: `${baseUrl}/blog`,
-          lastModified: new Date(),
-          changeFrequency: 'weekly',
-          priority: 0.8,
-        },
-      ];
+  ];
 
       // Dynamic project routes - automatically generated from project data
       const projectRoutes = projects.map((project) => ({

@@ -6,14 +6,21 @@ import ThemeProvider from '../components/ThemeProvider';
 import Navbar from '../components/Navbar';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import ScrollToTop from '../components/ScrollToTop';
+import StructuredData from '../components/StructuredData';
 
 export const metadata = {
   title: {
-    default: 'Arjun Varadiyil - Full Stack Developer',
-    template: '%s | Arjun Varadiyil',
+    default: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer | Arjun Varadiyil',
+    template: '%s | Arjun Varadiyil - Web Developer Kerala',
   },
-  description: 'Full Stack Developer specializing in MERN stack. Building scalable web applications with React, Node.js, MongoDB, and Express. View my portfolio, projects, and experience.',
-  keywords: ['Full Stack Developer', 'MERN Stack', 'React Developer', 'Node.js', 'Web Developer', 'Portfolio', 'Arjun Varadiyil'],
+  description: 'Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. Expert in React, Node.js, MongoDB. Hire the best web developer near you for modern web applications.',
+  keywords: [
+    'Web Developer Kerala', 'Web Designer Kerala', 'Web Developer Kochi', 'Web Designer Kochi',
+    'Web Developer Perinthalmanna', 'Freelance Web Developer Kerala', 'Best Web Developer Kerala',
+    'Web Developer Near Me', 'MERN Stack Developer Kerala', 'React Developer Kerala',
+    'Full Stack Developer Kerala', 'Node.js Developer Kerala', 'Freelance Web Designer',
+    'Professional Web Developer', 'Web Development Services Kerala', 'Arjun Varadiyil'
+  ],
   authors: [{ name: 'Arjun Varadiyil' }],
   creator: 'Arjun Varadiyil',
   publisher: 'Arjun Varadiyil',
@@ -23,24 +30,24 @@ export const metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_IN',
     url: 'https://arjunvaradiyil.in',
-    siteName: 'Arjun Varadiyil - Portfolio',
-    title: 'Arjun Varadiyil - Full Stack Developer',
-    description: 'Full Stack Developer specializing in MERN stack. Building scalable web applications.',
+    siteName: 'Arjun Varadiyil - Web Developer Kerala',
+    title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer',
+    description: 'Professional Web Developer & Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. Expert in React, Node.js, MongoDB.',
     images: [
       {
         url: '/assets/images/arjunvaradiyil.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Arjun Varadiyil - Full Stack Developer',
+        alt: 'Arjun Varadiyil - Web Developer Kerala',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Arjun Varadiyil - Full Stack Developer',
-    description: 'Full Stack Developer specializing in MERN stack. Building scalable web applications.',
+    title: 'Best Web Developer in Kerala, Kochi | Freelance Web Designer',
+    description: 'Professional Web Developer & Designer in Kerala. Freelance Full Stack Developer specializing in MERN stack.',
     images: ['/assets/images/arjunvaradiyil.jpeg'],
   },
   robots: {
@@ -64,6 +71,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <StructuredData />
         <ThemeProvider>
           <ScrollToTop />
           <Navbar />

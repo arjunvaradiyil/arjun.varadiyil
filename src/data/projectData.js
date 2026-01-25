@@ -66,6 +66,6 @@ export const projects = [
     type: "image",
     gitLink: "", 
     previewLink: "https://movie-watchlist-neon.vercel.app/", 
-    linkedinLink: "",  
+    linkedinLink: "", 
   },
 ];
