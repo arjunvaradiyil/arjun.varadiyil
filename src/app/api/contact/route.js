@@ -1,11 +1,20 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-// eslint-disable-next-line no-undef
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request) {
   try {
+    // Initialize Resend only when the API is called, not during build
+    // eslint-disable-next-line no-undef
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    // Check if API key is available
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { error: 'Email service is not configured' },
+        { status: 500 }
+      );
+    }
+
     const { name, email, message } = await request.json();
 
     // Validate input
