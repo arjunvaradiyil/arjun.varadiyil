@@ -6,7 +6,7 @@ import { Hand } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Banner() {
-  const fullText = 'ARJUN';
+  const fullText = 'ARJUN V';
   const [typedText, setTypedText] = useState('');
   const [showContent, setShowContent] = useState(false);
 
