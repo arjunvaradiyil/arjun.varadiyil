@@ -6,6 +6,27 @@
   html {
     font-family: "Syne", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   }
+
+  /* Text selection highlighting */
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: inherit;
+  }
+
+  ::-moz-selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: inherit;
+  }
+
+  .dark ::selection {
+    background-color: rgba(34, 211, 238, 0.3);
+    color: inherit;
+  }
+
+  .dark ::-moz-selection {
+    background-color: rgba(34, 211, 238, 0.3);
+    color: inherit;
+  }
 }
 
 @media (min-width: 768px) {

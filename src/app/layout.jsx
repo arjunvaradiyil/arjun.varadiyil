@@ -1,7 +1,7 @@
 import React from 'react';
 import '../index.css';
-import "@fontsource/inter";
-import "@fontsource/syne";
+import '@fontsource/inter';
+import '@fontsource/syne';
 import ThemeProvider from '../components/ThemeProvider';
 import Navbar from '../components/Navbar';
 import ScrollToTopButton from '../components/ScrollToTopButton';
@@ -74,11 +74,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/assets/images/arjunvaradiyil.jpeg" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/assets/images/arjunvaradiyil.jpeg" />
-        <link rel="shortcut icon" href="/assets/images/arjunvaradiyil.jpeg" type="image/jpeg" />
+        <link rel='icon' href='/assets/images/arjunvaradiyil.jpeg' type='image/jpeg' />
+        <link rel='apple-touch-icon' href='/assets/images/arjunvaradiyil.jpeg' />
+        <link rel='shortcut icon' href='/assets/images/arjunvaradiyil.jpeg' type='image/jpeg' />
       </head>
       <body>
         <StructuredData />
