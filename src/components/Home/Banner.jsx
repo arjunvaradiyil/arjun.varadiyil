@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Hand } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Banner() {
   const fullText = 'ARJUN V';
@@ -44,7 +45,7 @@ export default function Banner() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className='relative z-10 text-white w-full max-w-6xl mt-16 md:mt-24'
+          className='relative z-10 text-white w-full max-w-6xl mt-3 sm:mt-0 md:mt-0'
         >
           {/* Name */}
           <p className='tracking-widest font-anton text-[16px] sm:text-[18px] text-gray-500 dark:text-gray-400 text-center mb-4'>
@@ -126,8 +127,28 @@ export default function Banner() {
                 DEVELOPER
               </h2>
             </div>
-
           </div>
+
+          {/* View Project + View More */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className='flex flex-wrap items-center justify-center gap-4 mt-8 md:mt-10'
+          >
+            <Link
+              href='/projects'
+              className='px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-transparent text-xs uppercase tracking-widest font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:border-gray-500 dark:hover:bg-gray-800 transition-all duration-200'
+            >
+              View Project
+            </Link>
+            <a
+              href='#about'
+              className='px-5 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent text-xs uppercase tracking-widest font-medium text-gray-800 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200'
+            >
+              View More
+            </a>
+          </motion.div>
         </motion.div>
       )}
     </section>

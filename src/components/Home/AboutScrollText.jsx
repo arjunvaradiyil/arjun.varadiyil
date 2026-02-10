@@ -46,6 +46,7 @@ export default function AboutPinnedText() {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
       className="w-full h-screen flex items-center justify-center px-6"
     >

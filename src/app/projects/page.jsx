@@ -100,42 +100,20 @@ export default function ProjectsPage() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             className="grid md:grid-cols-2 gap-6 md:gap-10 items-center"
           >
-            {project.previewLink ? (
-              <a
-                href={project.previewLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative group transform transition duration-300 hover:scale-[0.96] block"
-              >
-                {project.type === "video" ? (
-                  <video src={project.image} alt={project.title} className="rounded-xl shadow-lg w-full" autoPlay loop muted playsInline>
-                    Your browser does not support the video tag.
-                  </video>
-                ) : (
-                  <div className="relative w-full aspect-video rounded-xl shadow-lg overflow-hidden">
-                    <Image src={project.image} alt={project.title} fill className="object-cover" />
-                  </div>
-                )}
-                <span className="absolute bottom-2 right-2 md:bottom-4 md:right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded-xl md:rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
-                  VIEW LIVE →
-                </span>
-              </a>
-            ) : (
-              <NextLink href={`/projects/${project.id}`} className="relative group transform transition duration-300 hover:scale-[0.96] block">
-                {project.type === "video" ? (
-                  <video src={project.image} alt={project.title} className="rounded-xl shadow-lg w-full" autoPlay loop muted playsInline>
-                    Your browser does not support the video tag.
-                  </video>
-                ) : (
-                  <div className="relative w-full aspect-video rounded-xl shadow-lg overflow-hidden">
-                    <Image src={project.image} alt={project.title} fill className="object-cover" />
-                  </div>
-                )}
-                <span className="absolute bottom-2 right-2 md:bottom-4 md:right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded-xl md:rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
-                  VIEW PROJECT →
-                </span>
-              </NextLink>
-            )}
+            <NextLink href={`/projects/${project.id}`} className="relative group transform transition duration-300 hover:scale-[0.96] block">
+              {project.type === "video" ? (
+                <video src={project.image} alt={project.title} className="rounded-xl shadow-lg w-full" autoPlay loop muted playsInline>
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <div className="relative w-full aspect-video rounded-xl shadow-lg overflow-hidden">
+                  <Image src={project.image} alt={project.title} fill className="object-cover" />
+                </div>
+              )}
+              <span className="absolute bottom-2 right-2 md:bottom-4 md:right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded-xl md:rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
+                VIEW PROJECT →
+              </span>
+            </NextLink>
 
             <div className="relative ">
               <span className="absolute top-0 right-0 text-blue-500 dark:text-cyan-400 font-bold text-sm md:text-lg">
@@ -164,8 +142,25 @@ export default function ProjectsPage() {
                   <span className="block text-blue-500 dark:text-cyan-400">Technologies Used</span>
                   <span className="font-semibold"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
                 </div>
+              </div>
 
-               
+              <div className="flex flex-wrap gap-3 mt-6">
+                <NextLink
+                  href={`/projects/${project.id}`}
+                  className="inline-block px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent text-xs uppercase tracking-widest font-medium text-gray-800 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                >
+                  View Project →
+                </NextLink>
+                {project.previewLink && (
+                  <a
+                    href={project.previewLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-4 py-2 rounded-lg border border-blue-500 dark:border-cyan-400 text-blue-500 dark:text-cyan-400 text-xs uppercase tracking-widest font-medium hover:bg-blue-500/10 dark:hover:bg-cyan-400/10 transition-colors"
+                  >
+                    View Live →
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>

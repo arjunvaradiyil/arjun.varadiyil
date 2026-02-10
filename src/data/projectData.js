@@ -25,7 +25,7 @@ export const projects = [
     logo: "/assets/images/dbi.png",
     type: "image",
     gitLink: "",
-    previewLink: "",
+    previewLink: "https://www.deshabhimani.com/",
     linkedinLink: "",
   },
   {
@@ -52,7 +52,7 @@ export const projects = [
     logo: "/assets/images/kmb-logo.svg",
     type: "image",
     gitLink: "",
-    previewLink: "",
+    previewLink: "https://www.kochimuzirisbiennale.org/",
     linkedinLink: "",
   },
   {
@@ -80,7 +80,7 @@ export const projects = [
     logo: "/assets/images/LEFTVIEWS.svg",
     type: "image",
     gitLink: "",
-    previewLink: "",
+    previewLink: "https://www.leftviews.in/",
     linkedinLink: "",
   },
 ];
