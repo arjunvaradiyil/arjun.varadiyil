@@ -59,11 +59,13 @@ export default function AboutPinnedText() {
         <h1
           ref={textRef}
           className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl leading-tight font-medium"
+          style={{ willChange: 'contents' }}
         >
           {text.split(" ").map((word, i) => (
             <span
               key={i}
               className="word text-[#555555] inline-block mr-2"
+              style={{ willChange: 'color' }}
             >
               {word}
             </span>

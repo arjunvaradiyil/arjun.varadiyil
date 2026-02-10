@@ -100,40 +100,42 @@ export default function ProjectsPage() {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             className="grid md:grid-cols-2 gap-6 md:gap-10 items-center"
           >
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group transform transition duration-300 hover:scale-[0.96]"
-            >
-              {project.type === "video" ? (
-                <video
-                  src={project.image}
-                  alt={project.title}
-                  className="rounded-xl shadow-lg w-full"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <div className="relative w-full aspect-video rounded-xl shadow-lg overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <NextLink href={`/projects/${project.id}`}>
+            {project.previewLink ? (
+              <a
+                href={project.previewLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative group transform transition duration-300 hover:scale-[0.96] block"
+              >
+                {project.type === "video" ? (
+                  <video src={project.image} alt={project.title} className="rounded-xl shadow-lg w-full" autoPlay loop muted playsInline>
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <div className="relative w-full aspect-video rounded-xl shadow-lg overflow-hidden">
+                    <Image src={project.image} alt={project.title} fill className="object-cover" />
+                  </div>
+                )}
+                <span className="absolute bottom-2 right-2 md:bottom-4 md:right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded-xl md:rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
+                  VIEW LIVE →
+                </span>
+              </a>
+            ) : (
+              <NextLink href={`/projects/${project.id}`} className="relative group transform transition duration-300 hover:scale-[0.96] block">
+                {project.type === "video" ? (
+                  <video src={project.image} alt={project.title} className="rounded-xl shadow-lg w-full" autoPlay loop muted playsInline>
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <div className="relative w-full aspect-video rounded-xl shadow-lg overflow-hidden">
+                    <Image src={project.image} alt={project.title} fill className="object-cover" />
+                  </div>
+                )}
                 <span className="absolute bottom-2 right-2 md:bottom-4 md:right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded-xl md:rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
                   VIEW PROJECT →
                 </span>
               </NextLink>
-            </a>
+            )}
 
             <div className="relative ">
               <span className="absolute top-0 right-0 text-blue-500 dark:text-cyan-400 font-bold text-sm md:text-lg">

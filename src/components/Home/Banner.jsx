@@ -33,7 +33,7 @@ export default function Banner() {
         initial={{ opacity: 1 }}
         animate={{ opacity: showContent ? 0 : 1 }}
         transition={{ duration: 0.6 }}
-        className='absolute text-[80px] sm:text-[100px] lg:text-[180px] font-anton text-gray-800/20 dark:text-white/20 select-none pointer-events-none'
+        className='absolute text-[80px] sm:text-[100px] md:text-[180px] font-anton text-gray-800/20 dark:text-white/20 select-none pointer-events-none'
       >
         {typedText}
       </motion.h1>
@@ -44,15 +44,15 @@ export default function Banner() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className='relative z-10 text-white w-full max-w-6xl mt-3 sm:mt-0 lg:mt-0'
+          className='relative z-10 text-white w-full max-w-6xl mt-16 md:mt-24'
         >
           {/* Name */}
           <p className='tracking-widest font-anton text-[16px] sm:text-[18px] text-gray-500 dark:text-gray-400 text-center mb-4'>
             ARJUN VARADIYIL
           </p>
 
-          {/* DESKTOP SPLIT / MOBILE STACK */}
-          <div className='flex flex-col lg:flex-row items-center justify-center gap-6'>
+          {/* DESKTOP / iPAD MINI SAME AS LARGE: split layout from 768px */}
+          <div className='flex flex-col md:flex-row items-center justify-center gap-6'>
             {/* SOFTWARE */}
             <motion.h1
               initial={{ opacity: 0, x: -40 }}
@@ -62,7 +62,7 @@ export default function Banner() {
                 tracking-wide
                 text-[45px]
                 min-[1375px]:text-[70px]
-                hidden lg:block
+                hidden md:block
                 text-gray-800 dark:text-gray-300
                 bebas-neue-regular font-bold leading-none
               '
@@ -77,7 +77,7 @@ export default function Banner() {
               transition={{ delay: 0.4 }}
               className='relative'
             >
-              <div className='w-[200px] sm:w-[240px] lg:w-[280px] h-[280px] sm:h-[320px] lg:h-[360px] rounded-2xl overflow-hidden bg-zinc-900 relative'>
+              <div className='w-[200px] sm:w-[240px] md:w-[280px] h-[280px] sm:h-[320px] md:h-[360px] rounded-2xl overflow-hidden bg-zinc-900 relative'>
                 <Image
                   src='/assets/images/arjunvaradiyil.jpeg'
                   alt='Profile'
@@ -91,6 +91,7 @@ export default function Banner() {
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
+                style={{ willChange: 'transform' }}
                 className='absolute left-[-18px] bottom-[40%] w-12 h-12 rounded-full bg-blue-400 dark:bg-cyan-400 flex items-center justify-center cursor-pointer shadow-lg'
               >
                 <Hand className='text-black w-5 h-5' />
@@ -106,7 +107,7 @@ export default function Banner() {
                 tracking-wide
                 text-[45px]
                 min-[1375px]:text-[70px]
-                hidden lg:block
+                hidden md:block
                 text-gray-800 dark:text-gray-300
                 bebas-neue-regular font-bold leading-none
               '
@@ -115,10 +116,9 @@ export default function Banner() {
             </motion.h2>
           </div>
 
-          {/* MOBILE & TABLET TEXT */}
-          <div className='lg:hidden text-center mt-6'>
-            {/* MOBILE (two lines) */}
-            <div className='md:hidden'>
+          {/* MOBILE ONLY: stacked text (hidden from 768px so iPad Mini uses same as large) */}
+          <div className='md:hidden text-center mt-6'>
+            <div>
               <h1 className='text-[28px] sm:text-[30px] font-anton text-gray-800 dark:text-gray-300'>
                 SOFTWARE
               </h1>
@@ -127,12 +127,6 @@ export default function Banner() {
               </h2>
             </div>
 
-            {/* TABLET (single line) */}
-            <div className='hidden md:block'>
-              <h1 className='text-[36px] font-anton text-gray-800 dark:text-gray-300 tracking-wide'>
-                SOFTWARE DEVELOPER
-              </h1>
-            </div>
           </div>
         </motion.div>
       )}

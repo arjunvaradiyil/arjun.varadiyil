@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -8,17 +8,7 @@ const resume = 'https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT
 
 export default function SidebarMenu({ open, setOpen }) {
   const pathname = usePathname();
-
-  const getActiveFromPath = () => {
-    if (pathname === '/') return 'HOME';
-    return pathname.replace('/', '').toUpperCase();
-  };
-
-  const [active, setActive] = useState(getActiveFromPath());
-
-  useEffect(() => {
-    setActive(getActiveFromPath());
-  }, [pathname]);
+  const active = pathname === '/' ? 'HOME' : pathname.replace('/', '').toUpperCase();
 
   return (
     <>
@@ -32,21 +22,22 @@ export default function SidebarMenu({ open, setOpen }) {
 
       {/* SIDEBAR */}
       <aside
-        className={`fixed top-0 right-0 h-screen bg-[#0a0a0a] z-50 font-sans
+        className={`fixed top-0 right-0 h-screen bg-[#0a0a0a] dark:bg-[#0a0a0a] z-50 font-sans
         w-full sm:w-[60%] md:w-[50%] lg:w-[30%] overflow-y-auto overflow-x-hidden
-        transform transition-transform duration-500 ease-in-out
+        transform transition-transform duration-500 ease-in-out will-change-transform
         ${open ? 'translate-x-0' : 'translate-x-full'}`}
       >
         {/* HEADER */}
-        <div className='flex items-center justify-between px-8 py-6 border-b border-[#2b2b2b]'>
-          <div className='text-[16px] text-[#8f8f8f] tracking-wide uppercase'>
+        <div className='flex items-center justify-between px-8 py-6 border-b border-gray-200 dark:border-[#2b2b2b]'>
+          <div className='text-[16px] text-gray-500 dark:text-[#8f8f8f] tracking-wide uppercase'>
             <span className='text-blue-500 dark:text-cyan-400 mr-3'>■</span>
             Menu
           </div>
 
           <button
             onClick={() => setOpen(false)}
-            className='w-10 h-10 rounded-full border border-[#2b2b2b] flex items-center justify-center text-[#8f8f8f] hover:border-white transition'
+            className='w-10 h-10 rounded-full border border-gray-300 dark:border-[#2b2b2b] flex items-center justify-center text-gray-600 dark:text-[#8f8f8f] hover:border-gray-800 dark:hover:border-white transition'
+            aria-label='Close navigation menu'
           >
             ✕
           </button>

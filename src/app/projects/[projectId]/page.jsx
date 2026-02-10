@@ -75,6 +75,28 @@ export default function ProjectDetailsPage() {
               </p>
             </div>
           </div>
+          {(project.role || project.teamMembers || project.duration) && (
+            <div className="mt-[24px] sm:mt-[1.82vw] space-y-3 text-[#666666]">
+              {project.role && (
+                <div>
+                  <p className="mb-1 text-sm sm:text-base">Role:</p>
+                  <p className="text-sm sm:text-base">{project.role}</p>
+                </div>
+              )}
+              {project.teamMembers != null && (
+                <div>
+                  <p className="mb-1 text-sm sm:text-base">Team:</p>
+                  <p className="text-sm sm:text-base">{project.teamMembers} members</p>
+                </div>
+              )}
+              {project.duration && (
+                <div>
+                  <p className="mb-1 text-sm sm:text-base">Duration:</p>
+                  <p className="text-sm sm:text-base">{project.duration}</p>
+                </div>
+              )}
+            </div>
+          )}
           {project.previewLink && (
             <div className="mt-[24px] sm:mt-[1.82vw]">
               <a
@@ -125,6 +147,20 @@ export default function ProjectDetailsPage() {
               <p className="text-[14px] lg:text-[18px] leading-relaxed">
                 {project.about}
               </p>
+            </div>
+          )}
+
+          {/* Responsibilities */}
+          {project.responsibilities && project.responsibilities.length > 0 && (
+            <div className="mt-8">
+              <h3 className="font-anton text-xl sm:text-3xl mb-4 sm:mb-6 text-gray-800 dark:text-[#cacaca]">
+                Responsibilities<span className="text-blue-500 dark:text-cyan-400">.</span>
+              </h3>
+              <ul className="text-[#666666] text-[14px] lg:text-[18px] leading-relaxed list-disc list-inside space-y-2">
+                {project.responsibilities.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
             </div>
           )}
 

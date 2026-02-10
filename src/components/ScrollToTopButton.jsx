@@ -28,6 +28,7 @@ export default function ScrollToTopButton() {
     <button
       onClick={scrollToTop}
       className='fixed bottom-6 right-6 z-50 bg-blue-400 dark:bg-cyan-400 text-black p-3 rounded-full shadow-lg hover:scale-110 transition-transform'
+      style={{ willChange: 'transform' }}
       aria-label='Scroll to top'
     >
       <ArrowUp size={22} />

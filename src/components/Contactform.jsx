@@ -63,31 +63,31 @@ export default function Contactform() {
 
   return (
     <div
-      className='min-h-screen flex items-center justify-center text-white relative'
+      className='min-h-screen flex items-end md:items-center justify-center text-white relative pt-32 pb-12 md:pt-48 md:pb-16'
       style={{
         backgroundImage: "url('https://getwallpapers.com/wallpaper/full/6/c/d/129192.jpg')",
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center 70%',
       }}
     >
-      {/* Overlay */}
-      <div className='absolute inset-0 bg-black/10' />
+      {/* Overlay for readability */}
+      <div className='absolute inset-0 bg-black/40 dark:bg-black/50' />
 
       {/* Content */}
-      <div className='relative z-10 flex flex-col md:flex-row w-11/12 lg:w-9/12 mx-auto gap-8'>
+      <div className='relative z-10 flex flex-col md:flex-row w-11/12 lg:w-9/12 mx-auto gap-8 max-w-6xl'>
         {/* Left Side Heading */}
         <div className='flex flex-col justify-center w-full md:w-1/2 pr-0 md:pr-12 text-center md:text-left'>
-          <h1 className='bebas-neue-regular text-4xl sm:text-4xl md:text-9xl lg:text-10xl font-extrabold leading-tight text-gray-100'>
+          <h1 className='bebas-neue-regular text-4xl sm:text-4xl md:text-9xl lg:text-10xl font-extrabold leading-tight text-white drop-shadow-md'>
             Ready? <br />
-            <span className='text-blue-400 dark:text-cyan-400'>Let's Talk</span>
+            <span className='text-blue-400 dark:text-cyan-400'>Let&apos;s Talk</span>
           </h1>
         </div>
 
         {/* Right Side Form */}
-        <div className='w-full md:w-1/2 bg-[#110f0f] border border-[#747373] rounded-2xl p-6 sm:p-8 shadow-lg'>
+        <div className='w-full md:w-1/2 bg-[#110f0f] border border-gray-600 dark:border-[#747373] rounded-2xl p-6 sm:p-8 shadow-xl ring-1 ring-black/20'>
           {/* Text */}
-          <div className='text-3xl mb-4 sm:mb-6 text-gray-100 font-semibold'>
-            Let's Connect and Build Something Amazing Together.
+          <div className='text-2xl sm:text-3xl mb-4 sm:mb-6 text-gray-100 font-semibold'>
+            Let&apos;s Connect and Build Something Amazing Together.
           </div>
 
           {step === 1 && (
@@ -117,7 +117,8 @@ export default function Contactform() {
               />
               <button
                 type='submit'
-                className='w-full bg-blue-400 dark:bg-cyan-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition'
+                className='w-full bg-blue-400 dark:bg-cyan-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-blue-300 dark:hover:bg-cyan-300 hover:scale-[1.02] active:scale-[0.98] transition'
+                aria-label="Continue to message step"
               >
                 Continue
               </button>
@@ -159,13 +160,15 @@ export default function Contactform() {
                 <button
                   type='button'
                   onClick={() => setStep(1)}
-                  className='w-full sm:w-1/2 bg-gray-700 text-white font-bold py-2.5 sm:py-3 rounded-lg hover:bg-gray-600 transition'
+                  className='w-full sm:w-1/2 bg-gray-700 text-white font-bold py-2.5 sm:py-3 rounded-lg hover:bg-gray-600 transition focus-visible:ring-2 focus-visible:ring-blue-400'
+                  aria-label="Go back to name and email"
                 >
                   Back
                 </button>
                 <button
                   type='submit'
-                  className='w-full sm:w-1/2 bg-blue-400 dark:bg-cyan-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-white transition'
+                  className='w-full sm:w-1/2 bg-blue-400 dark:bg-cyan-400 text-black font-bold py-2.5 sm:py-3 rounded-lg hover:bg-blue-300 dark:hover:bg-cyan-300 transition focus-visible:ring-2 focus-visible:ring-white'
+                  aria-label="Submit message"
                 >
                   Submit
                 </button>

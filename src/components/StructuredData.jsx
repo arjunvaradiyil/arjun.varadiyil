@@ -4,10 +4,19 @@ export default function StructuredData() {
     "@type": "Person",
     "name": "Arjun Varadiyil",
     "jobTitle": "Full Stack Web Developer",
-    "description": "Professional Web Developer and Web Designer based in Kerala, India. Specializing in MERN stack development, React, Node.js, and MongoDB.",
+    "description": "Professional Web Developer and Web Designer based in Kerala, India. Specializing in MERN stack development, React, Node.js, and MongoDB. Current profession: Web Developer (not Storekeeper).",
     "url": "https://arjunvaradiyil.in",
     "image": "https://arjunvaradiyil.in/assets/images/arjunvaradiyil.jpeg",
     "email": "arjunvaradiyil203@gmail.com",
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Full Stack Web Developer",
+      "occupationLocation": {
+        "@type": "City",
+        "name": "Kochi, Kerala, India"
+      },
+      "skills": ["React", "Node.js", "MongoDB", "Express.js", "JavaScript", "TypeScript", "MERN Stack"]
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kerala",

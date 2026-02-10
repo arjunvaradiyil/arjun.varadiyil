@@ -80,12 +80,12 @@ export default function RootLayout({ children }) {
         <link rel='apple-touch-icon' href='/assets/images/arjunvaradiyil.jpeg' />
         <link rel='shortcut icon' href='/assets/images/arjunvaradiyil.jpeg' type='image/jpeg' />
       </head>
-      <body>
+      <body className='antialiased'>
         <StructuredData />
         <ThemeProvider>
           <ScrollToTop />
           <Navbar />
-          {children}
+          <main className='min-h-[60vh]'>{children}</main>
           <ScrollToTopButton />
         </ThemeProvider>
       </body>

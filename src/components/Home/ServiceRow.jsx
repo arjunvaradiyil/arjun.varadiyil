@@ -21,6 +21,7 @@ export default function ServiceRow({ service, active, setActive }) {
       {/* HEADER */}
       <motion.div
         className='flex items-center justify-between py-12'
+        style={{ willChange: 'transform' }}
         animate={{
           scale: isOpen ? 1.05 : 1,
         }}
@@ -29,10 +30,8 @@ export default function ServiceRow({ service, active, setActive }) {
         {/* Number */}
         <motion.span
           className='text-5xl md:text-6xl font-semibold text-gray-800 dark:text-gray-500'
-          animate={{
-            scale: isOpen ? 1.2 : 1,
-            color: isOpen ? '#555555' : '#555555',
-          }}
+          style={{ willChange: 'transform' }}
+          animate={{ scale: isOpen ? 1.2 : 1 }}
           transition={{ duration: 0.8, ease: easeSlow }}
         >
           {service.id}
@@ -42,6 +41,7 @@ export default function ServiceRow({ service, active, setActive }) {
         {/* Title */}
         <motion.h3
           className='text-2xl md:text-5xl text-gray-800 dark:text-[#cacaca] font-semibold origin-right'
+          style={{ willChange: 'transform, opacity' }}
           animate={{
             opacity: isOpen ? 0 : 1,
             scale: isOpen ? 0.95 : 1,
@@ -59,6 +59,7 @@ export default function ServiceRow({ service, active, setActive }) {
             setActive(isOpen ? null : service.id);
           }}
           className='md:hidden text-blue-500 dark:text-cyan-400 text-3xl font-light'
+          aria-label={isOpen ? `Collapse ${service.title} details` : `Expand ${service.title} details`}
         >
           {isOpen ? '−' : '+'}
         </button>
