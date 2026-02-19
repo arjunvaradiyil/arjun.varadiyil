@@ -2,14 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Hand, Linkedin, Github, Instagram, FileDown } from 'lucide-react';
+import { Hand } from 'lucide-react';
 import Image from 'next/image';
-
-const SOCIAL_LINKS = [
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arjunvaradiyil', Icon: Linkedin },
-  { name: 'Instagram', url: 'https://www.instagram.com/_arjuo__', Icon: Instagram },
-  { name: 'Github', url: 'https://github.com/arjunvaradiyil/arjun.varadiyil', Icon: Github },
-];
 
 export default function Banner() {
   const fullText = 'ARJUN V';
@@ -134,35 +128,6 @@ export default function Banner() {
             </div>
           </div>
 
-          {/* Social media icons + CV button */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className='flex flex-wrap items-center justify-center gap-4 mt-8 md:mt-10'
-          >
-            {SOCIAL_LINKS.map(({ name, url, Icon }) => (
-              <a
-                key={name}
-                href={url}
-                target='_blank'
-                rel='noopener noreferrer'
-                aria-label={name}
-                className='p-2.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-cyan-400 hover:border-blue-500 dark:hover:border-cyan-400 transition-colors duration-200'
-              >
-                <Icon className='w-5 h-5' strokeWidth={1.5} />
-              </a>
-            ))}
-            <a
-              href='/Arjun_V_FullStack_Resume.pdf'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-xs uppercase tracking-widest font-medium hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-colors duration-200'
-            >
-              <FileDown className='w-4 h-4' strokeWidth={1.5} />
-              CV
-            </a>
-          </motion.div>
         </motion.div>
       )}
     </section>
