@@ -1,170 +1,119 @@
 'use client';
 
-import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import * as THREE from "three";
-import { projects } from "../../data/projectData";
-import NextLink from "next/link";
-import Image from "next/image";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { projects } from '../../data/projectData';
+import NextLink from 'next/link';
+import Image from 'next/image';
+import { ExternalLink, ArrowUpRight } from 'lucide-react';
 
 export default function ProjectsPage() {
-  const mountRef = useRef(null);
-
-  useEffect(() => {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 5;
-
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    mountRef.current.appendChild(renderer.domElement);
-
-    const starGeometry = new THREE.BufferGeometry();
-    const starCount = 5000;
-    const starPositions = new Float32Array(starCount * 3);
-
-    for (let i = 0; i < starCount * 3; i++) {
-      starPositions[i] = (Math.random() - 0.5) * 2000;
-    }
-
-    starGeometry.setAttribute(
-      "position",
-      new THREE.BufferAttribute(starPositions, 3)
-    );
-
-    const starMaterial = new THREE.PointsMaterial({
-      color: 0xffffff,
-      size: 0.7,
-      transparent: true,
-    });
-
-    const stars = new THREE.Points(starGeometry, starMaterial);
-    scene.add(stars);
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-
-      stars.rotation.x += 0.0005;
-      stars.rotation.y += 0.0005;
-
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
-      }
-      window.removeEventListener("resize", handleResize);
-    };
-
-  }, []);
-
   return (
-    <section className="relative text-gray-700 dark:text-white pt-20 pb-12 md:pt-28 md:pb-20 px-4 md:px-16 overflow-hidden">
-      <div
-        ref={mountRef}
-        className="absolute inset-0 -z-10 pointer-events-none"
-      />
-
-      <motion.div
-        className="text-left mb-8 md:mb-16"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <h2 className="font-anton text-[40px] sm:text-[50px] lg:text-[140px] font-medium px-2 md:px-4 text-gray-800 dark:text-[#cacaca]">
-          MY PROJECTS
-        </h2>
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto space-y-12 md:space-y-24 relative z-10">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="grid md:grid-cols-2 gap-6 md:gap-10 items-center"
+    <section className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a]">
+      {/* Header */}
+      <div className="px-6 md:px-16 lg:px-24 pt-24 pb-12 md:pt-32 md:pb-16 border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-xs uppercase tracking-[0.2em] text-blue-500 dark:text-cyan-400 mb-4"
           >
-            <NextLink href={`/projects/${project.id}`} className="relative group transform transition duration-300 hover:scale-[0.96] block">
-              {project.type === "video" ? (
-                <video src={project.image} alt={project.title} className="rounded-xl shadow-lg w-full" autoPlay loop muted playsInline>
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <div className="relative w-full aspect-video rounded-xl shadow-lg overflow-hidden">
-                  <Image src={project.image} alt={project.title} fill className="object-cover" />
-                </div>
-              )}
-              <span className="absolute bottom-2 right-2 md:bottom-4 md:right-4 border border-[#8f8f8f] bg-black/80 text-white dark:text-[#8f8f8f] px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded-xl md:rounded-2xl font-semibold opacity-0 group-hover:opacity-100 transition">
-                VIEW PROJECT →
-              </span>
-            </NextLink>
+            Portfolio
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="font-anton text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-gray-900 dark:text-white max-w-3xl"
+          >
+            Selected work
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-6 text-gray-600 dark:text-gray-400 text-lg max-w-xl"
+          >
+            Real-world projects across news portals, digital platforms, and web applications.
+          </motion.p>
+        </div>
+      </div>
 
-            <div className="relative ">
-              <span className="absolute top-0 right-0 text-blue-500 dark:text-cyan-400 font-bold text-sm md:text-lg">
-                {project.id}
-              </span>
-
-              <div className="flex items-center gap-3 md:gap-4 mb-5 md:mb-8 pr-10 md:pr-14">
-                <div className="relative w-12 h-6 md:w-20 md:h-10 rounded-md overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-gray-200 p-1">
-                  <Image
-                    src={project.logo}
-                    alt={`${project.title} logo`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className="text-gray-800 dark:text-[#cacaca] text-lg sm:text-xl md:text-3xl font-bold leading-tight">{project.title}</h3>
-              </div>
-
-              <p className="text-gray-800 dark:text-[#8f8f8f] mb-5 md:mb-8 text-sm md:text-base leading-relaxed">{project.description}</p>
-              <div className="grid grid-cols-2 gap-y-3 md:gap-y-4 text-xs md:text-sm">
-                <div>
-                  <span className="block text-blue-500 dark:text-cyan-400">Domain</span>
-                  <span className="font-semibold">{project.industry}</span>
-                </div>
-                <div>
-                  <span className="block text-blue-500 dark:text-cyan-400">Technologies Used</span>
-                  <span className="font-semibold"> {Array.isArray(project.services) ? project.services.join(", ") : String(project.services)}</span>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-3 mt-6">
+      {/* Project cards */}
+      <div className="px-6 md:px-16 lg:px-24 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="space-y-1">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
                 <NextLink
-                  href={`/projects/${project.id}`}
-                  className="inline-block px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent text-xs uppercase tracking-widest font-medium text-gray-800 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  href={`/projects/${project.slug}`}
+                  className="block group"
                 >
-                  View Project →
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 py-8 md:py-12 border-b border-gray-200 dark:border-gray-800 last:border-0 hover:bg-white dark:hover:bg-gray-900/50 transition-colors rounded-2xl -mx-4 px-4 md:-mx-6 md:px-6">
+                    {/* Image */}
+                    <div className="lg:col-span-5 order-2 lg:order-1 relative aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                      />
+                      {project.previewLink && (
+                        <span className="absolute top-3 left-3 px-2 py-1 rounded bg-gray-900/80 dark:bg-white/90 text-white dark:text-gray-900 text-[10px] font-semibold uppercase tracking-wider">
+                          Live
+                        </span>
+                      )}
+                      <span className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ArrowUpRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
+                      <span className="text-xs uppercase tracking-widest text-blue-500 dark:text-cyan-400 font-medium mb-2">
+                        {project.industry}
+                      </span>
+                      <h2 className="font-anton text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 dark:group-hover:text-cyan-400 transition-colors">
+                        {project.title}
+                      </h2>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-6 line-clamp-2">
+                        {project.tagline}
+                      </p>
+                      <div className="flex flex-wrap gap-3">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium">
+                          {project.duration}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium">
+                          {project.role}
+                        </span>
+                      </div>
+                      {project.previewLink && (
+                        <a
+                          href={project.previewLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-blue-500 dark:text-cyan-400 hover:underline"
+                        >
+                          Visit live site
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </NextLink>
-                {project.previewLink && (
-                  <a
-                    href={project.previewLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-4 py-2 rounded-lg border border-blue-500 dark:border-cyan-400 text-blue-500 dark:text-cyan-400 text-xs uppercase tracking-widest font-medium hover:bg-blue-500/10 dark:hover:bg-cyan-400/10 transition-colors"
-                  >
-                    View Live →
-                  </a>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        ))}
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

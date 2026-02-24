@@ -52,7 +52,7 @@ export default function sitemap() {
 
       // Dynamic project routes - automatically generated from project data
       const projectRoutes = projects.map((project) => ({
-        url: `${baseUrl}/projects/${project.id}`,
+        url: `${baseUrl}/projects/${project.slug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,
