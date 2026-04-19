@@ -3,6 +3,9 @@
 export const SITE_NAME = 'Arjun Varadiyil';
 export const SITE_URL = 'https://arjunvaradiyil.in';
 
+/** Absolute sitemap URL — use in robots.txt and Search Console. */
+export const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
+
 /** Primary meta description (~235 chars) — keep in sync across layout + OG where used. */
 export const DEFAULT_DESCRIPTION =
   'Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. Expert in React, Node.js, MongoDB. Hire the best web developer near you for modern web applications.';

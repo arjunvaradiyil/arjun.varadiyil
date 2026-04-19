@@ -1,3 +1,5 @@
+import { SITEMAP_URL } from '../lib/siteSeo';
+
 export default function robots() {
   return {
     rules: {
@@ -5,6 +7,6 @@ export default function robots() {
       allow: '/',
       disallow: ['/api/', '/_next/'],
     },
-    sitemap: 'https://arjunvaradiyil.in/sitemap.xml',
+    sitemap: SITEMAP_URL,
   };
 }

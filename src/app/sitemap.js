@@ -1,55 +1,52 @@
 import { projects } from '../data/projectData';
+import { SITE_URL } from '../lib/siteSeo';
 
 export default function sitemap() {
-  const baseUrl = 'https://arjunvaradiyil.in';
-  
-  // Static routes - optimized for SEO with location-based keywords
   const routes = [
     {
-      url: baseUrl,
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${SITE_URL}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/projects`,
+      url: `${SITE_URL}/projects`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${SITE_URL}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/certifications`,
+      url: `${SITE_URL}/certifications`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/hobbies`,
+      url: `${SITE_URL}/hobbies`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
   ];
 
-      // Dynamic project routes - automatically generated from project data
-      const projectRoutes = projects.map((project) => ({
-        url: `${baseUrl}/projects/${project.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.8,
-      }));
+  const projectRoutes = projects.map((project) => ({
+    url: `${SITE_URL}/projects/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
 
-      return [...routes, ...projectRoutes];
+  return [...routes, ...projectRoutes];
 }
