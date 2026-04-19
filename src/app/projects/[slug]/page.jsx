@@ -1,12 +1,13 @@
 'use client';
 
-import { useParams, useRouter } from "next/navigation";
-import { projects } from "../../../data/projectData";
-import React from "react";
-import { ArrowLeft, ExternalLink, Calendar, Clock, User } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useParams } from 'next/navigation';
+import { projects } from '../../../data/projectData';
+import React from 'react';
+import { ArrowLeft, ExternalLink, Calendar, Clock, User } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { NEU } from '../../../components/ui/neuTheme';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -14,23 +15,33 @@ const fadeUp = {
   transition: { duration: 0.4 },
 };
 
+function SectionBlock({ title, children, delay = 0 }) {
+  return (
+    <motion.section
+      className={`${NEU.cardStatic} mt-10 p-6 md:mt-14 md:p-8`}
+      initial={fadeUp.initial}
+      animate={fadeUp.animate}
+      transition={{ ...fadeUp.transition, delay }}
+    >
+      <h2 className={`${NEU.display} mb-4 text-2xl md:text-3xl`}>{title}</h2>
+      {children}
+    </motion.section>
+  );
+}
+
 export default function ProjectDetailsPage() {
   const params = useParams();
-  const router = useRouter();
   const slug = params.slug;
 
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-[#0a0a0a]">
-        <div className="text-center px-6">
-          <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">Project not found</p>
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-blue-500 dark:text-cyan-400 font-medium hover:underline"
-          >
-            <ArrowLeft className="w-4 h-4" /> Back to projects
+      <div className={`${NEU.pageShell} flex min-h-screen items-center justify-center`}>
+        <div className='px-6 text-center'>
+          <p className={`mb-6 text-lg ${NEU.bodyText}`}>Project not found</p>
+          <Link href='/projects' className={`${NEU.btn} inline-flex items-center gap-2`}>
+            <ArrowLeft className='h-4 w-4' aria-hidden /> Back to projects
           </Link>
         </div>
       </div>
@@ -40,261 +51,172 @@ export default function ProjectDetailsPage() {
   const relatedProjects = projects.filter((p) => p.slug !== slug).slice(0, 6);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a]">
-      {/* Back + Live link bar */}
-      <header className="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-gray-50/95 dark:bg-[#0a0a0a]/95 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
-          <button
-            onClick={() => router.back()}
-            className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="text-sm font-medium">Back</span>
-          </button>
-          {project.previewLink && (
+    <div className={`${NEU.pageShell} min-h-screen`}>
+      <header className='sticky top-0 z-50 border-b-4 border-gray-900 bg-[#f5f2ea]/95 backdrop-blur-sm dark:border-white dark:bg-[#0e0d12]/95'>
+        <div className='mx-auto flex max-w-4xl items-center justify-end px-6 py-4 md:px-10'>
+          {project.previewLink ? (
             <a
               href={project.previewLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-medium text-blue-500 dark:text-cyan-400 hover:underline"
+              target='_blank'
+              rel='noopener noreferrer'
+              className={`${NEU.btnPrimary} py-2 text-xs`}
             >
-              Visit live site <ExternalLink className="w-4 h-4" />
+              <span className='flex items-center gap-2'>
+                Live <ExternalLink className='h-4 w-4' aria-hidden />
+              </span>
             </a>
-          )}
+          ) : null}
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-6 md:px-10 pb-20">
-        {/* Hero: image + title block */}
+      <main className='mx-auto max-w-4xl px-6 pb-20 md:px-10'>
         <motion.section
-          className="pt-8 md:pt-12"
+          className='pt-8 md:pt-12'
           initial={fadeUp.initial}
           animate={fadeUp.animate}
           transition={fadeUp.transition}
         >
-          <div className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden bg-gray-200 dark:bg-gray-800 mb-8 md:mb-10">
-            {project.type === "video" ? (
-              <video
-                src={project.image}
-                autoPlay
-                loop
-                muted
-                controls
-                className="w-full h-full object-cover"
-              />
+          <div
+            className={`relative mb-8 aspect-video w-full overflow-hidden rounded-xl bg-zinc-200 md:mb-10 md:aspect-[21/9] dark:bg-zinc-800 ${NEU.frame}`}
+          >
+            {project.type === 'video' ? (
+              <video src={project.image} autoPlay loop muted controls className='h-full w-full object-cover' />
             ) : (
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-cover"
+                className='object-cover'
                 priority
-                sizes="(max-width: 768px) 100vw, 896px"
+                sizes='(max-width: 768px) 100vw, 896px'
               />
             )}
           </div>
 
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.2em] text-blue-500 dark:text-cyan-400 font-medium">
-              {project.industry || "Portfolio Project"}
+          <div className='space-y-4'>
+            <p className={`${NEU.badge} w-fit uppercase tracking-wider`}>
+              {project.industry || 'Portfolio project'}
             </p>
-            <h1 className="font-anton text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-tight">
-              {project.title}
-            </h1>
-            {project.tagline && (
-              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
-                {project.tagline}
-              </p>
-            )}
+            <h1 className={`${NEU.display} text-4xl tracking-tight sm:text-5xl md:text-6xl`}>{project.title}</h1>
+            {project.tagline ? (
+              <p className={`max-w-2xl text-lg ${NEU.bodyText}`}>{project.tagline}</p>
+            ) : null}
           </div>
 
-          {/* Meta row: year, timeline, role */}
-          <div className="mt-8 flex flex-wrap gap-6 text-sm">
-            <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-              <Calendar className="w-4 h-4 text-gray-400 dark:text-gray-500" />
-              {project.year || "—"}
+          <div className={`mt-8 flex flex-wrap gap-4 text-sm font-semibold ${NEU.bodyText}`}>
+            <span className='flex items-center gap-2'>
+              <Calendar className='h-4 w-4 shrink-0 text-sky-700 dark:text-sky-400' aria-hidden />
+              {project.year || '—'}
             </span>
-            <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-              <Clock className="w-4 h-4 text-gray-400 dark:text-gray-500" />
-              {project.timeline || "—"}
+            <span className='flex items-center gap-2'>
+              <Clock className='h-4 w-4 shrink-0 text-sky-700 dark:text-sky-400' aria-hidden />
+              {project.timeline || '—'}
             </span>
-            {project.role && (
-              <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-                <User className="w-4 h-4 text-gray-400 dark:text-gray-500" />
+            {project.role ? (
+              <span className='flex items-center gap-2'>
+                <User className='h-4 w-4 shrink-0 text-sky-700 dark:text-sky-400' aria-hidden />
                 {project.role}
               </span>
-            )}
-            {project.teamMembers != null && (
-              <span className="text-gray-600 dark:text-gray-400">
+            ) : null}
+            {project.teamMembers != null ? (
+              <span>
                 Team: {project.teamMembers}
               </span>
-            )}
+            ) : null}
           </div>
         </motion.section>
 
-        {/* About */}
-        {project.about && (
-          <motion.section
-            className="mt-12 md:mt-16"
-            initial={fadeUp.initial}
-            animate={fadeUp.animate}
-            transition={{ ...fadeUp.transition, delay: 0.05 }}
-          >
-            <h2 className="font-anton text-2xl md:text-3xl text-gray-900 dark:text-white mb-4">
-              About
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed">
-              {project.about}
-            </p>
-          </motion.section>
-        )}
+        {project.about ? (
+          <SectionBlock title='About' delay={0.05}>
+            <p className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}>{project.about}</p>
+          </SectionBlock>
+        ) : null}
 
-        {/* Responsibilities */}
-        {project.responsibilities && project.responsibilities.length > 0 && (
-          <motion.section
-            className="mt-12 md:mt-16"
-            initial={fadeUp.initial}
-            animate={fadeUp.animate}
-            transition={{ ...fadeUp.transition, delay: 0.1 }}
-          >
-            <h2 className="font-anton text-2xl md:text-3xl text-gray-900 dark:text-white mb-4">
-              Responsibilities
-            </h2>
-            <ul className="space-y-3">
+        {project.responsibilities && project.responsibilities.length > 0 ? (
+          <SectionBlock title='Responsibilities' delay={0.1}>
+            <ul className='space-y-3'>
               {project.responsibilities.map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-base md:text-lg"
-                >
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-cyan-400 shrink-0" />
+                <li key={i} className={`flex items-start gap-3 text-base md:text-lg ${NEU.bodyText}`}>
+                  <span className='mt-2 h-2 w-2 shrink-0 border-2 border-gray-900 bg-sky-400 dark:border-white' />
                   {item}
                 </li>
               ))}
             </ul>
-          </motion.section>
-        )}
+          </SectionBlock>
+        ) : null}
 
-        {/* Challenges */}
-        {project.challenges && (
-          <motion.section
-            className="mt-12 md:mt-16"
-            initial={fadeUp.initial}
-            animate={fadeUp.animate}
-            transition={{ ...fadeUp.transition, delay: 0.12 }}
-          >
-            <h2 className="font-anton text-2xl md:text-3xl text-gray-900 dark:text-white mb-4">
-              Challenges
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed">
-              {project.challenges}
-            </p>
-          </motion.section>
-        )}
+        {project.challenges ? (
+          <SectionBlock title='Challenges' delay={0.12}>
+            <p className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}>{project.challenges}</p>
+          </SectionBlock>
+        ) : null}
 
-        {/* Solutions */}
-        {project.solutions && (
-          <motion.section
-            className="mt-12 md:mt-16"
-            initial={fadeUp.initial}
-            animate={fadeUp.animate}
-            transition={{ ...fadeUp.transition, delay: 0.14 }}
-          >
-            <h2 className="font-anton text-2xl md:text-3xl text-gray-900 dark:text-white mb-4">
-              Solutions
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed">
-              {project.solutions}
-            </p>
-          </motion.section>
-        )}
+        {project.solutions ? (
+          <SectionBlock title='Solutions' delay={0.14}>
+            <p className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}>{project.solutions}</p>
+          </SectionBlock>
+        ) : null}
 
-        {/* Tech Stack */}
-        {project.services && (
-          <motion.section
-            className="mt-12 md:mt-16"
-            initial={fadeUp.initial}
-            animate={fadeUp.animate}
-            transition={{ ...fadeUp.transition, delay: 0.16 }}
-          >
-            <h2 className="font-anton text-2xl md:text-3xl text-gray-900 dark:text-white mb-4">
-              Tech stack
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {(Array.isArray(project.services) ? project.services : [project.services]).map(
-                (s, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium"
-                  >
-                    {s}
-                  </span>
-                )
-              )}
+        {project.services ? (
+          <SectionBlock title='Tech stack' delay={0.16}>
+            <div className='flex flex-wrap gap-2'>
+              {(Array.isArray(project.services) ? project.services : [project.services]).map((s, i) => (
+                <span key={i} className={NEU.techTag}>
+                  {s}
+                </span>
+              ))}
             </div>
-          </motion.section>
-        )}
+          </SectionBlock>
+        ) : null}
 
-        {/* Related projects */}
-        {relatedProjects.length > 0 && (
+        {relatedProjects.length > 0 ? (
           <motion.section
-            className="mt-16 md:mt-24 pt-12 border-t border-gray-200 dark:border-gray-800"
+            className='mt-16 border-t-4 border-gray-900 pt-10 dark:border-white md:mt-24 md:pt-12'
             initial={fadeUp.initial}
             animate={fadeUp.animate}
             transition={{ ...fadeUp.transition, delay: 0.18 }}
           >
-            <h2 className="font-anton text-2xl md:text-3xl text-gray-900 dark:text-white mb-6">
-              More projects
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {relatedProjects.map((related, i) => (
+            <h2 className={`${NEU.display} mb-6 text-2xl md:text-3xl`}>More projects</h2>
+            <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
+              {relatedProjects.map((related) => (
                 <Link
                   key={related.id}
                   href={`/projects/${related.slug}`}
-                  className="group block rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 hover:border-gray-300 dark:hover:border-gray-700 transition-colors"
+                  className={`${NEU.card} group flex h-full flex-col overflow-hidden p-0`}
                 >
-                  <div className="relative aspect-video bg-gray-100 dark:bg-gray-800">
-                    {related.type === "video" ? (
-                      <video
-                        src={related.image}
-                        className="w-full h-full object-cover"
-                        muted
-                      />
+                  <div className='relative aspect-video bg-zinc-200 dark:bg-zinc-800'>
+                    {related.type === 'video' ? (
+                      <video src={related.image} className='h-full w-full object-cover' muted />
                     ) : (
                       <Image
                         src={related.image}
                         alt={related.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className='object-cover transition-transform duration-500 group-hover:scale-105'
+                        sizes='(max-width: 640px) 100vw, 50vw'
                       />
                     )}
                   </div>
-                  <div className="p-4">
-                    <p className="text-xs uppercase tracking-wider text-blue-500 dark:text-cyan-400 font-medium mb-1">
-                      {related.industry || "Project"}
+                  <div className='p-4'>
+                    <p className={`${NEU.badge} mb-2 w-fit text-[10px] uppercase`}>
+                      {related.industry || 'Project'}
                     </p>
-                    <h3 className="font-anton text-lg text-gray-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-cyan-400 transition-colors">
-                      {related.title}
-                    </h3>
+                    <h3 className={`${NEU.display} text-lg`}>{related.title}</h3>
                   </div>
                 </Link>
               ))}
             </div>
           </motion.section>
-        )}
+        ) : null}
 
-        {/* Back to projects CTA */}
         <motion.div
-          className="mt-12 md:mt-16 text-center"
+          className='mt-12 text-center md:mt-16'
           initial={fadeUp.initial}
           animate={fadeUp.animate}
           transition={{ ...fadeUp.transition, delay: 0.2 }}
         >
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" /> All projects
+          <Link href='/projects' className={`${NEU.btn} inline-flex items-center gap-2`}>
+            <ArrowLeft className='h-4 w-4' aria-hidden /> All projects
           </Link>
         </motion.div>
       </main>

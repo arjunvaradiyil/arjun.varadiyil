@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { NEU } from './ui/neuTheme';
 
 const ThemeContext = createContext();
 
@@ -31,7 +32,7 @@ export default function ThemeProvider({ children }) {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={`min-h-screen bg-white dark:bg-black text-blue-500 dark:text-cyan-400 transition-colors duration-300 ${!mounted ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`${NEU.pageRoot} ${!mounted ? 'opacity-0' : 'opacity-100'}`}>
         {children}
       </div>
     </ThemeContext.Provider>

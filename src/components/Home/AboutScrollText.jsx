@@ -1,77 +1,63 @@
 'use client';
 
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useMemo } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { useTheme } from '../ThemeProvider';
+import { NEU } from '../ui/neuTheme';
 
-gsap.registerPlugin(ScrollTrigger);
+const TEXT =
+  'I craft elegant solutions to complex problems, building scalable web applications with the MERN stack.';
 
-import { useTheme } from "../ThemeProvider";
-
-export default function AboutPinnedText() {
+export default function AboutScrollText() {
   const { theme } = useTheme();
-  const sectionRef = useRef(null);
-  const textRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+  const words = useMemo(() => TEXT.split(' '), []);
 
-  useEffect(() => {
-    const words = textRef.current.querySelectorAll(".word");
+  const doneColor = theme === 'dark' ? '#f5f5f5' : '#111111';
 
-    const isMobile = window.innerWidth < 768;
-    const targetColor = theme === "dark" ? "#cacaca" : "#000000";
+  const container = {
+    hidden: {},
+    visible: {
+      transition: reduceMotion
+        ? { staggerChildren: 0, delayChildren: 0 }
+        : { staggerChildren: 0.06, delayChildren: 0.08 },
+    },
+  };
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: `+=${words.length * (isMobile ? 40 : 100)}`, 
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-      },
-    });
-
-    tl.to(words, {
-      color: targetColor,
-      stagger: isMobile ? 0.25 : 1,
-      ease: "none",
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, [theme]);
-
-  const text =
-    "I craft elegant solutions to complex problems, building scalable web applications with the MERN stack.";
+  const item = {
+    hidden: { opacity: 0.35, color: theme === 'dark' ? '#737373' : '#a3a3a3' },
+    visible: {
+      opacity: 1,
+      color: doneColor,
+      transition: { duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
 
   return (
     <section
-      id="about"
-      ref={sectionRef}
-      className="w-full h-screen flex items-center justify-center px-6"
+      id='about'
+      className={`${NEU.section} flex min-h-[calc(100svh-3.5rem)] w-full snap-start snap-always items-center justify-center px-6 py-12 md:min-h-[calc(100svh-4rem)] md:py-16`}
     >
-      <div className="max-w-6xl">
-        {/* Label */}
-        <p className="text-3xl sm:text-4xl lg:text-5xl tracking-widest text-blue-500 dark:text-cyan-400 mb-6">
-          (ABOUT)
-        </p> 
+      <div className='relative z-10 mx-auto max-w-5xl'>
+        <p className={`mb-8 flex justify-center ${NEU.eyebrow}`}>
+          <span className={NEU.badge}>About</span>
+        </p>
 
-        {/* Pinned Text */}
-        <h1
-          ref={textRef}
-          className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl leading-tight font-medium"
-          style={{ willChange: 'contents' }}
-        >
-          {text.split(" ").map((word, i) => (
-            <span
-              key={i}
-              className="word text-[#555555] inline-block mr-2"
-              style={{ willChange: 'color' }}
-            >
-              {word}
-            </span>
-          ))}
-        </h1>
+        <div className={`${NEU.cardStatic} p-8 md:p-10`}>
+          <motion.h1
+            className={`${NEU.display} text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl`}
+            variants={container}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ once: true, amount: 0.45 }}
+          >
+            {words.map((word, i) => (
+              <motion.span key={i} variants={item} className='mr-2 inline-block' style={{ willChange: 'opacity, color' }}>
+                {word}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
       </div>
     </section>
   );

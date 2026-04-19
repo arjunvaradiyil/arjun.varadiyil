@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile drawer open: don’t let fixed controls sit above the menu panel */
+body[data-mobile-nav-open='true'] .scroll-to-top-btn {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 @layer base {
   html {
     font-family: "Syne", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -10,6 +16,24 @@
 
   body {
     min-height: 100vh;
+  }
+
+  /* Home: one “screen” per scroll stop (see page.jsx toggling html.home-scroll-snap) */
+  html.home-scroll-snap {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 3.5rem;
+  }
+
+  @media (min-width: 768px) {
+    html.home-scroll-snap {
+      scroll-padding-top: 4rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.home-scroll-snap {
+      scroll-snap-type: none;
+    }
   }
 
   /* Focus visible for accessibility */

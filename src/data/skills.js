@@ -2,6 +2,8 @@ export const skills = [
   {
     id: '01',
     title: 'Frontend',
+    cardBlurb:
+      'Modern, responsive interfaces with React and Next.js—built for clarity, speed, and great UX.',
     description:
       'Modern, responsive user interfaces built with React and Next.js, delivering exceptional user experiences across all devices.',
     features: [
@@ -17,6 +19,8 @@ export const skills = [
   {
     id: '02',
     title: 'Full Stack',
+    cardBlurb:
+      'End-to-end MERN apps—APIs, auth, databases, and polished UI from one codebase.',
     description: 'End-to-end web applications powered by the MERN stack, from database to user interface.',
     features: [
       'Complete MERN stack development (MongoDB, Express, React, Node.js)',
@@ -31,6 +35,8 @@ export const skills = [
   {
     id: '03',
     title: 'Content Management',
+    cardBlurb:
+      'Headless CMS with Payload—structured content, custom fields, and API-first delivery.',
     description: 'Headless content management solutions built with Payload CMS, leveraging Node.js and MongoDB for flexible, developer-friendly workflows.',
     features: [
       'Payload CMS implementation with custom admin interfaces',
@@ -45,6 +51,8 @@ export const skills = [
   {
     id: '04',
     title: 'Deployment',
+    cardBlurb:
+      'Production-ready hosting, CI/CD, and environments on Vercel, AWS, and modern tooling.',
     description: 'Secure, reliable deployment and hosting workflows ensuring your applications are production-ready and performant.',
     features: [
       'CI/CD pipelines for automated deployments',

@@ -4,25 +4,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Mail, Download } from 'lucide-react';
 import Image from 'next/image';
+import { NEU } from '../ui/neuTheme';
 
 const resume = 'https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view';
 
 export default function AboutHero() {
   return (
     <>
-      {/* FIRST ABOUT HERO SECTION */}
-      <section className='w-full px-6 md:px-20 py-16 md:py-20 mt-12'>
-        {/* AVAILABLE BADGE */}
-        <div className='fixed top-6 left-6 md:left-8 z-50 flex items-center gap-3'>
-          <div className='flex items-center gap-2 rounded-full border border-gray-600 bg-black/80 px-4 py-1.5 backdrop-blur hover:border-[#8f8f8f] transition'>
-            <span className='h-2 w-2 rounded-full bg-blue-400 dark:bg-cyan-400 animate-pulse' />
-            <span className='text-xs sm:text-sm font-sans text-gray-300 tracking-wide'>
-              Available for work
-            </span>
+      <section className={`${NEU.section} mt-12 w-full px-6 py-16 md:px-20 md:py-20`}>
+        <div className='fixed left-4 top-20 z-40 flex items-center gap-3 sm:left-6 md:left-8 md:top-24'>
+          <div className={`${NEU.badge} uppercase tracking-wider`}>
+            <span className='h-2 w-2 shrink-0 animate-pulse rounded-full bg-gray-900 dark:bg-white' />
+            Available for work
           </div>
         </div>
-        <div className='max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 relative'>
-          {/* LEFT CONTENT */}
+        <div className='relative z-10 mx-auto flex max-w-6xl flex-col-reverse items-center gap-8 md:flex-row md:gap-12'>
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -30,49 +26,57 @@ export default function AboutHero() {
             viewport={{ once: true }}
             className='w-full md:w-1/2'
           >
-            <h1 className='text-[40px] md:text-[80px] lg:text-[100px] font-antonio font-bold text-gray-800 dark:text-white leading-none'>
-              ABOUT ME
+            <h1 className={`${NEU.display} text-[40px] leading-none md:text-[80px] lg:text-[100px]`}>
+              ABOUT{' '}
+              <span className='mt-1 inline-block border-2 border-gray-900 bg-teal-100 px-2 py-0.5 align-middle text-gray-900 shadow-[6px_6px_0_0_rgb(17,24,39)] dark:border-white dark:bg-teal-950 dark:text-teal-100 dark:shadow-[6px_6px_0_0_rgb(255,255,255)]'>
+                ME
+              </span>
             </h1>
 
-            <h3 className='mt-6 text-[24px] md:text-[28px] font-antonio font-semibold text-blue-500 dark:text-cyan-400'>
+            <h3 className={`${NEU.display} mt-6 border-b-4 border-gray-900 pb-2 text-[24px] dark:border-white md:text-[28px]`}>
               ARJUN VARADIYIL
             </h3>
 
-            <p className='mt-4 max-w-xl text-gray-600 dark:text-[#cacaca] text-[18px] leading-relaxed'>
-              Hello! I'm Arjun Varadiyil. My journey in technology is driven by a passion for crafting elegant solutions to complex problems. I specialize in the MERN stack, building applications that are not just functional, but also provide an intuitive and engaging user experience.
+            <p className='mt-4 max-w-xl text-[18px] leading-relaxed text-gray-800 dark:text-gray-300'>
+              Hello! I&apos;m Arjun Varadiyil. My journey in technology is driven by a passion for crafting
+              elegant solutions to complex problems. I specialize in the MERN stack, building applications
+              that are not just functional, but also provide an intuitive and engaging user experience.
             </p>
 
-            <div className='mt-8 flex items-center gap-6 text-gray-800 dark:text-[#cacaca] text-2xl'>
+            <div className='mt-8 flex items-center gap-6 text-2xl text-gray-900 dark:text-gray-200'>
               <a href='https://www.linkedin.com/in/arjunvaradiyil' target='_blank' rel='noopener noreferrer'>
-                <Linkedin className='hover:text-blue-500 dark:hover:text-cyan-400 cursor-pointer' />
+                <Linkedin className='cursor-pointer transition hover:text-sky-600 dark:hover:text-sky-400' />
               </a>
               <a href='https://github.com/arjunvaradiyil' target='_blank' rel='noopener noreferrer'>
-                <Github className='hover:text-blue-500 dark:hover:text-cyan-400 cursor-pointer' />
+                <Github className='cursor-pointer transition hover:text-sky-600 dark:hover:text-sky-400' />
               </a>
               <a href='mailto:arjunvaradiyil203@gmail.com'>
-                <Mail className='hover:text-blue-500 dark:hover:text-cyan-400 cursor-pointer' />
+                <Mail className='cursor-pointer transition hover:text-sky-600 dark:hover:text-sky-400' />
               </a>
               <a href={resume} target='_blank' rel='noopener noreferrer'>
-                <Download className='hover:text-blue-500 dark:hover:text-cyan-400 cursor-pointer' />
+                <Download className='cursor-pointer transition hover:text-sky-600 dark:hover:text-sky-400' />
               </a>
             </div>
           </motion.div>
 
-          {/* IMAGE (SHARED) */}
           <motion.div
             initial={{ opacity: 0, scale: 1.02 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className='rounded-2xl overflow-hidden bg-gray-900 shadow-xl relative w-[220px] md:w-[240px] lg:w-[280px] h-[330px] md:h-[360px] lg:h-[400px] mt-8 md:mt-12'
+            className='relative mt-8 md:mt-12'
           >
-            <Image
-              src='/assets/images/arjunvaradiyil.jpeg'
-              alt='About profile'
-              fill
-              className='object-cover'
-              priority
-            />
+            <div className={`overflow-hidden rounded-xl bg-zinc-200 ${NEU.frame} dark:bg-zinc-800`}>
+              <div className='relative h-[330px] w-[220px] md:h-[360px] md:w-[240px] lg:h-[400px] lg:w-[280px]'>
+                <Image
+                  src='/assets/images/7820B7FD-B81A-45D7-8C3E-0C7F6D740637.JPG'
+                  alt='About profile'
+                  fill
+                  className='object-cover'
+                  priority
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

@@ -25,7 +25,8 @@ export default function StructuredData() {
     },
     "sameAs": [
       "https://www.linkedin.com/in/arjunvaradiyil",
-      "https://github.com/arjunvaradiyil/arjun.varadiyil"
+      "https://github.com/arjunvaradiyil/arjun.varadiyil",
+      "https://www.instagram.com/_arjuo__"
     ],
     "knowsAbout": [
       "Web Development",

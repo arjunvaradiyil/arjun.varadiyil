@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { NEU } from '../ui/neuTheme';
 
 export default function Timeline({ items }) {
   const [progress, setProgress] = useState(0);
@@ -29,10 +30,9 @@ export default function Timeline({ items }) {
   };
 
   return (
-    <div ref={timelineRef} className='relative pl-8 border-l-2 border-gray-400 dark:border-gray-700'>
-      {/* Animated line */}
+    <div ref={timelineRef} className='relative border-l-4 border-gray-900 pl-8 dark:border-white'>
       <motion.div
-        className='absolute left-0 top-0 w-[2px] bg-blue-500 dark:bg-cyan-400'
+        className='absolute left-0 top-0 w-1 bg-sky-500 dark:bg-sky-400'
         style={{ height: `${progress * 100}%` }}
       />
 
@@ -46,13 +46,13 @@ export default function Timeline({ items }) {
           viewport={{ once: true }}
         >
           {/* Dot on timeline */}
-          <div className='absolute -left-4 top-2 w-6 h-6 bg-blue-500 dark:bg-cyan-400 rounded-full shadow-lg' />
+          <div className='absolute -left-[11px] top-2 h-4 w-4 border-2 border-gray-900 bg-white shadow-[3px_3px_0_0_rgb(17,24,39)] dark:border-white dark:bg-zinc-900 dark:shadow-[3px_3px_0_0_rgb(255,255,255)]' />
 
           <div className='ml-8 flex flex-col md:flex-row items-start gap-6'>
             {/* Image */}
             <motion.div
-              className='relative w-64 h-40 rounded-lg shadow-lg cursor-pointer overflow-hidden'
-              whileHover={{ scale: 1.05 }}
+              className={`relative h-40 w-64 cursor-pointer overflow-hidden rounded-lg ${NEU.frame}`}
+              whileHover={{ scale: 1.02 }}
               onClick={() => handleSearch(item.title)}
             >
               <Image
@@ -65,8 +65,8 @@ export default function Timeline({ items }) {
 
             {/* Text */}
             <div>
-              <h4 className='text-xl text-gray-800 dark:text-white font-bold bebas-neue-regular'>{item.year}</h4>
-              <p className='text-lg text-gray-800 dark:text-white'>{item.title}</p>
+              <h4 className={`${NEU.display} text-xl`}>{item.year}</h4>
+              <p className='text-lg font-semibold text-gray-800 dark:text-gray-100'>{item.title}</p>
               <motion.p
                 className='text-gray-800 dark:text-gray-400'
                 initial={{ opacity: 0 }}
@@ -77,7 +77,7 @@ export default function Timeline({ items }) {
                 {item.description}
               </motion.p>
               <motion.p
-                className='text-blue-500 dark:text-cyan-400 font-semibold mt-2'
+                className='mt-2 font-bold text-sky-700 dark:text-sky-400'
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}

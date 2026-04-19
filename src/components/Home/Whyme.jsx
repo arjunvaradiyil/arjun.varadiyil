@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, animate, useInView, useMotionValueEvent } from 'framer-motion';
+import { NEU } from '../ui/neuTheme';
 
 const containerVariants = {
   hidden: {},
@@ -47,74 +48,61 @@ const STATS = [
 
 export default function WhyMe() {
   return (
-    <section className='w-full text-white px-6 md:px-16 py-16 overflow-hidden'>
+    <section className={`${NEU.section} ${NEU.sectionPad} snap-start`}>
       <motion.div
-        className='max-w-6xl mx-auto'
+        className='relative z-10 mx-auto max-w-6xl'
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true, margin: '-100px' }}
       >
-        {/* Heading + Description — 2-col from 768px so iPad Mini matches large screen */}
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start'>
-          {/* Left Side - Heading */}
-          <motion.div variants={itemVariants} className='space-y-3'>
-            {/* Top Label */}
-            <motion.p
-              variants={itemVariants}
-              className='text-xs tracking-widest text-blue-600 dark:text-cyan-400'
-            >
-              (WHY ME)
+        <div className='grid grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-12'>
+          <motion.div variants={itemVariants} className='space-y-4'>
+            <motion.p variants={itemVariants} className={`${NEU.badge} uppercase tracking-wider`}>
+              Why me
             </motion.p>
 
-            <h2 className='font-anton font-bold uppercase tracking-wide text-[36px] sm:text-[48px] md:text-[80px] leading-[0.9] text-gray-800 dark:text-[#cacaca]'>
-              NUMBERS <br /> DON'T <br /> LIE
+            <h2 className={`${NEU.display} text-[36px] leading-[0.95] sm:text-[48px] md:text-[64px]`}>
+              NUMBERS <br /> DON&apos;T <br />
+              <span className='mt-1 inline-block border-2 border-gray-900 bg-fuchsia-100 px-3 py-0.5 text-gray-900 shadow-[6px_6px_0_0_rgb(17,24,39)] dark:border-white dark:bg-fuchsia-950 dark:text-fuchsia-100 dark:shadow-[6px_6px_0_0_rgb(255,255,255)]'>
+                LIE
+              </span>
             </h2>
           </motion.div>
 
-          {/* Right Side - Description */}
-          <motion.div
-            variants={itemVariants}
-            className='flex flex-col justify-start pt-6 md:pt-10'
-          >
-            <p className='text-gray-800 dark:text-[#8f8f8f] text-sm md:text-base leading-relaxed max-w-xl mb-4'>
-              With over a year of hands-on industry experience, I build scalable,
-              user-focused web applications using MERN stack and other modern
-              techniques – delivering clean code, smooth UX, and real results.
+          <motion.div variants={itemVariants} className='flex flex-col justify-start pt-2 md:pt-8'>
+            <p className='max-w-xl text-sm leading-relaxed text-gray-800 dark:text-gray-300 md:text-base'>
+              With over a year of hands-on industry experience, I build scalable, user-focused web
+              applications using MERN stack and other modern techniques—delivering clean code,
+              smooth UX, and real results.
             </p>
-            <a href='/about'>
-              <button className='px-6 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-transparent text-xs uppercase tracking-widest font-medium text-gray-800 dark:text-[#8f8f8f] hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200'>
-                MY STORY
-              </button>
+            <a href='/about' className={`${NEU.btn} mt-6 inline-block w-fit text-center`}>
+              My story
             </a>
           </motion.div>
         </div>
 
-        {/* Divider */}
         <motion.div
           variants={itemVariants}
-          className='w-full h-px bg-gray-800 my-12'
+          className='my-12 border-t-2 border-gray-900 dark:border-white'
         />
 
-        {/* Stats — 4-col from 768px so iPad Mini matches large screen */}
         <motion.div
           variants={containerVariants}
-          className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8'
+          className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4 md:gap-6'
         >
           {STATS.map((stat) => (
             <motion.div
               key={stat.label}
               variants={itemVariants}
               whileHover={{ y: -4 }}
-              className='space-y-2'
+              className={`${NEU.cardStatic} p-5`}
             >
-              <h3 className='text-gray-800 dark:text-[#cacaca] text-4xl md:text-6xl font-bold'>
+              <h3 className={`${NEU.display} text-3xl md:text-5xl`}>
                 <Counter to={stat.to} />
-                <span className='text-blue-500 dark:text-cyan-400'>{stat.suffix}</span>
+                <span className='text-sky-600 dark:text-sky-400'>{stat.suffix}</span>
               </h3>
-              <p className='text-gray-800 dark:text-[#cacaca] text-sm'>
-                {stat.label}
-              </p>
+              <p className='mt-3 text-sm leading-snug text-gray-800 dark:text-gray-300'>{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>

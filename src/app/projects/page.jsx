@@ -3,118 +3,122 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../../data/projectData';
-import NextLink from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
+import { NEU } from '../../components/ui/neuTheme';
 
 export default function ProjectsPage() {
   return (
-    <section className="min-h-screen bg-gray-50 dark:bg-[#0a0a0a]">
-      {/* Header */}
-      <div className="px-6 md:px-16 lg:px-24 pt-24 pb-12 md:pt-32 md:pb-16 border-b border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto">
+    <div className={`${NEU.pageShell} min-h-screen bg-[#f5f2ea] dark:bg-[#0e0d12]`}>
+      <div className={`${NEU.sectionPadMd} pt-20 md:pt-24 lg:pt-28`}>
+        <div className='relative z-10 mx-auto max-w-7xl'>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-xs uppercase tracking-[0.2em] text-blue-500 dark:text-cyan-400 mb-4"
+            transition={{ duration: 0.45 }}
+            className='mb-6 flex justify-center md:mb-8 md:justify-start'
           >
-            Portfolio
+            <span className={`${NEU.badge} font-syne tracking-tight`}>Featured projects</span>
           </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-anton text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-gray-900 dark:text-white max-w-3xl"
-          >
-            Selected work
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-6 text-gray-600 dark:text-gray-400 text-lg max-w-xl"
-          >
-            Real-world projects across news portals, digital platforms, and web applications.
-          </motion.p>
-        </div>
-      </div>
 
-      {/* Project cards */}
-      <div className="px-6 md:px-16 lg:px-24 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-1">
+          <ul className='grid grid-cols-1 gap-6 sm:gap-7 md:grid-cols-2 md:gap-8'>
             {projects.map((project, index) => (
-              <motion.div
+              <motion.li
                 key={project.id}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true, margin: '0px 0px -80px 0px' }}
+                transition={{ duration: 0.45, delay: Math.min(index * 0.06, 0.36) }}
+                className='list-none'
               >
-                <NextLink
-                  href={`/projects/${project.slug}`}
-                  className="block group"
+                <article
+                  className={`${NEU.card} group/card flex h-full w-full flex-col`}
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 py-8 md:py-12 border-b border-gray-200 dark:border-gray-800 last:border-0 hover:bg-white dark:hover:bg-gray-900/50 transition-colors rounded-2xl -mx-4 px-4 md:-mx-6 md:px-6">
-                    {/* Image */}
-                    <div className="lg:col-span-5 order-2 lg:order-1 relative aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 1024px) 100vw, 40vw"
-                      />
-                      {project.previewLink && (
-                        <span className="absolute top-3 left-3 px-2 py-1 rounded bg-gray-900/80 dark:bg-white/90 text-white dark:text-gray-900 text-[10px] font-semibold uppercase tracking-wider">
+                  <div className='flex flex-col gap-4 p-5 sm:p-6'>
+                    <div className='flex items-center justify-between gap-2'>
+                      <span
+                        className='font-sans text-2xl font-semibold tabular-nums text-gray-400 dark:text-gray-500 sm:text-3xl'
+                        aria-hidden
+                      >
+                        {project.id}
+                        <span className='text-indigo-600 dark:text-amber-400'>.</span>
+                      </span>
+                      {project.previewLink ? (
+                        <span className='border-2 border-gray-900 bg-emerald-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-900 dark:border-white dark:bg-emerald-950 dark:text-emerald-200'>
                           Live
                         </span>
-                      )}
-                      <span className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ArrowUpRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                      ) : null}
+                    </div>
+
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className={`relative block overflow-hidden rounded-lg bg-zinc-200 ${NEU.frame} dark:bg-zinc-800`}
+                    >
+                      <div className='relative aspect-[16/10] w-full'>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          sizes='(max-width: 768px) 100vw, 50vw'
+                          className='object-cover transition duration-700 ease-out group-hover/card:scale-[1.04]'
+                        />
+                      </div>
+                      <span className='absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-900 bg-white text-gray-900 opacity-0 shadow-[3px_3px_0_0_rgb(17,24,39)] transition duration-300 group-hover/card:opacity-100 dark:border-white dark:bg-zinc-900 dark:text-white dark:shadow-[3px_3px_0_0_rgb(255,255,255)] sm:h-10 sm:w-10'>
+                        <ArrowUpRight className='h-4 w-4 sm:h-5 sm:w-5' aria-hidden />
+                      </span>
+                    </Link>
+
+                    <span className='inline-flex w-fit border-2 border-gray-900 bg-amber-50 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-950 dark:border-white dark:bg-amber-950/40 dark:text-amber-100 sm:text-[11px]'>
+                      {project.industry}
+                    </span>
+
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className='block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-amber-400 dark:focus-visible:ring-offset-zinc-900'
+                    >
+                      <h2 className={`${NEU.display} text-xl leading-snug sm:text-2xl`}>{project.title}</h2>
+                      <p className='mt-2 line-clamp-3 text-sm leading-relaxed text-gray-800 dark:text-gray-300'>
+                        {project.tagline}
+                      </p>
+                    </Link>
+
+                    <div className='flex flex-wrap gap-2'>
+                      <span className='inline-flex items-center border-2 border-gray-900 bg-white px-2.5 py-1 text-[11px] font-semibold text-gray-800 dark:border-white dark:bg-zinc-800 dark:text-gray-200 sm:px-3 sm:text-xs'>
+                        {project.duration}
+                      </span>
+                      <span className='inline-flex items-center border-2 border-gray-900 bg-white px-2.5 py-1 text-[11px] font-semibold text-gray-800 dark:border-white dark:bg-zinc-800 dark:text-gray-200 sm:px-3 sm:text-xs'>
+                        {project.role}
                       </span>
                     </div>
 
-                    {/* Content */}
-                    <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
-                      <span className="text-xs uppercase tracking-widest text-blue-500 dark:text-cyan-400 font-medium mb-2">
-                        {project.industry}
-                      </span>
-                      <h2 className="font-anton text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 dark:group-hover:text-cyan-400 transition-colors">
-                        {project.title}
-                      </h2>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-6 line-clamp-2">
-                        {project.tagline}
-                      </p>
-                      <div className="flex flex-wrap gap-3">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium">
-                          {project.duration}
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium">
-                          {project.role}
-                        </span>
-                      </div>
-                      {project.previewLink && (
+                    <div className='mt-1 flex flex-wrap items-center gap-3 border-t-2 border-gray-900 pt-4 dark:border-white'>
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className='inline-flex items-center gap-1.5 text-xs font-bold text-gray-900 transition hover:gap-2 sm:text-sm dark:text-white'
+                      >
+                        Case study
+                        <ArrowUpRight className='h-3.5 w-3.5 text-indigo-600 dark:text-amber-400 sm:h-4 sm:w-4' aria-hidden />
+                      </Link>
+                      {project.previewLink ? (
                         <a
                           href={project.previewLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-blue-500 dark:text-cyan-400 hover:underline"
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className={`inline-flex items-center gap-1.5 text-xs font-bold sm:text-sm ${NEU.link}`}
                         >
-                          Visit live site
-                          <ExternalLink className="w-4 h-4" />
+                          Live site
+                          <ExternalLink className='h-3.5 w-3.5 sm:h-4 sm:w-4' aria-hidden />
                         </a>
-                      )}
+                      ) : null}
                     </div>
                   </div>
-                </NextLink>
-              </motion.div>
+                </article>
+              </motion.li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

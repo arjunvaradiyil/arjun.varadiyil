@@ -1,36 +1,37 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import ServiceRow from './ServiceRow';
 import { skills } from '../../data/skills';
+import ServiceNeuGrid from './ServiceNeuGrid';
+import { NEU } from '../ui/neuTheme';
 
 export default function Services() {
-  const [active, setActive] = useState(null);
-
   return (
-    <section className='text-white px-6 md:px-36 py-36'>
-      {/* Heading */}
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className='text-[12vw] md:text-9xl font-anton font-bold uppercase tracking-wide mb-20 text-gray-800 dark:text-gray-200'
-      >
-        What can I do for you
-      </motion.h2>
+    <section className={`${NEU.section} ${NEU.sectionPad} snap-start`}>
+      <div className='relative z-10 mx-auto max-w-7xl'>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className={`text-center ${NEU.eyebrow}`}
+        >
+          Passion led us here
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className={`mt-3 text-center ${NEU.display} text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] lg:leading-tight`}
+        >
+          What I can do for you
+        </motion.h2>
 
-      {/* Services */}
-      <div className='space-y-1'>
-        {skills.map((service) => (
-          <ServiceRow
-            key={service.id}
-            service={service}
-            active={active}
-            setActive={setActive}
-          />
-        ))}
+        <div className='mt-14 md:mt-16'>
+          <ServiceNeuGrid skills={skills} />
+        </div>
       </div>
     </section>
   );

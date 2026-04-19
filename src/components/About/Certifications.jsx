@@ -1,103 +1,114 @@
 'use client';
 
-import React from "react";
-import { certifications } from "../../data/certificationsData";
-import { motion } from "framer-motion";
-import { Award } from "lucide-react";
+import React from 'react';
+import { certifications } from '../../data/certificationsData';
+import { motion } from 'framer-motion';
+import { Award } from 'lucide-react';
+import { NEU } from '../ui/neuTheme';
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
+const ACCENTS = [
+  {
+    wrap: 'bg-amber-100 text-amber-900 dark:border-white dark:bg-amber-950/80 dark:text-amber-200',
   },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+  {
+    wrap: 'bg-violet-100 text-violet-900 dark:border-white dark:bg-violet-950/80 dark:text-violet-200',
   },
-};
+  {
+    wrap: 'bg-indigo-100 text-indigo-900 dark:border-white dark:bg-indigo-950/80 dark:text-indigo-200',
+  },
+  {
+    wrap: 'bg-teal-100 text-teal-900 dark:border-white dark:bg-teal-950/80 dark:text-teal-200',
+  },
+];
 
 export default function Certifications() {
   return (
-    <section className="w-full px-6 md:px-20 py-24 overflow-hidden">
+    <section className={`${NEU.section} w-full px-6 py-24 md:px-20`}>
       <motion.div
-        className="max-w-6xl mx-auto"
+        className='relative z-10 mx-auto max-w-6xl'
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        {/* Heading */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className='mb-5 flex justify-center md:justify-start'
+        >
+          <span className={`${NEU.badge} font-syne tracking-tight`}>Credentials</span>
+        </motion.p>
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[36px] sm:text-[48px] md:text-[64px] font-antonio text-blue-500 dark:text-cyan-400 mb-6"
+          className={`${NEU.display} mb-6 text-center text-[36px] sm:text-[48px] md:text-left md:text-[64px]`}
         >
-          CERTIFICATIONS
+          Certifications
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-gray-800 dark:text-gray-400 text-lg mb-12 max-w-3xl"
+          transition={{ duration: 0.6, delay: 0.08 }}
+          className='mx-auto mb-10 max-w-3xl text-center text-lg text-gray-800 dark:text-gray-300 md:mx-0 md:text-left'
         >
-          Professional certifications and credentials that validate my expertise in full-stack development and programming fundamentals.
+          Professional certifications and credentials that validate my expertise in full-stack
+          development and programming fundamentals.
         </motion.p>
 
-        {/* Certifications List */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="space-y-8"
+        <ul
+          className='grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6'
+          aria-label='Certification cards'
         >
-          {certifications.map((cert, index) => (
-            <motion.div
-              key={cert.id}
-              variants={itemVariants}
-              whileHover={{ x: 6 }}
-              transition={{ type: "spring", stiffness: 120 }}
-              className="flex flex-col gap-4 border-b border-gray-200 dark:border-white/10 pb-8"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 mt-1">
-                      <Award className="w-6 h-6 text-blue-500 dark:text-cyan-400" />
-                </div>
-                
-                <div className="flex-1">
-                  <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
-                    <div className="flex-1 min-w-[200px]">
-                      <h3 className="text-xl md:text-2xl font-antonio text-black dark:text-white mb-1">
-                        {cert.title}
-                      </h3>
-                          <p className="text-blue-500 dark:text-cyan-400 font-medium text-sm md:text-base">
-                        {cert.issuer}
-                      </p>
+          {certifications.map((cert, index) => {
+            const accent = ACCENTS[index % ACCENTS.length];
+            return (
+              <motion.li
+                key={cert.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-32px' }}
+                transition={{ duration: 0.45, delay: Math.min(index * 0.07, 0.35) }}
+                className='min-w-0'
+              >
+                <article className={`${NEU.card} flex h-full min-h-[280px] flex-col p-6 sm:min-h-[300px] sm:p-7`}>
+                  <div className='mb-5 flex items-start justify-between gap-3'>
+                    <div
+                      className={`inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border-2 border-gray-900 ${accent.wrap}`}
+                    >
+                      <Award className='h-7 w-7' strokeWidth={2} aria-hidden />
                     </div>
-                    <span className="text-gray-800 dark:text-gray-500 text-sm md:text-base font-medium">
-                      {cert.date}
-                    </span>
+                    <div className='flex flex-col items-end gap-2 text-right'>
+                      <span className='font-sans text-2xl font-semibold tabular-nums text-gray-400 dark:text-gray-500 sm:text-3xl'>
+                        {cert.id}
+                        <span className='text-indigo-600 dark:text-amber-400'>.</span>
+                      </span>
+                      <span className='inline-flex border-2 border-dashed border-gray-900 bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-800 dark:border-white dark:bg-zinc-900 dark:text-gray-200 sm:text-[11px]'>
+                        {cert.date}
+                      </span>
+                    </div>
                   </div>
-                  
-                  <p className="text-gray-800 dark:text-gray-400 text-sm md:text-base mt-2">
+
+                  <h3 className='font-syne text-lg font-bold leading-snug tracking-tight text-gray-900 dark:text-white sm:text-xl'>
+                    {cert.title}
+                  </h3>
+                  <p className='mt-2 text-sm font-bold text-indigo-800 dark:text-amber-400 sm:text-base'>
+                    {cert.issuer}
+                  </p>
+                  <p className='mt-4 flex-1 border-t-2 border-gray-900 pt-4 font-sans text-sm leading-relaxed text-gray-800 dark:border-white dark:text-gray-300 sm:text-[15px]'>
                     {cert.description}
                   </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                </article>
+              </motion.li>
+            );
+          })}
+        </ul>
       </motion.div>
     </section>
   );

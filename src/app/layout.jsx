@@ -5,49 +5,45 @@ import '@fontsource/syne';
 import ThemeProvider from '../components/ThemeProvider';
 import Navbar from '../components/Navbar';
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import StructuredData from '../components/StructuredData';
+import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, absoluteUrl } from '../lib/siteSeo';
 
 export const metadata = {
   title: {
-    default: 'Arjun Varadiyil',
-    template: '%s | Arjun Varadiyil',
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
   },
-  description: 'Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. Expert in React, Node.js, MongoDB. Hire the best web developer near you for modern web applications.',
-  keywords: [
-    'Web Developer Kerala', 'Web Designer Kerala', 'Web Developer Kochi', 'Web Designer Kochi',
-    'Web Developer Perinthalmanna', 'Freelance Web Developer Kerala', 'Best Web Developer Kerala',
-    'Web Developer Near Me', 'MERN Stack Developer Kerala', 'React Developer Kerala',
-    'Full Stack Developer Kerala', 'Node.js Developer Kerala', 'Freelance Web Designer',
-    'Professional Web Developer', 'Web Development Services Kerala', 'Arjun Varadiyil'
-  ],
-  authors: [{ name: 'Arjun Varadiyil' }],
-  creator: 'Arjun Varadiyil',
-  publisher: 'Arjun Varadiyil',
-  metadataBase: new URL('https://arjunvaradiyil.in'),
+  description: DEFAULT_DESCRIPTION,
+  keywords: KEYWORDS,
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  metadataBase: new URL(absoluteUrl('/')),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://arjunvaradiyil.in',
-    siteName: 'Arjun Varadiyil - Web Developer Kerala',
-    title: 'Arjun Varadiyil',
-    description: 'Professional Web Developer & Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. Expert in React, Node.js, MongoDB.',
+    url: absoluteUrl('/'),
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
     images: [
       {
         url: '/assets/images/arjunvaradiyil.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Arjun Varadiyil - Web Developer Kerala',
+        alt: `${SITE_NAME} — Web Developer Kerala`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Arjun Varadiyil',
-    description: 'Professional Web Developer & Designer in Kerala. Freelance Full Stack Developer specializing in MERN stack.',
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
     images: ['/assets/images/arjunvaradiyil.jpeg'],
   },
   robots: {
@@ -80,12 +76,13 @@ export default function RootLayout({ children }) {
         <link rel='apple-touch-icon' href='/assets/images/arjunvaradiyil.jpeg' />
         <link rel='shortcut icon' href='/assets/images/arjunvaradiyil.jpeg' type='image/jpeg' />
       </head>
-      <body className='antialiased'>
+      <body className='antialiased bg-[#f5f2ea] text-gray-900 dark:bg-[#0e0d12] dark:text-gray-100'>
         <StructuredData />
         <ThemeProvider>
           <ScrollToTop />
           <Navbar />
-          <main className='min-h-[60vh]'>{children}</main>
+          <main className='min-h-[60vh] bg-transparent pt-[4.5rem] md:pt-[4.75rem]'>{children}</main>
+          <Footer />
           <ScrollToTopButton />
         </ThemeProvider>
       </body>

@@ -26,8 +26,9 @@ export default function ScrollToTopButton() {
 
   return (
     <button
+      type='button'
       onClick={scrollToTop}
-      className='fixed bottom-6 right-6 z-50 bg-blue-400 dark:bg-cyan-400 text-black p-3 rounded-full shadow-lg hover:scale-110 transition-transform'
+      className='scroll-to-top-btn fixed bottom-6 right-6 z-50 rounded-lg border-2 border-gray-900 bg-white p-3 text-gray-900 shadow-[4px_4px_0_0_rgb(17,24,39)] transition-transform hover:scale-105 hover:shadow-[6px_6px_0_0_rgb(17,24,39)] dark:border-white dark:bg-zinc-900 dark:text-white dark:shadow-[4px_4px_0_0_rgb(255,255,255)]'
       style={{ willChange: 'transform' }}
       aria-label='Scroll to top'
     >

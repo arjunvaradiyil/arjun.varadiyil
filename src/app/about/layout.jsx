@@ -1,26 +1,28 @@
+import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, absoluteUrl } from '../../lib/siteSeo';
+
 export const metadata = {
-  title: 'About | Arjun Varadiyil',
-  description: 'Arjun Varadiyil - Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. View portfolio, experience, and certifications.',
-  keywords: [
-    'Web Developer Kerala', 'Web Designer Kerala', 'Web Developer Kochi', 'Web Developer Perinthalmanna',
-    'Freelance Web Developer Kerala', 'Best Web Developer Kerala', 'Full Stack Developer Kerala',
-    'MERN Stack Developer Kerala', 'React Developer Kerala', 'Node.js Developer Kerala',
-    'Professional Web Developer', 'Web Development Services Kerala', 'Arjun Varadiyil'
-  ],
+  title: 'About',
+  description: `About ${SITE_NAME} — professional web developer & designer in Kerala, Kochi, and Perinthalmanna. Freelance full stack MERN portfolio, experience, and certifications.`,
+  keywords: [...KEYWORDS, 'About Web Developer Kerala', 'Developer portfolio Kerala'],
   openGraph: {
-    title: 'Arjun Varadiyil',
-    description: 'Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack.',
-    url: 'https://arjunvaradiyil.in/about',
+    title: `About | ${SITE_NAME}`,
+    description: DEFAULT_DESCRIPTION,
+    url: absoluteUrl('/about'),
     type: 'website',
     locale: 'en_IN',
+    siteName: SITE_NAME,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Arjun Varadiyil',
-    description: 'Professional Web Developer & Web Designer in Kerala. Freelance Full Stack Developer specializing in MERN stack.',
+    title: `About | ${SITE_NAME}`,
+    description: DEFAULT_DESCRIPTION,
   },
   alternates: {
     canonical: '/about',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
