@@ -2,8 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Heart } from 'lucide-react';
 import { NEU } from './ui/neuTheme';
-
-const SITE_URL = 'https://arjunvaradiyil.in';
+import { SITE_URL, TOPMATE_URL } from '../lib/siteSeo';
 
 export default function Footer() {
   return (
@@ -29,6 +28,9 @@ export default function Footer() {
             </Link>
             <a href='mailto:arjunvaradiyil203@gmail.com' className={NEU.link}>
               Email
+            </a>
+            <a href={TOPMATE_URL} className={NEU.link} target='_blank' rel='noopener noreferrer'>
+              Book a call
             </a>
           </nav>
           <p className='text-center text-xs font-medium text-gray-600 sm:text-right'>

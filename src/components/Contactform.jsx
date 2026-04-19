@@ -4,6 +4,9 @@ import React, { useState, useCallback } from 'react';
 import Modal from './ui/Modal';
 import Input from './ui/Input';
 import { NEU } from './ui/neuTheme';
+import WordStaggerReveal from './ui/WordStaggerReveal';
+
+const FORM_HEADLINE = "Let's connect and build something meaningful together.";
 
 const INITIAL_FORM_DATA = { name: '', email: '', message: '' };
 
@@ -82,9 +85,12 @@ export default function Contactform() {
         </div>
 
         <div className={`${NEU.formCard} w-full md:w-1/2`}>
-          <div className='mb-4 text-2xl font-bold text-gray-900 sm:mb-6 sm:text-3xl'>
-            Let&apos;s connect and build something meaningful together.
-          </div>
+          <WordStaggerReveal
+            as='div'
+            text={FORM_HEADLINE}
+            className='mb-4 text-2xl font-bold text-gray-900 sm:mb-6 sm:text-3xl'
+            viewport={{ once: true, amount: 0.5 }}
+          />
 
           {step === 1 && (
             <form

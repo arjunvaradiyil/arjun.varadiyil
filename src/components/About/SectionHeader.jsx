@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { NEU } from '../ui/neuTheme';
+import WordStaggerReveal from '../ui/WordStaggerReveal';
 
 export default function SectionHeader({ title, subtitle }) {
   return (
@@ -13,12 +14,17 @@ export default function SectionHeader({ title, subtitle }) {
       viewport={{ once: true }}
       className='mb-16 text-center'
     >
-      <h2
+      <WordStaggerReveal
+        as='h2'
+        text={title}
         className={`${NEU.display} inline-block border-2 border-gray-900 bg-white px-5 py-2 text-4xl tracking-tight shadow-[6px_6px_0_0_rgb(17,24,39)] dark:border-white dark:bg-zinc-900 dark:shadow-[6px_6px_0_0_rgb(255,255,255)] md:text-6xl`}
-      >
-        {title}
-      </h2>
-      <p className='mt-6 text-lg text-gray-800 dark:text-gray-300 md:text-xl'>{subtitle}</p>
+        viewport={{ once: true, amount: 0.5 }}
+      />
+      <WordStaggerReveal
+        text={subtitle}
+        className='mt-6 text-lg text-gray-800 dark:text-gray-300 md:text-xl'
+        viewport={{ once: true, amount: 0.45 }}
+      />
     </motion.div>
   );
 }

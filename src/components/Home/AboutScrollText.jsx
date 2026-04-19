@@ -1,38 +1,13 @@
 'use client';
 
-import React, { useMemo } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { useTheme } from '../ThemeProvider';
+import React from 'react';
+import WordStaggerReveal from '../ui/WordStaggerReveal';
 import { NEU } from '../ui/neuTheme';
 
 const TEXT =
   'I craft elegant solutions to complex problems, building scalable web applications with the MERN stack.';
 
 export default function AboutScrollText() {
-  const { theme } = useTheme();
-  const reduceMotion = useReducedMotion();
-  const words = useMemo(() => TEXT.split(' '), []);
-
-  const doneColor = theme === 'dark' ? '#f5f5f5' : '#111111';
-
-  const container = {
-    hidden: {},
-    visible: {
-      transition: reduceMotion
-        ? { staggerChildren: 0, delayChildren: 0 }
-        : { staggerChildren: 0.06, delayChildren: 0.08 },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0.35, color: theme === 'dark' ? '#737373' : '#a3a3a3' },
-    visible: {
-      opacity: 1,
-      color: doneColor,
-      transition: { duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   return (
     <section
       id='about'
@@ -44,19 +19,12 @@ export default function AboutScrollText() {
         </p>
 
         <div className={`${NEU.cardStatic} p-8 md:p-10`}>
-          <motion.h1
+          <WordStaggerReveal
+            as='h1'
+            text={TEXT}
             className={`${NEU.display} text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl`}
-            variants={container}
-            initial='hidden'
-            whileInView='visible'
             viewport={{ once: true, amount: 0.45 }}
-          >
-            {words.map((word, i) => (
-              <motion.span key={i} variants={item} className='mr-2 inline-block' style={{ willChange: 'opacity, color' }}>
-                {word}
-              </motion.span>
-            ))}
-          </motion.h1>
+          />
         </div>
       </div>
     </section>

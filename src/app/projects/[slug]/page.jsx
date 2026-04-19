@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { NEU } from '../../../components/ui/neuTheme';
+import WordStaggerReveal from '../../../components/ui/WordStaggerReveal';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -23,7 +24,12 @@ function SectionBlock({ title, children, delay = 0 }) {
       animate={fadeUp.animate}
       transition={{ ...fadeUp.transition, delay }}
     >
-      <h2 className={`${NEU.display} mb-4 text-2xl md:text-3xl`}>{title}</h2>
+      <WordStaggerReveal
+        as='h2'
+        text={title}
+        className={`${NEU.display} mb-4 text-2xl md:text-3xl`}
+        viewport={{ once: true, amount: 0.35 }}
+      />
       {children}
     </motion.section>
   );
@@ -97,9 +103,18 @@ export default function ProjectDetailsPage() {
             <p className={`${NEU.badge} w-fit uppercase tracking-wider`}>
               {project.industry || 'Portfolio project'}
             </p>
-            <h1 className={`${NEU.display} text-4xl tracking-tight sm:text-5xl md:text-6xl`}>{project.title}</h1>
+            <WordStaggerReveal
+              as='h1'
+              text={project.title}
+              className={`${NEU.display} text-4xl tracking-tight sm:text-5xl md:text-6xl`}
+              viewport={{ once: true, amount: 0.45 }}
+            />
             {project.tagline ? (
-              <p className={`max-w-2xl text-lg ${NEU.bodyText}`}>{project.tagline}</p>
+              <WordStaggerReveal
+                text={project.tagline}
+                className={`max-w-2xl text-lg ${NEU.bodyText}`}
+                viewport={{ once: true, amount: 0.4 }}
+              />
             ) : null}
           </div>
 
@@ -128,7 +143,11 @@ export default function ProjectDetailsPage() {
 
         {project.about ? (
           <SectionBlock title='About' delay={0.05}>
-            <p className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}>{project.about}</p>
+            <WordStaggerReveal
+              text={project.about}
+              className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}
+              viewport={{ once: true, amount: 0.35 }}
+            />
           </SectionBlock>
         ) : null}
 
@@ -138,7 +157,11 @@ export default function ProjectDetailsPage() {
               {project.responsibilities.map((item, i) => (
                 <li key={i} className={`flex items-start gap-3 text-base md:text-lg ${NEU.bodyText}`}>
                   <span className='mt-2 h-2 w-2 shrink-0 border-2 border-gray-900 bg-sky-400 dark:border-white' />
-                  {item}
+                  <WordStaggerReveal
+                    text={item}
+                    className='flex-1'
+                    viewport={{ once: true, amount: 0.2 }}
+                  />
                 </li>
               ))}
             </ul>
@@ -147,13 +170,21 @@ export default function ProjectDetailsPage() {
 
         {project.challenges ? (
           <SectionBlock title='Challenges' delay={0.12}>
-            <p className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}>{project.challenges}</p>
+            <WordStaggerReveal
+              text={project.challenges}
+              className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}
+              viewport={{ once: true, amount: 0.35 }}
+            />
           </SectionBlock>
         ) : null}
 
         {project.solutions ? (
           <SectionBlock title='Solutions' delay={0.14}>
-            <p className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}>{project.solutions}</p>
+            <WordStaggerReveal
+              text={project.solutions}
+              className={`text-base leading-relaxed md:text-lg ${NEU.bodyText}`}
+              viewport={{ once: true, amount: 0.35 }}
+            />
           </SectionBlock>
         ) : null}
 
@@ -176,7 +207,12 @@ export default function ProjectDetailsPage() {
             animate={fadeUp.animate}
             transition={{ ...fadeUp.transition, delay: 0.18 }}
           >
-            <h2 className={`${NEU.display} mb-6 text-2xl md:text-3xl`}>More projects</h2>
+            <WordStaggerReveal
+              as='h2'
+              text='More projects'
+              className={`${NEU.display} mb-6 text-2xl md:text-3xl`}
+              viewport={{ once: true, amount: 0.4 }}
+            />
             <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
               {relatedProjects.map((related) => (
                 <Link
@@ -201,7 +237,12 @@ export default function ProjectDetailsPage() {
                     <p className={`${NEU.badge} mb-2 w-fit text-[10px] uppercase`}>
                       {related.industry || 'Project'}
                     </p>
-                    <h3 className={`${NEU.display} text-lg`}>{related.title}</h3>
+                    <WordStaggerReveal
+                      as='h3'
+                      text={related.title}
+                      className={`${NEU.display} text-lg`}
+                      viewport={{ once: true, amount: 0.2 }}
+                    />
                   </div>
                 </Link>
               ))}

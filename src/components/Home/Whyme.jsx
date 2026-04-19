@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, animate, useInView, useMotionValueEvent } from 'framer-motion';
 import { NEU } from '../ui/neuTheme';
+import WordStaggerReveal from '../ui/WordStaggerReveal';
 
 const containerVariants = {
   hidden: {},
@@ -39,6 +40,9 @@ const Counter = ({ to, duration = 1.5 }) => {
   return <span ref={ref}>{display}</span>;
 };
 
+const INTRO =
+  'With over a year of hands-on industry experience, I build scalable, user-focused web applications using MERN stack and other modern techniques—delivering clean code, smooth UX, and real results.';
+
 const STATS = [
   { to: 10, suffix: '+', label: 'Real-world projects built across web platforms' },
   { to: 1.5, suffix: '+', label: 'Years of professional software development experience' },
@@ -71,11 +75,11 @@ export default function WhyMe() {
           </motion.div>
 
           <motion.div variants={itemVariants} className='flex flex-col justify-start pt-2 md:pt-8'>
-            <p className='max-w-xl text-sm leading-relaxed text-gray-800 dark:text-gray-300 md:text-base'>
-              With over a year of hands-on industry experience, I build scalable, user-focused web
-              applications using MERN stack and other modern techniques—delivering clean code,
-              smooth UX, and real results.
-            </p>
+            <WordStaggerReveal
+              text={INTRO}
+              className='max-w-xl text-sm leading-relaxed text-gray-800 dark:text-gray-300 md:text-base'
+              viewport={{ once: true, amount: 0.35 }}
+            />
             <a href='/about' className={`${NEU.btn} mt-6 inline-block w-fit text-center`}>
               My story
             </a>
@@ -102,7 +106,13 @@ export default function WhyMe() {
                 <Counter to={stat.to} />
                 <span className='text-sky-600 dark:text-sky-400'>{stat.suffix}</span>
               </h3>
-              <p className='mt-3 text-sm leading-snug text-gray-800 dark:text-gray-300'>{stat.label}</p>
+              <WordStaggerReveal
+                text={stat.label}
+                className='mt-3 text-sm leading-snug text-gray-800 dark:text-gray-300'
+                staggerChildren={0.04}
+                delayChildren={0.04}
+                viewport={{ once: true, amount: 0.25 }}
+              />
             </motion.div>
           ))}
         </motion.div>

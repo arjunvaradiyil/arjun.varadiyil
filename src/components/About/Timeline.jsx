@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { NEU } from '../ui/neuTheme';
+import WordStaggerReveal from '../ui/WordStaggerReveal';
 
 export default function Timeline({ items }) {
   const [progress, setProgress] = useState(0);
@@ -66,25 +67,21 @@ export default function Timeline({ items }) {
             {/* Text */}
             <div>
               <h4 className={`${NEU.display} text-xl`}>{item.year}</h4>
-              <p className='text-lg font-semibold text-gray-800 dark:text-gray-100'>{item.title}</p>
-              <motion.p
+              <WordStaggerReveal
+                text={item.title}
+                className='text-lg font-semibold text-gray-800 dark:text-gray-100'
+                viewport={{ once: true, amount: 0.35 }}
+              />
+              <WordStaggerReveal
+                text={item.description}
                 className='text-gray-800 dark:text-gray-400'
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                {item.description}
-              </motion.p>
-              <motion.p
+                viewport={{ once: true, amount: 0.3 }}
+              />
+              <WordStaggerReveal
+                text={item.grade}
                 className='mt-2 font-bold text-sky-700 dark:text-sky-400'
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                {item.grade}
-              </motion.p>
+                viewport={{ once: true, amount: 0.25 }}
+              />
             </div>
           </div>
         </motion.div>

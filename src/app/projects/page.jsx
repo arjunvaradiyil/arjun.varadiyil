@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import { NEU } from '../../components/ui/neuTheme';
+import WordStaggerReveal from '../../components/ui/WordStaggerReveal';
 
 export default function ProjectsPage() {
   return (
@@ -77,10 +78,19 @@ export default function ProjectsPage() {
                       href={`/projects/${project.slug}`}
                       className='block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-amber-400 dark:focus-visible:ring-offset-zinc-900'
                     >
-                      <h2 className={`${NEU.display} text-xl leading-snug sm:text-2xl`}>{project.title}</h2>
-                      <p className='mt-2 line-clamp-3 text-sm leading-relaxed text-gray-800 dark:text-gray-300'>
-                        {project.tagline}
-                      </p>
+                      <WordStaggerReveal
+                        as='h2'
+                        text={project.title}
+                        className={`${NEU.display} text-xl leading-snug sm:text-2xl`}
+                        viewport={{ once: true, amount: 0.25 }}
+                      />
+                      {project.tagline ? (
+                        <WordStaggerReveal
+                          text={project.tagline}
+                          className='mt-2 line-clamp-3 text-sm leading-relaxed text-gray-800 dark:text-gray-300'
+                          viewport={{ once: true, amount: 0.25 }}
+                        />
+                      ) : null}
                     </Link>
 
                     <div className='flex flex-wrap gap-2'>

@@ -1,3 +1,5 @@
+import { TOPMATE_URL } from '../lib/siteSeo';
+
 export default function StructuredData() {
   const personSchema = {
     "@context": "https://schema.org",
@@ -26,7 +28,8 @@ export default function StructuredData() {
     "sameAs": [
       "https://www.linkedin.com/in/arjunvaradiyil",
       "https://github.com/arjunvaradiyil/arjun.varadiyil",
-      "https://www.instagram.com/_arjuo__"
+      "https://www.instagram.com/_arjuo__",
+      TOPMATE_URL,
     ],
     "knowsAbout": [
       "Web Development",

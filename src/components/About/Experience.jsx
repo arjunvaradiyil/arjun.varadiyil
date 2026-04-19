@@ -6,6 +6,10 @@ import { Check } from 'lucide-react';
 import Image from 'next/image';
 import { experienceData } from '../../data/experienceData';
 import { NEU } from '../ui/neuTheme';
+import WordStaggerReveal from '../ui/WordStaggerReveal';
+
+const INTRO =
+  'My professional journey reflects a commitment to building scalable solutions and sharing knowledge. From developing high-performance applications to mentoring the next generation of developers, each role has contributed to my growth as a full-stack developer.';
 
 const containerVariants = {
   hidden: {},
@@ -35,27 +39,18 @@ export default function Experience() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <WordStaggerReveal
+          as='h2'
+          text='Professional experience'
           className={`${NEU.display} text-[36px] sm:text-[48px] md:text-[64px]`}
-        >
-          Professional experience
-        </motion.h2>
+          viewport={{ once: true, amount: 0.4 }}
+        />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+        <WordStaggerReveal
+          text={INTRO}
           className='mt-6 max-w-3xl text-lg text-gray-800 dark:text-gray-300'
-        >
-          My professional journey reflects a commitment to building scalable solutions and sharing
-          knowledge. From developing high-performance applications to mentoring the next generation of
-          developers, each role has contributed to my growth as a full-stack developer.
-        </motion.p>
+          viewport={{ once: true, amount: 0.35 }}
+        />
 
         <motion.div
           variants={containerVariants}
@@ -72,7 +67,12 @@ export default function Experience() {
               transition={{ type: 'spring', stiffness: 120 }}
               className={`${NEU.cardStatic} p-6 md:p-8`}
             >
-              <h3 className={`${NEU.display} text-2xl md:text-3xl`}>{item.role}</h3>
+              <WordStaggerReveal
+                as='h3'
+                text={item.role}
+                className={`${NEU.display} text-2xl md:text-3xl`}
+                viewport={{ once: true, amount: 0.35 }}
+              />
 
               <div className='mt-4 flex flex-wrap items-center gap-3 md:gap-4'>
                 <div
@@ -103,7 +103,13 @@ export default function Experience() {
                     className='flex items-start gap-3 text-gray-800 dark:text-gray-300'
                   >
                     <Check size={16} className='mt-1 flex-shrink-0 text-sky-600 dark:text-sky-400' />
-                    <span>{point}</span>
+                    <WordStaggerReveal
+                      text={point}
+                      className='flex-1'
+                      viewport={{ once: true, amount: 0.15 }}
+                      staggerChildren={0.035}
+                      delayChildren={0.02}
+                    />
                   </motion.li>
                 ))}
               </ul>

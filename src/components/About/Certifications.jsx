@@ -5,6 +5,10 @@ import { certifications } from '../../data/certificationsData';
 import { motion } from 'framer-motion';
 import { Award } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
+import WordStaggerReveal from '../ui/WordStaggerReveal';
+
+const INTRO =
+  'Professional certifications and credentials that validate my expertise in full-stack development and programming fundamentals.';
 
 const ACCENTS = [
   {
@@ -41,26 +45,18 @@ export default function Certifications() {
           <span className={`${NEU.badge} font-syne tracking-tight`}>Credentials</span>
         </motion.p>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <WordStaggerReveal
+          as='h2'
+          text='Certifications'
           className={`${NEU.display} mb-6 text-center text-[36px] sm:text-[48px] md:text-left md:text-[64px]`}
-        >
-          Certifications
-        </motion.h2>
+          viewport={{ once: true, amount: 0.4 }}
+        />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.08 }}
+        <WordStaggerReveal
+          text={INTRO}
           className='mx-auto mb-10 max-w-3xl text-center text-lg text-gray-800 dark:text-gray-300 md:mx-0 md:text-left'
-        >
-          Professional certifications and credentials that validate my expertise in full-stack
-          development and programming fundamentals.
-        </motion.p>
+          viewport={{ once: true, amount: 0.35 }}
+        />
 
         <ul
           className='grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6'
@@ -95,15 +91,24 @@ export default function Certifications() {
                     </div>
                   </div>
 
-                  <h3 className='font-syne text-lg font-bold leading-snug tracking-tight text-gray-900 dark:text-white sm:text-xl'>
-                    {cert.title}
-                  </h3>
-                  <p className='mt-2 text-sm font-bold text-indigo-800 dark:text-amber-400 sm:text-base'>
-                    {cert.issuer}
-                  </p>
-                  <p className='mt-4 flex-1 border-t-2 border-gray-900 pt-4 font-sans text-sm leading-relaxed text-gray-800 dark:border-white dark:text-gray-300 sm:text-[15px]'>
-                    {cert.description}
-                  </p>
+                  <WordStaggerReveal
+                    as='h3'
+                    text={cert.title}
+                    className='font-syne text-lg font-bold leading-snug tracking-tight text-gray-900 dark:text-white sm:text-xl'
+                    viewport={{ once: true, amount: 0.2 }}
+                  />
+                  <WordStaggerReveal
+                    text={cert.issuer}
+                    className='mt-2 text-sm font-bold text-indigo-800 dark:text-amber-400 sm:text-base'
+                    viewport={{ once: true, amount: 0.15 }}
+                    staggerChildren={0.04}
+                    delayChildren={0.02}
+                  />
+                  <WordStaggerReveal
+                    text={cert.description}
+                    className='mt-4 flex-1 border-t-2 border-gray-900 pt-4 font-sans text-sm leading-relaxed text-gray-800 dark:border-white dark:text-gray-300 sm:text-[15px]'
+                    viewport={{ once: true, amount: 0.2 }}
+                  />
                 </article>
               </motion.li>
             );

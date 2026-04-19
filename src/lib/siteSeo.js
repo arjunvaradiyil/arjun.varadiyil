@@ -3,6 +3,9 @@
 export const SITE_NAME = 'Arjun Varadiyil';
 export const SITE_URL = 'https://arjunvaradiyil.in';
 
+/** Book-a-call link (Topmate) — career guidance, resume review, mentoring */
+export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
+
 /** Absolute sitemap URL — use in robots.txt and Search Console. */
 export const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
