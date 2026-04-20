@@ -10,6 +10,11 @@ import ScrollToTop from '../components/ScrollToTop';
 import StructuredData from '../components/StructuredData';
 import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, SITE_TITLE_DEFAULT, absoluteUrl } from '../lib/siteSeo';
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata = {
   title: {
     default: SITE_TITLE_DEFAULT,
@@ -23,6 +28,10 @@ export const metadata = {
   metadataBase: new URL(absoluteUrl('/')),
   alternates: {
     canonical: '/',
+    languages: {
+      en: absoluteUrl('/'),
+      'x-default': absoluteUrl('/'),
+    },
   },
   openGraph: {
     type: 'website',

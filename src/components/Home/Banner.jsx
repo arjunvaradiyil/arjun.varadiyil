@@ -143,10 +143,10 @@ export default function Banner() {
         transition={reduceMotion ? { duration: 0 } : { duration: 0.5, ease: easeOut }}
         className='relative z-10 mx-auto w-full max-w-6xl -translate-y-5 px-5 sm:px-6 sm:-translate-y-6 md:-translate-y-8 lg:-translate-y-10'
       >
-        <h1 className='sr-only'>
-          Arjun Varadiyil — software developer and MERN stack portfolio. Full-stack web development in
-          Kerala; projects, about, and contact via this site.
-        </h1>
+        <h1 className='sr-only'>Arjun Varadiyil — MERN stack web developer, Kerala</h1>
+        <h2 className='sr-only'>
+          Software developer portfolio: projects, about, certifications, and contact.
+        </h2>
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}

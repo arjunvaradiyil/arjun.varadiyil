@@ -12,9 +12,14 @@ export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
 /** Absolute sitemap URL — use in robots.txt and Search Console. */
 export const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
-/** Primary meta description — aim ~120–160 characters; sync layout + OG + Twitter. */
+/** Primary meta description — ~100–130 chars for stricter audit tools; sync layout + OG + Twitter + JSON-LD. */
 export const DEFAULT_DESCRIPTION =
-  'Full-stack MERN developer in Kerala (Kochi, Perinthalmanna), remote OK. React, Next.js, Node.js, MongoDB. Freelance web apps, portfolio and hire for modern UI.';
+  'MERN full-stack developer in Kerala: React, Next.js, Node.js, MongoDB. Freelance web apps — portfolio & contact.';
+
+/** Optional social URLs — set when you have profiles; Footer/Sidebar can link them. */
+export const FACEBOOK_URL = '';
+export const X_URL = '';
+export const YOUTUBE_URL = '';
 
 export const KEYWORDS = [
   'Web Developer Kerala',

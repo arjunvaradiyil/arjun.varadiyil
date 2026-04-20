@@ -7,9 +7,7 @@ import { useTheme } from '../ThemeProvider';
 /**
  * Word-by-word reveal: dim → full color with stagger (Framer Motion), theme-aware, respects reduced motion.
  * `as`: p | h1 | h2 | h3 | div. Optional `staggerChildren` / `delayChildren` override defaults when motion is on.
- */
-/**
- * @param {'auto' | 'onLight'} [tone='auto'] — `onLight`: ink colors for always-light surfaces (e.g. white form card) while site theme is dark.
+ * `tone`: `auto` (follow theme) or `onLight` (ink on white/cream — use inside light cards when `theme` is dark).
  */
 export default function WordStaggerReveal({
   text,

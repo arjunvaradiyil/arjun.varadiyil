@@ -1,6 +1,8 @@
-import { DEFAULT_DESCRIPTION, TOPMATE_URL } from '../lib/siteSeo';
+import { DEFAULT_DESCRIPTION, FACEBOOK_URL, TOPMATE_URL, X_URL, YOUTUBE_URL } from '../lib/siteSeo';
 
 export default function StructuredData() {
+  const sameAsExtra = [FACEBOOK_URL, X_URL, YOUTUBE_URL].filter((u) => typeof u === 'string' && u.length > 0);
+
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -30,6 +32,7 @@ export default function StructuredData() {
       "https://github.com/arjunvaradiyil/arjun.varadiyil",
       "https://www.instagram.com/_arjuo__",
       TOPMATE_URL,
+      ...sameAsExtra,
     ],
     "knowsAbout": [
       "Web Development",

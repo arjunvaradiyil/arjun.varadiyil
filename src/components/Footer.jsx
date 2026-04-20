@@ -2,7 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { Heart } from 'lucide-react';
 import { NEU } from './ui/neuTheme';
-import { SITE_URL, TOPMATE_URL } from '../lib/siteSeo';
+import { FACEBOOK_URL, SITE_URL, TOPMATE_URL, X_URL, YOUTUBE_URL } from '../lib/siteSeo';
+
+const OPTIONAL_SOCIAL = [
+  { label: 'Facebook', href: FACEBOOK_URL },
+  { label: 'X', href: X_URL },
+  { label: 'YouTube', href: YOUTUBE_URL },
+].filter((item) => typeof item.href === 'string' && item.href.length > 0);
 
 export default function Footer() {
   return (
@@ -32,6 +38,11 @@ export default function Footer() {
             <a href={TOPMATE_URL} className={NEU.link} target='_blank' rel='noopener noreferrer'>
               Book a call
             </a>
+            {OPTIONAL_SOCIAL.map(({ label, href }) => (
+              <a key={label} href={href} className={NEU.link} target='_blank' rel='noopener noreferrer me'>
+                {label}
+              </a>
+            ))}
           </nav>
           <p className='text-center text-xs font-medium text-gray-600 sm:text-right dark:text-gray-400'>
             © {new Date().getFullYear()} · MERN stack developer
