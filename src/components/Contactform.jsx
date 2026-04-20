@@ -10,7 +10,8 @@ const FORM_HEADLINE = "Let's connect and build something meaningful together.";
 
 const INITIAL_FORM_DATA = { name: '', email: '', message: '' };
 
-export default function Contactform() {
+/** When false (default), hero is `h2` so pages with their own `h1` stay valid. Use true on `/contact` only. */
+export default function Contactform({ pageHero = false }) {
   const [step, setStep] = useState(1);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -64,6 +65,18 @@ export default function Contactform() {
     }
   };
 
+  const contactHeroClass = 'text-4xl leading-tight sm:text-5xl md:text-7xl lg:text-8xl';
+  const contactHeroInner = (
+    <>
+      <span className={`${NEU.contactHeroMuted} block font-syne font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl`}>
+        Ready?
+      </span>
+      <span className={`${NEU.contactHeroDisplay} mt-2 block sm:mt-3 md:text-7xl lg:text-8xl`}>
+        <span className={`${NEU.contactSticker} mx-auto inline-block`}>Let&apos;s talk</span>
+      </span>
+    </>
+  );
+
   return (
     <div
       id='contact'
@@ -74,19 +87,17 @@ export default function Contactform() {
           <p className={`${NEU.eyebrow} mb-4 flex justify-center`}>
             <span className={NEU.badge}>Contact</span>
           </p>
-          <h1 className='text-4xl leading-tight sm:text-5xl md:text-7xl lg:text-8xl'>
-            <span className={`${NEU.contactHeroMuted} block font-syne font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl`}>
-              Ready?
-            </span>
-            <span className={`${NEU.contactHeroDisplay} mt-2 block sm:mt-3 md:text-7xl lg:text-8xl`}>
-              <span className={`${NEU.contactSticker} mx-auto inline-block`}>Let&apos;s talk</span>
-            </span>
-          </h1>
+          {pageHero ? (
+            <h1 className={contactHeroClass}>{contactHeroInner}</h1>
+          ) : (
+            <h2 className={contactHeroClass}>{contactHeroInner}</h2>
+          )}
         </div>
 
         <div className={`${NEU.formCard} w-full md:w-1/2`}>
           <WordStaggerReveal
             as='div'
+            tone='onLight'
             text={FORM_HEADLINE}
             className='mb-4 text-2xl font-bold text-gray-900 sm:mb-6 sm:text-3xl'
             viewport={{ once: true, amount: 0.5 }}

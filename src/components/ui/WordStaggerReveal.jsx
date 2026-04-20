@@ -8,6 +8,9 @@ import { useTheme } from '../ThemeProvider';
  * Word-by-word reveal: dim → full color with stagger (Framer Motion), theme-aware, respects reduced motion.
  * `as`: p | h1 | h2 | h3 | div. Optional `staggerChildren` / `delayChildren` override defaults when motion is on.
  */
+/**
+ * @param {'auto' | 'onLight'} [tone='auto'] — `onLight`: ink colors for always-light surfaces (e.g. white form card) while site theme is dark.
+ */
 export default function WordStaggerReveal({
   text,
   className = '',
@@ -15,11 +18,14 @@ export default function WordStaggerReveal({
   viewport = { once: true, amount: 0.35 },
   staggerChildren: staggerChildrenProp,
   delayChildren: delayChildrenProp,
+  tone = 'auto',
 }) {
   const { theme } = useTheme();
   const reduceMotion = useReducedMotion();
   const words = useMemo(() => String(text ?? '').trim().split(/\s+/).filter(Boolean), [text]);
-  const doneColor = theme === 'dark' ? '#f5f5f5' : '#111111';
+  const onLightSurface = tone === 'onLight';
+  const doneColor = onLightSurface ? '#111111' : theme === 'dark' ? '#f5f5f5' : '#111111';
+  const dimColor = onLightSurface ? '#a3a3a3' : theme === 'dark' ? '#737373' : '#a3a3a3';
 
   const staggerChildren = reduceMotion ? 0 : staggerChildrenProp ?? 0.06;
   const delayChildren = reduceMotion ? 0 : delayChildrenProp ?? 0.08;
@@ -32,7 +38,7 @@ export default function WordStaggerReveal({
   };
 
   const item = {
-    hidden: { opacity: 0.35, color: theme === 'dark' ? '#737373' : '#a3a3a3' },
+    hidden: { opacity: 0.35, color: dimColor },
     visible: {
       opacity: 1,
       color: doneColor,

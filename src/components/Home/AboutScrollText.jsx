@@ -20,7 +20,7 @@ export default function AboutScrollText() {
 
         <div className={`${NEU.cardStatic} p-8 md:p-10`}>
           <WordStaggerReveal
-            as='h1'
+            as='h2'
             text={TEXT}
             className={`${NEU.display} text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl`}
             viewport={{ once: true, amount: 0.45 }}

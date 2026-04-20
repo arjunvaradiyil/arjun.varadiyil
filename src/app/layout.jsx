@@ -5,7 +5,7 @@ import '@fontsource/syne';
 import ThemeProvider from '../components/ThemeProvider';
 import Navbar from '../components/Navbar';
 import ScrollToTopButton from '../components/ScrollToTopButton';
-import Footer from '../components/Footer';
+import ConditionalFooter from '../components/ConditionalFooter';
 import ScrollToTop from '../components/ScrollToTop';
 import StructuredData from '../components/StructuredData';
 import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, SITE_TITLE_DEFAULT, absoluteUrl } from '../lib/siteSeo';
@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
           <ScrollToTop />
           <Navbar />
           <main className='min-h-[60vh] bg-transparent pt-[4.5rem] md:pt-[4.75rem]'>{children}</main>
-          <Footer />
+          <ConditionalFooter />
           <ScrollToTopButton />
         </ThemeProvider>
       </body>

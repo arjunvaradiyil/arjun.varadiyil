@@ -25,7 +25,8 @@ export const NEU = {
     dark:border-amber-400 dark:bg-amber-400 dark:text-gray-950 dark:shadow-[5px_5px_0_0_rgb(255,255,255)] dark:hover:bg-amber-300`,
   /** Contact band — warm cream surface (same in light/dark for a clear “paper” block) */
   contactBg: 'bg-[#f5f2ea] text-gray-900',
-  formCard: `rounded-xl border-2 border-gray-900 bg-white p-6 text-gray-900 shadow-[8px_8px_0_0_rgb(99_102_241)] sm:p-8`,
+  formCard: `rounded-xl border-2 border-gray-900 bg-white p-6 text-gray-900 shadow-[8px_8px_0_0_rgb(99_102_241)] sm:p-8
+    dark:border-white`,
   frame: `rounded-xl border-2 border-gray-900 shadow-[8px_8px_0_0_rgb(17,24,39)] dark:shadow-[8px_8px_0_0_rgb(255,255,255)]`,
   /** Root wrapper behind all routes (matches section surfaces) */
   pageRoot:
@@ -38,7 +39,8 @@ export const NEU = {
   bodyText: 'text-gray-800 dark:text-gray-300',
   link: 'font-semibold text-indigo-800 underline-offset-4 hover:underline dark:text-amber-400',
   /** Large word on contact hero (e.g. “Ready?”) — on cream, readable */
-  contactHeroMuted: 'text-indigo-900 dark:text-indigo-200',
+  /** Contact band stays cream in both themes — keep type dark-on-cream for contrast */
+  contactHeroMuted: 'text-indigo-950',
   /** Primary line on contact hero — on cream */
   contactHeroDisplay: 'font-syne font-bold tracking-tight text-gray-900',
   /** “Let’s talk” sticker on contact */
