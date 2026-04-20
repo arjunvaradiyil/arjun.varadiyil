@@ -1,4 +1,4 @@
-import { TOPMATE_URL } from '../lib/siteSeo';
+import { DEFAULT_DESCRIPTION, TOPMATE_URL } from '../lib/siteSeo';
 
 export default function StructuredData() {
   const personSchema = {
@@ -6,7 +6,7 @@ export default function StructuredData() {
     "@type": "Person",
     "name": "Arjun Varadiyil",
     "jobTitle": "Full Stack Web Developer",
-    "description": "Professional Web Developer and Web Designer based in Kerala, India. Specializing in MERN stack development, React, Node.js, and MongoDB. Current profession: Web Developer (not Storekeeper).",
+    "description": DEFAULT_DESCRIPTION,
     "url": "https://arjunvaradiyil.in",
     "image": "https://arjunvaradiyil.in/assets/images/arjunvaradiyil.jpeg",
     "email": "arjunvaradiyil203@gmail.com",
@@ -60,7 +60,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Arjun Varadiyil - Web Development Services",
-    "description": "Professional Web Development and Web Design services in Kerala, Kochi, and Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack.",
+    "description": DEFAULT_DESCRIPTION,
     "url": "https://arjunvaradiyil.in",
     "image": "https://arjunvaradiyil.in/assets/images/arjunvaradiyil.jpeg",
     "provider": {
@@ -100,7 +100,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Arjun Varadiyil - Web Developer",
-    "description": "Best Web Developer and Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer offering web development services.",
+    "description": DEFAULT_DESCRIPTION,
     "url": "https://arjunvaradiyil.in",
     "image": "https://arjunvaradiyil.in/assets/images/arjunvaradiyil.jpeg",
     "address": {

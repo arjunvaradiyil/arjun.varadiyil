@@ -3,15 +3,18 @@
 export const SITE_NAME = 'Arjun Varadiyil';
 export const SITE_URL = 'https://arjunvaradiyil.in';
 
+/** Default `<title>` / OG title — aim ~50–60 characters for SERP display. */
+export const SITE_TITLE_DEFAULT = 'Arjun Varadiyil | Full-Stack MERN Web Developer in Kerala';
+
 /** Book-a-call link (Topmate) — career guidance, resume review, mentoring */
 export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
 
 /** Absolute sitemap URL — use in robots.txt and Search Console. */
 export const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
-/** Primary meta description (~235 chars) — keep in sync across layout + OG where used. */
+/** Primary meta description — aim ~120–160 characters; sync layout + OG + Twitter. */
 export const DEFAULT_DESCRIPTION =
-  'Professional Web Developer & Web Designer in Kerala, Kochi, Perinthalmanna. Freelance Full Stack Developer specializing in MERN stack. Expert in React, Node.js, MongoDB. Hire the best web developer near you for modern web applications.';
+  'Full-stack MERN developer in Kerala (Kochi, Perinthalmanna), remote OK. React, Next.js, Node.js, MongoDB. Freelance web apps, portfolio and hire for modern UI.';
 
 export const KEYWORDS = [
   'Web Developer Kerala',

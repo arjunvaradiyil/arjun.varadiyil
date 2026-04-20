@@ -8,11 +8,11 @@ import ScrollToTopButton from '../components/ScrollToTopButton';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import StructuredData from '../components/StructuredData';
-import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, absoluteUrl } from '../lib/siteSeo';
+import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, SITE_TITLE_DEFAULT, absoluteUrl } from '../lib/siteSeo';
 
 export const metadata = {
   title: {
-    default: SITE_NAME,
+    default: SITE_TITLE_DEFAULT,
     template: `%s | ${SITE_NAME}`,
   },
   description: DEFAULT_DESCRIPTION,
@@ -29,7 +29,7 @@ export const metadata = {
     locale: 'en_IN',
     url: absoluteUrl('/'),
     siteName: SITE_NAME,
-    title: SITE_NAME,
+    title: SITE_TITLE_DEFAULT,
     description: DEFAULT_DESCRIPTION,
     images: [
       {
@@ -42,7 +42,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: SITE_NAME,
+    title: SITE_TITLE_DEFAULT,
     description: DEFAULT_DESCRIPTION,
     images: ['/assets/images/arjunvaradiyil.jpeg'],
   },

@@ -143,6 +143,10 @@ export default function Banner() {
         transition={reduceMotion ? { duration: 0 } : { duration: 0.5, ease: easeOut }}
         className='relative z-10 mx-auto w-full max-w-6xl -translate-y-5 px-5 sm:px-6 sm:-translate-y-6 md:-translate-y-8 lg:-translate-y-10'
       >
+        <h1 className='sr-only'>
+          Arjun Varadiyil — software developer and MERN stack portfolio. Full-stack web development in
+          Kerala; projects, about, and contact via this site.
+        </h1>
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -175,14 +179,15 @@ export default function Banner() {
         </div>
 
         <div className='flex flex-col items-center justify-center gap-6 md:flex-row md:items-center md:justify-center md:gap-8 lg:gap-12'>
-          <motion.h1
+          <motion.div
+            aria-hidden
             initial={reduceMotion ? false : { opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={reduceMotion ? { duration: 0 } : { delay: 0.12, duration: 0.5, ease: easeOut }}
             className={`${NEU.display} hidden text-[48px] leading-none text-gray-900 underline decoration-amber-400 decoration-[5px] underline-offset-[14px] [text-shadow:3px_3px_0_rgb(251_191_36/0.35)] dark:text-white dark:decoration-amber-300 dark:[text-shadow:3px_3px_0_rgb(251_191_36/0.2)] md:block min-[1375px]:text-[72px]`}
           >
             SOFTWARE
-          </motion.h1>
+          </motion.div>
 
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
@@ -200,7 +205,7 @@ export default function Banner() {
                   <div className='relative h-[280px] w-[200px] sm:h-[320px] sm:w-[240px] md:h-[360px] md:w-[280px]'>
                     <Image
                       src='/assets/images/arjunvaradiyil.jpeg'
-                      alt='Profile'
+                      alt='Arjun Varadiyil — portrait, software developer'
                       fill
                       className='object-cover'
                       priority
@@ -211,7 +216,7 @@ export default function Banner() {
             </motion.div>
 
             <motion.a
-              href='#contact'
+              href='/contact'
               initial={reduceMotion ? false : { opacity: 0, scale: 0.85, rotate: -8 }}
               animate={{ opacity: 1, scale: 1, rotate: 2 }}
               transition={
@@ -221,7 +226,7 @@ export default function Banner() {
               whileTap={reduceMotion ? undefined : { scale: 0.96 }}
               style={{ willChange: 'transform' }}
               className='absolute -left-3 bottom-[38%] flex h-11 w-11 rotate-2 items-center justify-center rounded-lg border-2 border-gray-900 bg-violet-100 text-gray-900 shadow-[4px_4px_0_0_rgb(17,24,39)] transition-colors hover:bg-violet-200 dark:border-white dark:bg-violet-950 dark:text-violet-100 dark:shadow-[4px_4px_0_0_rgb(255,255,255)] dark:hover:bg-violet-900'
-              aria-label='Say hello — scroll to contact'
+              aria-label='Say hello — go to contact'
             >
               <Hand className='h-5 w-5' aria-hidden />
             </motion.a>
@@ -243,6 +248,7 @@ export default function Banner() {
             className='hidden md:block'
           >
             <motion.span
+              aria-hidden
               initial={reduceMotion ? false : { opacity: 0, y: 12, rotate: 1 }}
               animate={{ opacity: 1, y: 0, rotate: 0 }}
               transition={
@@ -257,19 +263,20 @@ export default function Banner() {
 
         <div className='mt-6 flex flex-col items-center gap-6 md:hidden'>
           <motion.div
+            aria-hidden
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={reduceMotion ? { duration: 0 } : { delay: 0.08, duration: 0.45, ease: easeOut }}
             className='flex flex-row flex-wrap items-baseline justify-center gap-x-2 gap-y-1 px-1'
           >
-            <motion.h1
+            <motion.div
               initial={reduceMotion ? false : { opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={reduceMotion ? { duration: 0 } : { delay: 0.1, duration: 0.4, ease: easeOut }}
               className={`${NEU.display} shrink-0 text-[clamp(1.05rem,4.5vw,1.35rem)] leading-none underline decoration-amber-400 decoration-[3px] underline-offset-[6px] [text-shadow:2px_2px_0_rgb(251_191_36/0.35)] dark:decoration-amber-300 sm:text-[clamp(1.15rem,4vw,1.5rem)]`}
             >
               SOFTWARE
-            </motion.h1>
+            </motion.div>
             <motion.span
               initial={reduceMotion ? false : { opacity: 0, x: 16 }}
               animate={{ opacity: 1, x: 0 }}
