@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Calendar, Github, Hand, Instagram, Linkedin } from 'lucide-react';
 import { TOPMATE_URL } from '../../lib/siteSeo';
@@ -178,28 +177,6 @@ export default function Banner() {
             aria-hidden
           />
         </div>
-
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={reduceMotion ? { duration: 0 } : { delay: 0.14, duration: 0.45, ease: easeOut }}
-          className='mx-auto mb-8 flex w-full max-w-lg flex-col items-stretch justify-center gap-3 px-2 sm:mb-9 sm:flex-row sm:items-center sm:justify-center sm:gap-4'
-        >
-          <Link
-            href='/contact'
-            className={`${NEU.btnPrimary} inline-flex min-h-12 flex-1 items-center justify-center text-center sm:min-w-[200px] sm:flex-none`}
-          >
-            Discuss your project
-          </Link>
-          <a
-            href={TOPMATE_URL}
-            target='_blank'
-            rel='noopener noreferrer'
-            className={`${NEU.btn} inline-flex min-h-12 flex-1 items-center justify-center text-center sm:min-w-[180px] sm:flex-none`}
-          >
-            Book a call
-          </a>
-        </motion.div>
 
         <div className='flex flex-col items-center justify-center gap-6 md:flex-row md:items-center md:justify-center md:gap-8 lg:gap-12'>
           <motion.div
