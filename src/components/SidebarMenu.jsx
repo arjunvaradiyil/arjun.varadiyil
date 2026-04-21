@@ -130,6 +130,19 @@ export default function SidebarMenu({ open, setOpen }) {
               </div>
             );
           })}
+          <div className='mt-8 sm:mt-10'>
+            <Link
+              href='/contact'
+              prefetch
+              onClick={() => setOpen(false)}
+              className={`${NEU.btnPrimary} flex min-h-[52px] w-full items-center justify-center text-center text-xs font-bold uppercase tracking-wider`}
+            >
+              Discuss your project
+            </Link>
+            <p className='mt-3 text-center text-xs leading-snug text-gray-600 dark:text-gray-400'>
+              Share scope, timeline, and stack — I reply within one business day.
+            </p>
+          </div>
         </nav>
 
         <section

@@ -7,14 +7,14 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Arjun Varadiyil",
-    "jobTitle": "Full Stack Web Developer",
+    "jobTitle": "Professional Web Developer",
     "description": DEFAULT_DESCRIPTION,
     "url": "https://arjunvaradiyil.in",
     "image": "https://arjunvaradiyil.in/assets/images/arjunvaradiyil.jpeg",
     "email": "arjunvaradiyil203@gmail.com",
     "hasOccupation": {
       "@type": "Occupation",
-      "name": "Full Stack Web Developer",
+      "name": "Professional Web Developer",
       "occupationLocation": {
         "@type": "City",
         "name": "Kochi, Kerala, India"
@@ -50,6 +50,10 @@ export default function StructuredData() {
       },
       {
         "@type": "City",
+        "name": "Malappuram"
+      },
+      {
+        "@type": "City",
         "name": "Perinthalmanna"
       },
       {
@@ -81,6 +85,11 @@ export default function StructuredData() {
         "@type": "City",
         "name": "Perinthalmanna",
         "@id": "https://www.wikidata.org/wiki/Q7169780"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Malappuram",
+        "@id": "https://www.wikidata.org/wiki/Q16156245"
       },
       {
         "@type": "State",
@@ -119,6 +128,7 @@ export default function StructuredData() {
     },
     "areaServed": [
       "Kochi",
+      "Malappuram",
       "Perinthalmanna",
       "Kerala"
     ],

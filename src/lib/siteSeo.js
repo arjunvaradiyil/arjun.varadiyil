@@ -3,8 +3,8 @@
 export const SITE_NAME = 'Arjun Varadiyil';
 export const SITE_URL = 'https://arjunvaradiyil.in';
 
-/** Default `<title>` / OG title — aim ~50–60 characters for SERP display. */
-export const SITE_TITLE_DEFAULT = 'Arjun Varadiyil | Full-Stack MERN Web Developer in Kerala';
+/** Default `<title>` / OG title — query-aligned phrase first (~55 chars); brand second. */
+export const SITE_TITLE_DEFAULT = 'Professional Web Developer in Kerala | Arjun Varadiyil';
 
 /** Book-a-call link (Topmate) — career guidance, resume review, mentoring */
 export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
@@ -12,9 +12,9 @@ export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
 /** Absolute sitemap URL — use in robots.txt and Search Console. */
 export const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
-/** Primary meta description — ~100–130 chars for stricter audit tools; sync layout + OG + Twitter + JSON-LD. */
+/** Primary meta description — ~100–160 chars; sync layout + OG + Twitter + JSON-LD. */
 export const DEFAULT_DESCRIPTION =
-  'MERN full-stack developer in Kerala: React, Next.js, Node.js, MongoDB. Freelance web apps — portfolio & contact.';
+  'Professional web developer in Kerala — Kochi, Malappuram & Perinthalmanna. MERN stack & Next.js — marketing sites, dashboards, APIs. Portfolio, projects & contact.';
 
 /** Optional social URLs — set when you have profiles; Footer/Sidebar can link them. */
 export const FACEBOOK_URL = '';
@@ -22,6 +22,9 @@ export const X_URL = '';
 export const YOUTUBE_URL = '';
 
 export const KEYWORDS = [
+  'Professional Web Developer in Kerala',
+  'Professional Web Developer in Malappuram',
+  'Web Developer Malappuram',
   'Web Developer Kerala',
   'Web Designer Kerala',
   'Web Developer Kochi',

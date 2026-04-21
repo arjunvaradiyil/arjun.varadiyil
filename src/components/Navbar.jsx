@@ -61,6 +61,13 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <Link
+              href='/contact'
+              prefetch
+              className={`${NEU.btnPrimary} ml-1 inline-flex min-h-10 shrink-0 items-center justify-center px-3 py-2 text-[10px] lg:ml-2 lg:px-4 lg:text-xs`}
+            >
+              Discuss a project
+            </Link>
           </nav>
 
           <div className='flex shrink-0 items-center gap-2'>
