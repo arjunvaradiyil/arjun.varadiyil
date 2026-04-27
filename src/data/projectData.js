@@ -87,4 +87,33 @@ export const projects = [
     previewLink: "https://elections.myidukki.com",
     linkedinLink: "",
   },
+  {
+    id: "04",
+    slug: "dhanwanthari-ayurveda",
+    title: "Dhanwanthari Parambarya Ayurveda Vaidyashala",
+    tagline:
+      "A century of pure healing wisdom. Classical Ayurveda led by Dr. Anju Mol (BAMS)—personalized protocols rooted in Shastra and gentle, modern clinical care.",
+    description:
+      "Classical Ayurveda led by Dr. Anju Mol (BAMS)—personalized protocols rooted in Shastra and gentle, modern clinical care.",
+    year: "2026",
+    timeline: "Shipped",
+    industry: "Healthcare / Wellness",
+    services: ["React", "Next.js", "Tailwind CSS", "Web Development"],
+    about:
+      "For generations our vaidyas have turned to Shastra—the classical compendiums—to interpret pulse, tongue, and history with humility and precision. Dhanwanthari Parambarya Ayurveda Vaidyashala continues that lineage today under Dr. Anju Mol (BAMS, Reg. No. 26249), combining handwritten formulations and careful observation with the clarity of modern documentation.",
+    role: "Developer",
+    teamMembers: null,
+    duration: "—",
+    responsibilities: [
+      "Built the marketing and heritage site for the vaidyashala with hero, treatments, and consultation flows",
+      "Implemented responsive layouts and typography aligned with a classical Ayurveda brand",
+      "Structured content for heritage, therapies, and physician-led care messaging",
+    ],
+    image: "/assets/images/dhanwanthari-ayurveda.png",
+    logo: "",
+    type: "image",
+    gitLink: "",
+    previewLink: "https://www.dhanwanthariayurveda.in/",
+    linkedinLink: "",
+  },
 ];
