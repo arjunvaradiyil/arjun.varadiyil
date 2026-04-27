@@ -1,6 +1,36 @@
 export const projects = [
   {
     id: "01",
+    slug: "know-keralam",
+    title: "Know Kerala (knowkeralam.com)",
+    tagline:
+      "Bilingual quiz platform on Kerala's developmental achievements—200+ questions in Malayalam and English, with categories, scoring, and social score sharing.",
+    description:
+      "knowkeralam.com highlights a decade of progress in Kerala through quizzes for a general audience and competitive exam prep, organized with Sameeksha UK and the DYFI Professional Sub Committee.",
+    year: "2025",
+    timeline: "Shipped",
+    industry: "Education / Civic",
+    services: ["React", "Next.js", "Tailwind CSS", "Web Development", "i18n"],
+    about:
+      "Know Kerala (knowkeralam.com) is an online quiz platform showcasing the state's developmental achievements over the past ten years. It is jointly organized by Sameeksha UK and the DYFI Professional Sub Committee. The product features more than 200 questions in both Malayalam and English, focusing on societal change and improvements across themes such as infrastructure and public projects—including areas like NH development, Vizhinjam Port, waste-free initiatives, and Kochi Water Metro—so anyone interested in Kerala, including those preparing for competitive exams, can learn in a structured way. Participants can move through categories (for example general, IT, and economy), track progress and scores, and share results on social media. The initiative has been promoted widely by local DYFI units (including DYFI Karayad MC) and the DYFI Kerala State Committee across channels such as Facebook and Instagram.",
+    role: "Developer",
+    teamMembers: "Initiative: Sameeksha UK & DYFI Professional Sub Committee",
+    duration: "—",
+    responsibilities: [
+      "Implemented the bilingual quiz experience (Malayalam / English) with category navigation and question flow",
+      "Built scoring, progress tracking, and layouts suited to long-form quiz content on mobile and desktop",
+      "Integrated social-friendly flows so participants can share scores after sessions",
+      "Tuned performance and UI for clarity under promotion across social channels",
+    ],
+    image: "/assets/images/image.png",
+    logo: "",
+    type: "image",
+    gitLink: "",
+    previewLink: "https://knowkeralam.com",
+    linkedinLink: "",
+  },
+  {
+    id: "02",
     slug: "dr-naseeha-homoeopathic-clinic-melattur",
     title: "Dr. Naseeha's Homoeopathic Clinic",
     tagline: "Experience a gentler way to wellness—personalized, side-effect free homoeopathic care for the whole family.",
@@ -29,7 +59,7 @@ export const projects = [
     linkedinLink: "",
   },
   {
-    id: "02",
+    id: "03",
     slug: "elections-myidukki",
     title: "Elections — Idukki",
     tagline:
