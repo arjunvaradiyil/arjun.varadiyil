@@ -10,12 +10,9 @@ import WordStaggerReveal from '../ui/WordStaggerReveal';
 
 const resume = 'https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view';
 
-const BIO =
-  "Hello! I'm Arjun Varadiyil. My journey in technology is driven by a passion for crafting elegant solutions to complex problems. I specialize in the MERN stack, building applications that are not just functional, but also provide an intuitive and engaging user experience.";
-
 const easeOut = [0.22, 1, 0.36, 1];
 
-export default function AboutHero() {
+export default function AboutHero({ bioText = '' }) {
   const reduceMotion = useReducedMotion();
 
   const textContainer = useMemo(
@@ -139,11 +136,17 @@ export default function AboutHero() {
               </motion.h1>
             </motion.div>
 
-            <WordStaggerReveal
-              text={BIO}
-              className='mx-auto mt-8 max-w-xl text-left text-[18px] leading-relaxed sm:text-center'
-              viewport={{ once: true, amount: 0.35, margin: '-40px 0px' }}
-            />
+            {bioText ? (
+              <WordStaggerReveal
+                text={bioText}
+                className='mx-auto mt-8 max-w-xl text-left text-[18px] leading-relaxed sm:text-center'
+                viewport={{ once: true, amount: 0.35, margin: '-40px 0px' }}
+              />
+            ) : (
+              <p className='mx-auto mt-8 max-w-xl text-left text-[18px] leading-relaxed text-gray-700 sm:text-center dark:text-gray-300'>
+                No about summary found in CMS.
+              </p>
+            )}
 
             <motion.div
               variants={iconParent}

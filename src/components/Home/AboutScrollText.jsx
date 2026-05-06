@@ -1,13 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import WordStaggerReveal from '../ui/WordStaggerReveal';
 import { NEU } from '../ui/neuTheme';
-
-const TEXT =
-  'I craft elegant solutions to complex problems, building scalable web applications with the MERN stack.';
+import { getAboutSummaryForFrontend } from '../../lib/cms';
 
 export default function AboutScrollText() {
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    let active = true;
+    getAboutSummaryForFrontend().then((summary) => {
+      if (active) setText(summary || '');
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <section
       id='about'
@@ -19,12 +29,16 @@ export default function AboutScrollText() {
         </p>
 
         <div className={`${NEU.cardStatic} p-8 md:p-10`}>
-          <WordStaggerReveal
-            as='h2'
-            text={TEXT}
-            className={`${NEU.display} text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl`}
-            viewport={{ once: true, amount: 0.45 }}
-          />
+          {text ? (
+            <WordStaggerReveal
+              as='h2'
+              text={text}
+              className={`${NEU.display} text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl`}
+              viewport={{ once: true, amount: 0.45 }}
+            />
+          ) : (
+            <p className={`${NEU.bodyText} text-center`}>No about summary found in CMS.</p>
+          )}
         </div>
       </div>
     </section>

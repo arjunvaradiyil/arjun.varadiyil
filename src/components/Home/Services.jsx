@@ -1,13 +1,26 @@
 'use client';
 
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { skills } from '../../data/skills';
 import ServiceNeuGrid from './ServiceNeuGrid';
 import { NEU } from '../ui/neuTheme';
 import WordStaggerReveal from '../ui/WordStaggerReveal';
+import { getHomeServicesFromProjects } from '../../lib/cms';
 
 export default function Services() {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+    getHomeServicesFromProjects().then((items) => {
+      if (active) setServices(items);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <section className={`${NEU.section} ${NEU.sectionPad} snap-start`}>
       <div className='relative z-10 mx-auto max-w-7xl'>
@@ -28,7 +41,13 @@ export default function Services() {
         />
 
         <div className='mt-14 md:mt-16'>
-          <ServiceNeuGrid skills={skills} />
+          {services.length > 0 ? (
+            <ServiceNeuGrid skills={services} />
+          ) : (
+            <div className={`${NEU.cardStatic} p-6 text-center`}>
+              <p className={NEU.bodyText}>No services found in CMS project entries.</p>
+            </div>
+          )}
         </div>
       </div>
     </section>

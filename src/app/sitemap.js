@@ -1,7 +1,8 @@
-import { projects } from '../data/projectData';
 import { SITE_URL } from '../lib/siteSeo';
+import { getProjectsForFrontend } from '../lib/cms';
 
-export default function sitemap() {
+export default async function sitemap() {
+  const projects = await getProjectsForFrontend();
   const routes = [
     {
       url: SITE_URL,

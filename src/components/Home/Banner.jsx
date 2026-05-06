@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Calendar, Github, Hand, Instagram, Linkedin } from 'lucide-react';
 import { TOPMATE_URL } from '../../lib/siteSeo';
 import Image from 'next/image';
 import { NEU } from '../ui/neuTheme';
+import { getAboutDocForFrontend } from '../../lib/cms';
 
 const easeOut = [0.22, 1, 0.36, 1];
 
@@ -104,6 +105,17 @@ function BannerSocialIcons({ reduceMotion }) {
 
 export default function Banner() {
   const reduceMotion = useReducedMotion();
+  const [aboutDoc, setAboutDoc] = useState(null);
+
+  useEffect(() => {
+    let active = true;
+    getAboutDocForFrontend().then((doc) => {
+      if (active) setAboutDoc(doc);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const imageFloat = reduceMotion
     ? {}
@@ -143,7 +155,7 @@ export default function Banner() {
         transition={reduceMotion ? { duration: 0 } : { duration: 0.5, ease: easeOut }}
         className='relative z-10 mx-auto w-full max-w-6xl -translate-y-5 px-5 sm:px-6 sm:-translate-y-6 md:-translate-y-8 lg:-translate-y-10'
       >
-        <h1 className='sr-only'>Arjun Varadiyil — MERN stack web developer, Kerala</h1>
+        <h1 className='sr-only'>{aboutDoc?.title || 'Portfolio profile'}</h1>
         <h2 className='sr-only'>
           Software developer portfolio: projects, about, certifications, and contact.
         </h2>
@@ -164,9 +176,9 @@ export default function Banner() {
           initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={reduceMotion ? { duration: 0 } : { delay: 0.1, duration: 0.55, ease: easeOut }}
-          className={`mb-2 text-center font-syne text-[15px] font-semibold tracking-[0.35em] text-gray-800 dark:text-gray-200 sm:text-base`}
+          className={`mb-2 text-center font-syne text-[15px] font-semibold tracking-[0.25em] text-gray-800 dark:text-gray-200 sm:text-base`}
         >
-          ARJUN VARADIYIL
+          {aboutDoc?.title || 'NO ABOUT TITLE IN CMS'}
         </motion.p>
         <div className='mx-auto mb-7 flex max-w-md flex-col items-center gap-2 sm:mb-8'>
           <motion.span

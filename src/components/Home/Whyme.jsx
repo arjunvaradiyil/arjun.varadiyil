@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, animate, useInView, useMotionValueEvent } from 'framer-motion';
 import { NEU } from '../ui/neuTheme';
 import WordStaggerReveal from '../ui/WordStaggerReveal';
+import { getHomeStatsFromProjects } from '../../lib/cms';
 
 const containerVariants = {
   hidden: {},
@@ -40,17 +41,19 @@ const Counter = ({ to, duration = 1.5 }) => {
   return <span ref={ref}>{display}</span>;
 };
 
-const INTRO =
-  'With over a year of hands-on industry experience, I build scalable, user-focused web applications using MERN stack and other modern techniques—delivering clean code, smooth UX, and real results.';
-
-const STATS = [
-  { to: 10, suffix: '+', label: 'Real-world projects built across web platforms' },
-  { to: 1.5, suffix: '+', label: 'Years of professional software development experience' },
-  { to: 100, suffix: '%', label: 'Commitment to clean code, performance & best practices' },
-  { to: 10, suffix: '+', label: 'Technologies used including MERN & modern frontend tools' },
-];
-
 export default function WhyMe() {
+  const [stats, setStats] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+    getHomeStatsFromProjects().then((items) => {
+      if (active) setStats(items);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   return (
     <section className={`${NEU.section} ${NEU.sectionPad} snap-start`}>
       <motion.div
@@ -76,7 +79,7 @@ export default function WhyMe() {
 
           <motion.div variants={itemVariants} className='flex flex-col justify-start pt-2 md:pt-8'>
             <WordStaggerReveal
-              text={INTRO}
+              text='These numbers are calculated from your live CMS content, not static portfolio data.'
               className='max-w-xl text-sm leading-relaxed text-gray-800 dark:text-gray-300 md:text-base'
               viewport={{ once: true, amount: 0.35 }}
             />
@@ -95,7 +98,7 @@ export default function WhyMe() {
           variants={containerVariants}
           className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4 md:gap-6'
         >
-          {STATS.map((stat) => (
+          {stats.map((stat) => (
             <motion.div
               key={stat.label}
               variants={itemVariants}
@@ -116,6 +119,11 @@ export default function WhyMe() {
             </motion.div>
           ))}
         </motion.div>
+        {stats.length === 0 ? (
+          <div className='mt-6 text-center'>
+            <p className={NEU.bodyText}>No stats available from CMS yet.</p>
+          </div>
+        ) : null}
       </motion.div>
     </section>
   );
