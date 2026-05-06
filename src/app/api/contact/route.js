@@ -46,23 +46,8 @@ export async function POST(request) {
       );
     }
 
-    // Optionally persist the message in Payload CMS if endpoint is configured.
-    const cmsBaseUrl = process.env.PAYLOAD_API_URL?.replace(/\/$/, '');
-    const cmsPromise = cmsBaseUrl
-      ? fetch(`${cmsBaseUrl}/api/contact`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name,
-            email,
-            message,
-            status: 'new',
-          }),
-        }).catch(() => null)
-      : Promise.resolve(null);
-
     // Send emails in parallel: notification to owner and confirmation to submitter
-    const [ownerEmailResult, confirmationEmailResult, cmsStoreResult] = await Promise.allSettled([
+    const [ownerEmailResult, confirmationEmailResult] = await Promise.allSettled([
       // Email to portfolio owner
       resend.emails.send({
         from: 'Portfolio Contact <onboarding@resend.dev>',
@@ -127,7 +112,6 @@ export async function POST(request) {
           </div>
         `,
       }),
-      cmsPromise,
     ]);
 
     // Check if owner email was sent successfully
@@ -152,15 +136,6 @@ export async function POST(request) {
         : confirmationEmailResult.value.error;
       console.warn('Failed to send confirmation email:', JSON.stringify(error, null, 2));
       // Continue anyway since the main email was sent
-    }
-
-    if (
-      cmsStoreResult?.status === 'fulfilled' &&
-      cmsStoreResult.value &&
-      'ok' in cmsStoreResult.value &&
-      !cmsStoreResult.value.ok
-    ) {
-      console.warn('Payload CMS save failed with non-OK status:', cmsStoreResult.value.status);
     }
 
     return NextResponse.json(

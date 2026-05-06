@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { certifications } from '../../data/certificationsData';
 import { motion } from 'framer-motion';
 import { Award } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
@@ -24,7 +25,7 @@ const ACCENTS = [
   },
 ];
 
-export default function Certifications({ items = [] }) {
+export default function Certifications() {
   return (
     <section className={`${NEU.section} w-full px-6 py-24 md:px-20`}>
       <motion.div
@@ -61,7 +62,7 @@ export default function Certifications({ items = [] }) {
           className='grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6'
           aria-label='Certification cards'
         >
-          {items.map((cert, index) => {
+          {certifications.map((cert, index) => {
             const accent = ACCENTS[index % ACCENTS.length];
             return (
               <motion.li

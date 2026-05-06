@@ -1,14 +1,14 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import React, { useEffect, useMemo, useState } from 'react';
+import { projects } from '../../../data/projectData';
+import React from 'react';
 import { ArrowLeft, ExternalLink, Calendar, Clock, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { NEU } from '../../../components/ui/neuTheme';
 import WordStaggerReveal from '../../../components/ui/WordStaggerReveal';
-import { getProjectsForFrontend } from '../../../lib/cms';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -37,29 +37,11 @@ function SectionBlock({ title, children, delay = 0 }) {
 
 export default function ProjectDetailsPage() {
   const params = useParams();
-  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
-  const [projects, setProjects] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const slug = params.slug;
 
-  useEffect(() => {
-    let active = true;
-    getProjectsForFrontend()
-      .then((data) => {
-        if (!active) return;
-        setProjects(data);
-      })
-      .finally(() => {
-        if (active) setIsLoaded(true);
-      });
+  const project = projects.find((p) => p.slug === slug);
 
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  const project = useMemo(() => projects.find((p) => p.slug === slug), [projects, slug]);
-
-  if (isLoaded && !project) {
+  if (!project) {
     return (
       <div className={`${NEU.pageShell} flex min-h-screen items-center justify-center`}>
         <div className='px-6 text-center'>
@@ -68,14 +50,6 @@ export default function ProjectDetailsPage() {
             <ArrowLeft className='h-4 w-4' aria-hidden /> Back to projects
           </Link>
         </div>
-      </div>
-    );
-  }
-
-  if (!project) {
-    return (
-      <div className={`${NEU.pageShell} flex min-h-screen items-center justify-center`}>
-        <p className={`${NEU.bodyText}`}>Loading project...</p>
       </div>
     );
   }

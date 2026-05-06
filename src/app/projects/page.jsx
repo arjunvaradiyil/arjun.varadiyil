@@ -1,27 +1,15 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { projects } from '../../data/projectData';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import { NEU } from '../../components/ui/neuTheme';
 import WordStaggerReveal from '../../components/ui/WordStaggerReveal';
-import { getProjectsForFrontend } from '../../lib/cms';
 
 export default function ProjectsPage() {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    let active = true;
-    getProjectsForFrontend().then((data) => {
-      if (active) setProjects(data);
-    });
-    return () => {
-      active = false;
-    };
-  }, []);
-
   return (
     <div className={`${NEU.pageShell} min-h-screen bg-[#f5f2ea] dark:bg-[#0e0d12]`}>
       <div className={`${NEU.sectionPadMd} pt-20 md:pt-24 lg:pt-28`}>
@@ -139,11 +127,6 @@ export default function ProjectsPage() {
               </motion.li>
             ))}
           </ul>
-          {projects.length === 0 ? (
-            <div className={`${NEU.cardStatic} mt-8 p-6 text-center`}>
-              <p className={`${NEU.bodyText}`}>No projects found in CMS.</p>
-            </div>
-          ) : null}
         </div>
       </div>
     </div>

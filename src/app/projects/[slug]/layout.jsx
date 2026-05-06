@@ -1,9 +1,8 @@
+import { projects } from '../../../data/projectData';
 import { KEYWORDS, SITE_NAME, absoluteUrl } from '../../../lib/siteSeo';
-import { getProjectsForFrontend } from '../../../lib/cms';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const projects = await getProjectsForFrontend();
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {

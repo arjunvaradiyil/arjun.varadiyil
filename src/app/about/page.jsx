@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import SectionHeader from '../../components/About/SectionHeader';
 import Timeline from '../../components/About/Timeline';
 import Contactform from '../../components/Contactform';
@@ -8,24 +8,11 @@ import AboutSkills from '../../components/About/AboutSkills';
 import Experience from '../../components/About/Experience';
 import AboutHero from '../../components/About/AboutHero';
 import { NEU } from '../../components/ui/neuTheme';
-import { getAboutSummaryForFrontend } from '../../lib/cms';
 
 export default function AboutPage() {
-  const [bioText, setBioText] = useState(null);
-
-  useEffect(() => {
-    let active = true;
-    getAboutSummaryForFrontend().then((summary) => {
-      if (active) setBioText(summary);
-    });
-    return () => {
-      active = false;
-    };
-  }, []);
-
   return (
     <div className={`${NEU.pageShell} overflow-hidden text-gray-900 dark:text-gray-100`}>
-      <AboutHero bioText={bioText || undefined} />
+      <AboutHero />
       <AboutSkills />
       <Experience />
 
