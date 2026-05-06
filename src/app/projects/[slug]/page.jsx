@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { projects } from '../../../data/projectData';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { ArrowLeft, ExternalLink, Calendar, Clock, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -38,8 +38,16 @@ function SectionBlock({ title, children, delay = 0 }) {
 export default function ProjectDetailsPage() {
   const params = useParams();
   const slug = params.slug;
+  const uniqueProjects = useMemo(() => {
+    const seen = new Set();
+    return projects.filter((project) => {
+      if (!project?.slug || seen.has(project.slug)) return false;
+      seen.add(project.slug);
+      return true;
+    });
+  }, []);
 
-  const project = projects.find((p) => p.slug === slug);
+  const project = uniqueProjects.find((p) => p.slug === slug);
 
   if (!project) {
     return (
@@ -54,7 +62,7 @@ export default function ProjectDetailsPage() {
     );
   }
 
-  const relatedProjects = projects.filter((p) => p.slug !== slug).slice(0, 6);
+  const relatedProjects = uniqueProjects.filter((p) => p.slug !== slug).slice(0, 6);
 
   return (
     <div className={`${NEU.pageShell} min-h-screen`}>

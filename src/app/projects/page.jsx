@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../../data/projectData';
 import Link from 'next/link';
@@ -10,6 +10,15 @@ import { NEU } from '../../components/ui/neuTheme';
 import WordStaggerReveal from '../../components/ui/WordStaggerReveal';
 
 export default function ProjectsPage() {
+  const uniqueProjects = useMemo(() => {
+    const seen = new Set();
+    return projects.filter((project) => {
+      if (!project?.slug || seen.has(project.slug)) return false;
+      seen.add(project.slug);
+      return true;
+    });
+  }, []);
+
   return (
     <div className={`${NEU.pageShell} min-h-screen bg-[#f5f2ea] dark:bg-[#0e0d12]`}>
       <div className={`${NEU.sectionPadMd} pt-20 md:pt-24 lg:pt-28`}>
@@ -24,7 +33,7 @@ export default function ProjectsPage() {
           </motion.p>
 
           <ul className='grid grid-cols-1 gap-6 sm:gap-7 md:grid-cols-2 md:gap-8'>
-            {projects.map((project, index) => (
+            {uniqueProjects.map((project, index) => (
               <motion.li
                 key={project.id}
                 initial={{ opacity: 0, y: 28 }}
