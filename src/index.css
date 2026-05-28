@@ -12,6 +12,7 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
   html {
     font-family: "Syne", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
@@ -31,8 +32,20 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
   }
 
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
     html.home-scroll-snap {
       scroll-snap-type: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 

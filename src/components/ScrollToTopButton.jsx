@@ -1,10 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
+import { EASE_OUT, scaleIn } from '../lib/motion';
 
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -18,21 +21,30 @@ export default function ScrollToTopButton() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: reduceMotion ? 'auto' : 'smooth',
     });
   };
 
-  if (!visible) return null;
-
   return (
-    <button
-      type='button'
-      onClick={scrollToTop}
-      className='scroll-to-top-btn fixed bottom-6 right-6 z-50 rounded-lg border-2 border-gray-900 bg-white p-3 text-gray-900 shadow-[4px_4px_0_0_rgb(17,24,39)] transition-transform hover:scale-105 hover:shadow-[6px_6px_0_0_rgb(17,24,39)] dark:border-white dark:bg-zinc-900 dark:text-white dark:shadow-[4px_4px_0_0_rgb(255,255,255)]'
-      style={{ willChange: 'transform' }}
-      aria-label='Scroll to top'
-    >
-      <ArrowUp size={22} />
-    </button>
+    <AnimatePresence>
+      {visible ? (
+        <motion.button
+          type="button"
+          onClick={scrollToTop}
+          className="scroll-to-top-btn fixed bottom-6 right-4 z-50 border border-gray-900/15 bg-white p-3 text-gray-900 shadow-md dark:border-white/15 dark:bg-[#111111] dark:text-white md:right-6"
+          style={{ willChange: 'transform' }}
+          aria-label="Scroll to top"
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={scaleIn}
+          transition={{ duration: 0.3, ease: EASE_OUT }}
+          whileHover={reduceMotion ? undefined : { scale: 1.08, borderColor: 'rgba(251, 191, 36, 0.6)' }}
+          whileTap={reduceMotion ? undefined : { scale: 0.95 }}
+        >
+          <ArrowUp size={22} />
+        </motion.button>
+      ) : null}
+    </AnimatePresence>
   );
 }

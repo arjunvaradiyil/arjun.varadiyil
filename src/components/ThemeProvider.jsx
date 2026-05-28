@@ -1,40 +1,27 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 import { NEU } from './ui/neuTheme';
 
-const ThemeContext = createContext();
+const ThemeContext = createContext({
+  theme: 'dark',
+  setTheme: () => {},
+});
 
 export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within ThemeProvider');
-  }
-  return context;
+  return useContext(ThemeContext);
 }
 
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark');
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    setMounted(true);
+    document.documentElement.classList.remove('light');
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
   }, []);
 
-  useEffect(() => {
-    if (!mounted) return;
-    document.documentElement.classList.remove('light', 'dark');
-    document.documentElement.classList.add(theme);
-    localStorage.setItem('theme', theme);
-  }, [theme, mounted]);
-
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={`${NEU.pageRoot} ${!mounted ? 'opacity-0' : 'opacity-100'}`}>
-        {children}
-      </div>
+    <ThemeContext.Provider value={{ theme: 'dark', setTheme: () => {} }}>
+      <div className={NEU.pageRoot}>{children}</div>
     </ThemeContext.Provider>
   );
 }

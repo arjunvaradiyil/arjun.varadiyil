@@ -3,7 +3,7 @@ export const skills = [
     id: '01',
     title: 'Frontend',
     cardBlurb:
-      'Modern, responsive interfaces with React and Next.js—built for clarity, speed, and great UX.',
+      'Modern, responsive interfaces with React and Next.js — built for clarity, speed, and great UX.',
     description:
       'Modern, responsive user interfaces built with React and Next.js, delivering exceptional user experiences across all devices.',
     features: [
@@ -14,54 +14,56 @@ export const skills = [
     ],
     image:
       'https://miro.medium.com/v2/resize:fit:1400/0*8TnOSxYPBGXfGnSs',
-    tags: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Framer Motion'],
+    tags: ['React', 'Next.js', 'JavaScript', 'HTML', 'Tailwind CSS', 'CSS'],
   },
   {
     id: '02',
     title: 'Full Stack',
     cardBlurb:
-      'End-to-end MERN apps—APIs, auth, databases, and polished UI from one codebase.',
-    description: 'End-to-end web applications powered by the MERN stack, from database to user interface.',
+      'End-to-end apps — APIs, auth, databases, and polished UI from one codebase.',
+    description: 'End-to-end web applications powered by the MERN stack and Next.js, from database to user interface.',
     features: [
       'Complete MERN stack development (MongoDB, Express, React, Node.js)',
       'RESTful and GraphQL API design and implementation',
-      'User authentication and authorization systems',
+      'User authentication and authorization (JWT)',
       'Real-time features and optimized database queries',
     ],
     image:
       'https://www.mindinventory.com/blog/wp-content/uploads/2022/03/react-nodejs.webp',
-    tags: ['MongoDB', 'Express.js', 'React', 'Node.js', 'GraphQL'],
+    tags: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Redux', 'GraphQL'],
   },
   {
     id: '03',
     title: 'Content Management',
     cardBlurb:
-      'Headless CMS with Payload—structured content, custom fields, and API-first delivery.',
-    description: 'Headless content management solutions built with Payload CMS, leveraging Node.js and MongoDB for flexible, developer-friendly workflows.',
+      'Headless CMS with Payload — structured content, custom blocks, and API-first delivery.',
+    description:
+      'Headless content management solutions built with Payload CMS for news portals and editorial workflows.',
     features: [
       'Payload CMS implementation with custom admin interfaces',
-      'Node.js and MongoDB-powered content architecture',
-      'API-driven content delivery for modern applications',
-      'Custom field types and content relationships',
+      'Custom collections, blocks, and fields for flexible content',
+      'GraphQL and API-driven content delivery',
+      'Multimedia and article publishing at scale',
     ],
     image:
       'https://t3.ftcdn.net/jpg/05/54/74/70/360_F_554747016_FIqkviyI5ClrTfNN3fgL6kI0KUfpaIK9.jpg',
-    tags: ['Payload CMS', 'Node.js', 'MongoDB', 'Headless CMS', 'TypeScript'],
+    tags: ['Payload CMS', 'GraphQL', 'Node.js', 'MongoDB', 'Postman'],
   },
   {
     id: '04',
-    title: 'Deployment',
+    title: 'Tools & Environment',
     cardBlurb:
-      'Production-ready hosting, CI/CD, and environments on Vercel, AWS, and modern tooling.',
-    description: 'Secure, reliable deployment and hosting workflows ensuring your applications are production-ready and performant.',
+      'Python scripting, VS Code, and cross-platform development on Linux, macOS, and Windows.',
+    description:
+      'Additional tooling and environments used for development, testing, and deployment workflows.',
     features: [
-      'CI/CD pipelines for automated deployments',
-      'Cloud hosting on Vercel, AWS, and other platforms',
-      'Environment configuration and security best practices',
-      'Performance monitoring and optimization',
+      'Python for scripting and auxiliary tooling',
+      'VS Code as primary IDE',
+      'Cross-platform development on Linux, macOS, and Windows',
+      'Git, GitHub, and Postman for version control and API testing',
     ],
     image:
       'https://i.ytimg.com/vi/7WrU5KQRw2o/hq720.jpg',
-    tags: ['Vercel', 'AWS', 'Docker', 'CI/CD', 'Git'],
+    tags: ['Python', 'VS Code', 'Git', 'Postman', 'Linux', 'macOS'],
   },
 ];

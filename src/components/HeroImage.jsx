@@ -1,18 +1,16 @@
-import React from 'react';
+import Image from 'next/image';
 import { NEU } from './ui/neuTheme';
 
-const HeroImage = () => {
+export default function HeroImage() {
   return (
-    <div
-      className={`relative aspect-[0.714286/1] w-80 overflow-hidden rounded-xl bg-zinc-200 md:w-[340px] dark:bg-zinc-800 ${NEU.frame}`}
-    >
-      <img
-        src='/assets/images/profilepic.png'
-        alt='Portrait of portfolio creator'
-        className='h-full w-full object-cover'
+    <div className={`relative aspect-[5/7] w-full max-w-sm mx-auto lg:max-w-none ${NEU.frame}`}>
+      <Image
+        src="/assets/images/profilepic.png"
+        alt="Portrait of portfolio creator"
+        fill
+        className="object-cover"
+        sizes="(max-width: 1024px) 90vw, 400px"
       />
     </div>
   );
-};
-
-export default HeroImage;
+}

@@ -3,10 +3,10 @@
 import React from 'react';
 
 const darkInputClasses =
-  'w-full rounded-lg border border-white/15 bg-zinc-950/60 p-2 text-gray-100 placeholder:text-gray-500 outline-none focus:border-blue-400/60 focus:ring-2 focus:ring-blue-400/40 dark:focus:border-cyan-400/60 dark:focus:ring-cyan-400/35 sm:p-3';
+  'w-full rounded-sm border border-white/15 bg-[#111111] p-2.5 text-gray-100 placeholder:text-gray-500 outline-none focus:border-amber-400/60 focus:ring-2 focus:ring-amber-400/25 sm:p-3';
 
 const neuInputClasses =
-  'w-full rounded-lg border-2 border-gray-900 bg-white p-2 text-gray-900 placeholder:text-gray-500 outline-none focus:border-indigo-800 focus:ring-2 focus:ring-amber-400/90 sm:p-3';
+  'w-full rounded-sm border border-gray-900/20 bg-white p-2.5 text-gray-900 placeholder:text-gray-500 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-400/30 dark:border-white/15 dark:bg-[#111111] dark:text-gray-100 sm:p-3';
 
 export default function Input({
   label,
@@ -23,7 +23,7 @@ export default function Input({
   const inputClasses = variant === 'neu' ? neuInputClasses : darkInputClasses;
   const labelClasses =
     variant === 'neu'
-      ? 'mb-1 block text-sm font-semibold text-gray-800 sm:mb-2'
+      ? 'mb-1 block font-sans text-[10px] font-bold uppercase tracking-[0.16em] text-gray-600 dark:text-gray-400 sm:mb-2'
       : 'mb-1 block text-sm font-medium text-gray-300 sm:mb-2';
 
   return (

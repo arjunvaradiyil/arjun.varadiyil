@@ -1,49 +1,47 @@
-/** Shared ServiceNeu-style surfaces (Tailwind class strings).
- *  Palette: warm paper / ink surfaces, amber + indigo accents (replaces cool sky defaults).
- */
+/** Portfolio UI — Neymar Jr. inspired dark editorial + light fallback */
+
+export const PAGE = {
+  shell: 'min-h-screen bg-[#f5f2ea] text-gray-900 dark:bg-[#050505] dark:text-gray-100',
+  inner: 'mx-auto w-full max-w-6xl px-5 sm:px-8 md:px-12',
+  sectionPad: 'py-14 md:py-24',
+  altSection: 'bg-white dark:bg-[#0a0a0a]',
+  heroSection: 'bg-[#e4e4e4] dark:bg-[#050505]',
+};
 
 export const NEU = {
-  section: 'relative overflow-hidden bg-[#f5f2ea] dark:bg-[#0e0d12]',
-  sectionPad: 'px-6 py-20 md:px-16 md:py-24 lg:px-24 lg:py-28',
-  sectionPadMd: 'px-6 py-16 md:px-16 md:py-20 lg:px-24',
-  /** Interactive card shell (add padding in the component) */
-  card: `rounded-xl border-2 border-gray-900 bg-white shadow-[6px_6px_0_0_rgb(17,24,39)]
-    transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_rgb(17,24,39)]
-    dark:border-white dark:bg-zinc-900 dark:shadow-[6px_6px_0_0_rgb(255,255,255)] dark:hover:shadow-[8px_8px_0_0_rgb(255,255,255)]`,
-  /** Card shell without hover motion */
-  cardStatic: `rounded-xl border-2 border-gray-900 bg-white shadow-[6px_6px_0_0_rgb(17,24,39)]
-    dark:border-white dark:bg-zinc-900 dark:shadow-[6px_6px_0_0_rgb(255,255,255)]`,
-  eyebrow: 'font-sans text-sm font-medium tracking-wide text-gray-500 dark:text-gray-400',
-  display: 'font-syne font-bold tracking-tight text-gray-900 dark:text-white',
+  section: 'relative overflow-hidden bg-[#f5f2ea] dark:bg-[#050505]',
+  sectionPad: 'px-5 py-16 sm:px-8 md:px-12 md:py-24',
+  sectionPadMd: 'px-5 py-12 sm:px-8 md:px-12 md:py-20',
+  card: `rounded-sm border border-gray-900/10 bg-white shadow-sm transition duration-300
+    hover:border-amber-400/40 dark:border-white/10 dark:bg-[#111111] dark:hover:border-amber-400/50`,
+  cardStatic: `rounded-sm border border-gray-900/10 bg-white shadow-sm dark:border-white/10 dark:bg-[#111111]`,
+  eyebrow:
+    'font-sans text-[10px] font-bold uppercase tracking-[0.28em] text-gray-500 dark:text-amber-400/90',
+  display: 'font-syne font-bold uppercase tracking-tight text-gray-950 dark:text-white',
+  displayHero:
+    'font-syne font-bold uppercase leading-[0.9] tracking-[-0.02em] text-gray-950 dark:text-white',
   badge:
-    'inline-flex items-center gap-2 border-2 border-gray-900 bg-white px-3 py-1.5 text-xs font-bold tracking-wide text-gray-900 shadow-[4px_4px_0_0_rgb(17,24,39)] dark:border-white dark:bg-zinc-900 dark:text-white dark:shadow-[4px_4px_0_0_rgb(255,255,255)]',
-  btn: `rounded-lg border-2 border-gray-900 bg-white px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-gray-900 shadow-[4px_4px_0_0_rgb(17,24,39)]
-    transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_rgb(17,24,39)] active:translate-y-0
-    dark:border-white dark:bg-zinc-900 dark:text-white dark:shadow-[4px_4px_0_0_rgb(255,255,255)]`,
-  btnPrimary: `rounded-lg border-2 border-gray-900 bg-indigo-950 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-[#f5f2ea] shadow-[5px_5px_0_0_rgb(245_158_11)]
-    transition hover:-translate-y-0.5 hover:bg-indigo-900 hover:shadow-[6px_6px_0_0_rgb(245_158_11)] active:translate-y-0
-    dark:border-amber-400 dark:bg-amber-400 dark:text-gray-950 dark:shadow-[5px_5px_0_0_rgb(255,255,255)] dark:hover:bg-amber-300`,
-  /** Contact band — warm cream surface (same in light/dark for a clear “paper” block) */
-  contactBg: 'bg-[#f5f2ea] text-gray-900',
-  formCard: `rounded-xl border-2 border-gray-900 bg-white p-6 text-gray-900 shadow-[8px_8px_0_0_rgb(99_102_241)] sm:p-8
-    dark:border-white`,
-  frame: `rounded-xl border-2 border-gray-900 shadow-[8px_8px_0_0_rgb(17,24,39)] dark:shadow-[8px_8px_0_0_rgb(255,255,255)]`,
-  /** Root wrapper behind all routes (matches section surfaces) */
+    'inline-flex items-center gap-2 border border-gray-900/15 bg-white/90 px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-800 dark:border-amber-400/40 dark:bg-amber-400/10 dark:text-amber-300',
+  btn: `inline-flex items-center justify-center border border-gray-900/25 bg-transparent px-6 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-gray-950 transition hover:border-gray-900 dark:border-white/30 dark:text-white dark:hover:border-amber-400 dark:hover:text-amber-400`,
+  btnPrimary: `inline-flex items-center justify-center bg-amber-400 px-6 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-black transition hover:bg-amber-300`,
+  contactBg: 'bg-[#f5f2ea] text-gray-900 dark:bg-[#050505] dark:text-gray-100',
+  formCard: `rounded-sm border border-gray-900/10 bg-white p-6 shadow-sm sm:p-8 dark:border-white/10 dark:bg-[#111111]`,
+  frame: `overflow-hidden rounded-sm border border-gray-900/10 dark:border-white/10`,
   pageRoot:
-    'min-h-screen bg-[#f5f2ea] text-gray-900 transition-opacity duration-300 dark:bg-[#0e0d12] dark:text-gray-100',
-  pageShell: 'overflow-x-hidden bg-[#f5f2ea] dark:bg-[#0e0d12]',
+    'min-h-screen bg-[#f5f2ea] text-gray-900 transition-opacity duration-300 dark:bg-[#050505] dark:text-gray-100',
+  pageShell: 'overflow-x-hidden bg-[#f5f2ea] dark:bg-[#050505]',
   modalPanel:
-    'mx-4 max-w-md rounded-xl border-2 border-gray-900 bg-[#f5f2ea] p-6 text-center text-gray-900 shadow-[8px_8px_0_0_rgb(99_102_241)] dark:border-white dark:bg-zinc-900 dark:text-white dark:shadow-[8px_8px_0_0_rgb(251_191_36)]',
+    'mx-4 max-w-md rounded-sm border border-gray-900/10 bg-white p-6 text-center dark:border-white/10 dark:bg-[#111111] dark:text-white',
   techTag:
-    'inline-flex border-2 border-gray-900 bg-white px-3 py-1 text-sm font-semibold text-gray-900 dark:border-white dark:bg-zinc-800 dark:text-gray-100',
-  bodyText: 'text-gray-800 dark:text-gray-300',
-  link: 'font-semibold text-indigo-800 underline-offset-4 hover:underline dark:text-amber-400',
-  /** Large word on contact hero (e.g. “Ready?”) — on cream, readable */
-  /** Contact band stays cream in both themes — keep type dark-on-cream for contrast */
-  contactHeroMuted: 'text-indigo-950',
-  /** Primary line on contact hero — on cream */
-  contactHeroDisplay: 'font-syne font-bold tracking-tight text-gray-900',
-  /** “Let’s talk” sticker on contact */
+    'inline-flex border border-gray-900/15 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-gray-700 dark:border-white/15 dark:text-gray-300',
+  bodyText: 'font-sans text-gray-600 leading-relaxed dark:text-gray-400',
+  link: 'font-bold uppercase tracking-wider text-gray-900 underline-offset-4 transition hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300',
+  contactHeroMuted: 'text-gray-600 dark:text-gray-400',
+  contactHeroDisplay: 'font-syne font-bold uppercase tracking-tight text-gray-900 dark:text-white',
   contactSticker:
-    'mt-2 inline-block border-2 border-gray-900 bg-white px-3 py-1 text-gray-900 shadow-[6px_6px_0_0_rgb(245_158_11)]',
+    'mt-2 inline-block border border-amber-400/50 bg-amber-400/10 px-4 py-1.5 text-amber-700 dark:text-amber-300',
+  sectionIndex: 'font-sans text-sm font-bold tabular-nums text-amber-500/80 dark:text-amber-400',
+  navLink:
+    'font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-gray-600 transition hover:text-gray-950 dark:text-gray-400 dark:hover:text-amber-400',
+  navLinkActive: 'text-gray-950 dark:text-amber-400',
 };

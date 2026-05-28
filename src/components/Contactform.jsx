@@ -1,7 +1,11 @@
 'use client';
 
 import React, { useState, useCallback } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Modal from './ui/Modal';
+import { MotionIn } from './ui/Reveal';
+import { EASE_OUT } from '../lib/motion';
+import { useSiteSettings } from './SiteSettingsProvider';
 import Input from './ui/Input';
 import { NEU } from './ui/neuTheme';
 import WordStaggerReveal from './ui/WordStaggerReveal';
@@ -12,6 +16,8 @@ const INITIAL_FORM_DATA = { name: '', email: '', message: '' };
 
 /** When false (default), hero is `h2` so pages with their own `h1` stay valid. Use true on `/contact` only. */
 export default function Contactform({ pageHero = false }) {
+  const { workStatus: WORK_STATUS } = useSiteSettings();
+  const reduceMotion = useReducedMotion();
   const [step, setStep] = useState(1);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -69,10 +75,10 @@ export default function Contactform({ pageHero = false }) {
   const contactHeroInner = (
     <>
       <span className={`${NEU.contactHeroMuted} block font-syne font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl`}>
-        Ready?
+        Hello
       </span>
       <span className={`${NEU.contactHeroDisplay} mt-2 block sm:mt-3 md:text-7xl lg:text-8xl`}>
-        <span className={`${NEU.contactSticker} mx-auto inline-block`}>Let&apos;s talk</span>
+        <span className={`${NEU.contactSticker} mx-auto inline-block`}>Get in touch</span>
       </span>
     </>
   );
@@ -80,11 +86,11 @@ export default function Contactform({ pageHero = false }) {
   return (
     <div
       id='contact'
-      className={`${NEU.contactBg} relative flex min-h-[calc(100svh-3.5rem)] snap-start snap-always items-end justify-center overflow-hidden pb-12 pt-24 md:min-h-[calc(100svh-4rem)] md:items-center md:pb-16 md:pt-28`}
+      className={`${NEU.contactBg} relative flex min-h-[calc(100svh-7.25rem)] items-center justify-center overflow-hidden px-5 py-12 sm:px-8 md:min-h-[calc(100svh-4.5rem)] md:px-12 md:py-16`}
     >
       <div className='relative z-10 mx-auto flex w-11/12 max-w-6xl flex-col gap-10 lg:w-9/12 md:flex-row md:gap-12'>
-        <div className='flex w-full flex-col justify-center pr-0 text-center md:w-1/2 md:pr-12'>
-          <p className={`${NEU.eyebrow} mb-4 flex justify-center`}>
+        <MotionIn className='flex w-full flex-col justify-center pr-0 text-center md:w-1/2 md:pr-12 md:text-left' variant='left'>
+          <p className={`${NEU.eyebrow} mb-4 flex justify-center md:justify-start`}>
             <span className={NEU.badge}>Contact</span>
           </p>
           {pageHero ? (
@@ -92,19 +98,30 @@ export default function Contactform({ pageHero = false }) {
           ) : (
             <h2 className={contactHeroClass}>{contactHeroInner}</h2>
           )}
-        </div>
+          {pageHero ? (
+            <p className={`mx-auto mt-6 max-w-md text-center text-sm leading-relaxed md:mx-0 md:text-left ${NEU.bodyText}`}>
+              {WORK_STATUS.contactNote}
+            </p>
+          ) : null}
+        </MotionIn>
 
-        <div className={`${NEU.formCard} w-full md:w-1/2`}>
+        <MotionIn className={`${NEU.formCard} w-full md:w-1/2`} variant='right' delay={0.1}>
           <WordStaggerReveal
             as='div'
             tone='onLight'
             text={FORM_HEADLINE}
-            className='mb-4 text-2xl font-bold text-gray-900 sm:mb-6 sm:text-3xl'
+            className="mb-4 text-lg font-semibold leading-snug text-gray-900 sm:mb-6 sm:text-xl dark:text-gray-100"
             viewport={{ once: true, amount: 0.5 }}
           />
 
+          <AnimatePresence mode='wait'>
           {step === 1 && (
-            <form
+            <motion.form
+              key='step-1'
+              initial={reduceMotion ? false : { opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.35, ease: EASE_OUT }}
               onSubmit={(e) => {
                 e.preventDefault();
                 setStep(2);
@@ -130,14 +147,28 @@ export default function Contactform({ pageHero = false }) {
                 placeholder='you@example.com'
                 required
               />
-              <button type='submit' className={`${NEU.btnPrimary} w-full py-3`} aria-label='Continue to message step'>
+              <motion.button
+                type='submit'
+                className={`${NEU.btnPrimary} w-full py-3`}
+                aria-label='Continue to message step'
+                whileHover={reduceMotion ? undefined : { scale: 1.01 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+              >
                 Continue
-              </button>
-            </form>
+              </motion.button>
+            </motion.form>
           )}
 
           {step === 2 && (
-            <form onSubmit={handleSubmit} className='space-y-4 sm:space-y-6'>
+            <motion.form
+              key='step-2'
+              initial={reduceMotion ? false : { opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.35, ease: EASE_OUT }}
+              onSubmit={handleSubmit}
+              className='space-y-4 sm:space-y-6'
+            >
               <Input
                 variant='neu'
                 label='Explain your idea *'
@@ -149,8 +180,12 @@ export default function Contactform({ pageHero = false }) {
                 required
               />
 
-              <div className='flex items-start gap-2 text-xs text-gray-800 sm:text-sm'>
-                <input type='checkbox' required className='mt-1 border-2 border-gray-900' />
+              <div className='flex items-start gap-2 text-xs text-gray-800 sm:text-sm dark:text-gray-300'>
+                <input
+                  type='checkbox'
+                  required
+                  className='mt-1 border-2 border-gray-900 dark:border-gray-400 dark:bg-[#111111]'
+                />
                 <p>
                   I accept the{' '}
                   <a href='#' className={NEU.link}>
@@ -164,11 +199,18 @@ export default function Contactform({ pageHero = false }) {
                 </p>
               </div>
 
-              <button type='submit' className={`${NEU.btnPrimary} w-full py-3`} aria-label='Submit message'>
+              <motion.button
+                type='submit'
+                className={`${NEU.btnPrimary} w-full py-3`}
+                aria-label='Submit message'
+                whileHover={reduceMotion ? undefined : { scale: 1.01 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+              >
                 Submit
-              </button>
-            </form>
+              </motion.button>
+            </motion.form>
           )}
+          </AnimatePresence>
 
           <Modal
             isOpen={loading}
@@ -189,7 +231,7 @@ export default function Contactform({ pageHero = false }) {
             title={errorMessage}
             onClose={() => setErrorMessage('')}
           />
-        </div>
+        </MotionIn>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { useTheme } from '../ThemeProvider';
 /**
  * Word-by-word reveal: dim → full color with stagger (Framer Motion), theme-aware, respects reduced motion.
  * `as`: p | h1 | h2 | h3 | div. Optional `staggerChildren` / `delayChildren` override defaults when motion is on.
- * `tone`: `auto` (follow theme) or `onLight` (ink on white/cream — use inside light cards when `theme` is dark).
+ * `tone`: `auto` (page background) or `onLight` (form/card surfaces — dark text in light mode, light text in dark mode).
  */
 export default function WordStaggerReveal({
   text,
@@ -21,9 +21,21 @@ export default function WordStaggerReveal({
   const { theme } = useTheme();
   const reduceMotion = useReducedMotion();
   const words = useMemo(() => String(text ?? '').trim().split(/\s+/).filter(Boolean), [text]);
-  const onLightSurface = tone === 'onLight';
-  const doneColor = onLightSurface ? '#111111' : theme === 'dark' ? '#f5f5f5' : '#111111';
-  const dimColor = onLightSurface ? '#a3a3a3' : theme === 'dark' ? '#737373' : '#a3a3a3';
+  const onCardSurface = tone === 'onLight';
+  const doneColor = onCardSurface
+    ? theme === 'dark'
+      ? '#f5f5f5'
+      : '#111111'
+    : theme === 'dark'
+      ? '#f5f5f5'
+      : '#111111';
+  const dimColor = onCardSurface
+    ? theme === 'dark'
+      ? '#a3a3a3'
+      : '#737373'
+    : theme === 'dark'
+      ? '#737373'
+      : '#a3a3a3';
 
   const staggerChildren = reduceMotion ? 0 : staggerChildrenProp ?? 0.06;
   const delayChildren = reduceMotion ? 0 : delayChildrenProp ?? 0.08;

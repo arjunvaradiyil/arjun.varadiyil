@@ -1,35 +1,25 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { skills } from '../../data/skills';
+import { skills as defaultSkills } from '../../data/skills';
 import ServiceNeuGrid from '../Home/ServiceNeuGrid';
+import SectionHeader from './SectionHeader';
 import { NEU } from '../ui/neuTheme';
-import WordStaggerReveal from '../ui/WordStaggerReveal';
 
-export default function AboutSkills() {
+const DEFAULT_SUBTITLE =
+  'Node.js, React, Next.js, Payload CMS, databases, and the tools I use to ship production-ready web products.';
+
+export default function AboutSkills({ skills = defaultSkills, subtitle = DEFAULT_SUBTITLE }) {
   return (
-    <section className={`${NEU.section} ${NEU.sectionPad}`}>
-      <div className='relative z-10 mx-auto max-w-7xl'>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
-          className={`text-center ${NEU.eyebrow}`}
-        >
-          Passion led us here
-        </motion.p>
-        <WordStaggerReveal
-          as='h2'
-          text='What I can do for you'
-          className={`mt-3 text-center ${NEU.display} text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] lg:leading-tight`}
-          viewport={{ once: true, amount: 0.4 }}
+    <section className={`border-t border-white/10 bg-[#0a0a0a] ${NEU.sectionPad}`}>
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader
+          index="03"
+          eyebrow="Skills"
+          title="Technical expertise"
+          subtitle={subtitle}
+          align="left"
         />
-
-        <div className='mt-14 md:mt-16'>
-          <ServiceNeuGrid skills={skills} />
-        </div>
+        <ServiceNeuGrid skills={skills} />
       </div>
     </section>
   );

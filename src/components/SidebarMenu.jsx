@@ -3,18 +3,19 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { DRAWER_NAV, isNavActive } from '../lib/navLinks';
+import { useSiteSettings } from './SiteSettingsProvider';
 import { NEU } from './ui/neuTheme';
+import BrandLogo from './BrandLogo';
 import { TOPMATE_URL } from '../lib/siteSeo';
 
 const resume = 'https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view';
 
-/** Portfolio order: work first after home, then profile, then connect lives in the footer block */
-const PAGE_LINKS = [
-  { slug: 'HOME', label: 'Home', href: '/' },
-  { slug: 'PROJECTS', label: 'Projects', href: '/projects' },
-  { slug: 'ABOUT', label: 'About', href: '/about' },
-  { slug: 'CERTIFICATIONS', label: 'Certifications', href: '/certifications' },
-];
+const PAGE_LINKS = DRAWER_NAV.map((item) => ({
+  slug: item.href === '/' ? 'HOME' : item.href.slice(1).split('/')[0].toUpperCase(),
+  label: item.label,
+  href: item.href,
+}));
 
 const SOCIALS = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arjunvaradiyil' },
@@ -26,11 +27,10 @@ const SOCIALS = [
 ];
 
 export default function SidebarMenu({ open, setOpen }) {
+  const { workStatus: WORK_STATUS } = useSiteSettings();
   const pathname = usePathname();
   const router = useRouter();
-  const segment = pathname === '/' ? '' : pathname.slice(1).split('/')[0];
-  const active = pathname === '/' ? 'HOME' : segment.toUpperCase();
-  const contactActive = pathname === '/contact' || pathname.startsWith('/contact/');
+  const contactActive = isNavActive(pathname, '/contact');
 
   useEffect(() => {
     const prevOverflow = document.body.style.overflow;
@@ -66,7 +66,7 @@ export default function SidebarMenu({ open, setOpen }) {
   }, [pathname, setOpen]);
 
   const panel =
-    'border-l-4 border-gray-900 bg-[#f5f2ea] text-gray-900 dark:border-white dark:bg-[#0e0d12] dark:text-gray-100';
+    'border-l border-gray-900/15 bg-[#f5f2ea] text-gray-900 dark:border-amber-400/20 dark:bg-[#050505] dark:text-gray-100';
 
   return (
     <>
@@ -85,16 +85,16 @@ export default function SidebarMenu({ open, setOpen }) {
         ${open ? 'pointer-events-auto translate-x-0' : 'pointer-events-none translate-x-full'}`}
         aria-hidden={!open}
       >
-        <div className='flex shrink-0 items-center justify-between border-b-4 border-gray-900 px-6 pb-4 pt-5 dark:border-white sm:px-8 sm:pb-5 sm:pt-6'>
-          <div className='text-[15px] font-bold uppercase tracking-wide text-gray-800 dark:text-gray-200 sm:text-[16px]'>
-            <span className='mr-3 text-amber-600 dark:text-amber-400'>■</span>
-            Menu
+        <div className='flex shrink-0 items-center justify-between border-b border-gray-900/10 px-6 pb-4 pt-5 dark:border-white/10 sm:px-8 sm:pb-5 sm:pt-6'>
+          <div className='flex items-center gap-3'>
+            <BrandLogo href={null} imageClassName='h-9 w-auto object-contain' />
+            <span className={`${NEU.eyebrow} !text-gray-800 dark:!text-gray-300`}>Menu</span>
           </div>
 
           <button
             type='button'
             onClick={() => setOpen(false)}
-            className='flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border-2 border-gray-900 bg-white text-lg leading-none text-gray-900 shadow-[2px_2px_0_0_rgb(17,24,39)] transition hover:bg-gray-50 active:scale-95 dark:border-white dark:bg-zinc-900 dark:text-gray-100 dark:shadow-[2px_2px_0_0_rgb(255,255,255)] dark:hover:bg-zinc-800 sm:shadow-[3px_3px_0_0_rgb(17,24,39)] sm:dark:shadow-[3px_3px_0_0_rgb(255,255,255)]'
+            className='flex h-10 w-10 shrink-0 items-center justify-center border border-gray-900/20 text-lg leading-none text-gray-900 transition hover:border-amber-400/50 hover:text-amber-600 dark:border-white/20 dark:text-white dark:hover:text-amber-400'
             aria-label='Close navigation menu'
           >
             ✕
@@ -107,7 +107,7 @@ export default function SidebarMenu({ open, setOpen }) {
         >
           <p className='mb-4 text-[10px] font-bold uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400'>Pages</p>
           {PAGE_LINKS.map((item, i) => {
-            const isActive = active === item.slug;
+            const isActive = isNavActive(pathname, item.href);
             return (
               <div key={item.slug} className={`group ${i === 0 ? '' : 'mt-3 sm:mt-4'}`}>
                 <Link
@@ -137,17 +137,17 @@ export default function SidebarMenu({ open, setOpen }) {
               onClick={() => setOpen(false)}
               className={`${NEU.btnPrimary} flex min-h-[52px] w-full items-center justify-center text-center text-xs font-bold uppercase tracking-wider`}
             >
-              Discuss your project
+              {WORK_STATUS.primaryCta}
             </Link>
             <p className='mt-3 text-center text-xs leading-snug text-gray-600 dark:text-gray-400'>
-              Share scope, timeline, and stack — I reply within one business day.
+              {WORK_STATUS.contactNote}
             </p>
           </div>
         </nav>
 
         <section
           aria-labelledby='drawer-connect-label'
-          className='shrink-0 border-t-4 border-gray-900 px-6 py-8 dark:border-white sm:px-10 sm:py-9'
+          className='shrink-0 border-t border-gray-900/10 px-6 py-8 dark:border-white/10 sm:px-10 sm:py-9'
           style={{
             paddingBottom: 'max(5.5rem, calc(2.25rem + env(safe-area-inset-bottom, 0px)))',
           }}
@@ -166,7 +166,7 @@ export default function SidebarMenu({ open, setOpen }) {
                 onClick={() => setOpen(false)}
                 prefetch
                 className={`${NEU.display} block text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl ${
-                  contactActive ? 'text-indigo-800 dark:text-amber-400' : ''
+                  contactActive ? 'text-amber-600 dark:text-amber-400' : ''
                 }`}
               >
                 Contact

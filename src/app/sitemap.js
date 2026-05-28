@@ -1,52 +1,28 @@
-import { projects } from '../data/projectData';
+import { getProjectsForSitemap } from '../lib/cms/content';
+import { STATIC_SITEMAP_PAGES } from '../lib/sitemap';
 import { SITE_URL } from '../lib/siteSeo';
 
-export default function sitemap() {
-  const routes = [
-    {
-      url: SITE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    {
-      url: `${SITE_URL}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/projects`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/certifications`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/hobbies`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-  ];
+export const revalidate = 3600;
 
-  const projectRoutes = projects.map((project) => ({
-    url: `${SITE_URL}/projects/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.8,
+export default async function sitemap() {
+  const projects = await getProjectsForSitemap();
+  const now = new Date();
+
+  const staticRoutes = STATIC_SITEMAP_PAGES.map((page) => ({
+    url: `${SITE_URL}${page.path}`,
+    lastModified: now,
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
   }));
 
-  return [...routes, ...projectRoutes];
+  const projectRoutes = projects
+    .filter((project) => project.slug)
+    .map((project) => ({
+      url: `${SITE_URL}/projects/${project.slug}`,
+      lastModified: project.lastModified ?? now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    }));
+
+  return [...staticRoutes, ...projectRoutes];
 }

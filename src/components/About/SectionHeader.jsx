@@ -1,30 +1,67 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { NEU } from '../ui/neuTheme';
-import WordStaggerReveal from '../ui/WordStaggerReveal';
+import { EASE_OUT, fadeUp, staggerContainer } from '../../lib/motion';
 
-export default function SectionHeader({ title, subtitle }) {
+export default function SectionHeader({ title, subtitle, eyebrow, index, align = 'center' }) {
+  const reduceMotion = useReducedMotion();
+  const alignClass = align === 'left' ? 'text-left items-start' : 'text-center items-center';
+
+  if (reduceMotion) {
+    return (
+      <header className={`mb-10 flex flex-col gap-3 md:mb-14 ${alignClass}`}>
+        {(index || eyebrow) && (
+          <div className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
+            {index ? <span className={NEU.sectionIndex}>{index}</span> : null}
+            {eyebrow ? <p className={NEU.eyebrow}>{eyebrow}</p> : null}
+          </div>
+        )}
+        <h2 className={`${NEU.display} text-3xl md:text-4xl`}>{title}</h2>
+        {subtitle ? (
+          <p className={`max-w-2xl text-base md:text-lg ${NEU.bodyText} ${align === 'center' ? 'mx-auto' : ''}`}>
+            {subtitle}
+          </p>
+        ) : null}
+      </header>
+    );
+  }
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
-      viewport={{ once: true }}
-      className='mb-16 text-center'
+    <motion.header
+      className={`mb-10 flex flex-col gap-3 md:mb-14 ${alignClass}`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={staggerContainer}
     >
-      <WordStaggerReveal
-        as='h2'
-        text={title}
-        className={`${NEU.display} inline-block border-2 border-gray-900 bg-white px-5 py-2 text-4xl tracking-tight shadow-[6px_6px_0_0_rgb(17,24,39)] dark:border-white dark:bg-zinc-900 dark:shadow-[6px_6px_0_0_rgb(255,255,255)] md:text-6xl`}
-        viewport={{ once: true, amount: 0.5 }}
-      />
-      <WordStaggerReveal
-        text={subtitle}
-        className='mt-6 text-lg text-gray-800 dark:text-gray-300 md:text-xl'
-        viewport={{ once: true, amount: 0.45 }}
-      />
-    </motion.div>
+      {(index || eyebrow) && (
+        <motion.div
+          className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}
+          variants={fadeUp}
+          transition={{ duration: 0.5, ease: EASE_OUT }}
+        >
+          {index ? <span className={NEU.sectionIndex}>{index}</span> : null}
+          {eyebrow ? <p className={NEU.eyebrow}>{eyebrow}</p> : null}
+        </motion.div>
+      )}
+      <motion.h2
+        className={`${NEU.display} text-3xl md:text-4xl`}
+        variants={fadeUp}
+        transition={{ duration: 0.55, ease: EASE_OUT }}
+      >
+        {title}
+      </motion.h2>
+      {subtitle ? (
+        <motion.p
+          className={`max-w-2xl text-base md:text-lg ${NEU.bodyText} ${align === 'center' ? 'mx-auto' : ''}`}
+          variants={fadeUp}
+          transition={{ duration: 0.55, ease: EASE_OUT }}
+        >
+          {subtitle}
+        </motion.p>
+      ) : null}
+    </motion.header>
   );
 }

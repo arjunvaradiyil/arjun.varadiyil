@@ -1,301 +1,202 @@
 'use client';
 
-import React, { useMemo } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { Calendar, Github, Hand, Instagram, Linkedin } from 'lucide-react';
-import { TOPMATE_URL } from '../../lib/siteSeo';
+import React, { useCallback, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowDown, Calendar, Github, Instagram, Linkedin } from 'lucide-react';
+import { useSiteSettings } from '../SiteSettingsProvider';
+import { staggerContainer, fadeUp, transition as motionTransition } from '../../lib/motion';
+import { TOPMATE_URL } from '../../lib/siteSeo';
 import { NEU } from '../ui/neuTheme';
 
 const easeOut = [0.22, 1, 0.36, 1];
 
+const CATEGORIES = [
+  { label: 'Development', href: '/projects' },
+  { label: 'Profile', href: '/about' },
+  { label: 'Community', href: '/contact' },
+];
+
 function BannerSocialIcons({ reduceMotion }) {
-  const btn =
-    'flex h-11 w-11 items-center justify-center rounded-lg border-2 border-gray-900 bg-white text-gray-900 shadow-[3px_3px_0_0_rgb(17,24,39)] transition hover:-translate-y-0.5 dark:border-white dark:bg-zinc-900 dark:text-gray-100 dark:shadow-[3px_3px_0_0_rgb(255,255,255)]';
+  const linkClass =
+    'flex h-10 w-10 items-center justify-center border border-gray-900/20 bg-white text-gray-900 shadow-sm transition hover:border-amber-600 hover:text-amber-700 dark:border-white/20 dark:bg-white/10 dark:text-white dark:shadow-none dark:hover:border-amber-400 dark:hover:text-amber-400';
 
   const links = [
-    {
-      href: 'https://www.linkedin.com/in/arjunvaradiyil',
-      rel: 'noopener noreferrer me',
-      label: 'LinkedIn profile',
-      children: <Linkedin className='h-5 w-5' aria-hidden />,
-      className: btn,
-    },
-    {
-      href: 'https://www.instagram.com/_arjuo__',
-      rel: 'noopener noreferrer me',
-      label: 'Instagram profile',
-      children: <Instagram className='h-5 w-5' aria-hidden />,
-      className: btn,
-    },
-    {
-      href: 'https://github.com/arjunvaradiyil/arjun.varadiyil',
-      rel: 'noopener noreferrer me',
-      label: 'GitHub profile',
-      children: <Github className='h-5 w-5' aria-hidden />,
-      className: btn,
-    },
-    {
-      href: TOPMATE_URL,
-      rel: 'noopener noreferrer',
-      label: 'Book a call',
-      children: <Calendar className='h-5 w-5' aria-hidden />,
-      className: `${btn} bg-amber-100 dark:border-amber-400 dark:bg-amber-950 dark:text-amber-100 dark:shadow-[3px_3px_0_0_rgb(251_191_36/0.5)]`,
-    },
+    { href: 'https://www.linkedin.com/in/arjunvaradiyil', label: 'LinkedIn', icon: Linkedin },
+    { href: 'https://www.instagram.com/_arjuo__', label: 'Instagram', icon: Instagram },
+    { href: 'https://github.com/arjunvaradiyil/arjun.varadiyil', label: 'GitHub', icon: Github },
+    { href: TOPMATE_URL, label: 'Book a call', icon: Calendar },
   ];
 
-  const container = useMemo(
-    () => ({
-      hidden: {},
-      show: {
-        transition: {
-          staggerChildren: reduceMotion ? 0 : 0.07,
-          delayChildren: reduceMotion ? 0 : 0.04,
-        },
-      },
-    }),
-    [reduceMotion],
-  );
-
-  const item = useMemo(
-    () => ({
-      hidden: {
-        opacity: reduceMotion ? 1 : 0,
-        y: reduceMotion ? 0 : 10,
-        scale: reduceMotion ? 1 : 0.88,
-      },
-      show: {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: reduceMotion
-          ? { duration: 0 }
-          : { type: 'spring', stiffness: 420, damping: 24 },
-      },
-    }),
-    [reduceMotion],
-  );
-
   return (
-    <motion.div
-      className='flex flex-wrap items-center justify-center gap-3 sm:gap-4'
-      variants={container}
-      initial='hidden'
-      animate='show'
-    >
-      {links.map((link) => (
+    <div className="flex flex-wrap gap-3">
+      {links.map(({ href, label, icon: Icon }) => (
         <motion.a
-          key={link.href}
-          href={link.href}
-          target='_blank'
-          rel={link.rel}
-          className={link.className}
-          aria-label={link.label}
-          variants={item}
-          whileHover={reduceMotion ? undefined : { y: -3, transition: { type: 'spring', stiffness: 400, damping: 18 } }}
+          key={href}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer me"
+          aria-label={label}
+          className={linkClass}
+          whileHover={reduceMotion ? undefined : { y: -2 }}
           whileTap={reduceMotion ? undefined : { scale: 0.95 }}
         >
-          {link.children}
+          <Icon className="h-4 w-4" aria-hidden />
         </motion.a>
       ))}
-    </motion.div>
+    </div>
   );
 }
 
 export default function Banner() {
+  const { workStatus: WORK_STATUS, heroStats: HERO_STATS } = useSiteSettings();
   const reduceMotion = useReducedMotion();
 
-  const imageFloat = reduceMotion
-    ? {}
-    : {
-        animate: { y: [0, -10, 0] },
-        transition: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
-      };
+  const scrollDown = useCallback(() => {
+    const next = document.getElementById('home-content');
+    if (next) next.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  }, [reduceMotion]);
 
-  const imageEntrance = reduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, scale: 0.92, rotate: -2 },
-        animate: { opacity: 1, scale: 1, rotate: 0 },
-        transition: { delay: 0.14, duration: 0.55, ease: easeOut },
-      };
+  const fadeUp = useMemo(
+    () =>
+      reduceMotion
+        ? {}
+        : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.55, ease: easeOut } },
+    [reduceMotion],
+  );
 
   return (
     <section
-      className={`${NEU.section} relative flex min-h-[calc(100svh-3.5rem)] w-full snap-start snap-always flex-col items-center justify-center py-10 md:min-h-[calc(100svh-4rem)] md:py-12`}
+      className="relative flex min-h-[calc(100svh-6.5rem)] w-full flex-col overflow-hidden bg-[#e4e4e4] dark:min-h-[calc(100svh-5.25rem)] dark:bg-[#050505] lg:min-h-[calc(100svh-4.5rem)]"
+      aria-labelledby="hero-heading"
     >
-      {/* Soft field + grid — same layout, different atmosphere */}
       <div
-        className='pointer-events-none absolute inset-0 opacity-[0.45] dark:opacity-[0.35]'
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_78%_85%,rgba(251,191,36,0.18),transparent_60%)] opacity-0 dark:opacity-100"
         aria-hidden
-      >
-        <div className='absolute -left-1/4 top-1/4 h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-amber-200/50 blur-3xl dark:bg-amber-500/15' />
-        <div className='absolute -right-1/4 bottom-0 h-[min(60vw,440px)] w-[min(60vw,440px)] rounded-full bg-violet-300/40 blur-3xl dark:bg-violet-500/12' />
-        <div
-          className='absolute inset-0 bg-[length:24px_24px] bg-[linear-gradient(to_right,rgb(17_24_39/0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgb(17_24_39/0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgb(255_255_255/0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.05)_1px,transparent_1px)]'
-          style={{ maskImage: 'radial-gradient(ellipse 70% 60% at 50% 45%, black 20%, transparent 75%)' }}
-        />
+      />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.35] dark:opacity-[0.05]" aria-hidden>
+        <div className="absolute inset-0 bg-[length:64px_64px] bg-[linear-gradient(to_right,rgba(0,0,0,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)]" />
       </div>
 
-      <motion.div
-        initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={reduceMotion ? { duration: 0 } : { duration: 0.5, ease: easeOut }}
-        className='relative z-10 mx-auto w-full max-w-6xl -translate-y-5 px-5 sm:px-6 sm:-translate-y-6 md:-translate-y-8 lg:-translate-y-10'
-      >
-        <h1 className='sr-only'>Arjun Varadiyil — MERN stack web developer, Kerala</h1>
-        <h2 className='sr-only'>
-          Software developer portfolio: projects, about, certifications, and contact.
-        </h2>
+      <h1 id="hero-heading" className="sr-only">
+        Arjun Varadiyil — Full Stack Developer in Kerala
+      </h1>
+
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-5 pb-6 pt-5 sm:px-8 md:px-12 lg:grid lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:gap-x-10 lg:pb-8 lg:pt-8">
+        {/* Copy — stacked above portrait on mobile; left column on desktop */}
+        <motion.header {...fadeUp} className="relative z-20 max-w-xl shrink-0 lg:col-span-5 lg:self-center">
+          <span className={NEU.badge}>{WORK_STATUS.badge}</span>
+          <p className={`mt-5 ${NEU.eyebrow}`}>{WORK_STATUS.eyebrow}</p>
+          <p className={`mt-2 ${NEU.displayHero} text-[2.35rem] leading-[0.95] sm:text-5xl md:text-6xl lg:text-7xl`}>
+            Full Stack
+            <span className="text-amber-400">.</span>
+            Developer
+          </p>
+          <p className={`mt-4 max-w-md text-sm leading-relaxed text-gray-700 sm:text-base dark:text-gray-400`}>
+            Building at {WORK_STATUS.company} — Node.js, React, Next.js & Payload CMS for news portals and
+            full-stack products.
+          </p>
+
+          <nav className="mt-6 flex flex-wrap gap-2" aria-label="Explore categories">
+            {CATEGORIES.map((cat) => (
+              <Link
+                key={cat.href}
+                href={cat.href}
+                className="border border-gray-900/25 bg-white/80 px-3 py-1.5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-gray-900 transition hover:border-amber-600 hover:text-amber-700 dark:border-white/15 dark:bg-transparent dark:text-gray-300 dark:hover:border-amber-400 dark:hover:text-amber-400"
+              >
+                {cat.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/contact" className={NEU.btnPrimary}>
+              {WORK_STATUS.primaryCta}
+            </Link>
+            <Link href="/projects" className={NEU.btn}>
+              View work
+            </Link>
+          </div>
+
+          <div className="mt-6 hidden lg:block">
+            <BannerSocialIcons reduceMotion={reduceMotion} />
+          </div>
+        </motion.header>
+
+        {/* Portrait — right-aligned */}
+        <div className="relative z-10 mt-6 flex min-h-[min(48vh,380px)] flex-1 flex-col items-end justify-end sm:min-h-[min(52vh,420px)] lg:col-span-7 lg:col-start-6 lg:mt-0 lg:min-h-[min(58vh,520px)]">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: easeOut, delay: 0.08 }}
+            className="relative z-[2] ml-auto w-full max-w-[min(88%,20rem)] sm:max-w-sm lg:max-w-md xl:max-w-lg"
+          >
+            <div className="pointer-events-none absolute bottom-2 right-0 h-28 w-3/4 bg-gradient-to-t from-amber-400/35 via-amber-500/10 to-transparent blur-3xl" />
+            <div className="relative aspect-[3/4] w-full max-h-[min(52vh,480px)] lg:max-h-[min(68vh,620px)]">
+              <Image
+                src="/arjunvaradiyil.png"
+                alt="Arjun Varadiyil"
+                fill
+                priority
+                sizes="(max-width: 1024px) 85vw, 480px"
+                className="object-contain object-bottom object-right"
+              />
+            </div>
+          </motion.div>
+
+          <div className="relative z-20 mt-4 flex justify-end lg:hidden">
+            <BannerSocialIcons reduceMotion={reduceMotion} />
+          </div>
+        </div>
+
+        {/* Stats strip */}
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={
-            reduceMotion ? { duration: 0 } : { delay: 0.06, duration: 0.45, type: 'spring', stiffness: 260, damping: 22 }
-          }
-          className='mb-4 flex justify-center'
+          initial="hidden"
+          animate="visible"
+          variants={reduceMotion ? undefined : staggerContainer}
+          className="relative z-20 mt-6 flex w-full shrink-0 flex-col overflow-hidden rounded-sm border border-gray-900/20 bg-white shadow-sm dark:border-white/15 dark:bg-[#111111] dark:shadow-none sm:flex-row lg:col-span-12 lg:mt-2"
         >
-          <span className='inline-flex items-center gap-2 border-2 border-dashed border-gray-900 bg-amber-50 px-3 py-1.5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-amber-950 shadow-[-4px_4px_0_0_rgb(17,24,39)] dark:border-white dark:bg-amber-950/35 dark:text-amber-100 dark:shadow-[-4px_4px_0_0_rgb(255,255,255)]'>
-            Available for work
-          </span>
+          {HERO_STATS.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              variants={reduceMotion ? undefined : fadeUp}
+              transition={motionTransition(0.45, 0.28 + i * 0.07)}
+              className={[
+                'flex min-h-[88px] flex-1 flex-col items-center justify-center gap-1.5 px-4 py-5 text-center sm:min-h-[96px] sm:px-5',
+                i > 0 ? 'border-t border-gray-900/15 dark:border-white/10 sm:border-l sm:border-t-0' : '',
+              ].join(' ')}
+              whileHover={
+                reduceMotion
+                  ? undefined
+                  : { backgroundColor: 'rgba(251, 191, 36, 0.12)' }
+              }
+            >
+              <p className="font-syne text-2xl font-bold leading-none text-gray-950 dark:text-amber-400 md:text-3xl">
+                {stat.value}
+              </p>
+              <p className="max-w-[9rem] font-sans text-[10px] font-bold uppercase leading-snug tracking-[0.12em] text-gray-700 dark:text-gray-400">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
         </motion.div>
 
-        <motion.p
-          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={reduceMotion ? { duration: 0 } : { delay: 0.1, duration: 0.55, ease: easeOut }}
-          className={`mb-2 text-center font-syne text-[15px] font-semibold tracking-[0.35em] text-gray-800 dark:text-gray-200 sm:text-base`}
-        >
-          ARJUN VARADIYIL
-        </motion.p>
-        <div className='mx-auto mb-7 flex max-w-md flex-col items-center gap-2 sm:mb-8'>
-          <motion.span
-            initial={reduceMotion ? false : { scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={reduceMotion ? { duration: 0 } : { delay: 0.16, duration: 0.45, ease: easeOut }}
-            className='block h-px w-12 origin-center bg-gray-900/20 dark:bg-white/25'
-            aria-hidden
-          />
+        <div className="relative z-20 flex justify-center pt-4 sm:justify-end lg:col-span-12">
+          <motion.button
+            type="button"
+            onClick={scrollDown}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.45 }}
+            className="flex flex-col items-center gap-1 px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-800 transition hover:text-amber-600 dark:text-gray-400 dark:hover:text-amber-400"
+            aria-label="Scroll down"
+          >
+            Scroll
+            <ArrowDown className="h-4 w-4 animate-bounce motion-reduce:animate-none" aria-hidden />
+          </motion.button>
         </div>
-
-        <div className='flex flex-col items-center justify-center gap-6 md:flex-row md:items-center md:justify-center md:gap-8 lg:gap-12'>
-          <motion.div
-            aria-hidden
-            initial={reduceMotion ? false : { opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={reduceMotion ? { duration: 0 } : { delay: 0.12, duration: 0.5, ease: easeOut }}
-            className={`${NEU.display} hidden text-[48px] leading-none text-gray-900 underline decoration-amber-400 decoration-[5px] underline-offset-[14px] [text-shadow:3px_3px_0_rgb(251_191_36/0.35)] dark:text-white dark:decoration-amber-300 dark:[text-shadow:3px_3px_0_rgb(251_191_36/0.2)] md:block min-[1375px]:text-[72px]`}
-          >
-            SOFTWARE
-          </motion.div>
-
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={
-              reduceMotion ? { duration: 0 } : { delay: 0.18, duration: 0.5, ease: easeOut }
-            }
-            className='relative flex w-max max-w-full flex-col items-center'
-          >
-            <motion.div {...imageEntrance} className='relative'>
-              <motion.div {...imageFloat} className='relative'>
-                <div
-                  className={`overflow-hidden rounded-[2rem] border-[3px] border-gray-900 bg-zinc-200 shadow-[-10px_10px_0_0_rgb(17,24,39)] ring-4 ring-amber-200/40 ring-offset-4 ring-offset-[#f5f2ea] dark:bg-zinc-800 dark:border-white dark:shadow-[-10px_10px_0_0_rgb(255,255,255)] dark:ring-violet-500/25 dark:ring-offset-[#0e0d12]`}
-                >
-                  <div className='relative h-[280px] w-[200px] sm:h-[320px] sm:w-[240px] md:h-[360px] md:w-[280px]'>
-                    <Image
-                      src='/assets/images/arjunvaradiyil.jpeg'
-                      alt='Arjun Varadiyil — portrait, software developer'
-                      fill
-                      className='object-cover'
-                      priority
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.a
-              href='/contact'
-              initial={reduceMotion ? false : { opacity: 0, scale: 0.85, rotate: -8 }}
-              animate={{ opacity: 1, scale: 1, rotate: 2 }}
-              transition={
-                reduceMotion ? { duration: 0 } : { delay: 0.34, type: 'spring', stiffness: 380, damping: 20 }
-              }
-              whileHover={reduceMotion ? undefined : { scale: 1.06, rotate: -2 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.96 }}
-              style={{ willChange: 'transform' }}
-              className='absolute -left-3 bottom-[38%] flex h-11 w-11 rotate-2 items-center justify-center rounded-lg border-2 border-gray-900 bg-violet-100 text-gray-900 shadow-[4px_4px_0_0_rgb(17,24,39)] transition-colors hover:bg-violet-200 dark:border-white dark:bg-violet-950 dark:text-violet-100 dark:shadow-[4px_4px_0_0_rgb(255,255,255)] dark:hover:bg-violet-900'
-              aria-label='Say hello — go to contact'
-            >
-              <Hand className='h-5 w-5' aria-hidden />
-            </motion.a>
-
-            <motion.div
-              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={reduceMotion ? { duration: 0 } : { delay: 0.26, duration: 0.42, ease: easeOut }}
-              className='mt-6 hidden w-full md:flex'
-            >
-              <BannerSocialIcons reduceMotion={reduceMotion} />
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={reduceMotion ? { duration: 0 } : { delay: 0.12, duration: 0.5, ease: easeOut }}
-            className='hidden md:block'
-          >
-            <motion.span
-              aria-hidden
-              initial={reduceMotion ? false : { opacity: 0, y: 12, rotate: 1 }}
-              animate={{ opacity: 1, y: 0, rotate: 0 }}
-              transition={
-                reduceMotion ? { duration: 0 } : { delay: 0.2, type: 'spring', stiffness: 280, damping: 20 }
-              }
-              className={`${NEU.display} inline-block border-[3px] border-gray-900 bg-violet-200 px-4 py-1.5 text-[48px] leading-none text-gray-900 shadow-[8px_-6px_0_0_rgb(17,24,39)] dark:border-white dark:bg-violet-950 dark:text-violet-100 dark:shadow-[8px_-6px_0_0_rgb(255,255,255)] min-[1375px]:px-5 min-[1375px]:text-[72px]`}
-            >
-              DEVELOPER
-            </motion.span>
-          </motion.div>
-        </div>
-
-        <div className='mt-6 flex flex-col items-center gap-6 md:hidden'>
-          <motion.div
-            aria-hidden
-            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={reduceMotion ? { duration: 0 } : { delay: 0.08, duration: 0.45, ease: easeOut }}
-            className='flex flex-row flex-wrap items-baseline justify-center gap-x-2 gap-y-1 px-1'
-          >
-            <motion.div
-              initial={reduceMotion ? false : { opacity: 0, x: -16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={reduceMotion ? { duration: 0 } : { delay: 0.1, duration: 0.4, ease: easeOut }}
-              className={`${NEU.display} shrink-0 text-[clamp(1.05rem,4.5vw,1.35rem)] leading-none underline decoration-amber-400 decoration-[3px] underline-offset-[6px] [text-shadow:2px_2px_0_rgb(251_191_36/0.35)] dark:decoration-amber-300 sm:text-[clamp(1.15rem,4vw,1.5rem)]`}
-            >
-              SOFTWARE
-            </motion.div>
-            <motion.span
-              initial={reduceMotion ? false : { opacity: 0, x: 16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={reduceMotion ? { duration: 0 } : { delay: 0.16, duration: 0.4, ease: easeOut }}
-              className={`${NEU.display} inline-block shrink-0 border-[3px] border-gray-900 bg-violet-200 px-2 py-1 text-[clamp(1rem,4.2vw,1.35rem)] leading-none text-gray-900 shadow-[4px_-4px_0_0_rgb(17,24,39)] dark:border-white dark:bg-violet-950 dark:text-violet-100 dark:shadow-[4px_-4px_0_0_rgb(255,255,255)] sm:px-2.5 sm:py-1.5 sm:text-[clamp(1.05rem,3.6vw,1.5rem)]`}
-            >
-              DEVELOPER
-            </motion.span>
-          </motion.div>
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={reduceMotion ? { duration: 0 } : { delay: 0.22, duration: 0.42, ease: easeOut }}
-            className='flex w-full justify-center'
-          >
-            <BannerSocialIcons reduceMotion={reduceMotion} />
-          </motion.div>
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
