@@ -36,6 +36,12 @@ export default buildConfig({
   },
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
+    connectOptions: {
+      serverSelectionTimeoutMS: 5_000,
+      connectTimeoutMS: 5_000,
+      socketTimeoutMS: 10_000,
+      maxPoolSize: 5,
+    },
   }),
   sharp,
 });

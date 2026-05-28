@@ -6,6 +6,7 @@
 export const NJR_NAV_CATEGORIES = [
   { label: 'Work', href: '/projects' },
   { label: 'Profile', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 /** Shown in hero, nav, and CTAs — update when employment status changes */

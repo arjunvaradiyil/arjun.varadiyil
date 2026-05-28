@@ -12,12 +12,23 @@ import { NEU } from './ui/neuTheme';
 import { EASE_OUT } from '../lib/motion';
 import BrandLogo from './BrandLogo';
 
+const categoryLinkClass = (active) =>
+  [
+    'shrink-0 px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-[0.18em] transition sm:px-5',
+    active
+      ? 'bg-amber-400 text-black'
+      : 'text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-amber-400',
+  ].join(' ');
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const { workStatus: WORK_STATUS, navCategories } = useSiteSettings();
-  const centerNav = navCategories?.length ? navCategories : CENTER_NAV;
+  const baseNav = navCategories?.length ? navCategories : CENTER_NAV;
+  const centerNav = baseNav.some((item) => item.href === '/contact')
+    ? baseNav
+    : [...baseNav, { label: 'Contact', href: '/contact' }];
 
   return (
     <>
@@ -30,28 +41,6 @@ export default function Navbar() {
         <div className="pointer-events-auto border-b border-gray-900/10 bg-[#f5f2ea]/90 backdrop-blur-md dark:border-white/10 dark:bg-[#050505]/85">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8 md:px-12">
             <BrandLogo priority animate reduceMotion={reduceMotion} />
-
-            <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-              {centerNav.map((item) => {
-                const active = isNavActive(pathname, item.href);
-                return (
-                  <motion.div
-                    key={item.href}
-                    whileHover={reduceMotion ? undefined : { y: -2 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Link
-                      href={item.href}
-                      prefetch
-                      className={[NEU.navLink, active ? NEU.navLinkActive : ''].join(' ')}
-                      aria-current={active ? 'page' : undefined}
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </nav>
 
             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
               <Link href="/contact" prefetch className={`${NEU.btnPrimary} hidden min-h-9 sm:inline-flex`}>
@@ -72,8 +61,8 @@ export default function Navbar() {
           </div>
 
           <nav
-            className="flex gap-1 overflow-x-auto border-t border-gray-900/10 px-5 py-2 lg:hidden dark:border-white/10 sm:px-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            aria-label="Categories"
+            className="flex flex-wrap items-center justify-center gap-1 border-t border-gray-900/10 px-5 py-2 dark:border-white/10 sm:gap-2 sm:px-8 md:px-12"
+            aria-label="Primary navigation"
           >
             {centerNav.map((item) => {
               const active = isNavActive(pathname, item.href);
@@ -82,27 +71,13 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   prefetch
-                  className={[
-                    'shrink-0 px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-[0.18em] transition',
-                    active
-                      ? 'bg-amber-400 text-black'
-                      : 'text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-amber-400',
-                  ].join(' ')}
+                  className={categoryLinkClass(active)}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {item.label}
                 </Link>
               );
             })}
-            <Link
-              href="/contact"
-              prefetch
-              className={[
-                'shrink-0 px-4 py-2 font-sans text-[10px] font-bold uppercase tracking-[0.18em]',
-                isNavActive(pathname, '/contact') ? 'bg-amber-400 text-black' : NEU.navLink,
-              ].join(' ')}
-            >
-              Contact
-            </Link>
           </nav>
         </div>
       </motion.header>

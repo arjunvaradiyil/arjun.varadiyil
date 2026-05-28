@@ -41,9 +41,6 @@ export default function Footer() {
                   {item.label}
                 </Link>
               ))}
-              <Link href="/contact" className={`text-sm ${NEU.link}`}>
-                Contact
-              </Link>
             </nav>
           </StaggerItem>
 

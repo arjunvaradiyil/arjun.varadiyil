@@ -103,7 +103,7 @@ export default async function RootLayout({ children }) {
           <SiteSettingsProvider value={siteSettings}>
           <ScrollToTop />
           <Navbar />
-          <main className='min-h-[60vh] bg-transparent pt-[7.25rem] sm:pt-[7.5rem] lg:pt-[4.25rem]'>
+          <main className='min-h-[60vh] bg-transparent pt-[7.25rem] sm:pt-[7.5rem]'>
             <PageTransition>{children}</PageTransition>
           </main>
           <ConditionalFooter />

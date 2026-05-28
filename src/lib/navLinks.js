@@ -1,6 +1,6 @@
 import { NJR_NAV_CATEGORIES } from './njrTheme';
 
-/** Center nav — Work / Profile */
+/** Center nav — Work / Profile / Contact */
 export const CENTER_NAV = NJR_NAV_CATEGORIES;
 
 export const DRAWER_NAV = [

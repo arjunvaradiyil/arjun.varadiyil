@@ -12,7 +12,7 @@ import {
   NJR_NAV_CATEGORIES as staticNav,
   WORK_STATUS as staticWorkStatus,
 } from '../../lib/njrTheme';
-import { getPayloadClient } from './getPayload';
+import { tryGetPayloadClient } from './getPayload';
 import {
   mapCertification,
   mapEducation,
@@ -22,8 +22,29 @@ import {
   mapSkill,
 } from './mappers';
 
+const PLACEHOLDER_PAYLOAD_SECRETS = [
+  'replace-with-long-random-secret',
+  'your-long-random-secret-here',
+];
+
 export function isCmsConfigured() {
-  return Boolean(process.env.DATABASE_URI?.trim() && process.env.PAYLOAD_SECRET?.trim());
+  const db = process.env.DATABASE_URI?.trim();
+  const secret = process.env.PAYLOAD_SECRET?.trim();
+
+  if (!db || !secret) return false;
+  if (process.env.CMS_ENABLED === 'false') return false;
+
+  const secretLower = secret.toLowerCase();
+  if (PLACEHOLDER_PAYLOAD_SECRETS.some((placeholder) => secretLower.includes(placeholder))) {
+    return false;
+  }
+
+  return true;
+}
+
+async function getPayloadOrNull() {
+  if (!isCmsConfigured()) return null;
+  return tryGetPayloadClient();
 }
 
 function staticSiteSettings() {
@@ -48,7 +69,9 @@ export async function getSiteSettings() {
   }
 
   try {
-    const payload = await getPayloadClient();
+    const payload = await getPayloadOrNull();
+    if (!payload) return staticSiteSettings();
+
     const global = await payload.findGlobal({ slug: 'site-settings', depth: 1 });
     const mapped = mapSiteSettings(global as Record<string, unknown>);
     if (!mapped?.profile?.name) {
@@ -76,7 +99,9 @@ export async function getProjects() {
   }
 
   try {
-    const payload = await getPayloadClient();
+    const payload = await getPayloadOrNull();
+    if (!payload) return staticProjects;
+
     const { docs } = await payload.find({
       collection: 'projects',
       where: { published: { equals: true } },
@@ -114,7 +139,9 @@ export async function getProjectsForSitemap(): Promise<SitemapProject[]> {
   }
 
   try {
-    const payload = await getPayloadClient();
+    const payload = await getPayloadOrNull();
+    if (!payload) return fallback;
+
     const { docs } = await payload.find({
       collection: 'projects',
       where: { published: { equals: true } },
@@ -152,7 +179,9 @@ export async function getExperience() {
   }
 
   try {
-    const payload = await getPayloadClient();
+    const payload = await getPayloadOrNull();
+    if (!payload) return staticExperience;
+
     const { docs } = await payload.find({
       collection: 'experience',
       sort: 'sortOrder',
@@ -177,7 +206,9 @@ export async function getSkills() {
   }
 
   try {
-    const payload = await getPayloadClient();
+    const payload = await getPayloadOrNull();
+    if (!payload) return staticSkills;
+
     const { docs } = await payload.find({
       collection: 'skills',
       sort: 'sortOrder',
@@ -202,7 +233,9 @@ export async function getCertifications() {
   }
 
   try {
-    const payload = await getPayloadClient();
+    const payload = await getPayloadOrNull();
+    if (!payload) return staticCertifications;
+
     const { docs } = await payload.find({
       collection: 'certifications',
       sort: 'sortOrder',
@@ -227,7 +260,9 @@ export async function getEducation() {
   }
 
   try {
-    const payload = await getPayloadClient();
+    const payload = await getPayloadOrNull();
+    if (!payload) return staticEducation;
+
     const { docs } = await payload.find({
       collection: 'education',
       sort: 'sortOrder',
