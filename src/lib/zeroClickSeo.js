@@ -15,7 +15,7 @@ export const SITE_FAQ = [
   {
     question: 'Who is Arjun Varadiyil?',
     answer:
-      'Arjun Varadiyil is a professional web developer and full stack engineer based in Kerala, India. He builds marketing sites, dashboards, and APIs with the MERN stack and Next.js for clients across Kochi, Malappuram, and Perinthalmanna.',
+      'Arjun Varadiyil is a professional web developer and full stack engineer based in Kerala, India. He builds marketing sites, dashboards, and APIs with the MERN stack and Next.js Payload CMS for clients across Kochi, Malappuram, and Perinthalmanna.',
   },
   {
     question: 'Is Arjun Varadiyil a web developer in Kerala?',
