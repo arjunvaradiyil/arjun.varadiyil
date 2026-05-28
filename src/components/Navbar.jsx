@@ -8,7 +8,6 @@ import SidebarMenu from './SidebarMenu';
 import { Menu } from 'lucide-react';
 import { CENTER_NAV, isNavActive } from '../lib/navLinks';
 import { useSiteSettings } from './SiteSettingsProvider';
-import { NEU } from './ui/neuTheme';
 import { EASE_OUT } from '../lib/motion';
 import BrandLogo from './BrandLogo';
 
@@ -24,7 +23,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
-  const { workStatus: WORK_STATUS, navCategories } = useSiteSettings();
+  const { navCategories } = useSiteSettings();
   const baseNav = navCategories?.length ? navCategories : CENTER_NAV;
   const centerNav = baseNav.some((item) => item.href === '/contact')
     ? baseNav
@@ -43,10 +42,6 @@ export default function Navbar() {
             <BrandLogo priority animate reduceMotion={reduceMotion} />
 
             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-              <Link href="/contact" prefetch className={`${NEU.btnPrimary} hidden min-h-9 sm:inline-flex`}>
-                {WORK_STATUS.navCta}
-              </Link>
-
               <button
                 type="button"
                 onClick={() => setOpen(true)}
