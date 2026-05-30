@@ -53,7 +53,7 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
   }
 
   html {
-    font-family: "Syne", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-syne), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     scroll-behavior: smooth;
   }
 

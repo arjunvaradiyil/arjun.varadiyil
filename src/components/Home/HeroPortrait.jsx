@@ -29,12 +29,13 @@ export default function HeroPortrait({
 }) {
   const reduceMotion = useReducedMotion();
   const isSplit = size === 'split';
+  const isLcp = priority && isSplit;
 
   return (
     <motion.div
-      initial={reduceMotion ? false : { opacity: 0 }}
+      initial={reduceMotion || isLcp ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.1 }}
+      transition={isLcp ? { duration: 0 } : { duration: 0.9, ease: EASE_OUT, delay: 0.1 }}
       className={[
         isSplit ? 'relative h-full min-h-[55vh] w-full lg:min-h-full' : 'relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none',
         className,
@@ -43,23 +44,6 @@ export default function HeroPortrait({
         .join(' ')}
     >
       <div className={SIZE_CLASSES[size] || SIZE_CLASSES.default}>
-        <motion.div
-          className={`pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.04)_45%,transparent_72%)] blur-2xl ${
-            isSplit
-              ? 'h-[min(70vw,520px)] w-[min(70vw,520px)] lg:h-[min(28vw,560px)] lg:w-[min(28vw,560px)]'
-              : 'top-[52%] h-[min(85%,420px)] w-[min(85%,420px)] -translate-y-1/2'
-          }`}
-          aria-hidden
-          animate={
-            reduceMotion
-              ? undefined
-              : {
-                  opacity: [0.5, 0.75, 0.5],
-                  scale: [0.97, 1.03, 0.97],
-                }
-          }
-          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        />
         {!isSplit ? (
           <>
             <div
@@ -74,12 +58,18 @@ export default function HeroPortrait({
               transition={{ duration: 1.1, ease: EASE_OUT, delay: 0.15 }}
             />
           </>
-        ) : null}
+        ) : (
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[min(70vw,520px)] w-[min(70vw,520px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.03)_45%,transparent_72%)] lg:h-[min(28vw,560px)] lg:w-[min(28vw,560px)]"
+            aria-hidden
+          />
+        )}
         <Image
           src={src}
           alt={alt}
           fill
           priority={priority}
+          fetchPriority={priority ? 'high' : 'auto'}
           sizes={isSplit ? '(max-width: 1024px) 100vw, 50vw' : '(max-width: 1024px) 90vw, 420px'}
           className={`relative z-[1] grayscale ${getPortraitClasses(src)} ${
             isSplit

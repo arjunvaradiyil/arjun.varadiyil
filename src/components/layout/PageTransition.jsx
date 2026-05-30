@@ -7,8 +7,9 @@ import { EASE_OUT } from '../../lib/motion';
 export default function PageTransition({ children }) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
+  const isHome = pathname === '/';
 
-  if (reduceMotion) {
+  if (reduceMotion || isHome) {
     return children;
   }
 

@@ -49,7 +49,7 @@ async function getPayloadOrNull() {
 
 function staticSiteSettings() {
   return {
-    profile: { ...staticProfile, photo: '/arjunvaradiyil.png' },
+    profile: { ...staticProfile, photo: '/assets/images/arjunvaradiyil.jpeg' },
     professionalSummary: staticSummary,
     workStatus: staticWorkStatus,
     heroStats: staticHeroStats,

@@ -1,7 +1,5 @@
 import React from 'react';
 import '../../index.css';
-import '@fontsource/inter';
-import '@fontsource/syne';
 import ThemeProvider from '../../components/ThemeProvider';
 import SiteHeader from '../../components/SiteHeader';
 import MainShell from '../../components/MainShell';
@@ -13,11 +11,16 @@ import SiteSettingsProvider from '../../components/SiteSettingsProvider';
 import { getSiteSettings } from '../../lib/cms/content';
 import { isMaintenanceMode } from '../../lib/maintenance';
 import { THEME_INIT_SCRIPT } from '../../lib/theme';
+import { fontClassNames } from '../../lib/fonts';
 import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, SITE_TITLE_DEFAULT, absoluteUrl } from '../../lib/siteSeo';
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f8f8f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
 };
 
 export const metadata = {
@@ -76,9 +79,11 @@ export const metadata = {
     // google: 'your-verification-code',
   },
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
-    shortcut: '/logo.png',
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 };
 
@@ -89,18 +94,16 @@ export default async function RootLayout({ children }) {
   const siteSettings = await getSiteSettings();
 
   return (
-    <html lang='en' className='dark' suppressHydrationWarning>
+    <html lang='en' className={`dark ${fontClassNames}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_INIT_SCRIPT,
           }}
         />
-        <link rel='icon' href='/logo.png' type='image/png' />
-        <link rel='apple-touch-icon' href='/logo.png' />
-        <link rel='shortcut icon' href='/logo.png' type='image/png' />
+        <link rel='preload' as='image' href='/assets/images/arjunvaradiyil.jpeg' fetchPriority='high' />
       </head>
-      <body className='antialiased'>
+      <body className='antialiased font-sans'>
         <StructuredData />
         <ThemeProvider>
           <SiteSettingsProvider value={siteSettings}>

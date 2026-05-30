@@ -19,7 +19,7 @@ function ExperienceRoleHeader({ item }) {
             isFaircode ? 'bg-white p-1.5' : 'bg-[var(--color-surface-elevated)]'
           }`}
         >
-          <Image src={item.logo} alt="" fill className="object-contain" sizes="56px" />
+          <Image src={item.logo} alt={`${item.company} logo`} fill className="object-contain" sizes="56px" />
         </div>
       </div>
 

@@ -11,11 +11,15 @@ export function s3StoragePlugin(): Plugin {
 
   return s3Storage({
     bucket: getS3Bucket(),
+    // Upload from browser → S3 (avoids Vercel 4.5MB limit + serverless timeouts)
+    clientUploads: true,
+    alwaysInsertFields: true,
     collections: {
       media: {
         prefix,
-        // Serve via /api/media/file/... (required for private buckets + admin previews)
-        signedDownloads: true,
+        signedDownloads: {
+          expiresIn: 7200,
+        },
       },
     },
     config: getS3ClientConfig(),

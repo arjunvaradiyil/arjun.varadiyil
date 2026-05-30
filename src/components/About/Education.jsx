@@ -16,7 +16,7 @@ function EducationInstitutionHeader({ item, index }) {
           <div className="relative h-14 w-14 shrink-0 overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-elevated)]">
             <Image
               src={item.image}
-              alt=""
+              alt={`${item.title} logo`}
               fill
               className="object-contain object-center grayscale"
               sizes="56px"

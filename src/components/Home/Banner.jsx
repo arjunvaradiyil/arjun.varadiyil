@@ -37,68 +37,19 @@ function HeroCta({ href, children, primary = false }) {
   );
 }
 
-function HeroCopyBlock({ className = '', reduceMotion = false }) {
+export default function Banner() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { heroStats: HERO_STATS, heroImage, profile } = useSiteSettings();
+  const portrait = profile?.photo || '/assets/images/arjunvaradiyil.jpeg';
+  const heroSrc = heroImage || portrait;
+  const portraitAlt = `${profile?.fullName || profile?.name || 'Arjun Varadiyil'} — full stack developer in Kerala, India`;
+  const reduceMotion = useReducedMotion();
   const headlineLines = Array.isArray(HOME_HERO.headline)
     ? HOME_HERO.headline
     : [HOME_HERO.headline];
 
-  const lines = [
-    {
-      key: 'headline',
-      className: `${NEU.displayHero} text-[clamp(1.75rem,8vw,3.75rem)] leading-[0.92] lg:text-[clamp(2rem,4vw,4rem)]`,
-      content: (
-        <>
-          {headlineLines.map((line, i) => (
-            <span key={line} className={i > 0 ? 'block' : undefined}>
-              {line}
-            </span>
-          ))}
-        </>
-      ),
-    },
-    {
-      key: 'tagline',
-      className:
-        'max-w-lg font-sans text-sm font-medium leading-snug text-[var(--color-foreground-soft)] sm:text-[15px] sm:leading-relaxed',
-      content: HOME_HERO.tagline,
-    },
-  ].filter((line) => line.content);
-
-  return (
-    <div className={className}>
-      {lines.map((line, index) => (
-        <motion.div
-          key={line.key}
-          className={index > 0 ? 'mt-3 sm:mt-4' : undefined}
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EASE_OUT, delay: 0.12 + index * 0.11 }}
-        >
-          <p className={line.className}>{line.content}</p>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-export default function Banner() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { heroStats: HERO_STATS, heroImage, profile } = useSiteSettings();
-  const portrait = profile?.photo || '/assets/images/profilepic.png';
-  const heroSrc = heroImage || portrait;
-  const portraitAlt = profile?.fullName || profile?.name || 'Arjun Varadiyil';
-  const displayName = profile?.fullName || profile?.name || 'Arjun Varadiyil';
-  const reduceMotion = useReducedMotion();
-  const heroHeadline = Array.isArray(HOME_HERO.headline)
-    ? HOME_HERO.headline.join(' ')
-    : HOME_HERO.headline;
-
   return (
     <section className="bg-[var(--color-surface)]" aria-labelledby="hero-heading">
-      <h1 id="hero-heading" className="sr-only">
-        {displayName} — {heroHeadline}
-      </h1>
-
       <HeroHeader menuOpen={menuOpen} onOpenMenu={() => setMenuOpen(true)} variant="overlay" />
 
       <div className="pt-14 lg:grid lg:min-h-[calc(100svh-3.5rem)] lg:grid-cols-2">
@@ -123,7 +74,23 @@ export default function Banner() {
               >
                 {HOME_HERO.eyebrow}
               </motion.p>
-              <HeroCopyBlock className="mt-4" reduceMotion={reduceMotion} />
+              <div className="mt-4">
+                <h1
+                  id="hero-heading"
+                  className={`${NEU.displayHero} text-[clamp(1.75rem,8vw,3.75rem)] leading-[0.92] lg:text-[clamp(2rem,4vw,4rem)]`}
+                >
+                  {headlineLines.map((line, i) => (
+                    <span key={line} className={i > 0 ? 'block' : undefined}>
+                      {line}
+                    </span>
+                  ))}
+                </h1>
+                {HOME_HERO.tagline ? (
+                  <p className="mt-3 max-w-lg font-sans text-sm font-medium leading-snug text-[var(--color-foreground-soft)] sm:mt-4 sm:text-[15px] sm:leading-relaxed">
+                    {HOME_HERO.tagline}
+                  </p>
+                ) : null}
+              </div>
             </motion.div>
 
             <motion.div

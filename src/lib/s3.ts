@@ -2,6 +2,8 @@
  * AWS S3 helpers — reads vars from .env (see .env.example).
  */
 
+import { getServerURL } from './serverUrl';
+
 export function isS3Configured() {
   return Boolean(
     process.env.AWS_S3_BUCKET?.trim() &&
@@ -37,7 +39,6 @@ export function getS3BucketHostname() {
 export function getS3ClientConfig() {
   return {
     region: getS3Region(),
-    endpoint: getS3Endpoint(),
     credentials: {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
@@ -49,9 +50,6 @@ export function getS3ClientConfig() {
 export function toAbsoluteMediaUrl(url: string) {
   if (!url) return url;
   if (url.startsWith('http://') || url.startsWith('https://')) return url;
-  const base = (process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000').replace(
-    /\/$/,
-    '',
-  );
+  const base = getServerURL();
   return `${base}${url.startsWith('/') ? url : `/${url}`}`;
 }

@@ -14,12 +14,17 @@ import { Skills } from './payload/collections/Skills';
 import { Users } from './payload/collections/Users';
 import { SiteSettings } from './payload/globals/SiteSettings';
 import { s3StoragePlugin } from './payload/plugins/s3';
+import { getPayloadAllowedOrigins, getServerURL } from './lib/serverUrl';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
+const allowedOrigins = getPayloadAllowedOrigins();
+
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
+  serverURL: getServerURL(),
+  cors: allowedOrigins,
+  csrf: allowedOrigins,
   admin: {
     user: Users.slug,
     importMap: {

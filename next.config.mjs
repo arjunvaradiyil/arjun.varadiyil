@@ -16,6 +16,9 @@ const nextConfig = {
     ];
   },
   images: {
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
         protocol: 'http',
@@ -24,10 +27,10 @@ const nextConfig = {
         pathname: '/api/media/**',
       },
       ...(s3Hostname ? [{ protocol: 'https', hostname: s3Hostname, pathname: '/**' }] : []),
-      { protocol: 'https', hostname: '**' },
-      { protocol: 'http', hostname: '**' },
+      { protocol: 'https', hostname: 'arjunvaradiyil.in', pathname: '/**' },
+      { protocol: 'https', hostname: 'www.arjunvaradiyil.in', pathname: '/**' },
+      ...(s3Hostname ? [] : [{ protocol: 'https', hostname: '**' }]),
     ],
-    unoptimized: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',

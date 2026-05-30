@@ -32,7 +32,7 @@ export default function Certifications({ showHeader = true, certifications = def
                   <div className={`relative mb-5 h-20 w-full overflow-hidden ${NEU.frame}`}>
                     <Image
                       src={cert.image}
-                      alt=""
+                      alt={`${cert.title} certification badge`}
                       fill
                       className="object-contain object-left grayscale"
                       sizes="(max-width: 768px) 100vw, 33vw"

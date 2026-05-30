@@ -9,10 +9,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Syne", "Inter", "ui-sans-serif", "system-ui"],
-        syne: ["Syne", "sans-serif"],
+        sans: ['var(--font-syne)', 'var(--font-inter)', 'ui-sans-serif', 'system-ui'],
+        syne: ['var(--font-syne)', 'sans-serif'],
         anton: ['"Anton"', '"Anton Placeholder"', 'sans-serif'],
-        antonio: ["Antonio", "sans-serif"],
+        antonio: ['Antonio', 'sans-serif'],
       },
     },
   },
