@@ -1,28 +1,119 @@
 'use client';
 
 import React, { useState, useCallback } from 'react';
+import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { ArrowUpRight, Mail } from 'lucide-react';
 import Modal from './ui/Modal';
-import { MotionIn } from './ui/Reveal';
-import { EASE_OUT } from '../lib/motion';
+import { EASE_OUT, transition } from '../lib/motion';
 import { useSiteSettings } from './SiteSettingsProvider';
 import Input from './ui/Input';
 import { NEU } from './ui/neuTheme';
-import WordStaggerReveal from './ui/WordStaggerReveal';
 
-const FORM_HEADLINE = "Let's connect and build something meaningful together.";
+const FORM_INTRO =
+  'Reach out — happy to connect about work, tech, or collaboration.';
 
 const INITIAL_FORM_DATA = { name: '', email: '', message: '' };
 
-/** When false (default), hero is `h2` so pages with their own `h1` stay valid. Use true on `/contact` only. */
-export default function Contactform({ pageHero = false }) {
-  const { workStatus: WORK_STATUS } = useSiteSettings();
+const STEPS = [
+  { id: 1, label: 'Step 01', title: 'Your details' },
+  { id: 2, label: 'Step 02', title: 'Your message' },
+];
+
+function FormStepIndicator({ step }) {
+  return (
+    <div className="mb-8 grid grid-cols-2 gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)]">
+      {STEPS.map(({ id, label, title }) => {
+        const active = step === id;
+        const complete = step > id;
+
+        return (
+          <div
+            key={id}
+            className={`px-4 py-4 transition sm:px-5 sm:py-5 ${
+              active ? 'bg-[var(--color-primary-bg)] text-[var(--color-primary-fg)]' : complete ? 'bg-[var(--color-surface)] text-[var(--color-foreground)]' : 'bg-[var(--color-surface)] text-[var(--color-foreground-subtle)]'
+            }`}
+          >
+            <p
+              className={`font-sans text-[10px] font-medium uppercase tracking-[0.24em] ${
+                active ? 'text-[var(--color-primary-fg)] opacity-55' : 'text-[var(--color-foreground-subtle)]'
+              }`}
+            >
+              {label}
+            </p>
+            <p className={`mt-1.5 font-syne text-sm font-bold sm:text-base ${active ? 'text-[var(--color-primary-fg)]' : 'text-[var(--color-foreground)]'}`}>
+              {title}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function FormSubmitButton({ children, loading, reduceMotion }) {
+  return (
+    <motion.div
+      className="w-full"
+      whileHover={reduceMotion || loading ? undefined : { y: -2 }}
+      whileTap={reduceMotion || loading ? undefined : { y: 0 }}
+      transition={{ type: 'spring', stiffness: 420, damping: 28 }}
+    >
+      <motion.button
+        type="submit"
+        disabled={loading}
+        className={`${NEU.btnPrimary} w-full justify-center gap-2 px-6 py-3.5 disabled:cursor-not-allowed disabled:opacity-60`}
+        whileHover={reduceMotion ? undefined : { scale: 1.01 }}
+        whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+      >
+        {children}
+        <ArrowUpRight className="h-3.5 w-3.5 opacity-70" aria-hidden />
+      </motion.button>
+    </motion.div>
+  );
+}
+
+function ContactIntro({ pageHero, contactNote, profileEmail }) {
+  const HeadingTag = pageHero ? 'h1' : 'h2';
+
+  return (
+    <div className="flex flex-col justify-center">
+      <p className={NEU.eyebrow}>Contact</p>
+      <p className="mt-5 font-sans text-sm font-medium text-[var(--color-foreground-soft)] sm:text-base">Hello</p>
+      <HeadingTag className={`${NEU.displayHero} mt-3 text-4xl sm:text-5xl lg:text-[clamp(2rem,4vw,3.5rem)]`}>
+        Get in touch
+      </HeadingTag>
+      <p className="mt-5 max-w-md font-sans text-sm font-medium leading-snug text-[var(--color-foreground-soft)] sm:text-[15px] sm:leading-relaxed">
+        {contactNote}
+      </p>
+      <p className={`mt-4 max-w-md ${NEU.bodyText}`}>{FORM_INTRO}</p>
+
+      {profileEmail ? (
+        <Link
+          href={`mailto:${profileEmail}`}
+          className="mt-8 inline-flex items-center gap-2 border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--color-foreground)] transition hover:border-[var(--color-foreground)] hover:bg-[var(--color-primary-bg)] hover:text-[var(--color-primary-fg)]"
+        >
+          <Mail className="h-3.5 w-3.5" aria-hidden />
+          {profileEmail}
+        </Link>
+      ) : null}
+    </div>
+  );
+}
+
+/** `pageHero`: `/contact` uses `h1`. `embedded`: About page section layout. */
+export default function Contactform({ pageHero = false, embedded = false }) {
+  const { workStatus: WORK_STATUS, profile } = useSiteSettings();
   const reduceMotion = useReducedMotion();
   const [step, setStep] = useState(1);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+
+  const contactNote =
+    WORK_STATUS.contactNote ||
+    'Open to freelance projects and collaborations — reach out to discuss your next build.';
 
   const handleChange = useCallback((e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -71,168 +162,161 @@ export default function Contactform({ pageHero = false }) {
     }
   };
 
-  const contactHeroClass = 'text-4xl leading-tight sm:text-5xl md:text-7xl lg:text-8xl';
-  const contactHeroInner = (
-    <>
-      <span className={`${NEU.contactHeroMuted} block font-syne font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl`}>
-        Hello
-      </span>
-      <span className={`${NEU.contactHeroDisplay} mt-2 block sm:mt-3 md:text-7xl lg:text-8xl`}>
-        <span className={`${NEU.contactSticker} mx-auto inline-block`}>Get in touch</span>
-      </span>
-    </>
-  );
+  const sectionClass = embedded
+    ? `border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`
+    : `${NEU.contactBg} ${NEU.sectionPad} min-h-[calc(100svh-4rem)]`;
 
   return (
-    <div
-      id='contact'
-      className={`${NEU.contactBg} relative flex min-h-[calc(100svh-7.25rem)] items-center justify-center overflow-hidden px-5 py-12 sm:px-8 md:min-h-[calc(100svh-4.5rem)] md:px-12 md:py-16`}
+    <section
+      id="contact"
+      data-gsap={embedded ? 'about-section' : undefined}
+      className={sectionClass}
     >
-      <div className='relative z-10 mx-auto flex w-11/12 max-w-6xl flex-col gap-10 lg:w-9/12 md:flex-row md:gap-12'>
-        <MotionIn className='flex w-full flex-col justify-center pr-0 text-center md:w-1/2 md:pr-12 md:text-left' variant='left'>
-          <p className={`${NEU.eyebrow} mb-4 flex justify-center md:justify-start`}>
-            <span className={NEU.badge}>Contact</span>
-          </p>
-          {pageHero ? (
-            <h1 className={contactHeroClass}>{contactHeroInner}</h1>
-          ) : (
-            <h2 className={contactHeroClass}>{contactHeroInner}</h2>
-          )}
-          {pageHero ? (
-            <p className={`mx-auto mt-6 max-w-md text-center text-sm leading-relaxed md:mx-0 md:text-left ${NEU.bodyText}`}>
-              {WORK_STATUS.contactNote}
+      <div
+        className={`mx-auto max-w-7xl ${
+          embedded
+            ? 'grid gap-10 lg:grid-cols-2 lg:gap-12'
+            : 'grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12'
+        }`}
+      >
+        <div data-gsap={embedded ? 'reveal' : undefined}>
+          <ContactIntro
+            pageHero={pageHero}
+            contactNote={contactNote}
+            profileEmail={profile?.email}
+          />
+        </div>
+
+        <div data-gsap={embedded ? 'reveal' : undefined} className={`overflow-hidden ${NEU.frame}`}>
+          <div className="border-b border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 sm:px-8">
+            <p className={NEU.eyebrow}>Send a message</p>
+            <p className="mt-2 font-syne text-lg font-bold text-[var(--color-foreground)] sm:text-xl">
+              {step === 1 ? 'Start with the basics' : 'Tell me about your project'}
             </p>
-          ) : null}
-        </MotionIn>
+          </div>
 
-        <MotionIn className={`${NEU.formCard} w-full md:w-1/2`} variant='right' delay={0.1}>
-          <WordStaggerReveal
-            as='div'
-            tone='onLight'
-            text={FORM_HEADLINE}
-            className="mb-4 text-lg font-semibold leading-snug text-gray-900 sm:mb-6 sm:text-xl dark:text-gray-100"
-            viewport={{ once: true, amount: 0.5 }}
-          />
+          <div className="bg-[var(--color-surface)] px-5 py-6 sm:px-8 sm:py-8">
+            <FormStepIndicator step={step} />
 
-          <AnimatePresence mode='wait'>
-          {step === 1 && (
-            <motion.form
-              key='step-1'
-              initial={reduceMotion ? false : { opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
-              transition={{ duration: 0.35, ease: EASE_OUT }}
-              onSubmit={(e) => {
-                e.preventDefault();
-                setStep(2);
-              }}
-              className='space-y-4 sm:space-y-6'
-            >
-              <Input
-                variant='neu'
-                label='Your Name *'
-                name='name'
-                value={formData.name}
-                onChange={handleChange}
-                placeholder='Enter your name'
-                required
-              />
-              <Input
-                variant='neu'
-                label='Email *'
-                type='email'
-                name='email'
-                value={formData.email}
-                onChange={handleChange}
-                placeholder='you@example.com'
-                required
-              />
-              <motion.button
-                type='submit'
-                className={`${NEU.btnPrimary} w-full py-3`}
-                aria-label='Continue to message step'
-                whileHover={reduceMotion ? undefined : { scale: 1.01 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-              >
-                Continue
-              </motion.button>
-            </motion.form>
-          )}
+            <AnimatePresence mode="wait">
+              {step === 1 && (
+                <motion.form
+                  key="step-1"
+                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+                  transition={{ duration: 0.35, ease: EASE_OUT }}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setStep(2);
+                  }}
+                  className="space-y-6"
+                >
+                  <Input
+                    variant="editorial"
+                    label="Your Name *"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your name"
+                    required
+                  />
+                  <Input
+                    variant="editorial"
+                    label="Email *"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@example.com"
+                    required
+                  />
+                  <FormSubmitButton loading={loading} reduceMotion={reduceMotion}>
+                    Continue
+                  </FormSubmitButton>
+                </motion.form>
+              )}
 
-          {step === 2 && (
-            <motion.form
-              key='step-2'
-              initial={reduceMotion ? false : { opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
-              transition={{ duration: 0.35, ease: EASE_OUT }}
-              onSubmit={handleSubmit}
-              className='space-y-4 sm:space-y-6'
-            >
-              <Input
-                variant='neu'
-                label='Explain your idea *'
-                name='message'
-                value={formData.message}
-                onChange={handleChange}
-                placeholder='Tell me about your project...'
-                rows='4'
-                required
-              />
+              {step === 2 && (
+                <motion.form
+                  key="step-2"
+                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+                  transition={{ duration: 0.35, ease: EASE_OUT }}
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  <Input
+                    variant="editorial"
+                    label="Explain your idea *"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project..."
+                    rows="5"
+                    required
+                  />
 
-              <div className='flex items-start gap-2 text-xs text-gray-800 sm:text-sm dark:text-gray-300'>
-                <input
-                  type='checkbox'
-                  required
-                  className='mt-1 border-2 border-gray-900 dark:border-gray-400 dark:bg-[#111111]'
-                />
-                <p>
-                  I accept the{' '}
-                  <a href='#' className={NEU.link}>
-                    Terms and Conditions
-                  </a>{' '}
-                  and{' '}
-                  <a href='#' className={NEU.link}>
-                    Privacy Policy
-                  </a>
-                  .
-                </p>
-              </div>
+                  <div className="flex items-start gap-3 border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-4 text-xs leading-relaxed text-[var(--color-foreground-muted)] sm:text-sm">
+                    <input
+                      type="checkbox"
+                      required
+                      className="mt-0.5 border border-[var(--color-border-strong)] bg-transparent accent-white"
+                    />
+                    <p>
+                      I accept the{' '}
+                      <a href="#" className={NEU.link}>
+                        Terms and Conditions
+                      </a>{' '}
+                      and{' '}
+                      <a href="#" className={NEU.link}>
+                        Privacy Policy
+                      </a>
+                      .
+                    </p>
+                  </div>
 
-              <motion.button
-                type='submit'
-                className={`${NEU.btnPrimary} w-full py-3`}
-                aria-label='Submit message'
-                whileHover={reduceMotion ? undefined : { scale: 1.01 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
-              >
-                Submit
-              </motion.button>
-            </motion.form>
-          )}
-          </AnimatePresence>
-
-          <Modal
-            isOpen={loading}
-            icon='⏳'
-            title='Sending your message...'
-            closable={false}
-            onClose={() => {}}
-          />
-          <Modal
-            isOpen={!!successMessage}
-            icon='✅'
-            title={successMessage}
-            onClose={() => setSuccessMessage('')}
-          />
-          <Modal
-            isOpen={!!errorMessage}
-            icon='❌'
-            title={errorMessage}
-            onClose={() => setErrorMessage('')}
-          />
-        </MotionIn>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <motion.button
+                      type="button"
+                      onClick={() => setStep(1)}
+                      className={`${NEU.btn} w-full justify-center px-6 py-3.5`}
+                      whileHover={reduceMotion ? undefined : { y: -1 }}
+                      transition={transition(0.22)}
+                    >
+                      Back
+                    </motion.button>
+                    <FormSubmitButton loading={loading} reduceMotion={reduceMotion}>
+                      {loading ? 'Sending…' : 'Submit'}
+                    </FormSubmitButton>
+                  </div>
+                </motion.form>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <Modal
+        isOpen={loading}
+        icon="⏳"
+        title="Sending your message..."
+        closable={false}
+        onClose={() => {}}
+      />
+      <Modal
+        isOpen={!!successMessage}
+        icon="✅"
+        title={successMessage}
+        onClose={() => setSuccessMessage('')}
+      />
+      <Modal
+        isOpen={!!errorMessage}
+        icon="❌"
+        title={errorMessage}
+        onClose={() => setErrorMessage('')}
+      />
+    </section>
   );
 }

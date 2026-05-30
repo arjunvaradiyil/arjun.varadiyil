@@ -1,47 +1,53 @@
-/** Portfolio UI — Neymar Jr. inspired dark editorial + light fallback */
+/** Editorial monochrome UI — theme-aware via CSS variables */
 
 export const PAGE = {
-  shell: 'min-h-screen bg-[#f5f2ea] text-gray-900 dark:bg-[#050505] dark:text-gray-100',
-  inner: 'mx-auto w-full max-w-6xl px-5 sm:px-8 md:px-12',
-  sectionPad: 'py-14 md:py-24',
-  altSection: 'bg-white dark:bg-[#0a0a0a]',
-  heroSection: 'bg-[#e4e4e4] dark:bg-[#050505]',
+  shell: 'min-h-screen bg-[var(--color-surface)] text-[var(--color-foreground)]',
+  inner: 'mx-auto w-full max-w-7xl px-5 sm:px-8 md:px-12',
+  sectionPad: 'py-12 md:py-16 lg:py-20',
+  altSection: 'bg-[var(--color-surface)]',
+  heroSection: 'bg-[var(--color-surface)]',
 };
 
 export const NEU = {
-  section: 'relative overflow-hidden bg-[#f5f2ea] dark:bg-[#050505]',
-  sectionPad: 'px-5 py-16 sm:px-8 md:px-12 md:py-24',
-  sectionPadMd: 'px-5 py-12 sm:px-8 md:px-12 md:py-20',
-  card: `rounded-sm border border-gray-900/10 bg-white shadow-sm transition duration-300
-    hover:border-amber-400/40 dark:border-white/10 dark:bg-[#111111] dark:hover:border-amber-400/50`,
-  cardStatic: `rounded-sm border border-gray-900/10 bg-white shadow-sm dark:border-white/10 dark:bg-[#111111]`,
+  section: 'relative overflow-hidden bg-[var(--color-surface)]',
+  sectionPad: 'px-5 py-12 sm:px-8 md:px-12 md:py-16 lg:py-20',
+  sectionPadMd: 'px-5 py-10 sm:px-8 md:px-12 md:py-16',
+  card: 'border border-[var(--color-border)] bg-[var(--color-surface)] transition duration-300 hover:border-[var(--color-border-strong)]',
+  cardStatic: 'border border-[var(--color-border)] bg-[var(--color-surface)]',
   eyebrow:
-    'font-sans text-[10px] font-bold uppercase tracking-[0.28em] text-gray-500 dark:text-amber-400/90',
-  display: 'font-syne font-bold uppercase tracking-tight text-gray-950 dark:text-white',
+    'font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-[var(--color-foreground-subtle)]',
+  display: 'font-syne font-bold uppercase tracking-[0.04em] text-[var(--color-foreground)]',
   displayHero:
-    'font-syne font-bold uppercase leading-[0.9] tracking-[-0.02em] text-gray-950 dark:text-white',
+    'font-syne font-bold uppercase leading-[0.88] tracking-[-0.02em] text-[var(--color-foreground)]',
+  displayGhost:
+    'pointer-events-none select-none font-syne font-bold uppercase leading-none tracking-tight text-[var(--color-foreground-ghost)]',
   badge:
-    'inline-flex items-center gap-2 border border-gray-900/15 bg-white/90 px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-800 dark:border-amber-400/40 dark:bg-amber-400/10 dark:text-amber-300',
-  btn: `inline-flex items-center justify-center border border-gray-900/25 bg-transparent px-6 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-gray-950 transition hover:border-gray-900 dark:border-white/30 dark:text-white dark:hover:border-amber-400 dark:hover:text-amber-400`,
-  btnPrimary: `inline-flex items-center justify-center bg-amber-400 px-6 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-black transition hover:bg-amber-300`,
-  contactBg: 'bg-[#f5f2ea] text-gray-900 dark:bg-[#050505] dark:text-gray-100',
-  formCard: `rounded-sm border border-gray-900/10 bg-white p-6 shadow-sm sm:p-8 dark:border-white/10 dark:bg-[#111111]`,
-  frame: `overflow-hidden rounded-sm border border-gray-900/10 dark:border-white/10`,
-  pageRoot:
-    'min-h-screen bg-[#f5f2ea] text-gray-900 transition-opacity duration-300 dark:bg-[#050505] dark:text-gray-100',
-  pageShell: 'overflow-x-hidden bg-[#f5f2ea] dark:bg-[#050505]',
+    'inline-flex items-center border border-[var(--color-border-strong)] px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.24em] text-[var(--color-foreground-soft)]',
+  btn: `inline-flex items-center justify-center border border-[var(--color-border-strong)] bg-transparent px-6 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--color-foreground)] transition hover:bg-[var(--color-primary-bg)] hover:text-[var(--color-primary-fg)]`,
+  btnPrimary: `inline-flex items-center justify-center border border-[var(--color-primary-bg)] bg-[var(--color-primary-bg)] px-6 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--color-primary-fg)] transition hover:bg-transparent hover:text-[var(--color-primary-bg)]`,
+  contactBg: 'bg-[var(--color-surface)] text-[var(--color-foreground)]',
+  formCard: 'border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8',
+  frame: 'overflow-hidden border border-[var(--color-border)]',
+  pageRoot: 'min-h-screen bg-[var(--color-surface)] text-[var(--color-foreground)] transition-colors duration-300',
+  pageShell: 'overflow-x-hidden bg-[var(--color-surface)]',
   modalPanel:
-    'mx-4 max-w-md rounded-sm border border-gray-900/10 bg-white p-6 text-center dark:border-white/10 dark:bg-[#111111] dark:text-white',
+    'mx-4 max-w-md border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-center text-[var(--color-foreground)]',
   techTag:
-    'inline-flex border border-gray-900/15 px-2.5 py-1 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-gray-700 dark:border-white/15 dark:text-gray-300',
-  bodyText: 'font-sans text-gray-600 leading-relaxed dark:text-gray-400',
-  link: 'font-bold uppercase tracking-wider text-gray-900 underline-offset-4 transition hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300',
-  contactHeroMuted: 'text-gray-600 dark:text-gray-400',
-  contactHeroDisplay: 'font-syne font-bold uppercase tracking-tight text-gray-900 dark:text-white',
+    'inline-flex border border-[var(--color-border)] px-2.5 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--color-foreground-muted)]',
+  bodyText:
+    'font-sans text-sm leading-relaxed text-[var(--color-foreground-muted)] md:text-[15px]',
+  link: 'font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--color-foreground-soft)] underline-offset-4 transition hover:text-[var(--color-foreground)]',
+  contactHeroMuted: 'text-[var(--color-foreground-muted)]',
+  contactHeroDisplay: 'font-syne font-bold uppercase tracking-tight text-[var(--color-foreground)]',
   contactSticker:
-    'mt-2 inline-block border border-amber-400/50 bg-amber-400/10 px-4 py-1.5 text-amber-700 dark:text-amber-300',
-  sectionIndex: 'font-sans text-sm font-bold tabular-nums text-amber-500/80 dark:text-amber-400',
+    'mt-2 inline-block border border-[var(--color-border-strong)] px-4 py-1.5 font-sans text-[10px] uppercase tracking-[0.2em] text-[var(--color-foreground-soft)]',
+  sectionIndex: 'font-sans text-sm font-medium tabular-nums text-[var(--color-foreground-faint)]',
   navLink:
-    'font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-gray-600 transition hover:text-gray-950 dark:text-gray-400 dark:hover:text-amber-400',
-  navLinkActive: 'text-gray-950 dark:text-amber-400',
+    'font-sans text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--color-foreground-subtle)] transition hover:text-[var(--color-foreground)]',
+  navLinkActive: 'text-[var(--color-foreground)]',
+  headerShell: 'border-b border-[var(--color-border)] bg-[var(--color-header)] backdrop-blur-md',
+  gridLine: 'bg-[var(--color-grid-line)]',
+  surface: 'bg-[var(--color-surface)]',
+  surfaceElevated: 'bg-[var(--color-surface-elevated)]',
+  hoverSurface: 'hover:bg-[var(--color-hover)]',
 };

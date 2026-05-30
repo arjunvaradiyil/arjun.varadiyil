@@ -2,8 +2,8 @@ import { KEYWORDS, SITE_NAME, absoluteUrl } from '../../../lib/siteSeo';
 
 export const metadata = {
   title: 'Contact',
-  description: `Contact ${SITE_NAME} for freelance web development in Kerala, Kochi, and Perinthalmanna — MERN stack, React, Node.js, MongoDB, and modern web apps.`,
-  keywords: [...KEYWORDS, 'Hire Web Developer Kerala', 'Contact Freelance Developer'],
+  description: `Contact ${SITE_NAME} — full stack developer in Kerala. Next.js, Payload CMS, and MERN stack. Send a message or book a call.`,
+  keywords: [...KEYWORDS, 'Contact Full Stack Developer Kerala', 'Hire Web Developer Kerala'],
   alternates: {
     canonical: '/contact',
   },
@@ -13,12 +13,12 @@ export const metadata = {
     url: absoluteUrl('/contact'),
     siteName: SITE_NAME,
     title: `Contact | ${SITE_NAME}`,
-    description: `Hire ${SITE_NAME} for freelance web development and MERN stack projects in Kerala.`,
+    description: `Contact ${SITE_NAME} — full stack developer building Next.js and Payload CMS platforms in Kerala.`,
   },
   twitter: {
     card: 'summary_large_image',
     title: `Contact | ${SITE_NAME}`,
-    description: `Hire ${SITE_NAME} for freelance web development and MERN stack projects in Kerala.`,
+    description: `Contact ${SITE_NAME} — full stack developer building Next.js and Payload CMS platforms in Kerala.`,
   },
   robots: {
     index: true,

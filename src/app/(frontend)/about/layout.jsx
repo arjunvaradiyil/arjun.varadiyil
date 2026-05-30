@@ -2,7 +2,7 @@ import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, absoluteUrl } from '../../../
 
 export const metadata = {
   title: 'About',
-  description: `About Arjun Varadiyil — Full Stack Developer at Faircode Infotech, Kerala. Biennale platforms, news portals, and civic tech with Next.js and Payload CMS.`,
+  description: `About Arjun Varadiyil — full stack developer in Kerala, open to freelance. Biennale systems, news publishing, and civic tech with Next.js and Payload CMS.`,
   keywords: [...KEYWORDS, 'About Web Developer Kerala', 'Developer portfolio Kerala'],
   openGraph: {
     title: `About | ${SITE_NAME}`,

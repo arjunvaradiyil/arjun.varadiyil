@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
 import { Reveal, StaggerReveal, StaggerItem } from '../ui/Reveal';
-import { hoverLift, transition } from '../../lib/motion';
+import { transition } from '../../lib/motion';
 import ProjectCard from '../projects/ProjectCard';
 
 export default function HomeFeaturedProjects({ projects = [] }) {
@@ -13,27 +13,25 @@ export default function HomeFeaturedProjects({ projects = [] }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className={`border-t border-gray-900/10 ${NEU.section} px-5 py-16 sm:px-8 md:py-24 md:px-12`}>
-      <div className="mx-auto max-w-6xl">
-        <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <section className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}>
+      <div className="mx-auto max-w-7xl">
+        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className={NEU.eyebrow}>Work</p>
-            <h2 className={`mt-2 ${NEU.display} text-3xl md:text-4xl`}>Featured projects</h2>
+            <p className={NEU.eyebrow}>Featured work</p>
+            <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>Shipped in production</h2>
           </div>
-          <motion.div whileHover={reduceMotion ? undefined : { x: 4 }} transition={{ duration: 0.2 }}>
-            <Link href="/projects" className={`inline-flex items-center gap-1 ${NEU.link}`}>
-              View all
-              <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </Link>
-          </motion.div>
+          <Link href="/projects" className={`inline-flex items-center gap-2 ${NEU.link}`}>
+            All projects
+            <ArrowUpRight className="h-4 w-4" aria-hidden />
+          </Link>
         </Reveal>
 
-        <StaggerReveal as="ul" className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2 md:items-stretch md:gap-8">
+        <StaggerReveal as="ul" className="mt-10 grid gap-px bg-[var(--color-grid-line)] md:mt-12 md:grid-cols-2">
           {featured.map((project) => (
-            <StaggerItem key={project.slug} as="li" className="h-full">
+            <StaggerItem key={project.slug} as="li" className="bg-[var(--color-surface)]">
               <motion.div
                 className="h-full"
-                whileHover={reduceMotion ? undefined : hoverLift}
+                whileHover={reduceMotion ? undefined : { opacity: 0.92 }}
                 transition={transition(0.25)}
               >
                 <ProjectCard project={project} variant="featured" />

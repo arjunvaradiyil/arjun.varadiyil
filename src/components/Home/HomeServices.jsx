@@ -1,37 +1,43 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { NEU, PAGE } from '../ui/neuTheme';
+import { NEU } from '../ui/neuTheme';
 import { Reveal, StaggerReveal, StaggerItem } from '../ui/Reveal';
-import { hoverLift, transition } from '../../lib/motion';
+import { transition } from '../../lib/motion';
 
 export default function HomeServices({ skills = [] }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className={`border-t border-gray-900/10 ${PAGE.altSection} px-5 py-16 sm:px-8 md:py-24 md:px-12`}>
-      <div className="mx-auto max-w-6xl">
+    <section className={`relative border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad} overflow-hidden`}>
+      <p
+        className={`${NEU.displayGhost} pointer-events-none absolute right-0 top-8 text-[clamp(2.5rem,12vw,9rem)]`}
+        aria-hidden
+      >
+        Skills
+      </p>
+      <div className="relative mx-auto max-w-7xl">
         <Reveal>
-          <p className={NEU.eyebrow}>Skills</p>
-          <h2 className={`mt-2 max-w-xl ${NEU.display} text-3xl md:text-4xl`}>What I deliver</h2>
-          <p className={`mt-4 max-w-2xl ${NEU.bodyText}`}>
-            Full stack development — fast launches, bold UI, and solid engineering for brands in Kerala and
-            worldwide.
+          <p className={NEU.eyebrow}>Expertise</p>
+          <h2 className={`mt-3 max-w-xl ${NEU.display} text-3xl md:text-5xl`}>Timeless modern craft</h2>
+          <p className={`mt-5 max-w-2xl ${NEU.bodyText}`}>
+            Next.js, Payload CMS, and full stack delivery for news, culture, and civic products —
+            from architecture to launch.
           </p>
         </Reveal>
 
-        <StaggerReveal as="ul" className="mt-12 grid gap-6 md:grid-cols-3 md:gap-8">
+        <StaggerReveal as="ul" className="mt-10 grid gap-px bg-[var(--color-grid-line)] md:grid-cols-3">
           {skills.slice(0, 3).map((skill) => (
-            <StaggerItem key={skill.id} as="li">
+            <StaggerItem key={skill.id} as="li" className="bg-[var(--color-surface)]">
               <motion.div
-                className={`${NEU.cardStatic} h-full p-6`}
-                whileHover={reduceMotion ? undefined : hoverLift}
+                className="h-full p-6 md:p-8"
+                whileHover={reduceMotion ? undefined : { backgroundColor: 'var(--color-hover)' }}
                 transition={transition(0.25)}
               >
                 <span className={NEU.sectionIndex}>{skill.id}</span>
-                <h3 className={`mt-4 ${NEU.display} text-lg`}>{skill.title}</h3>
-                <p className={`mt-3 text-sm ${NEU.bodyText}`}>{skill.cardBlurb}</p>
-                <ul className="mt-5 flex flex-wrap gap-2">
+                <h3 className={`mt-5 ${NEU.display} text-lg md:text-xl`}>{skill.title}</h3>
+                <p className={`mt-3 ${NEU.bodyText}`}>{skill.cardBlurb}</p>
+                <ul className="mt-6 flex flex-wrap gap-2">
                   {skill.tags.slice(0, 4).map((tag) => (
                     <li key={tag} className={NEU.techTag}>
                       {tag}

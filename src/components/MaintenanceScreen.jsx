@@ -7,12 +7,12 @@ export default function MaintenanceScreen() {
       aria-labelledby="maintenance-heading"
     >
       <BrandLogo href={null} imageClassName="h-12 w-auto object-contain opacity-90" />
-      <p className="mt-8 font-sans text-[10px] font-bold uppercase tracking-[0.28em] text-amber-400/90">
+      <p className="mt-8 font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-[var(--color-foreground-subtle)]">
         Maintenance
       </p>
       <h1
         id="maintenance-heading"
-        className="mt-4 font-syne text-3xl font-bold uppercase leading-tight tracking-tight text-white sm:text-4xl"
+        className="mt-4 font-syne text-3xl font-bold uppercase leading-tight tracking-tight text-[var(--color-foreground)] sm:text-4xl"
       >
         Back shortly
       </h1>

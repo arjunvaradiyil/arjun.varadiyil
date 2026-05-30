@@ -1,6 +1,7 @@
 import Banner from '../../components/Home/Banner';
 import HomeCta from '../../components/Home/HomeCta';
 import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
+import HomeIntro from '../../components/Home/HomeIntro';
 import HomeServices from '../../components/Home/HomeServices';
 import MaintenanceScreen from '../../components/MaintenanceScreen';
 import { getProjects, getSkills } from '../../lib/cms/content';
@@ -16,9 +17,10 @@ export default async function HomePage() {
   const [projects, skills] = await Promise.all([getProjects(), getSkills()]);
 
   return (
-    <div className="overflow-x-hidden bg-[#050505]">
+    <div className="overflow-x-hidden bg-[var(--color-surface)]">
       <Banner />
       <div id="home-content">
+        <HomeIntro />
         <HomeFeaturedProjects projects={projects} />
         <HomeServices skills={skills} />
         <HomeCta />

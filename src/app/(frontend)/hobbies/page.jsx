@@ -25,7 +25,7 @@ export default function HobbiesPage() {
             index="04"
             eyebrow="Profile"
             title="Hobbies & interests"
-            description="When I'm not shipping web projects, I explore creativity, fitness, and learning — the same curiosity fuels how I build software."
+            description="When I'm not building CMS platforms and full stack products, I explore photography, fitness, and new tools — the same curiosity shapes how I write code."
             align="left"
           />
           <ul className="flex flex-wrap gap-2">

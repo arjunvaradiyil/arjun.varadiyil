@@ -34,11 +34,11 @@ async function seed() {
       heroStats: HERO_STATS,
       navCategories: NJR_NAV_CATEGORIES,
       projectsPageDescription:
-        'News portals, biennale platform, and civic tech — Next.js, Payload CMS, and MERN stack.',
+        'Biennale platform, news portal, and civic tech — Next.js, Payload CMS, and full stack delivery.',
       aboutSkillsSubtitle:
-        'Node.js, React, Next.js, Payload CMS, databases, and the tools I use to ship production-ready web products.',
+        'Systems engineered for speed, scale, and editorial workflows — Next.js, Payload CMS, and production-grade delivery.',
       experienceIntro:
-        'At Faircode Infotech I build biennale platforms, news portals, and civic tech — full-stack delivery with Next.js, Payload CMS, and modern databases.',
+        'Shipping biennale, news, and civic systems at Faircode Infotech — full stack delivery with Next.js, Payload CMS, and modern databases.',
     },
   });
 

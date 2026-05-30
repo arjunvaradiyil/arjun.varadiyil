@@ -2,7 +2,7 @@ import { KEYWORDS, SITE_NAME, absoluteUrl } from '../../../lib/siteSeo';
 
 export const metadata = {
   title: 'Projects',
-  description: `Portfolio and case studies by ${SITE_NAME}: Next.js, React, and MERN web builds for healthcare, civic, and more — freelance web developer Kerala, Kochi, Perinthalmanna.`,
+  description: `Portfolio by ${SITE_NAME}: Kochi–Muziris Biennale platform, Deshabhimani news portal, and MyIdukki civic app — Next.js, Payload CMS, and full stack delivery in Kerala.`,
   keywords: [...KEYWORDS, 'Portfolio Web Developer', 'Next.js Projects Kerala', 'React Portfolio'],
   alternates: {
     canonical: '/projects',
@@ -14,13 +14,13 @@ export const metadata = {
     siteName: SITE_NAME,
     title: `Projects | ${SITE_NAME}`,
     description:
-      'Web development portfolio — Next.js, React, MERN projects in Kerala by Arjun Varadiyil.',
+      'Selected work — biennale platform, news portal, and civic tech built with Next.js and Payload CMS by Arjun Varadiyil.',
   },
   twitter: {
     card: 'summary_large_image',
     title: `Projects | ${SITE_NAME}`,
     description:
-      'Web development portfolio — Next.js, React, MERN projects in Kerala by Arjun Varadiyil.',
+      'Selected work — biennale platform, news portal, and civic tech built with Next.js and Payload CMS by Arjun Varadiyil.',
   },
   robots: {
     index: true,

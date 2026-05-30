@@ -2,7 +2,7 @@ import { KEYWORDS, SITE_NAME, absoluteUrl } from '../../../lib/siteSeo';
 
 export const metadata = {
   title: 'Hobbies',
-  description: `Beyond code — hobbies and creative work by ${SITE_NAME}, professional web developer and designer based in Kerala.`,
+  description: `Hobbies and interests outside of code — ${SITE_NAME}, full stack developer based in Kerala.`,
   keywords: [...KEYWORDS, 'Developer hobbies', 'Creative portfolio'],
   alternates: {
     canonical: '/hobbies',

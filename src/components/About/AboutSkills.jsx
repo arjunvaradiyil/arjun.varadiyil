@@ -10,15 +10,20 @@ const DEFAULT_SUBTITLE =
 
 export default function AboutSkills({ skills = defaultSkills, subtitle = DEFAULT_SUBTITLE }) {
   return (
-    <section className={`border-t border-white/10 bg-[#0a0a0a] ${NEU.sectionPad}`}>
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader
-          index="03"
-          eyebrow="Skills"
-          title="Technical expertise"
-          subtitle={subtitle}
-          align="left"
-        />
+    <section
+      data-gsap="about-section"
+      className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}
+    >
+      <div className="mx-auto max-w-7xl">
+        <div data-gsap="reveal">
+          <SectionHeader
+            eyebrow="Skills"
+            title="Technical expertise"
+            subtitle={subtitle || DEFAULT_SUBTITLE}
+            align="left"
+            staticReveal
+          />
+        </div>
         <ServiceNeuGrid skills={skills} />
       </div>
     </section>

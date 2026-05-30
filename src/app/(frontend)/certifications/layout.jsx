@@ -2,7 +2,7 @@ import { KEYWORDS, SITE_NAME, absoluteUrl } from '../../../lib/siteSeo';
 
 export const metadata = {
   title: 'Certifications',
-  description: `Certifications — MERN stack, JavaScript, Python, and NSDC programs — ${SITE_NAME}, full stack web developer Kerala, Kochi, Perinthalmanna.`,
+  description: `Certifications in MERN stack, JavaScript, and Python — ${SITE_NAME}, full stack developer at Faircode Infotech, Kerala.`,
   keywords: [...KEYWORDS, 'Full Stack Certification', 'MERN Stack Certification', 'HackerRank', 'NSDC'],
   alternates: {
     canonical: '/certifications',

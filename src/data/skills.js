@@ -3,67 +3,68 @@ export const skills = [
     id: '01',
     title: 'Frontend',
     cardBlurb:
-      'Modern, responsive interfaces with React and Next.js — built for clarity, speed, and great UX.',
+      'Editorial interfaces with React and Next.js — responsive layouts, accessible components, and fast page loads.',
     description:
-      'Modern, responsive user interfaces built with React and Next.js, delivering exceptional user experiences across all devices.',
+      'Modern, responsive user interfaces built with React and Next.js, delivering clear hierarchy and smooth interactions across devices.',
     features: [
-      'React-based component architecture for scalable frontends',
-      'Next.js for server-side rendering and optimal performance',
-      'Responsive design with Tailwind CSS and modern UI frameworks',
-      'Interactive animations and smooth user interactions',
+      'React component architecture for scalable frontends',
+      'Next.js App Router, SSR, and static generation',
+      'Responsive design with Tailwind CSS',
+      'Motion, accessibility, and performance tuning',
     ],
     image:
       'https://miro.medium.com/v2/resize:fit:1400/0*8TnOSxYPBGXfGnSs',
-    tags: ['React', 'Next.js', 'JavaScript', 'HTML', 'Tailwind CSS', 'CSS'],
+    tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
   },
   {
     id: '02',
     title: 'Full Stack',
     cardBlurb:
-      'End-to-end apps — APIs, auth, databases, and polished UI from one codebase.',
-    description: 'End-to-end web applications powered by the MERN stack and Next.js, from database to user interface.',
+      'End-to-end delivery — APIs, auth, databases, and polished UI from a single codebase.',
+    description:
+      'Full-stack web applications with Node.js, Express, and Next.js — from database design to production deployment.',
     features: [
-      'Complete MERN stack development (MongoDB, Express, React, Node.js)',
-      'RESTful and GraphQL API design and implementation',
-      'User authentication and authorization (JWT)',
-      'Real-time features and optimized database queries',
+      'RESTful and GraphQL API design',
+      'MongoDB and PostgreSQL data modelling',
+      'Authentication with JWT and session flows',
+      'Real-time features and query optimization',
     ],
     image:
       'https://www.mindinventory.com/blog/wp-content/uploads/2022/03/react-nodejs.webp',
-    tags: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Redux', 'GraphQL'],
+    tags: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'GraphQL'],
   },
   {
     id: '03',
     title: 'Content Management',
     cardBlurb:
-      'Headless CMS with Payload — structured content, custom blocks, and API-first delivery.',
+      'Headless CMS with Payload — structured content, custom blocks, and API-first publishing.',
     description:
-      'Headless content management solutions built with Payload CMS for news portals and editorial workflows.',
+      'Payload CMS implementations for news portals, cultural platforms, and editorial workflows at scale.',
     features: [
-      'Payload CMS implementation with custom admin interfaces',
-      'Custom collections, blocks, and fields for flexible content',
-      'GraphQL and API-driven content delivery',
-      'Multimedia and article publishing at scale',
+      'Custom collections, blocks, and admin UX',
+      'GraphQL and REST content delivery',
+      'Media libraries and S3-backed uploads',
+      'Multilingual and role-based publishing',
     ],
     image:
       'https://t3.ftcdn.net/jpg/05/54/74/70/360_F_554747016_FIqkviyI5ClrTfNN3fgL6kI0KUfpaIK9.jpg',
-    tags: ['Payload CMS', 'GraphQL', 'Node.js', 'MongoDB', 'Postman'],
+    tags: ['Payload CMS', 'GraphQL', 'S3', 'MongoDB', 'Lexical'],
   },
   {
     id: '04',
-    title: 'Tools & Environment',
+    title: 'Tools & Workflow',
     cardBlurb:
-      'Python scripting, VS Code, and cross-platform development on Linux, macOS, and Windows.',
+      'Git, VS Code, and cross-platform development — structured workflows from local to production.',
     description:
-      'Additional tooling and environments used for development, testing, and deployment workflows.',
+      'Development tooling and environments for testing, collaboration, and reliable deployments.',
     features: [
-      'Python for scripting and auxiliary tooling',
+      'Git and GitHub for version control and reviews',
+      'Postman for API testing and documentation',
       'VS Code as primary IDE',
-      'Cross-platform development on Linux, macOS, and Windows',
-      'Git, GitHub, and Postman for version control and API testing',
+      'Linux, macOS, and Windows development',
     ],
     image:
       'https://i.ytimg.com/vi/7WrU5KQRw2o/hq720.jpg',
-    tags: ['Python', 'VS Code', 'Git', 'Postman', 'Linux', 'macOS'],
+    tags: ['Git', 'Postman', 'VS Code', 'Python'],
   },
 ];

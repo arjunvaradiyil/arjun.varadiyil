@@ -8,7 +8,7 @@ import PageShell from '../../../components/layout/PageShell';
 import { PAGE } from '../../../components/ui/neuTheme';
 
 const DEFAULT_INTRO =
-  'Professional certifications that validate my expertise in full-stack development and programming fundamentals.';
+  'Certifications in MERN stack development and core programming — alongside hands-on delivery on production CMS platforms.';
 
 export default function CertificationsPageClient({ certifications = [], intro = DEFAULT_INTRO }) {
   return (

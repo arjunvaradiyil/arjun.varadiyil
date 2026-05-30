@@ -1,86 +1,146 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
-import { Heart } from 'lucide-react';
-import { NEU } from './ui/neuTheme';
-import { Reveal, StaggerReveal, StaggerItem } from './ui/Reveal';
-import { FACEBOOK_URL, TOPMATE_URL, X_URL, YOUTUBE_URL } from '../lib/siteSeo';
+import { useGsap } from '../hooks/useGsap';
+import { prefersReducedMotion, scrollReveal, EDITORIAL_EASE } from '../lib/gsap';
+import { TOPMATE_URL } from '../lib/siteSeo';
 import { CENTER_NAV } from '../lib/navLinks';
-import BrandLogo from './BrandLogo';
+import { useSiteSettings } from './SiteSettingsProvider';
+import { NEU } from './ui/neuTheme';
 
-const OPTIONAL_SOCIAL = [
-  { label: 'Facebook', href: FACEBOOK_URL },
-  { label: 'X', href: X_URL },
-  { label: 'YouTube', href: YOUTUBE_URL },
-].filter((item) => typeof item.href === 'string' && item.href.length > 0);
+const CONNECT_LINKS = (email) => [
+  { label: 'Email', href: `mailto:${email}`, external: false },
+  { label: 'Book a call', href: TOPMATE_URL, external: true },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/arjunvaradiyil',
+    external: true,
+  },
+  { label: 'GitHub', href: 'https://github.com/arjunvaradiyil/arjun.varadiyil', external: true },
+];
+
+const footerLink =
+  'font-sans text-sm uppercase tracking-[0.16em] text-[var(--color-foreground-muted)] transition hover:text-[var(--color-foreground)]';
+
+function FooterColumn({ label, children, align = 'left' }) {
+  return (
+    <div
+      data-gsap="footer-reveal"
+      className={`bg-[var(--color-surface)] px-5 py-6 sm:px-7 sm:py-8 ${align === 'right' ? 'md:text-right' : ''}`}
+    >
+      <p className={NEU.eyebrow}>{label}</p>
+      <div className="mt-5">{children}</div>
+    </div>
+  );
+}
 
 export default function Footer() {
-  const reduceMotion = useReducedMotion();
+  const { profile, workStatus } = useSiteSettings();
+  const email = profile?.email || 'arjunvaradiyil203@gmail.com';
+  const location = profile?.location || 'Kerala, India';
+
+  const scopeRef = useGsap(({ gsap, scope }) => {
+    if (prefersReducedMotion()) return;
+
+    scrollReveal(scope, '[data-gsap="footer-reveal"]', {
+      trigger: scope,
+      start: 'top 92%',
+      y: 20,
+      stagger: 0.08,
+      duration: 0.55,
+    });
+
+    gsap.from('[data-gsap="footer-name-line"]', {
+      scrollTrigger: {
+        trigger: '[data-gsap="footer-brand"]',
+        start: 'top 88%',
+        once: true,
+      },
+      y: 48,
+      opacity: 0,
+      duration: 0.85,
+      stagger: 0.12,
+      ease: EDITORIAL_EASE,
+    });
+
+    scrollReveal(scope, '[data-gsap="footer-meta"]', {
+      trigger: '[data-gsap="footer-brand"]',
+      start: 'top 85%',
+      y: 12,
+      duration: 0.5,
+    });
+  }, []);
 
   return (
-    <footer className="border-t border-gray-900/10 bg-[#f5f2ea] py-12 dark:border-white/10 dark:bg-[#050505]">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-12">
-        <StaggerReveal className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <StaggerItem>
-            <BrandLogo
-              href={null}
-              imageClassName="h-10 w-auto object-contain"
-              animate
-              reduceMotion={reduceMotion}
-            />
-            <p className={`mt-4 ${NEU.display} text-lg`}>Arjun Varadiyil</p>
-            <p className={`mt-2 text-sm ${NEU.bodyText}`}>Web developer · Kerala, India</p>
-          </StaggerItem>
-
-          <StaggerItem>
-            <nav aria-label="Footer" className="flex flex-col gap-2">
-              <p className={NEU.eyebrow}>Navigate</p>
+    <footer ref={scopeRef} className="border-t border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-foreground)]">
+      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 md:py-20 lg:px-12">
+        <div className="grid gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] md:grid-cols-3">
+          <FooterColumn label="Navigate">
+            <nav className="flex flex-col gap-3" aria-label="Footer">
               {CENTER_NAV.map((item) => (
-                <Link key={item.href} href={item.href} className={`text-sm ${NEU.link}`}>
+                <Link key={item.href} href={item.href} className={footerLink}>
                   {item.label}
                 </Link>
               ))}
             </nav>
-          </StaggerItem>
+          </FooterColumn>
 
-          <StaggerItem>
-            <div>
-              <p className={NEU.eyebrow}>Connect</p>
-              <div className="mt-2 flex flex-col gap-2">
-                <a href="mailto:arjunvaradiyil203@gmail.com" className={`text-sm ${NEU.link}`}>
-                  Email
-                </a>
-                <a href={TOPMATE_URL} className={`text-sm ${NEU.link}`} target="_blank" rel="noopener noreferrer">
-                  Book a call
-                </a>
-                {OPTIONAL_SOCIAL.map(({ label, href }) => (
-                  <a key={label} href={href} className={`text-sm ${NEU.link}`} target="_blank" rel="noopener noreferrer me">
+          <FooterColumn label="Connect">
+            <div className="flex flex-col gap-3">
+              {CONNECT_LINKS(email).map(({ label, href, external }) =>
+                external ? (
+                  <a
+                    key={href}
+                    href={href}
+                    className={footerLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {label}
                   </a>
-                ))}
-              </div>
+                ) : (
+                  <a key={href} href={href} className={footerLink}>
+                    {label}
+                  </a>
+                ),
+              )}
             </div>
-          </StaggerItem>
-        </StaggerReveal>
+          </FooterColumn>
 
-        <Reveal className="mt-10 border-t border-gray-900/10 pt-8 dark:border-white/10" variant="in" delay={0.15}>
-          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-gray-600 dark:text-gray-500">
-            <span>Made with</span>
-            <motion.span
-              animate={reduceMotion ? undefined : { scale: [1, 1.2, 1] }}
-              transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 2 }}
-            >
-              <Heart className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden />
-            </motion.span>
-            <span>
-              by{' '}
-              <span className="font-semibold text-gray-800 dark:text-gray-300">arjunvaradiyil</span>
+          <FooterColumn label="Based in" align="right">
+            <p className="font-syne text-sm font-bold uppercase tracking-[0.06em] text-[var(--color-foreground)] sm:text-base">
+              {location}
+            </p>
+            {workStatus?.badge ? (
+              <p className={`mt-4 ${NEU.badge}`}>{workStatus.badge}</p>
+            ) : null}
+          </FooterColumn>
+        </div>
+
+        <div
+          data-gsap="footer-brand"
+          className="mt-14 border-t border-[var(--color-border)] pt-10 md:mt-20 md:pt-14"
+        >
+          <p className="sr-only">Arjun Varadiyil</p>
+          <div
+            className={`${NEU.displayHero} text-[clamp(2.75rem,18vw,10rem)] leading-[0.82] text-[var(--color-foreground)]`}
+            aria-hidden
+          >
+            <span data-gsap="footer-name-line" className="block">
+              Arjun
             </span>
-            <span className="text-gray-400 dark:text-gray-600">·</span>
-            <span>© {new Date().getFullYear()}</span>
+            <span data-gsap="footer-name-line" className="block">
+              Varadiyil
+            </span>
+          </div>
+
+          <p
+            data-gsap="footer-meta"
+            className="mt-8 font-sans text-[10px] uppercase tracking-[0.24em] text-[var(--color-foreground-faint)]"
+          >
+            © {new Date().getFullYear()} — Full stack developer · {location}
           </p>
-        </Reveal>
+        </div>
       </div>
     </footer>
   );

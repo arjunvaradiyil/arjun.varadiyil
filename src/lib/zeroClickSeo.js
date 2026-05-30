@@ -5,6 +5,7 @@ import {
   TOPMATE_URL,
   absoluteUrl,
 } from './siteSeo';
+import { SGE_SUMMARY } from '../data/seoContent';
 
 const PERSON_ID = `${SITE_URL}/#person`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -15,38 +16,37 @@ export const SITE_FAQ = [
   {
     question: 'Who is Arjun Varadiyil?',
     answer:
-      'Arjun Varadiyil is a professional web developer and full stack engineer based in Kerala, India. He builds marketing sites, dashboards, and APIs with the MERN stack and Next.js Payload CMS for clients across Kochi, Malappuram, and Perinthalmanna.',
+      'Arjun Varadiyil is a Full Stack Developer in Kerala, India, specializing in Next.js, Payload CMS, and TypeScript. He builds production-grade editorial platforms, headless CMS architecture, and high-traffic publishing systems for biennale, news, and civic tech products.',
   },
   {
     question: 'Is Arjun Varadiyil a web developer in Kerala?',
     answer:
-      'Yes. Arjun Varadiyil is a professional web developer in Kerala who works remotely and on-site across Kochi, Malappuram, Perinthalmanna, and statewide. His portfolio showcases healthcare, wellness, and business web projects.',
+      'Yes. Arjun Varadiyil is a Full Stack Developer in Kerala, India. He engineers scalable editorial and CMS-driven platforms at Faircode Infotech and is available for freelance and contract work.',
   },
   {
     question: 'What technologies does Arjun Varadiyil use?',
     answer:
-      'Arjun Varadiyil uses React, Next.js, Node.js, Express, MongoDB, TypeScript, and Tailwind CSS — the MERN stack plus modern frontend tooling. He also works with REST APIs, responsive UI, and SEO-friendly site architecture.',
+      'Arjun Varadiyil uses Next.js, Payload CMS, TypeScript, React, Node.js, MongoDB, PostgreSQL, GraphQL, and Tailwind CSS. His focus is headless CMS architecture and high-traffic application development for editorial teams.',
   },
   {
-    question: 'What web development services does Arjun offer?',
+    question: 'What kind of projects has Arjun built?',
     answer:
-      'Services include custom website design and development, full stack MERN applications, Next.js marketing sites, API integration, responsive UI, and performance-focused launches for startups and local businesses in Kerala.',
+      'Production systems include the Kochi\u2013Muziris Biennale platform (India\u2019s largest art biennale), Deshabhimani news publishing infrastructure, and MyIdukki Election Pledge civic tech \u2014 all built with Next.js and Payload CMS.',
   },
   {
     question: 'How do I contact Arjun Varadiyil?',
     answer:
-      'Visit arjunvaradiyil.in/contact to send a message, email arjunvaradiyil203@gmail.com, or book a call via Topmate. LinkedIn and GitHub links are on the homepage and footer.',
+      'Visit arjunvaradiyil.in/contact to send a message, email arjunvaradiyil203@gmail.com, or book a call via Topmate. LinkedIn and GitHub links are on the site footer and profile page.',
   },
   {
     question: 'Where is Arjun Varadiyil based?',
     answer:
-      'Arjun Varadiyil is based in Kerala, India, and serves clients in Kochi, Malappuram, Perinthalmanna, and across the state. He is open to remote collaboration and freelance web development engagements.',
+      'Arjun Varadiyil is based in Kerala, India, and is open to freelance projects and remote collaboration. Reach out via the contact page or LinkedIn.',
   },
 ];
 
 /** One-line summary for speakable / featured snippets. */
-export const ZERO_CLICK_SUMMARY =
-  'Arjun Varadiyil is a professional MERN stack and Next.js web developer in Kerala, building websites and full stack apps for clients in Kochi, Malappuram, and Perinthalmanna.';
+export const ZERO_CLICK_SUMMARY = SGE_SUMMARY;
 
 export const SPEAKABLE_SELECTORS = ['.zero-click-summary', '.zero-click-faq-answer'];
 
@@ -87,7 +87,7 @@ export function buildProfilePageSchema() {
     '@type': 'ProfilePage',
     '@id': PROFILE_ID,
     url: SITE_URL,
-    name: `${SITE_NAME} — Professional Web Developer`,
+    name: `${SITE_NAME} — Full Stack Developer`,
     description: DEFAULT_DESCRIPTION,
     inLanguage: 'en-IN',
     isPartOf: { '@id': WEBSITE_ID },
@@ -106,19 +106,29 @@ export function buildPersonSchema(extraSameAs = []) {
     '@type': 'Person',
     '@id': PERSON_ID,
     name: SITE_NAME,
-    jobTitle: 'Professional Web Developer',
-    description: DEFAULT_DESCRIPTION,
+    jobTitle: 'Full Stack Developer',
+    description: SGE_SUMMARY,
     url: SITE_URL,
     image: PROFILE_IMAGE,
     email: 'arjunvaradiyil203@gmail.com',
     hasOccupation: {
       '@type': 'Occupation',
-      name: 'Professional Web Developer',
+      name: 'Full Stack Developer',
       occupationLocation: {
-        '@type': 'City',
-        name: 'Kochi, Kerala, India',
+        '@type': 'AdministrativeArea',
+        name: 'Kerala, India',
       },
-      skills: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JavaScript', 'TypeScript', 'MERN Stack', 'Next.js'],
+      skills: [
+        'Next.js',
+        'Payload CMS',
+        'TypeScript',
+        'React',
+        'Node.js',
+        'Headless CMS Architecture',
+        'Performance Optimization',
+        'MongoDB',
+        'GraphQL',
+      ],
     },
     address: {
       '@type': 'PostalAddress',
@@ -128,13 +138,21 @@ export function buildPersonSchema(extraSameAs = []) {
     },
     sameAs,
     knowsAbout: [
-      'Web Development',
-      'MERN Stack',
-      'React',
+      'Full Stack Development',
       'Next.js',
+      'Payload CMS',
+      'TypeScript',
+      'Headless CMS Architecture',
+      'Editorial Platforms',
+      'Performance Optimization',
+      'High-Traffic Application Development',
+      'Digital Journalism Tech Stack',
+      'Civic Tech Tools',
+      'Web Development',
+      'React',
       'Node.js',
       'MongoDB',
-      'Full Stack Development',
+      'GraphQL',
     ],
     areaServed: [
       { '@type': 'City', name: 'Kochi' },
@@ -161,12 +179,13 @@ export function buildProfessionalServiceSchema() {
       { '@type': 'State', name: 'Kerala', '@id': 'https://www.wikidata.org/wiki/Q1186' },
     ],
     serviceType: [
-      'Web Development',
-      'Web Design',
       'Full Stack Development',
-      'MERN Stack Development',
-      'React Development',
       'Next.js Development',
+      'Payload CMS Development',
+      'Headless CMS Architecture',
+      'Editorial Platform Development',
+      'High-Traffic Web Application Development',
+      'Web Development',
     ],
     priceRange: 'Contact for pricing',
   };
