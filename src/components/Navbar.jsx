@@ -8,7 +8,6 @@ import SidebarMenu from './SidebarMenu';
 import { Menu } from 'lucide-react';
 import { CENTER_NAV, isNavActive } from '../lib/navLinks';
 import { useSiteSettings } from './SiteSettingsProvider';
-import ThemeToggle from './ThemeToggle';
 import { NEU } from './ui/neuTheme';
 import { EASE_OUT } from '../lib/motion';
 
@@ -54,7 +53,6 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center justify-end gap-2">
-              <ThemeToggle className="hidden md:flex" />
               <button
                 type="button"
                 onClick={() => setOpen(true)}

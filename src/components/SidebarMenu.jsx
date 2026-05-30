@@ -7,7 +7,6 @@ import { DRAWER_NAV, isNavActive } from '../lib/navLinks';
 import { useSiteSettings } from './SiteSettingsProvider';
 import { NEU } from './ui/neuTheme';
 import BrandLogo from './BrandLogo';
-import ThemeToggle from './ThemeToggle';
 import { TOPMATE_URL } from '../lib/siteSeo';
 
 const resume = 'https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view';
@@ -91,7 +90,6 @@ export default function SidebarMenu({ open, setOpen }) {
           </div>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <button
               type="button"
               onClick={() => setOpen(false)}

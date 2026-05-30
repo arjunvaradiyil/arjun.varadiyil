@@ -1,52 +1,21 @@
 'use client';
 
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import { NEU } from './ui/neuTheme';
-import { applyTheme, getStoredTheme, THEME_STORAGE_KEY, THEMES } from '../lib/theme';
+import { THEMES } from '../lib/theme';
 
-const ThemeContext = createContext({
+const ThemeContext = React.createContext({
   theme: THEMES.DARK,
-  setTheme: () => {},
-  toggleTheme: () => {},
 });
 
 export function useTheme() {
-  return useContext(ThemeContext);
+  return React.useContext(ThemeContext);
 }
 
+/** Dark theme only — keeps useTheme() working for existing components. */
 export default function ThemeProvider({ children }) {
-  const [theme, setThemeState] = useState(THEMES.DARK);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const initial = getStoredTheme();
-    applyTheme(initial);
-    setThemeState(initial);
-    setMounted(true);
-  }, []);
-
-  const setTheme = useCallback((next) => {
-    const value = next === THEMES.LIGHT ? THEMES.LIGHT : THEMES.DARK;
-    applyTheme(value);
-    localStorage.setItem(THEME_STORAGE_KEY, value);
-    setThemeState(value);
-  }, []);
-
-  const toggleTheme = useCallback(() => {
-    setTheme(theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK);
-  }, [setTheme, theme]);
-
-  const value = useMemo(
-    () => ({
-      theme: mounted ? theme : THEMES.DARK,
-      setTheme,
-      toggleTheme,
-    }),
-    [mounted, setTheme, theme, toggleTheme],
-  );
-
   return (
-    <ThemeContext.Provider value={value}>
+    <ThemeContext.Provider value={{ theme: THEMES.DARK }}>
       <div className={NEU.pageRoot}>{children}</div>
     </ThemeContext.Provider>
   );

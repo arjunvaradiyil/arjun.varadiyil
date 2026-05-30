@@ -17,10 +17,7 @@ import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, SITE_TITLE_DEFAULT, absoluteU
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8f8f6' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
+  themeColor: '#000000',
 };
 
 export const metadata = {
@@ -101,7 +98,7 @@ export default async function RootLayout({ children }) {
             __html: THEME_INIT_SCRIPT,
           }}
         />
-        <link rel='preload' as='image' href='/assets/images/arjunvaradiyil.jpeg' fetchPriority='high' />
+        <link rel='preload' as='image' href='/assets/images/profilepic.png' fetchPriority='high' />
       </head>
       <body className='antialiased font-sans'>
         <StructuredData />

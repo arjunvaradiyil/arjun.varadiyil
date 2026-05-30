@@ -31,27 +31,6 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
     --color-selection-bg: rgba(255, 255, 255, 0.2);
   }
 
-  .light {
-    color-scheme: light;
-    --color-surface: #f8f8f6;
-    --color-surface-elevated: #ffffff;
-    --color-header: rgba(248, 248, 246, 0.92);
-    --color-foreground: #0a0a0a;
-    --color-foreground-soft: rgba(10, 10, 10, 0.78);
-    --color-foreground-muted: rgba(10, 10, 10, 0.58);
-    --color-foreground-subtle: rgba(10, 10, 10, 0.46);
-    --color-foreground-faint: rgba(10, 10, 10, 0.38);
-    --color-foreground-ghost: rgba(10, 10, 10, 0.06);
-    --color-border: rgba(10, 10, 10, 0.22);
-    --color-border-strong: rgba(10, 10, 10, 0.38);
-    --color-grid-line: rgba(10, 10, 10, 0.26);
-    --color-primary-bg: #0a0a0a;
-    --color-primary-fg: #f8f8f6;
-    --color-hover: rgba(10, 10, 10, 0.04);
-    --color-focus: rgba(10, 10, 10, 0.55);
-    --color-selection-bg: rgba(10, 10, 10, 0.14);
-  }
-
   html {
     font-family: var(--font-syne), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     scroll-behavior: smooth;

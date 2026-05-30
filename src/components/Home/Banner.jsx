@@ -40,7 +40,7 @@ function HeroCta({ href, children, primary = false }) {
 export default function Banner() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { heroStats: HERO_STATS, heroImage, profile } = useSiteSettings();
-  const portrait = profile?.photo || '/assets/images/arjunvaradiyil.jpeg';
+  const portrait = profile?.photo || '/assets/images/profilepic.png';
   const heroSrc = heroImage || portrait;
   const portraitAlt = `${profile?.fullName || profile?.name || 'Arjun Varadiyil'} — full stack developer in Kerala, India`;
   const reduceMotion = useReducedMotion();

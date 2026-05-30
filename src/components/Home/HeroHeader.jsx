@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { CENTER_NAV } from '../../lib/navLinks';
-import ThemeToggle from '../ThemeToggle';
 import { NEU } from '../ui/neuTheme';
 
 const navLink = `${NEU.navLink} transition-colors`;
@@ -36,7 +35,6 @@ export default function HeroHeader({ menuOpen, onOpenMenu, variant = 'overlay' }
         </nav>
 
         <div className="flex items-center justify-end gap-2">
-          <ThemeToggle className="hidden md:flex" />
           <button
             type="button"
             onClick={onOpenMenu}
