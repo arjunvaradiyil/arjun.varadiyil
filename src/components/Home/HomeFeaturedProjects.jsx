@@ -18,7 +18,9 @@ export default function HomeFeaturedProjects({ projects = [] }) {
         <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className={NEU.eyebrow}>Featured work</p>
-            <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>Shipped in production</h2>
+            <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>
+              Next.js &amp; Payload CMS in production
+            </h2>
           </div>
           <Link href="/projects" className={`inline-flex items-center gap-2 ${NEU.link}`}>
             All projects

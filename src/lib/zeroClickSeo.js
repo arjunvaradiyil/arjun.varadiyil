@@ -1,5 +1,6 @@
 import {
   DEFAULT_DESCRIPTION,
+  SITE_EMAIL,
   SITE_NAME,
   SITE_URL,
   TOPMATE_URL,
@@ -36,7 +37,7 @@ export const SITE_FAQ = [
   {
     question: 'How do I contact Arjun Varadiyil?',
     answer:
-      'Visit arjunvaradiyil.in/contact to send a message, email arjunvaradiyil203@gmail.com, or book a call via Topmate. LinkedIn and GitHub links are on the site footer and profile page.',
+      'Use the contact form at arjunvaradiyil.in/contact or book a call via Topmate. LinkedIn and GitHub links are on the site footer and profile page.',
   },
   {
     question: 'Where is Arjun Varadiyil based?',
@@ -110,7 +111,7 @@ export function buildPersonSchema(extraSameAs = []) {
     description: SGE_SUMMARY,
     url: SITE_URL,
     image: PROFILE_IMAGE,
-    email: 'arjunvaradiyil203@gmail.com',
+    email: SITE_EMAIL,
     hasOccupation: {
       '@type': 'Occupation',
       name: 'Full Stack Developer',

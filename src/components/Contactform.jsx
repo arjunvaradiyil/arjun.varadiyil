@@ -94,7 +94,7 @@ function ContactIntro({ pageHero, contactNote, profileEmail }) {
           className="mt-8 inline-flex items-center gap-2 border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--color-foreground)] transition hover:border-[var(--color-foreground)] hover:bg-[var(--color-primary-bg)] hover:text-[var(--color-primary-fg)]"
         >
           <Mail className="h-3.5 w-3.5" aria-hidden />
-          {profileEmail}
+          Send email
         </Link>
       ) : null}
     </div>

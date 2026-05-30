@@ -7,5 +7,4 @@ export const STATIC_SITEMAP_PAGES = [
   { path: '/about', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/contact', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/certifications', changeFrequency: 'monthly', priority: 0.75 },
-  { path: '/hobbies', changeFrequency: 'monthly', priority: 0.65 },
 ];

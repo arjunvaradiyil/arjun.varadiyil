@@ -6,6 +6,7 @@ import MainShell from '../../components/MainShell';
 import ScrollToTopButton from '../../components/ScrollToTopButton';
 import ConditionalFooter from '../../components/ConditionalFooter';
 import ScrollToTop from '../../components/ScrollToTop';
+import GoogleAnalytics from '../../components/GoogleAnalytics';
 import StructuredData from '../../components/StructuredData';
 import SiteSettingsProvider from '../../components/SiteSettingsProvider';
 import { getSiteSettings } from '../../lib/cms/content';
@@ -35,6 +36,7 @@ export const metadata = {
     canonical: '/',
     languages: {
       en: absoluteUrl('/'),
+      'en-IN': absoluteUrl('/'),
       'x-default': absoluteUrl('/'),
     },
   },
@@ -99,8 +101,12 @@ export default async function RootLayout({ children }) {
           }}
         />
         <link rel='preload' as='image' href='/assets/images/profilepic.png' fetchPriority='high' />
+        <link rel='alternate' hrefLang='en' href={absoluteUrl('/')} />
+        <link rel='alternate' hrefLang='en-IN' href={absoluteUrl('/')} />
+        <link rel='alternate' hrefLang='x-default' href={absoluteUrl('/')} />
       </head>
       <body className='antialiased font-sans'>
+        <GoogleAnalytics />
         <StructuredData />
         <ThemeProvider>
           <SiteSettingsProvider value={siteSettings}>

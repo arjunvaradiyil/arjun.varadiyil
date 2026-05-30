@@ -46,7 +46,6 @@ export default function AboutHero({
   const reduceMotion = useReducedMotion();
   const photo = profile.photo || '/arjunvaradiyil.png';
   const displayName = profile.fullName || profile.name || 'Arjun Varadiyil';
-  const firstName = profile.name?.split(' ')[0] || 'Arjun';
 
   const facts = [
     {
@@ -89,15 +88,9 @@ export default function AboutHero({
           <div className="flex flex-1 flex-col gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 xl:px-12">
             <Reveal>
               <p className={NEU.eyebrow}>Profile</p>
-              <p className="mt-5 font-sans text-sm font-medium text-[var(--color-foreground-soft)] sm:text-base">
-                Hi, I&apos;m {firstName}{' '}
-                <span role="img" aria-label="wave">
-                  👋
-                </span>
-              </p>
               <h1
                 id="about-profile-heading"
-                className={`${NEU.displayHero} mt-4 text-4xl sm:text-5xl lg:text-[clamp(2rem,4vw,3.75rem)]`}
+                className={`${NEU.displayHero} mt-3 text-4xl sm:text-5xl lg:text-[clamp(2rem,4vw,3.75rem)]`}
               >
                 {displayName}
               </h1>

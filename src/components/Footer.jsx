@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useGsap } from '../hooks/useGsap';
 import { prefersReducedMotion, scrollReveal, EDITORIAL_EASE } from '../lib/gsap';
-import { TOPMATE_URL } from '../lib/siteSeo';
+import { SITE_EMAIL, TOPMATE_URL } from '../lib/siteSeo';
 import { CENTER_NAV } from '../lib/navLinks';
 import { useSiteSettings } from './SiteSettingsProvider';
 import { NEU } from './ui/neuTheme';
@@ -36,7 +36,7 @@ function FooterColumn({ label, children, align = 'left' }) {
 
 export default function Footer() {
   const { profile, workStatus } = useSiteSettings();
-  const email = profile?.email || 'arjunvaradiyil203@gmail.com';
+  const email = profile?.email || SITE_EMAIL;
   const location = profile?.location || 'Kerala, India';
 
   const scopeRef = useGsap(({ gsap, scope }) => {

@@ -1,4 +1,4 @@
-import { DEFAULT_DESCRIPTION, FACEBOOK_URL, TOPMATE_URL, X_URL, YOUTUBE_URL } from '../lib/siteSeo';
+import { DEFAULT_DESCRIPTION, FACEBOOK_URL, SITE_EMAIL, TOPMATE_URL, X_URL, YOUTUBE_URL } from '../lib/siteSeo';
 
 export default function StructuredData() {
   const sameAsExtra = [FACEBOOK_URL, X_URL, YOUTUBE_URL].filter((u) => typeof u === 'string' && u.length > 0);
@@ -7,11 +7,11 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Arjun Varadiyil",
-    "jobTitle": "Professional Web Developer",
+    "jobTitle": "Full Stack Developer",
     "description": DEFAULT_DESCRIPTION,
     "url": "https://arjunvaradiyil.in",
     "image": "https://arjunvaradiyil.in/assets/images/arjunvaradiyil.jpeg",
-    "email": "arjunvaradiyil203@gmail.com",
+    "email": SITE_EMAIL,
     "hasOccupation": {
       "@type": "Occupation",
       "name": "Professional Web Developer",
@@ -73,7 +73,7 @@ export default function StructuredData() {
     "provider": {
       "@type": "Person",
       "name": "Arjun Varadiyil",
-      "email": "arjunvaradiyil203@gmail.com"
+      "email": SITE_EMAIL
     },
     "areaServed": [
       {

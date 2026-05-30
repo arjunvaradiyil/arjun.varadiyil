@@ -173,12 +173,9 @@ export default function SidebarMenu({ open, setOpen }) {
             <address className="not-italic">
               <div className="space-y-1">
                 <p className={NEU.eyebrow}>Email</p>
-                <a
-                  href="mailto:arjunvaradiyil203@gmail.com"
-                  className={`block break-all text-base font-semibold sm:text-lg ${NEU.link}`}
-                >
-                  arjunvaradiyil203@gmail.com
-                </a>
+                <Link href="/contact" className={`block text-base font-semibold sm:text-lg ${NEU.link}`}>
+                  Send a message
+                </Link>
               </div>
 
               <div className="mt-8">

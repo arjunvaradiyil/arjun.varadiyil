@@ -3,8 +3,12 @@
 export const SITE_NAME = 'Arjun Varadiyil';
 export const SITE_URL = 'https://arjunvaradiyil.in';
 
-/** Default `<title>` / OG title — query-aligned phrase first (~55 chars); brand second. */
-export const SITE_TITLE_DEFAULT = 'Full Stack Developer in Kerala | Arjun Varadiyil';
+/** Contact email — use in mailto/API/schema only; avoid plain text in visible UI. */
+export const SITE_EMAIL = 'arjunvaradiyil203@gmail.com';
+
+/** Default `<title>` / OG title — 50–60 chars; primary keywords first. */
+export const SITE_TITLE_DEFAULT =
+  'Next.js & Payload CMS Developer in Kerala | Arjun Varadiyil';
 
 /** Book-a-call link (Topmate) — career guidance, resume review, mentoring */
 export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
@@ -12,9 +16,9 @@ export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
 /** Absolute sitemap URL — use in robots.txt and Search Console. */
 export const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
-/** Primary meta description — ~100–160 chars; sync layout + OG + Twitter + JSON-LD. */
+/** Primary meta description — 120–160 chars; sync layout + OG + Twitter + JSON-LD. */
 export const DEFAULT_DESCRIPTION =
-  'Full Stack Developer in Kerala — Next.js, Payload CMS & TypeScript for editorial platforms, headless CMS architecture, and high-traffic publishing. Biennale, news & civic tech.';
+  'Full stack developer in Kerala building production Next.js & Payload CMS platforms for news portals, biennale sites & civic tech teams.';
 
 export const KEYWORDS = [
   'Full Stack Developer in Kerala',

@@ -9,12 +9,12 @@ export default function HomeIntro() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className={`${NEU.display} text-2xl sm:text-3xl md:text-4xl`}>
-            Built for editorial teams
+            Full stack work for editorial &amp; news platforms
           </h2>
           <p className={`mt-6 ${NEU.bodyText}`}>
-            I design and ship CMS-driven platforms where content, performance, and UX work
-            together — from biennale programmes and news publishing to civic tools that need to
-            work under real-world traffic.
+            I design and ship Payload CMS and Next.js platforms where content, performance, and UX
+            work together — from biennale programmes and news publishing to civic tools that need
+            to work under real-world traffic.
           </p>
         </Reveal>
 
@@ -28,7 +28,9 @@ export default function HomeIntro() {
           <div className="grid gap-px bg-[var(--color-grid-line)] md:grid-cols-2">
             <div className="bg-[var(--color-surface)] px-6 py-10 md:px-8 md:py-12">
               <p className={NEU.eyebrow}>Approach</p>
-              <h3 className={`mt-4 ${NEU.display} text-xl md:text-2xl`}>CMS-first architecture</h3>
+              <h3 className={`mt-4 ${NEU.display} text-xl md:text-2xl`}>
+                Payload CMS &amp; Next.js architecture
+              </h3>
               <p className={`mt-4 ${NEU.bodyText}`}>
                 Payload collections, custom blocks, and GraphQL APIs shaped for editors — not
                 one-off hard-coded pages.
@@ -36,7 +38,9 @@ export default function HomeIntro() {
             </div>
             <div className="bg-[var(--color-surface)] px-6 py-10 md:px-8 md:py-12">
               <p className={NEU.eyebrow}>Focus</p>
-              <h3 className={`mt-4 ${NEU.display} text-xl md:text-2xl`}>Production delivery</h3>
+              <h3 className={`mt-4 ${NEU.display} text-xl md:text-2xl`}>
+                Production platforms at scale
+              </h3>
               <p className={`mt-4 ${NEU.bodyText}`}>
                 Performance, accessibility, and maintainable code — shipped in agile teams and
                 tuned for real users.

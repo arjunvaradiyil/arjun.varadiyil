@@ -19,7 +19,9 @@ export default function HomeServices({ skills = [] }) {
       <div className="relative mx-auto max-w-7xl">
         <Reveal>
           <p className={NEU.eyebrow}>Expertise</p>
-          <h2 className={`mt-3 max-w-xl ${NEU.display} text-3xl md:text-5xl`}>Timeless modern craft</h2>
+          <h2 className={`mt-3 max-w-xl ${NEU.display} text-3xl md:text-5xl`}>
+            Full stack developer expertise
+          </h2>
           <p className={`mt-5 max-w-2xl ${NEU.bodyText}`}>
             Next.js, Payload CMS, and full stack delivery for news, culture, and civic products —
             from architecture to launch.

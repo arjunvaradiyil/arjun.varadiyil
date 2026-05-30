@@ -1,0 +1,36 @@
+# Arjun Varadiyil — Portfolio
+
+> Full stack developer in Kerala, India. Builds production Next.js and Payload CMS platforms for editorial teams, news portals, biennale programmes, and civic tech.
+
+## About
+
+- Name: Arjun Varadiyil
+- Role: Full stack developer (Next.js, Payload CMS, TypeScript)
+- Location: Kerala, India
+- Website: https://arjunvaradiyil.in
+- LinkedIn: https://www.linkedin.com/in/arjunvaradiyil
+- GitHub: https://github.com/arjunvaradiyil/arjun.varadiyil
+
+## Expertise
+
+- Headless CMS architecture with Payload CMS
+- Next.js applications for high-traffic publishing
+- Editorial platforms, news portals, and civic tools
+- Performance, accessibility, and maintainable production delivery
+
+## Key pages
+
+- Home: https://arjunvaradiyil.in/
+- Work / projects: https://arjunvaradiyil.in/projects
+- About: https://arjunvaradiyil.in/about
+- Contact: https://arjunvaradiyil.in/contact
+- Certifications: https://arjunvaradiyil.in/certifications
+
+## Featured work
+
+- Kochi-Muziris Biennale platform: https://arjunvaradiyil.in/projects/kochi-muziris-biennale
+- Deshabhimani news portal: https://arjunvaradiyil.in/projects/deshabhimani-news-portal
+
+## Contact
+
+Use the contact form at https://arjunvaradiyil.in/contact or book a call via Topmate: https://topmate.io/arjun_varadiyil
