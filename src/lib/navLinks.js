@@ -8,7 +8,6 @@ export const DRAWER_NAV = [
   ...CENTER_NAV,
   { label: 'Certifications', href: '/certifications' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Hobbies', href: '/hobbies' },
 ];
 
 export function isNavActive(pathname, href) {
