@@ -1,6 +1,7 @@
 'use client';
 
 import { Reveal } from '../ui/Reveal';
+import GhostWatermark from '../ui/GhostWatermark';
 import { NEU } from '../ui/neuTheme';
 
 export default function HomeIntro() {
@@ -19,12 +20,9 @@ export default function HomeIntro() {
         </Reveal>
 
         <Reveal className="relative mt-12 md:mt-16" delay={0.1}>
-          <p
-            className={`${NEU.displayGhost} absolute -left-2 top-1/2 hidden -translate-y-1/2 text-[clamp(3rem,14vw,11rem)] md:block`}
-            aria-hidden
-          >
+          <GhostWatermark className="absolute -left-2 top-1/2 hidden -translate-y-1/2 text-[clamp(3rem,14vw,11rem)] md:block">
             The stack
-          </p>
+          </GhostWatermark>
           <div className="grid gap-px bg-[var(--color-grid-line)] md:grid-cols-2">
             <div className="bg-[var(--color-surface)] px-6 py-10 md:px-8 md:py-12">
               <p className={NEU.eyebrow}>Approach</p>

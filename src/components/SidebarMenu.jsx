@@ -106,7 +106,7 @@ export default function SidebarMenu({ open, setOpen }) {
           {PAGE_LINKS.map((item, i) => {
             const isActive = isNavActive(pathname, item.href);
             return (
-              <div key={item.slug} className={`group ${i === 0 ? '' : 'mt-3 sm:mt-4'}`}>
+              <div key={item.href} className={`group ${i === 0 ? '' : 'mt-3 sm:mt-4'}`}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}

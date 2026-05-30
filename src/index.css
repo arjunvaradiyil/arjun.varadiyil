@@ -128,5 +128,23 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
   transform: rotateY(180deg);
 }
 
+@keyframes ghost-watermark-highlight {
+  0%,
+  72%,
+  100% {
+    color: var(--color-foreground-ghost);
+    opacity: 1;
+  }
+
+  78%,
+  86% {
+    color: rgba(255, 255, 255, 0.22);
+    opacity: 1;
+  }
+}
+
+.ghost-watermark {
+  animation: ghost-watermark-highlight 3s ease-in-out infinite;
+}
 
 

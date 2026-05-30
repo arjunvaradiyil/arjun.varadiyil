@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
+import { NEU } from '../ui/neuTheme';
 import { EASE_OUT } from '../../lib/motion';
 
 export function getPortraitClasses(src) {
@@ -20,9 +21,17 @@ const SIZE_CLASSES = {
   split: 'absolute inset-0 h-full w-full min-h-[55vh] lg:min-h-full',
 };
 
+function splitDisplayName(name) {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length <= 1) return { first: name, last: null };
+  return { first: parts[0], last: parts.slice(1).join(' ') };
+}
+
 export default function HeroPortrait({
   src,
   alt,
+  name,
+  role,
   className = '',
   priority = false,
   size = 'default',
@@ -30,6 +39,7 @@ export default function HeroPortrait({
   const reduceMotion = useReducedMotion();
   const isSplit = size === 'split';
   const isLcp = priority && isSplit;
+  const displayName = name ? splitDisplayName(name) : null;
 
   return (
     <motion.div
@@ -59,11 +69,31 @@ export default function HeroPortrait({
             />
           </>
         ) : (
-          <div
+          <motion.div
             className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[min(70vw,520px)] w-[min(70vw,520px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.03)_45%,transparent_72%)] lg:h-[min(28vw,560px)] lg:w-[min(28vw,560px)]"
             aria-hidden
+            animate={
+              reduceMotion
+                ? undefined
+                : { opacity: [0.7, 1, 0.7], scale: [1, 1.04, 1] }
+            }
+            transition={
+              reduceMotion
+                ? undefined
+                : { duration: 7, repeat: Infinity, ease: 'easeInOut' }
+            }
           />
         )}
+        <motion.div
+          className="absolute inset-0 z-[1]"
+          initial={reduceMotion || isLcp ? false : { opacity: 0, scale: 1.03 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={
+            isLcp
+              ? { duration: 0 }
+              : { duration: 1.1, ease: EASE_OUT, delay: 0.05 }
+          }
+        >
         <Image
           src={src}
           alt={alt}
@@ -71,12 +101,13 @@ export default function HeroPortrait({
           priority={priority}
           fetchPriority={priority ? 'high' : 'auto'}
           sizes={isSplit ? '(max-width: 1024px) 100vw, 50vw' : '(max-width: 1024px) 90vw, 420px'}
-          className={`relative z-[1] grayscale ${getPortraitClasses(src)} ${
+          className={`grayscale ${getPortraitClasses(src)} ${
             isSplit
               ? 'lg:[mask-image:linear-gradient(to_right,black_58%,rgba(0,0,0,0.95)_78%,rgba(0,0,0,0.55)_90%,transparent_100%)]'
               : ''
           }`}
         />
+        </motion.div>
         <div
           className={`pointer-events-none absolute inset-0 z-[2] ${
             isSplit
@@ -96,6 +127,71 @@ export default function HeroPortrait({
               aria-hidden
             />
           </>
+        ) : null}
+        {displayName ? (
+          reduceMotion ? (
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface)]/85 to-transparent px-6 pb-8 pt-24 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12 xl:px-12">
+              <p className={`${NEU.displayHero} text-[clamp(2rem,7vw,3.5rem)] leading-[0.88] lg:text-[clamp(2.25rem,3.5vw,3.75rem)]`}>
+                <span className="block">{displayName.first}</span>
+                {displayName.last ? <span className="block">{displayName.last}</span> : null}
+              </p>
+              {role ? <p className={`mt-3 ${NEU.eyebrow}`}>{role}</p> : null}
+            </div>
+          ) : (
+          <motion.div
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface)]/85 to-transparent px-6 pb-8 pt-24 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12 xl:px-12"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.1, delayChildren: 0.35 },
+              },
+            }}
+          >
+            <motion.p
+              className={`${NEU.displayHero} text-[clamp(2rem,7vw,3.5rem)] leading-[0.88] lg:text-[clamp(2.25rem,3.5vw,3.75rem)]`}
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: { staggerChildren: 0.08, delayChildren: 0 },
+                },
+              }}
+            >
+              <motion.span
+                className="block"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE_OUT } },
+                }}
+              >
+                {displayName.first}
+              </motion.span>
+              {displayName.last ? (
+                <motion.span
+                  className="block"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE_OUT } },
+                  }}
+                >
+                  {displayName.last}
+                </motion.span>
+              ) : null}
+            </motion.p>
+            {role ? (
+              <motion.p
+                className={`mt-3 ${NEU.eyebrow}`}
+                variants={{
+                  hidden: { opacity: 0, y: 12 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE_OUT } },
+                }}
+              >
+                {role}
+              </motion.p>
+            ) : null}
+          </motion.div>
+          )
         ) : null}
       </div>
     </motion.div>

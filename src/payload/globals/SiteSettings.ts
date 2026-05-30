@@ -65,6 +65,7 @@ export const SiteSettings: GlobalConfig = {
       fields: [
         { name: 'value', type: 'text', required: true },
         { name: 'label', type: 'text', required: true },
+        { name: 'href', type: 'text', label: 'Link URL' },
       ],
     },
     {

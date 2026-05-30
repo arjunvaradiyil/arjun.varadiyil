@@ -89,6 +89,7 @@ export function mapSkill(doc: Record<string, unknown>) {
   return {
     id: String(doc.skillId ?? doc.id ?? ''),
     title: String(doc.title ?? ''),
+    href: String(doc.href ?? ''),
     cardBlurb: String(doc.cardBlurb ?? ''),
     description: String(doc.description ?? ''),
     features,
@@ -128,9 +129,10 @@ export function mapSiteSettings(global: Record<string, unknown> | null | undefin
   );
   const workStatus = (global.workStatus as Record<string, string>) || {};
   const heroStats = Array.isArray(global.heroStats)
-    ? global.heroStats.map((stat: { value?: string; label?: string }) => ({
+    ? global.heroStats.map((stat: { value?: string; label?: string; href?: string }) => ({
         value: String(stat?.value ?? ''),
         label: String(stat?.label ?? ''),
+        href: String(stat?.href ?? ''),
       }))
     : [];
 

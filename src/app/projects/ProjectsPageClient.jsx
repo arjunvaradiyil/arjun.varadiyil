@@ -8,6 +8,7 @@ import ProjectCard from '../../components/projects/ProjectCard';
 import { useGsap } from '../../hooks/useGsap';
 import { useSiteSettings } from '../../components/SiteSettingsProvider';
 import { NEU } from '../../components/ui/neuTheme';
+import GhostWatermark from '../../components/ui/GhostWatermark';
 import {
   EDITORIAL_EASE,
   prefersReducedMotion,
@@ -64,12 +65,9 @@ export default function ProjectsPageClient({ projects = [], description = '' }) 
           data-gsap="projects-hero"
           className="relative mb-10 border-b border-[var(--color-border)] pb-8 md:mb-12 md:pb-10"
         >
-          <p
-            className={`${NEU.displayGhost} pointer-events-none absolute -right-2 top-0 hidden text-[clamp(3rem,14vw,9rem)] md:block`}
-            aria-hidden
-          >
+          <GhostWatermark className="pointer-events-none absolute -right-2 top-0 hidden text-[clamp(3rem,14vw,9rem)] md:block">
             Work
-          </p>
+          </GhostWatermark>
           <p className={NEU.eyebrow}>Portfolio</p>
           <h1 className={`mt-3 ${NEU.display} text-4xl sm:text-5xl lg:text-6xl`}>Projects</h1>
           <p className={`mt-5 max-w-2xl text-base sm:text-lg ${NEU.bodyText}`}>

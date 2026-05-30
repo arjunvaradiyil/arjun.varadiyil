@@ -10,6 +10,7 @@ export const Skills: CollectionConfig = {
   fields: [
     { name: 'skillId', type: 'text', required: true, unique: true, label: 'Display ID' },
     { name: 'title', type: 'text', required: true },
+    { name: 'href', type: 'text', label: 'Link URL' },
     { name: 'cardBlurb', type: 'textarea' },
     { name: 'description', type: 'textarea' },
     ...imageUploadFields({

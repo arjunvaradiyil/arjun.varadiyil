@@ -21,10 +21,10 @@ export const WORK_STATUS = {
 };
 
 export const HERO_STATS = [
-  { value: '1.3+', label: 'Years building production apps' },
-  { value: '3', label: 'Platforms shipped to production' },
-  { value: 'Remote', label: 'Ready to collaborate' },
-  { value: 'CMS', label: 'Payload CMS specialist' },
+  { value: '1.3+', label: 'Years building production apps', href: '/about' },
+  { value: '3', label: 'Platforms shipped to production', href: '/projects' },
+  { value: 'Remote', label: 'Ready to collaborate', href: '/contact' },
+  { value: 'CMS', label: 'Payload CMS specialist', href: '/projects' },
 ];
 
 /** Home hero only — work-focused; profile details live on /about */

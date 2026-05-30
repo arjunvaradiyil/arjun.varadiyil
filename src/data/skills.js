@@ -2,6 +2,7 @@ export const skills = [
   {
     id: '01',
     title: 'Frontend',
+    href: '/about',
     cardBlurb:
       'Editorial interfaces with React and Next.js — responsive layouts, accessible components, and fast page loads.',
     description:
@@ -19,6 +20,7 @@ export const skills = [
   {
     id: '02',
     title: 'Full Stack',
+    href: '/projects',
     cardBlurb:
       'End-to-end delivery — APIs, auth, databases, and polished UI from a single codebase.',
     description:
@@ -36,6 +38,7 @@ export const skills = [
   {
     id: '03',
     title: 'Content Management',
+    href: '/projects',
     cardBlurb:
       'Headless CMS with Payload — structured content, custom blocks, and API-first publishing.',
     description:
@@ -53,6 +56,7 @@ export const skills = [
   {
     id: '04',
     title: 'Tools & Workflow',
+    href: '/about',
     cardBlurb:
       'Git, VS Code, and cross-platform development — structured workflows from local to production.',
     description:
