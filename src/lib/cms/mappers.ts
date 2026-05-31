@@ -39,6 +39,16 @@ export function mapProject(doc: Record<string, unknown>) {
     ? doc.responsibilities.map((item: { text?: string }) => item?.text).filter(Boolean)
     : [];
 
+  const outcomes = Array.isArray(doc.outcomes)
+    ? doc.outcomes
+        .map((item: { value?: string; label?: string; detail?: string }) => ({
+          value: String(item?.value ?? ''),
+          label: String(item?.label ?? ''),
+          detail: item?.detail ? String(item.detail) : undefined,
+        }))
+        .filter((o) => o.value && o.label)
+    : [];
+
   return {
     id: String(doc.projectId ?? doc.id ?? ''),
     slug: String(doc.slug ?? ''),
@@ -57,6 +67,7 @@ export function mapProject(doc: Record<string, unknown>) {
     teamMembers: Number(doc.teamMembers ?? 0),
     duration: String(doc.duration ?? ''),
     responsibilities,
+    outcomes,
     image: resolveMediaUrl(doc.imageMedia, String(doc.image ?? '')),
     logo: resolveMediaUrl(doc.logoMedia, String(doc.logo ?? '')),
     type: String(doc.type ?? 'image'),

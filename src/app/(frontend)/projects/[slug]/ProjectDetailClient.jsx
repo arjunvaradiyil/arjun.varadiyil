@@ -6,6 +6,7 @@ import { useMemo } from 'react'
 import { FiArrowLeft, FiCalendar, FiClock, FiExternalLink, FiUsers } from 'react-icons/fi'
 import { HiOutlineBriefcase } from 'react-icons/hi2'
 import ProjectCard from '../../../../components/projects/ProjectCard'
+import ProjectOutcomes from '../../../../components/projects/ProjectOutcomes'
 import { NEU } from '../../../../components/ui/neuTheme'
 import { useGsap } from '../../../../hooks/useGsap'
 import {
@@ -253,6 +254,12 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
                   </div>
                 ) : null}
               </div>
+            </Section>
+          )}
+
+          {project.outcomes?.length > 0 && (
+            <Section eyebrow="Outcomes" title="Measurable results">
+              <ProjectOutcomes outcomes={project.outcomes} />
             </Section>
           )}
 

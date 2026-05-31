@@ -12,36 +12,36 @@ export const NJR_NAV_CATEGORIES = [
 /** Shown in hero, nav, and CTAs — update when employment status changes */
 export const WORK_STATUS = {
   badge: 'Open to freelance',
-  eyebrow: 'Arjun Varadiyil',
+  eyebrow: 'Full stack · Payload CMS',
   company: 'Faircode Infotech',
-  primaryCta: 'Discuss your project',
+  primaryCta: 'Get your project plan',
   navCta: 'Contact',
   contactNote:
-    'Share your editorial product, CMS migration, or news portal brief — I respond within 24 hours with clear next steps.',
+    'Tell me what your editorial team needs to ship faster — I respond within 24 hours with scope, timeline, and next steps.',
 };
 
 export const HERO_STATS = [
-  { value: '1.3+', label: 'Years building production apps', href: '/about' },
-  { value: '3', label: 'Platforms shipped to production', href: '/projects' },
-  { value: 'Remote', label: 'Ready to collaborate', href: '/contact' },
-  { value: 'CMS', label: 'Payload CMS specialist', href: '/projects' },
+  { value: '3', label: 'Production platforms live today', href: '/projects' },
+  { value: '8 wks', label: 'Fastest greenfield CMS launch', href: '/projects/kochi-muziris-biennale' },
+  { value: '15+', label: 'Editor-managed content models', href: '/projects' },
+  { value: '<2s', label: 'Publish → live page (ISR)', href: '/contact' },
 ];
 
 /** Home hero only — work-focused; profile details live on /about */
 export const HOME_HERO = {
-  eyebrow: 'Work',
-  headline: ['Built for scale.', 'Designed for performance.'],
+  eyebrow: 'Results, not résumés',
+  headline: ['CMS platforms that ship.', 'Outcomes you can measure.'],
   tagline:
-    'Full stack developer at Faircode Infotech — 3 production CMS platforms shipped for biennale, news & civic teams.',
+    'I build Next.js + Payload CMS systems for newsrooms & editorial teams — 3 in production, zero content bottlenecks.',
   description: '',
 };
 
 export const HOME_HERO_META = [
-  { label: 'Stack', value: 'Next.js • Payload CMS • TypeScript' },
-  { label: 'Domains', value: 'Editorial • Publishing • Civic Tech' },
-  { label: 'Availability', value: 'Available for freelance & contract work' },
+  { label: 'Current role', value: 'Full Stack Developer @ Faircode Infotech' },
+  { label: 'What clients get', value: 'Editors publish daily · Devs stop firefighting content' },
+  { label: 'Availability', value: 'Freelance & contract — Kerala & remote' },
   {
-    label: 'Recent work',
-    value: 'Biennale platforms, news systems & civic tools — live in production',
+    label: 'Latest result',
+    value: 'Biennale & news platforms live — editors own the CMS, not engineering',
   },
 ];

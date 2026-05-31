@@ -30,7 +30,13 @@ export const projects = [
     solution:
       'Greenfield Next.js + Payload CMS platform with custom collections, blocks, and GraphQL APIs — fully admin-controlled, no hard-coded pages.',
     impact:
-      'Shipped in 2 months with a 6-person team. Editors publish exhibitions, artists, and programmes independently; platform runs in production for the biennale cycle.',
+      'Live in 8 weeks with a 6-person team. 15+ Payload collections let editors publish exhibitions, artists & programmes without redeploys — platform runs the full biennale cycle.',
+    outcomes: [
+      { value: '8 wks', label: 'Build to production', detail: 'Greenfield CMS platform with full editorial handoff' },
+      { value: '15+', label: 'CMS collections & blocks', detail: 'Exhibitions, artists, programmes, multimedia' },
+      { value: '6', label: 'Team members delivered', detail: 'Cross-functional agile squad' },
+      { value: '0', label: 'Redeploys per publish', detail: 'Editors push content live via Payload admin' },
+    ],
     responsibilities: [
       'Built the platform from scratch using Next.js and Payload CMS',
       'Designed a fully admin-controlled CMS architecture',
@@ -75,7 +81,13 @@ export const projects = [
     solution:
       'Payload CMS–driven news portal with reusable content blocks, article workflows, and performance-tuned Next.js frontend for high readership.',
     impact:
-      'Delivered over 4 months with a 4-person team. Editorial staff publish and manage multimedia content daily; platform handles live news traffic.',
+      '4-month delivery with a 4-person squad. Newsroom publishes breaking stories & multimedia daily — no developer queue for routine content updates.',
+    outcomes: [
+      { value: 'Daily', label: 'Editorial publish cadence', detail: 'Breaking news & multimedia without dev tickets' },
+      { value: '4 mo', label: 'Feature delivery window', detail: 'Reusable blocks + CMS workflows on live portal' },
+      { value: '4', label: 'Developers on squad', detail: 'Full-stack frontend + Payload CMS' },
+      { value: '100%', label: 'CMS-driven pages', detail: 'No hard-coded article templates in production' },
+    ],
     responsibilities: [
       'Built new features and reusable blocks based on user requirements',
       'Fixed bugs and improved application performance',
@@ -121,7 +133,13 @@ export const projects = [
     solution:
       'Full-stack civic app with digital pledge flow, booth lookup, JWT-secured admin panel, and MongoDB backend — designed and shipped solo in one week.',
     impact:
-      'End-to-end delivery in 7 days. Citizens access pledge and booth tools from one platform; admins track participation without manual spreadsheets.',
+      'Solo ship in 7 days. Citizens complete pledge & booth lookup in one flow; district admins track participation from a single JWT-secured panel.',
+    outcomes: [
+      { value: '7 days', label: 'Concept to deployment', detail: 'Solo full-stack architecture & delivery' },
+      { value: '2', label: 'Citizen-facing flows', detail: 'Digital pledge + polling booth lookup' },
+      { value: '1', label: 'Admin dashboard', detail: 'Participation tracking without spreadsheets' },
+      { value: 'JWT', label: 'Secured operator access', detail: 'Role-based admin for district teams' },
+    ],
     responsibilities: [
       'Developed and implemented features based on user and business requirements',
       'Worked on both frontend and backend development',

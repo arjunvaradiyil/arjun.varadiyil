@@ -1,6 +1,6 @@
 import Banner from '../../components/Home/Banner';
 import HomeProofBar from '../../components/Home/HomeProofBar';
-import HomeTerminal from '../../components/Home/HomeTerminal';
+import HomeCmsDemo from '../../components/Home/HomeCmsDemo';
 import HomeTrust from '../../components/Home/HomeTrust';
 import HomeCta from '../../components/Home/HomeCta';
 import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
@@ -47,7 +47,7 @@ export default async function HomePage() {
       <Banner />
       <HomeProofBar />
       <div id="home-content">
-        <HomeTerminal />
+        <HomeCmsDemo />
         <HomeIntro />
         <HomeFeaturedProjects projects={projects} />
         <HomeTrust />

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
+import ProjectOutcomes from './ProjectOutcomes';
 
 const IMAGE_SIZES = '(max-width: 768px) 100vw, 45vw';
 
@@ -42,12 +43,7 @@ function ProjectCardBody({ project, variant }) {
         ) : project.tagline ? (
           <p className={`mt-2 line-clamp-2 text-sm leading-relaxed ${NEU.bodyText}`}>{project.tagline}</p>
         ) : null}
-        {project.problem ? (
-          <p className={`mt-3 line-clamp-2 text-xs leading-relaxed ${NEU.bodyText}`}>
-            <span className="text-[var(--color-foreground-muted)]">Problem · </span>
-            {project.problem}
-          </p>
-        ) : null}
+        <ProjectOutcomes outcomes={project.outcomes} compact />
         <span className={`mt-auto inline-flex items-center gap-1 pt-5 ${NEU.link}`}>
           Read case study
           <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -142,6 +138,8 @@ function ProjectListItem({ project, index }) {
               {project.impact}
             </p>
           ) : null}
+
+          <ProjectOutcomes outcomes={project.outcomes} compact className="max-w-md" />
 
           {tags.length > 0 ? (
             <ul className="mt-6 flex flex-wrap gap-2">

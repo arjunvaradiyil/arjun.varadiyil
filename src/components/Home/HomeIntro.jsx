@@ -11,11 +11,11 @@ export default function HomeIntro() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className={NEU.eyebrow}>What I deliver</p>
           <h2 className={`${NEU.display} text-2xl sm:text-3xl md:text-4xl`}>
-            Editorial platforms with measurable outcomes
+            Why teams hire me — and what they get
           </h2>
           <p className={`mt-6 ${NEU.bodyText}`}>
-            Not slide decks — production CMS systems where editors publish daily, pages load fast, and
-            teams can extend the codebase after launch.
+            Faster publishing. Fewer dev bottlenecks. Platforms that stay maintainable after launch.
+            That&apos;s the outcome — not another React portfolio.
           </p>
         </Reveal>
 
