@@ -32,11 +32,15 @@ export function resolveMediaUrl(
 
 export function mapProject(doc: Record<string, unknown>) {
   const services = Array.isArray(doc.services)
-    ? doc.services.map((item: { label?: string }) => item?.label).filter(Boolean)
+    ? doc.services
+        .map((item: { label?: string }) => item?.label)
+        .filter((label): label is string => Boolean(label))
     : [];
 
   const responsibilities = Array.isArray(doc.responsibilities)
-    ? doc.responsibilities.map((item: { text?: string }) => item?.text).filter(Boolean)
+    ? doc.responsibilities
+        .map((item: { text?: string }) => item?.text)
+        .filter((text): text is string => Boolean(text))
     : [];
 
   const outcomes = Array.isArray(doc.outcomes)

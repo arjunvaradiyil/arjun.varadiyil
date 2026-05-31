@@ -94,8 +94,10 @@ export async function getSiteSettings() {
   }
 }
 
-export async function getProjects() {
-  let projects = staticProjects;
+export type PortfolioProject = ReturnType<typeof mapProject>;
+
+export async function getProjects(): Promise<PortfolioProject[]> {
+  let projects: PortfolioProject[] = staticProjects as PortfolioProject[];
 
   if (isCmsConfigured()) {
     try {
