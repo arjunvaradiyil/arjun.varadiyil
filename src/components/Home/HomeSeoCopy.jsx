@@ -8,46 +8,29 @@ export default function HomeSeoCopy() {
       aria-labelledby="home-seo-heading"
     >
       <div className="mx-auto max-w-3xl">
-        <p className={NEU.eyebrow}>Full stack developer</p>
+        <p className={NEU.eyebrow}>Based in Kerala</p>
         <h2 id="home-seo-heading" className={`mt-3 ${NEU.display} text-2xl md:text-3xl`}>
-          Next.js & Payload CMS work in Kerala
+          Payload CMS & Next.js for teams that publish daily
         </h2>
         <div className={`mt-6 space-y-5 ${NEU.bodyText}`}>
           <p>
-            I&apos;m <strong>Arjun Varadiyil</strong>, a full stack developer based in Kerala who
-            ships production web platforms for editorial teams. My work spans news portals, biennale
-            programmes, and civic tools — products where content editors, performance budgets, and
-            reliable delivery all matter under real traffic.
+            I&apos;m <strong>Arjun Varadiyil</strong>, a developer at Faircode Infotech in Kerala.
+            My recent work includes a Deshabhimani news portal, the Kochi–Muziris Biennale platform,
+            and a MyIdukki civic pledge app — products where reporters, curators, and district staff
+            need to update content without opening a dev ticket.
           </p>
           <p>
-            I specialise in <strong>Next.js</strong> and <strong>Payload CMS</strong>: custom
-            collections, reusable blocks, and APIs shaped for publishing workflows instead of
-            one-off pages. From architecture through launch, I focus on maintainable TypeScript,
-            accessible UI, and systems teams can extend after go-live.
-          </p>
-          <h3 className={`pt-2 ${NEU.display} text-lg md:text-xl`}>
-            Production platforms & news publishing
-          </h3>
-          <p>
-            Recent work includes a Kochi-Muziris Biennale platform and a Deshabhimani news portal
-            — both built as CMS-driven products with editor-friendly workflows. Whether you need a
-            headless CMS migration, a greenfield editorial stack, or help scaling an existing
-            Next.js app, I bring hands-on experience from agile teams shipping to production.
-          </p>
-          <p>
-            Explore the{' '}
+            I care about one thing more than stack choices: editors should not wait on deploys to
+            publish. That means Payload collections and blocks shaped around real workflows, and
+            Next.js frontends that stay fast when a story or exhibition goes live.{' '}
             <a href="/projects" className="underline underline-offset-4 hover:text-[var(--color-foreground)]">
-              project archive
+              See the case studies
             </a>{' '}
-            for case studies, read my{' '}
-            <a href="/about" className="underline underline-offset-4 hover:text-[var(--color-foreground)]">
-              work profile
-            </a>
-            , or{' '}
+            or{' '}
             <a href="/contact" className="underline underline-offset-4 hover:text-[var(--color-foreground)]">
               get in touch
-            </a>{' '}
-            to discuss your next build.
+            </a>
+            .
           </p>
         </div>
       </div>

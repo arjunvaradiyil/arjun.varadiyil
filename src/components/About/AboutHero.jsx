@@ -127,7 +127,7 @@ export default function AboutHero({
                 <AboutCta href="/contact" primary>
                   Get in touch
                 </AboutCta>
-                {/* <AboutCta href="/projects">View my work</AboutCta> */}
+                <AboutCta href="/projects">View my work</AboutCta>
               </div>
             </motion.div>
           </div>

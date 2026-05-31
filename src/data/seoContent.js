@@ -2,34 +2,34 @@
 
 /** 30–50 word definition block for AI extraction (also used as zero-click summary). */
 export const SGE_SUMMARY =
-  'Arjun Varadiyil is a Full Stack Developer at Faircode Infotech in Kerala, India, working with Next.js, Payload CMS, and TypeScript on editorial and publishing teams.';
+  'Arjun Varadiyil is a Full Stack Developer at Faircode Infotech in Kerala. He builds Payload CMS and Next.js platforms for newsrooms, cultural festivals, and civic teams — where editors publish daily without waiting on developers.';
 
 export const ABOUT_TAGLINE_SEO =
-  'Full Stack Developer in Kerala building scalable editorial and CMS-driven platforms with Next.js and Payload CMS.';
+  'Full Stack Developer in Kerala — Payload CMS and Next.js for newsrooms, festivals, and civic products.';
 
-export const PROFESSIONAL_SUMMARY_SEO = `Arjun Varadiyil is a Full Stack Developer at Faircode Infotech in Kerala, India. He works on Next.js, Payload CMS, and TypeScript — contributing to editorial platforms and publishing systems as part of cross-functional teams. This portfolio focuses on skills, experience, and personal projects; employer client work is not listed.`;
+export const PROFESSIONAL_SUMMARY_SEO =
+  'Developer at Faircode Infotech in Kerala. I work on Payload CMS and Next.js — mostly news portals, a biennale platform, and civic tools where non-technical teams need to publish on their own. This site covers my skills and selected work; employer client details stay off the public portfolio.';
 
 export const CORE_COMPETENCIES = {
   stack: [
-    'Next.js (App Router, SSR/SSG, performance tuning)',
-    'Payload CMS (collections, blocks, GraphQL/REST APIs)',
+    'Next.js App Router, SSR, and route-level caching',
+    'Payload CMS — collections, blocks, GraphQL/REST',
     'TypeScript, React, Node.js, Express.js',
     'MongoDB, PostgreSQL, REST & GraphQL integrations',
-    'Tailwind CSS, responsive editorial UI, accessibility',
+    'Tailwind CSS, accessible layouts, Core Web Vitals tuning',
   ],
   domains: [
-    'Editorial & publishing platforms',
-    'Headless CMS architecture & content modeling',
-    'High-traffic application development',
-    'Digital journalism tech stack',
-    'Civic tech & public-facing web products',
-    'Performance optimization under production load',
+    'Malayalam newsroom publishing',
+    'Arts & festival programme sites',
+    'Civic engagement and public-facing tools',
+    'Headless CMS content modeling',
+    'Editor workflows that skip developer handoffs',
   ],
   outcomes: [
-    'Fast publishing workflows for editorial teams',
-    'Clean, maintainable CMS-driven content architecture',
-    'Flawless performance during traffic spikes',
-    'End-to-end delivery from architecture to launch',
+    'Editors publish articles and programmes without filing dev tickets',
+    'Content models that match how teams actually work',
+    'Frontends that hold up when traffic spikes on launch day',
+    'Clear handoff so in-house teams can extend the system',
   ],
 };
 
@@ -39,18 +39,18 @@ export const ABOUT_SECTIONS = [
     body: SGE_SUMMARY,
   },
   {
-    title: 'Editorial & CMS specialization',
+    title: 'What he builds',
     body:
-      'Arjun Varadiyil focuses on production-grade systems engineered for editorial teams — not generic marketing sites. He designs Payload CMS schemas, custom content blocks, and Next.js frontends that keep publishers fast, structured, and stable when traffic spikes.',
+      'Payload CMS backends and Next.js frontends for teams that publish every day — not brochure sites updated once a quarter. Recent work includes a Malayalam news portal, a Kochi–Muziris Biennale platform, and a district civic pledge app.',
   },
   {
-    title: 'Production focus',
+    title: 'How he works',
     body:
-      'Arjun works on editorial and publishing platforms with Next.js and Payload CMS — headless architecture, custom content blocks, and frontends tuned for traffic spikes. Employer client deliverables are not listed on this site.',
+      'Small squads, typed codebases, and CMS schemas shaped around editor habits. If a content change needs a deploy, that is a design problem — not something editors should have to work around.',
   },
   {
-    title: 'Technical outcomes clients care about',
+    title: 'What to expect',
     body:
-      'Every build targets measurable results: sub-second editorial workflows, headless CMS flexibility, TypeScript-safe codebases, and frontends that stay performant under stress — the stack editorial and civic teams depend on daily.',
+      'Honest scope, working software in 2–4 month cycles, and systems your team can maintain after launch. Employer client deliverables are not listed on this site.',
   },
 ];

@@ -30,9 +30,9 @@ export default function HomeTrust() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="max-w-2xl">
           <p className={NEU.eyebrow}>Trust signals</p>
-          <h2 className={`mt-3 ${NEU.display} text-3xl md:text-4xl`}>Built for results you can verify</h2>
+          <h2 className={`mt-3 ${NEU.display} text-3xl md:text-4xl`}>Numbers you can check</h2>
           <p className={`mt-4 ${NEU.bodyText}`}>
-            Production metrics, open-source activity, and performance scores — not vague skill lists.
+            Lighthouse scores, load times, and GitHub activity — not a skills laundry list.
           </p>
         </Reveal>
 

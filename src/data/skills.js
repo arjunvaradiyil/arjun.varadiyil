@@ -4,14 +4,14 @@ export const skills = [
     title: 'Frontend',
     href: '/about',
     cardBlurb:
-      'Editorial interfaces with React and Next.js — responsive layouts, accessible components, and fast page loads.',
+      'Article pages, programme listings, and festival schedules — React and Next.js layouts built for daily publishing.',
     description:
-      'Modern, responsive user interfaces built with React and Next.js, delivering clear hierarchy and smooth interactions across devices.',
+      'Interfaces for newsrooms and cultural orgs: clear hierarchy, keyboard-friendly navigation, and pages that load fast on mid-range phones.',
     features: [
-      'React component architecture for scalable frontends',
-      'Next.js App Router, SSR, and static generation',
-      'Responsive design with Tailwind CSS',
-      'Motion, accessibility, and performance tuning',
+      'Next.js App Router with SSR and static routes where it fits',
+      'Component patterns reused across article, listing, and detail pages',
+      'Tailwind layouts tuned for Malayalam and English content',
+      'Motion and image loading that does not tank LCP',
     ],
     image:
       'https://miro.medium.com/v2/resize:fit:1400/0*8TnOSxYPBGXfGnSs',
@@ -22,14 +22,14 @@ export const skills = [
     title: 'Full Stack',
     href: '/projects',
     cardBlurb:
-      'End-to-end delivery — APIs, auth, databases, and polished UI from a single codebase.',
+      'APIs, auth, and databases wired to the same Next.js codebase — from booth lookup flows to news article endpoints.',
     description:
-      'Full-stack web applications with Node.js, Express, and Next.js — from database design to production deployment.',
+      'End-to-end features on MongoDB and PostgreSQL: pledge forms, admin dashboards, GraphQL resolvers, and REST hooks for third-party tools.',
     features: [
-      'RESTful and GraphQL API design',
-      'MongoDB and PostgreSQL data modelling',
-      'Authentication with JWT and session flows',
-      'Real-time features and query optimization',
+      'GraphQL and REST APIs shaped around editor and reader needs',
+      'MongoDB for civic apps; PostgreSQL where relational data fits',
+      'JWT-secured admin panels for non-technical operators',
+      'Bug fixes and feature work on live news and festival sites',
     ],
     image:
       'https://www.mindinventory.com/blog/wp-content/uploads/2022/03/react-nodejs.webp',
@@ -40,14 +40,14 @@ export const skills = [
     title: 'Content Management',
     href: '/projects',
     cardBlurb:
-      'Headless CMS with Payload — structured content, custom blocks, and API-first publishing.',
+      'Payload CMS for newsrooms and festivals — custom blocks editors recognise, not generic page builders.',
     description:
-      'Payload CMS implementations for news portals, cultural platforms, and editorial workflows at scale.',
+      'Collections and blocks for Deshabhimani-style news workflows and biennale programme content: artists, venues, schedules, multimedia.',
     features: [
-      'Custom collections, blocks, and admin UX',
-      'GraphQL and REST content delivery',
-      'Media libraries and S3-backed uploads',
-      'Multilingual and role-based publishing',
+      'Content models mapped to how editors actually file stories',
+      'Reusable blocks for hero, gallery, embed, and related links',
+      'S3-backed media libraries with sensible admin UX',
+      'Role-based access so reporters and admins see different views',
     ],
     image:
       'https://t3.ftcdn.net/jpg/05/54/74/70/360_F_554747016_FIqkviyI5ClrTfNN3fgL6kI0KUfpaIK9.jpg',
@@ -58,14 +58,14 @@ export const skills = [
     title: 'Tools & Workflow',
     href: '/about',
     cardBlurb:
-      'Git, VS Code, and cross-platform development — structured workflows from local to production.',
+      'Git, Postman, and VS Code — the boring toolchain that keeps multi-dev squads aligned.',
     description:
-      'Development tooling and environments for testing, collaboration, and reliable deployments.',
+      'Version control, API testing, and local setups that match staging — so handoffs between frontend and CMS work stay predictable.',
     features: [
-      'Git and GitHub for version control and reviews',
-      'Postman for API testing and documentation',
-      'VS Code as primary IDE',
-      'Linux, macOS, and Windows development',
+      'GitHub PRs and branch workflows on 4–6 person teams',
+      'Postman collections for GraphQL and REST endpoints',
+      'VS Code as primary editor across macOS and Linux',
+      'Python scripts for one-off data and automation tasks',
     ],
     image:
       'https://i.ytimg.com/vi/7WrU5KQRw2o/hq720.jpg',

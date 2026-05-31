@@ -11,35 +11,35 @@ export const CURRENT_ROLE = {
 export const PROOF_METRICS = [
   {
     value: '3',
-    label: 'Featured projects',
-    detail: 'Editorial, news & civic platforms',
+    label: 'Case studies',
+    detail: 'Biennale, Deshabhimani & MyIdukki',
     href: '/projects',
   },
   {
-    value: 'Dev',
-    label: 'Full stack developer',
-    detail: 'Next.js + Payload CMS builds',
-    href: '/projects',
+    value: '4–6',
+    label: 'Typical team',
+    detail: 'Cross-functional squads on client builds',
+    href: '/about',
   },
   {
     value: 'CMS',
-    label: 'Editorial systems focus',
-    detail: 'Collections, blocks & publishing workflows',
+    label: 'Payload in practice',
+    detail: 'Collections, blocks & GraphQL APIs',
     href: '/projects',
   },
   {
-    value: 'Stack',
-    label: 'Production tooling',
-    detail: 'TypeScript · MongoDB · GraphQL · AWS',
+    value: '1.3s',
+    label: 'This site LCP',
+    detail: 'AVIF images, edge fonts, lean bundles',
     href: '/about',
   },
 ];
 
 export const TRUST_METRICS = [
-  { label: 'Lighthouse SEO', value: '92+', note: 'This portfolio site — structured data & metadata' },
-  { label: 'Desktop LCP', value: '1.3s', note: 'Optimized fonts, AVIF/WebP & edge delivery' },
-  { label: 'Stack', value: 'Next.js', note: 'Payload CMS · TypeScript · MongoDB · AWS' },
-  { label: 'GitHub', value: 'Active', note: 'Open-source & personal experiments' },
+  { label: 'Lighthouse SEO', value: '92+', note: 'Structured data on this portfolio' },
+  { label: 'Desktop LCP', value: '1.3s', note: 'Measured on this build' },
+  { label: 'GitHub', value: 'Active', note: 'Side projects between client work' },
+  { label: 'Stack', value: 'TypeScript', note: 'Next.js · Payload · MongoDB' },
 ];
 
 export const GITHUB_USERNAME = 'arjunvaradiyil';
@@ -50,13 +50,13 @@ export const CURRENTLY_EXPLORING = [
   'AI agent workflows',
   'LangChain & RAG',
   'Payload CMS 3',
-  'Next.js performance',
+  'Next.js caching patterns',
 ];
 
 export const OUTCOME_CTA = {
-  headline: 'Interested in my work?',
+  headline: 'Want to talk?',
   subline:
-    'This is a professional portfolio. For networking, collaboration, or career conversations, get in touch or connect on LinkedIn.',
+    'Open to roles, collaborations, and straight conversations about CMS and publishing work.',
   primary: { label: 'Get in touch', href: '/contact' },
   secondary: { label: 'Connect on LinkedIn', href: LINKEDIN_URL, external: true },
 };
@@ -65,7 +65,7 @@ export const OUTCOME_CTA = {
 export const SIGNATURE_DEMO = {
   eyebrow: 'The Publish Lab',
   tag: 'Concept demo',
-  title: 'Editorial publish flow (illustrative)',
+  title: 'How a story goes live',
   description:
-    'A simplified simulation of CMS → Next.js → reader — the kind of pipeline used on editorial projects. Not client source code or production data.',
+    'A stripped-down CMS → Next.js → reader flow — the same shape as news and festival builds, without client data.',
 };

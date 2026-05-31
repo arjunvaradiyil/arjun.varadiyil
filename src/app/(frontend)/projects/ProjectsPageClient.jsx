@@ -16,7 +16,7 @@ import {
 } from '../../../lib/gsap';
 
 const DEFAULT_DESCRIPTION =
-  'Arts & culture, news publishing, and civic tech — Next.js, Payload CMS, and full stack delivery.';
+  'Kochi–Muziris Biennale, Deshabhimani newsroom, and MyIdukki civic app — role, stack, and what each solved.';
 
 export default function ProjectsPageClient({ projects = [], description = '' }) {
   const { workStatus } = useSiteSettings();

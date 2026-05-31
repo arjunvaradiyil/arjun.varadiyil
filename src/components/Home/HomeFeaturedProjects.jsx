@@ -19,13 +19,13 @@ export default function HomeFeaturedProjects({ projects = [] }) {
       <div className="mx-auto max-w-7xl">
         <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className={NEU.eyebrow}>Selected work</p>
-            <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>
-              Selected work
-            </h2>
-            <p className={`mt-3 max-w-lg ${NEU.bodyText}`}>
-              Editorial, news & civic platforms — stack, role, and impact listed per project.
-            </p>
+            <p className={NEU.eyebrow}>Recent builds</p>
+          <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>
+            Recent builds
+          </h2>
+          <p className={`mt-3 max-w-lg ${NEU.bodyText}`}>
+            A biennale platform, a Malayalam newsroom, and a civic pledge app — each with the problem, stack, and my role.
+          </p>
           </div>
           <Link href="/projects" className={`inline-flex items-center gap-2 ${NEU.link}`}>
             All projects

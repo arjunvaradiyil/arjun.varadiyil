@@ -1,11 +1,8 @@
-import { EMPLOYER_SHORT } from '../lib/employment';
-
 export const projects = [
   {
     id: '01',
     slug: 'kochi-muziris-biennale',
     title: 'Kochi Muziris Biennale',
-    employer: EMPLOYER_SHORT,
     tagline:
       'Digital platform for India’s largest contemporary art biennale — exhibitions, artists, programmes, and multimedia on Payload CMS.',
     description:
@@ -24,17 +21,17 @@ export const projects = [
       'Git & GitHub',
     ],
     about:
-      'Team delivery at Faircode Infotech: a Payload CMS platform for Kochi–Muziris Biennale content — exhibition updates, artist profiles, programmes, and multimedia with editor-friendly workflows.',
+      'Payload CMS platform for Kochi–Muziris Biennale content — exhibition updates, artist profiles, programmes, and multimedia with editor-friendly workflows.',
     role: 'Developer',
     teamMembers: 6,
     duration: '2 Months',
     problem: 'Client needed daily editor updates — not a static site rebuilt every season.',
-    solution: 'Team-built Next.js + Payload CMS with collections, blocks & GraphQL APIs.',
+    solution: 'Next.js + Payload CMS with collections, blocks & GraphQL APIs.',
     impact: 'Contributor on a 6-person squad delivering a CMS-driven platform for the biennale cycle.',
     proofMetric: {
       value: 'Team · 6',
       label: 'Developer on greenfield CMS build',
-      detail: `${EMPLOYER_SHORT} · Arts & culture client`,
+      detail: 'Kochi–Muziris Biennale · Arts & culture',
     },
     outcomes: [
       { value: 'Dev', label: 'My role', detail: 'CMS collections, blocks & Next.js frontend work' },
@@ -59,7 +56,6 @@ export const projects = [
     id: '02',
     slug: 'deshabhimani-news-portal',
     title: 'Deshabhimani News Portal',
-    employer: EMPLOYER_SHORT,
     tagline:
       'Real-time news portal on Payload CMS — article publishing, multimedia, and reader-friendly navigation.',
     description:
@@ -78,17 +74,17 @@ export const projects = [
       'Git & GitHub',
     ],
     about:
-      'Team delivery at Faircode Infotech: a Payload CMS news portal supporting article publishing, multimedia, and editor workflows for a Malayalam newsroom.',
+      'Payload CMS news portal for Deshabhimani — article publishing, multimedia, and editor workflows for a Malayalam newsroom.',
     role: 'Developer',
     teamMembers: 4,
     duration: '4 Months',
     problem: 'Newsroom needed CMS-driven publishing without developer bottlenecks for routine content.',
-    solution: 'Team-built Payload portal with reusable blocks, workflows & Next.js frontend.',
+    solution: 'Payload portal with reusable blocks, workflows & Next.js frontend.',
     impact: 'Contributor on a 4-person squad shipping features on a live news platform.',
     proofMetric: {
-      value: 'Team · 4',
+      value: 'Live',
       label: 'Developer on news portal build',
-      detail: `${EMPLOYER_SHORT} · News & media client`,
+      detail: 'Deshabhimani · News & media',
     },
     outcomes: [
       { value: 'Dev', label: 'My role', detail: 'Features, blocks & full-stack CMS work' },
@@ -112,7 +108,6 @@ export const projects = [
     id: '03',
     slug: 'myidukki-election-pledge',
     title: 'MyIdukki Election Pledge',
-    employer: EMPLOYER_SHORT,
     tagline:
       'Civic engagement platform for responsible voting — digital pledge, voter booth lookup, and admin participation tracking.',
     description:
@@ -133,174 +128,17 @@ export const projects = [
       'Git & GitHub',
     ],
     about:
-      'Team delivery at Faircode Infotech: a civic engagement app with voter pledge flow, booth lookup, and admin participation tracking.',
+      'MyIdukki civic engagement app with voter pledge flow, booth lookup, and admin participation tracking.',
     role: 'Developer',
     teamMembers: 1,
     duration: '1 Week',
     problem: 'Citizens needed a simple pledge flow and polling-booth lookup before election day.',
-    solution: 'Team-delivered full-stack app — pledge, booth lookup & secured admin panel.',
+    solution: 'Full-stack app — pledge, booth lookup & secured admin panel.',
     impact: 'Hands-on contributor on a fast-turnaround civic platform for district operators.',
     proofMetric: {
       value: 'Civic',
       label: 'Developer on engagement platform',
-      detail: `${EMPLOYER_SHORT} · Pledge & booth lookup flows`,
-    },
-    outcomes: [
-      { value: '2', label: 'User flows', detail: 'Digital pledge + booth lookup' },
-      { value: 'Admin', label: 'Dashboard', detail: 'Participation tracking for operators' },
-      { value: 'Full stack', label: 'Contribution', detail: 'Frontend, API & MongoDB work' },
-      { value: 'JWT', label: 'Security', detail: 'Secured admin access patterns' },
-    ],
-    responsibilities: [
-      'Developed features based on project requirements',
-      'Worked on frontend and backend development',
-      'Contributed to architecture and implementation',
-      'Supported deployment and handoff',
-    ],
-    image: '/myidukki.png',
-    logo: '',
-    type: 'image',
-    gitLink: '',
-    previewLink: '',
-    linkedinLink: '',
-  },
-  {
-    id: '04',
-    slug: 'arts-culture-cms-platform',
-    title: 'Arts & Culture CMS Platform',
-    tagline:
-      'Digital platform for a large-scale contemporary art festival — exhibitions, artists, programmes, and multimedia on Payload CMS.',
-    description:
-      'A comprehensive digital platform built on Payload CMS to manage and present festival content — admin-controlled collections, custom blocks, and immersive visitor experiences.',
-    year: '2025',
-    timeline: '2 Months',
-    industry: 'Arts & Culture',
-    services: [
-      'Node.js',
-      'React',
-      'Next.js',
-      'Tailwind CSS',
-      'Payload CMS',
-      'GraphQL',
-      'Postman',
-      'Git & GitHub',
-    ],
-    about:
-      'Payload CMS platform for arts & culture content — exhibition updates, artist profiles, programmes, and multimedia with editor-friendly workflows.',
-    role: 'Developer',
-    duration: '2 Months',
-    problem: 'Editors needed daily content updates — not a static site rebuilt every season.',
-    solution: 'Next.js + Payload CMS with collections, blocks & GraphQL APIs.',
-    impact: 'CMS-driven platform for a festival cycle with editor-controlled publishing.',
-    proofMetric: {
-      value: 'CMS',
-      label: 'Greenfield editorial platform',
-      detail: 'Arts & culture · Payload CMS',
-    },
-    outcomes: [
-      { value: 'Dev', label: 'My role', detail: 'CMS collections, blocks & Next.js frontend work' },
-      { value: '2 mo', label: 'Timeline', detail: 'Greenfield build & launch' },
-      { value: 'CMS', label: 'Architecture', detail: 'Payload CMS editorial workflows' },
-      { value: 'Next.js', label: 'Frontend', detail: 'Production publishing experience' },
-    ],
-    responsibilities: [
-      'Contributed to greenfield Next.js and Payload CMS implementation',
-      'Helped design admin-controlled CMS collections and custom blocks',
-      'Built and maintained content models for editorial workflows',
-      'Fixed bugs and improved performance across the platform',
-    ],
-    image: '/assets/images/kmb.png',
-    logo: '/assets/images/kmb-logo.svg',
-    type: 'image',
-    gitLink: '',
-    previewLink: '',
-    linkedinLink: '',
-  },
-  {
-    id: '05',
-    slug: 'digital-newsroom-platform',
-    title: 'Digital Newsroom Platform',
-    tagline:
-      'Real-time news portal on Payload CMS — article publishing, multimedia, and reader-friendly navigation.',
-    description:
-      'A comprehensive news portal built on Payload CMS, designed to deliver real-time news updates with a robust content management system.',
-    year: '2025',
-    timeline: '4 Months',
-    industry: 'News & Media',
-    services: [
-      'Node.js',
-      'React',
-      'Next.js',
-      'Tailwind CSS',
-      'Payload CMS',
-      'GraphQL',
-      'Postman',
-      'Git & GitHub',
-    ],
-    about:
-      'Payload CMS news portal supporting article publishing, multimedia, and editor workflows for a regional newsroom.',
-    role: 'Developer',
-    duration: '4 Months',
-    problem: 'Newsroom needed CMS-driven publishing without developer bottlenecks for routine content.',
-    solution: 'Payload portal with reusable blocks, workflows & Next.js frontend.',
-    impact: 'Live news platform with ongoing feature delivery and editor autonomy.',
-    proofMetric: {
-      value: 'Live',
-      label: 'News publishing portal',
-      detail: 'News & media · Payload CMS',
-    },
-    outcomes: [
-      { value: 'Dev', label: 'My role', detail: 'Features, blocks & full-stack CMS work' },
-      { value: '4 mo', label: 'Timeline', detail: 'Feature delivery on live portal' },
-      { value: 'CMS', label: 'Workflows', detail: 'Article & multimedia publishing' },
-      { value: 'Live', label: 'Production', detail: 'Ongoing publishing on portal' },
-    ],
-    responsibilities: [
-      'Built new features and reusable blocks based on team requirements',
-      'Fixed bugs and improved application performance',
-      'Worked on frontend and Payload CMS development',
-    ],
-    image: '/DESHABHIMANI.png',
-    logo: '',
-    type: 'image',
-    gitLink: '',
-    previewLink: '',
-    linkedinLink: '',
-  },
-  {
-    id: '06',
-    slug: 'civic-election-pledge-platform',
-    title: 'Civic Election Pledge Platform',
-    tagline:
-      'Civic engagement app for responsible voting — digital pledge, voter booth lookup, and admin participation tracking.',
-    description:
-      'A civic engagement platform promoting responsible voting with a digital pledge, polling-station finder, and admin tools for content and participation.',
-    year: '2025',
-    timeline: '1 Week',
-    industry: 'Civic Tech',
-    services: [
-      'Node.js',
-      'React',
-      'Next.js',
-      'MongoDB',
-      'Express.js',
-      'Redux',
-      'Tailwind CSS',
-      'JWT',
-      'Postman',
-      'Git & GitHub',
-    ],
-    about:
-      'Civic engagement app with voter pledge flow, booth lookup, and admin participation tracking.',
-    role: 'Developer',
-    duration: '1 Week',
-    problem: 'Citizens needed a simple pledge flow and polling-booth lookup before election day.',
-    solution: 'Full-stack app — pledge, booth lookup & secured admin panel.',
-    impact: 'Fast-turnaround civic platform for district operators before election day.',
-    proofMetric: {
-      value: 'Civic',
-      label: 'Engagement platform',
-      detail: 'Pledge & booth lookup flows',
+      detail: 'MyIdukki · Pledge & booth lookup flows',
     },
     outcomes: [
       { value: '2', label: 'User flows', detail: 'Digital pledge + booth lookup' },

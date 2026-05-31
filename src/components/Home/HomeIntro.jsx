@@ -14,8 +14,7 @@ export default function HomeIntro() {
             Why teams hire me — and what they get
           </h2>
           <p className={`mt-6 ${NEU.bodyText}`}>
-            Faster publishing. Fewer dev bottlenecks. Platforms that stay maintainable after launch.
-            That&apos;s the outcome — not another React portfolio.
+            Editors should publish without filing dev tickets. That is the bar — not another React portfolio.
           </p>
         </Reveal>
 
@@ -40,8 +39,8 @@ export default function HomeIntro() {
                 Faster publishing, fewer rebuilds
               </h3>
               <p className={`mt-4 ${NEU.bodyText}`}>
-                Custom blocks, typed APIs, and Next.js frontends tuned for traffic — shipped in 2–4 month
-                cycles with clear handoff for your team.
+                Custom blocks, typed APIs, and Next.js pages that hold up on launch day — usually in
+                2–4 month cycles with a clear handoff.
               </p>
             </div>
           </div>

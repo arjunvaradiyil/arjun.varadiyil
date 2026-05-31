@@ -16,22 +16,22 @@ export const SITE_FAQ = [
   {
     question: 'Who is Arjun Varadiyil?',
     answer:
-      'Arjun Varadiyil is a Full Stack Developer in Kerala, India, specializing in Next.js, Payload CMS, and TypeScript. He builds editorial platforms and headless CMS architecture as part of professional teams.',
+      'A Full Stack Developer in Kerala at Faircode Infotech. He builds Payload CMS and Next.js platforms for newsrooms, cultural festivals, and civic teams.',
   },
   {
     question: 'Is Arjun Varadiyil a web developer in Kerala?',
     answer:
-      'Arjun Varadiyil is a Full Stack Developer at Faircode Infotech in Kerala, India, specializing in Next.js, Payload CMS, and TypeScript on editorial and publishing teams.',
+      'Yes. He is based in Kerala and works full-time at Faircode Infotech on CMS-driven web products for editorial and public-facing teams.',
   },
   {
     question: 'What technologies does Arjun Varadiyil use?',
     answer:
-      'Arjun Varadiyil uses Next.js, Payload CMS, TypeScript, React, Node.js, MongoDB, PostgreSQL, GraphQL, and Tailwind CSS. His focus is headless CMS architecture and high-traffic application development for editorial teams.',
+      'Next.js, Payload CMS, TypeScript, React, Node.js, MongoDB, PostgreSQL, GraphQL, and Tailwind CSS — mostly on publishing and civic products.',
   },
   {
     question: 'What kind of projects has Arjun built?',
     answer:
-      'Arjun works on editorial and publishing platforms with Next.js and Payload CMS as part of professional teams. This portfolio lists personal and open-source work only — employer client projects are not shown here.',
+      'A Malayalam news portal (Deshabhimani), a Kochi–Muziris Biennale platform, and a MyIdukki civic pledge app. Case studies on this site; other employer client work is not listed.',
   },
   {
     question: 'How do I contact Arjun Varadiyil?',
@@ -41,7 +41,7 @@ export const SITE_FAQ = [
   {
     question: 'Where is Arjun Varadiyil based?',
     answer:
-      'Arjun Varadiyil is based in Kerala, India, and works full-time at Faircode Infotech. For professional inquiries, use the contact page or LinkedIn.',
+      'Kerala, India. He works full-time at Faircode Infotech. For professional inquiries, use the contact page or LinkedIn.',
   },
 ];
 

@@ -5,7 +5,7 @@ import WordStaggerReveal from '../ui/WordStaggerReveal';
 import { NEU } from '../ui/neuTheme';
 
 const TEXT =
-  'I craft elegant solutions to complex problems, building scalable web applications with the MERN stack.';
+  'If a content change needs a deploy, that is an architecture problem — not something editors should work around.';
 
 export default function AboutScrollText() {
   return (

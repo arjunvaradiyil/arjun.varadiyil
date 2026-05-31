@@ -56,11 +56,11 @@ function staticSiteSettings() {
     heroStats: staticHeroStats,
     navCategories: staticNav,
     projectsPageDescription:
-      'Arts & culture, news publishing, and civic tech — Next.js, Payload CMS, and full stack delivery.',
+      'Kochi–Muziris Biennale, Deshabhimani newsroom, and MyIdukki civic app — what I built, with whom, and why.',
     aboutSkillsSubtitle:
-      'Node.js, React, Next.js, Payload CMS, databases, and the tools I use to ship production-ready web products.',
+      'The tools behind those builds — Next.js, Payload CMS, databases, and day-to-day dev workflow.',
     experienceIntro:
-      'Full-stack delivery with Next.js, Payload CMS, and modern databases on editorial and publishing teams.',
+      'Client delivery at Faircode Infotech — news, culture, and civic products where editors publish daily.',
   };
 }
 

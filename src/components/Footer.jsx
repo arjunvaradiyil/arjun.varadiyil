@@ -12,11 +12,6 @@ import { NEU } from './ui/neuTheme';
 const CONNECT_LINKS = (email) => [
   { label: 'Email', href: `mailto:${email}`, external: false },
   { label: 'LinkedIn', href: LINKEDIN_URL, external: true },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/arjunvaradiyil',
-    external: true,
-  },
   { label: 'GitHub', href: 'https://github.com/arjunvaradiyil/arjun.varadiyil', external: true },
 ];
 

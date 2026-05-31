@@ -34,15 +34,21 @@ async function seed() {
       heroStats: HERO_STATS,
       navCategories: NJR_NAV_CATEGORIES,
       projectsPageDescription:
-        'Biennale platform, news portal, and civic tech — Next.js, Payload CMS, and full stack delivery.',
+        'Kochi–Muziris Biennale, Deshabhimani newsroom, and MyIdukki civic app — what I built, with whom, and why.',
       aboutSkillsSubtitle:
-        'Systems engineered for speed, scale, and editorial workflows — Next.js, Payload CMS, and production-grade delivery.',
+        'The tools behind those builds — Next.js, Payload CMS, databases, and day-to-day dev workflow.',
       experienceIntro:
-        'Shipping biennale, news, and civic systems at Faircode Infotech — full stack delivery with Next.js, Payload CMS, and modern databases.',
+        'Client delivery at Faircode Infotech — news, culture, and civic products where editors publish daily.',
     },
   });
 
-  const removedProjectSlugs = ['prajashakti-news-portal', 'i-serve'];
+  const removedProjectSlugs = [
+    'prajashakti-news-portal',
+    'i-serve',
+    'arts-culture-cms-platform',
+    'digital-newsroom-platform',
+    'civic-election-pledge-platform',
+  ];
 
   console.log('Seeding projects…');
   for (const [index, project] of projects.entries()) {

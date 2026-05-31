@@ -6,27 +6,27 @@
 import { EMPLOYER_SHORT } from './employment';
 
 export const NJR_NAV_CATEGORIES = [
-  // { label: 'Work', href: '/projects' },
+  { label: 'Work', href: '/projects' },
   { label: 'Profile', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 /** Shown in hero, nav, and CTAs */
 export const WORK_STATUS = {
-  badge: `Full stack @ ${EMPLOYER_SHORT}`,
-  eyebrow: 'Full stack · Payload CMS',
+  badge: `Developer @ ${EMPLOYER_SHORT}`,
+  eyebrow: 'Payload CMS · Next.js',
   company: EMPLOYER_SHORT,
   primaryCta: 'Get in touch',
   navCta: 'Contact',
   contactNote:
-    'Professional portfolio — for networking, collaboration, or career inquiries. I typically reply within a few business days.',
+    'Open to networking and career conversations — I usually reply within a few business days.',
 };
 
 export const HERO_STATS = [
-  { value: '3', label: 'Projects featured', href: '/projects' },
-  { value: 'Dev', label: 'Full stack developer', href: '/about' },
-  { value: 'CMS', label: 'Payload CMS in production', href: '/projects' },
-  { value: 'Kerala', label: `Based · full-time @ ${EMPLOYER_SHORT}`, href: '/about' },
+  { value: '3', label: 'Shipped platforms', href: '/projects' },
+  { value: 'News', label: 'Malayalam newsroom', href: '/projects' },
+  { value: 'Biennale', label: 'Festival CMS', href: '/projects' },
+  { value: 'Kerala', label: `Full-time @ ${EMPLOYER_SHORT}`, href: '/about' },
 ];
 
 /** Developer stance — opinionated, subtle, senior voice. */
@@ -35,18 +35,18 @@ export const DEVELOPER_STANCE =
 
 /** Home hero */
 export const HOME_HERO = {
-  eyebrow: `Full stack developer · ${EMPLOYER_SHORT}`,
-  headline: ['Full stack developer', 'building editorial CMS systems.'],
+  eyebrow: `Developer @ ${EMPLOYER_SHORT}`,
+  headline: ['CMS systems editors', 'can run without a deploy.'],
   proofLine:
-    'Full stack developer focused on editorial CMS, headless architecture, and performance.',
+    'News portals, biennale programmes, civic apps — Payload CMS and Next.js on teams of four to six.',
   stanceLine: DEVELOPER_STANCE,
   tagline: '',
   description: '',
 };
 
 export const HOME_HERO_META = [
-  { label: 'Employer', value: `Full Stack Developer @ ${EMPLOYER_SHORT}` },
-  { label: 'Stack', value: 'Next.js · Payload CMS · TypeScript' },
-  { label: 'Portfolio', value: 'Skills, experience & open source' },
-  { label: 'Focus', value: 'Editorial platforms · CMS · performance' },
+  { label: 'Day job', value: `Developer @ ${EMPLOYER_SHORT}` },
+  { label: 'Stack', value: 'Next.js · Payload · TypeScript' },
+  { label: 'Recent', value: 'Deshabhimani · KMB · MyIdukki' },
+  { label: 'Belief', value: 'Publishing should not wait on devs' },
 ];

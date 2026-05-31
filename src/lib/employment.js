@@ -7,7 +7,7 @@ export const EMPLOYER_SHORT = 'Faircode Infotech';
 export const HIDE_EMPLOYER_PROJECTS = true;
 
 export const PORTFOLIO_NOTE =
-  'Professional portfolio — employer client work is not listed here. For inquiries, use contact or LinkedIn.';
+  'Selected case studies only — other employer client work stays off this site. Contact or LinkedIn for inquiries.';
 
 export function isEmployerProject(project) {
   if (!project?.employer) return false;

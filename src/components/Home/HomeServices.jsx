@@ -22,11 +22,10 @@ export default function HomeServices({ skills = [] }) {
         <Reveal>
           <p className={NEU.eyebrow}>Expertise</p>
           <h2 className={`mt-3 max-w-xl ${NEU.display} text-3xl md:text-5xl`}>
-            Full stack developer expertise
+            What I work with
           </h2>
           <p className={`mt-5 max-w-2xl ${NEU.bodyText}`}>
-            Next.js, Payload CMS, and full stack delivery for news, culture, and civic products —
-            from architecture to launch.
+            Frontend, full stack, and Payload CMS — the same stack behind the news, festival, and civic projects in my archive.
           </p>
         </Reveal>
 
