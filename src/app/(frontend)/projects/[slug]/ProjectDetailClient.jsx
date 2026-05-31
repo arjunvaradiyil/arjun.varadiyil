@@ -225,6 +225,37 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
         )}
 
         <div className="space-y-16 lg:space-y-20">
+          {(project.problem || project.solution || project.impact) && (
+            <Section eyebrow="Story" title="Problem → Solution → Impact">
+              <div className="grid gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] md:grid-cols-3">
+                {project.problem ? (
+                  <div data-gsap="section-item" className="bg-[var(--color-surface)] p-6 sm:p-8">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-foreground-subtle)]">Problem</p>
+                    <p className="mt-4 text-sm leading-relaxed text-[var(--color-foreground-soft)] sm:text-base">
+                      {project.problem}
+                    </p>
+                  </div>
+                ) : null}
+                {project.solution ? (
+                  <div data-gsap="section-item" className="bg-[var(--color-surface)] p-6 sm:p-8">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-foreground-subtle)]">Solution</p>
+                    <p className="mt-4 text-sm leading-relaxed text-[var(--color-foreground-soft)] sm:text-base">
+                      {project.solution}
+                    </p>
+                  </div>
+                ) : null}
+                {project.impact ? (
+                  <div data-gsap="section-item" className="bg-[var(--color-surface)] p-6 sm:p-8">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-foreground-subtle)]">Impact</p>
+                    <p className="mt-4 text-sm font-medium leading-relaxed text-[var(--color-foreground)] sm:text-base">
+                      {project.impact}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            </Section>
+          )}
+
           {overview && (
             <Section eyebrow="About" title="Project overview">
               <p className="max-w-3xl text-base leading-relaxed text-[var(--color-foreground-soft)] sm:text-lg">

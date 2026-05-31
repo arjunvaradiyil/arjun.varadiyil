@@ -1,4 +1,7 @@
 import Banner from '../../components/Home/Banner';
+import HomeProofBar from '../../components/Home/HomeProofBar';
+import HomeTerminal from '../../components/Home/HomeTerminal';
+import HomeTrust from '../../components/Home/HomeTrust';
 import HomeCta from '../../components/Home/HomeCta';
 import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
 import HomeIntro from '../../components/Home/HomeIntro';
@@ -42,9 +45,12 @@ export default async function HomePage() {
   return (
     <div className="overflow-x-hidden bg-[var(--color-surface)]">
       <Banner />
+      <HomeProofBar />
       <div id="home-content">
+        <HomeTerminal />
         <HomeIntro />
         <HomeFeaturedProjects projects={projects} />
+        <HomeTrust />
         <HomeServices skills={skills} />
         <HomeCta />
         <HomeSeoCopy />

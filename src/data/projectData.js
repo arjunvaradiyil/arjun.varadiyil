@@ -25,6 +25,12 @@ export const projects = [
     role: 'Developer',
     teamMembers: 6,
     duration: '2 Months',
+    problem:
+      'India’s largest art biennale needed a digital home that editors could update daily — not a static site rebuilt every season.',
+    solution:
+      'Greenfield Next.js + Payload CMS platform with custom collections, blocks, and GraphQL APIs — fully admin-controlled, no hard-coded pages.',
+    impact:
+      'Shipped in 2 months with a 6-person team. Editors publish exhibitions, artists, and programmes independently; platform runs in production for the biennale cycle.',
     responsibilities: [
       'Built the platform from scratch using Next.js and Payload CMS',
       'Designed a fully admin-controlled CMS architecture',
@@ -64,6 +70,12 @@ export const projects = [
     role: 'Developer',
     teamMembers: 4,
     duration: '4 Months',
+    problem:
+      'A major Malayalam newsroom needed real-time publishing, multimedia workflows, and a CMS editors could use without developer help.',
+    solution:
+      'Payload CMS–driven news portal with reusable content blocks, article workflows, and performance-tuned Next.js frontend for high readership.',
+    impact:
+      'Delivered over 4 months with a 4-person team. Editorial staff publish and manage multimedia content daily; platform handles live news traffic.',
     responsibilities: [
       'Built new features and reusable blocks based on user requirements',
       'Fixed bugs and improved application performance',
@@ -104,6 +116,12 @@ export const projects = [
     role: 'Developer',
     teamMembers: 1,
     duration: '1 Week',
+    problem:
+      'Voters in Idukki lacked a simple way to take a civic pledge and find their polling booth before election day.',
+    solution:
+      'Full-stack civic app with digital pledge flow, booth lookup, JWT-secured admin panel, and MongoDB backend — designed and shipped solo in one week.',
+    impact:
+      'End-to-end delivery in 7 days. Citizens access pledge and booth tools from one platform; admins track participation without manual spreadsheets.',
     responsibilities: [
       'Developed and implemented features based on user and business requirements',
       'Worked on both frontend and backend development',

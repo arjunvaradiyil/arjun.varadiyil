@@ -19,8 +19,11 @@ export default function HomeFeaturedProjects({ projects = [] }) {
           <div>
             <p className={NEU.eyebrow}>Featured work</p>
             <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>
-              Next.js &amp; Payload CMS in production
+              Case studies with real impact
             </h2>
+            <p className={`mt-3 max-w-lg ${NEU.bodyText}`}>
+              Problem, solution, and measurable results — not just tech stacks.
+            </p>
           </div>
           <Link href="/projects" className={`inline-flex items-center gap-2 ${NEU.link}`}>
             All projects

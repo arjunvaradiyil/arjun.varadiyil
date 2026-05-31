@@ -9,39 +9,39 @@ export default function HomeIntro() {
     <section className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}>
       <div className="mx-auto max-w-7xl">
         <Reveal className="mx-auto max-w-2xl text-center">
+          <p className={NEU.eyebrow}>What I deliver</p>
           <h2 className={`${NEU.display} text-2xl sm:text-3xl md:text-4xl`}>
-            Full stack work for editorial &amp; news platforms
+            Editorial platforms with measurable outcomes
           </h2>
           <p className={`mt-6 ${NEU.bodyText}`}>
-            I design and ship Payload CMS and Next.js platforms where content, performance, and UX
-            work together — from biennale programmes and news publishing to civic tools that need
-            to work under real-world traffic.
+            Not slide decks — production CMS systems where editors publish daily, pages load fast, and
+            teams can extend the codebase after launch.
           </p>
         </Reveal>
 
         <Reveal className="relative mt-12 md:mt-16" delay={0.1}>
           <GhostWatermark className="absolute -left-2 top-1/2 hidden -translate-y-1/2 text-[clamp(3rem,14vw,11rem)] md:block">
-            The stack
+            Outcomes
           </GhostWatermark>
           <div className="grid gap-px bg-[var(--color-grid-line)] md:grid-cols-2">
             <div className="bg-[var(--color-surface)] px-6 py-10 md:px-8 md:py-12">
-              <p className={NEU.eyebrow}>Approach</p>
+              <p className={NEU.eyebrow}>Problem I solve</p>
               <h3 className={`mt-4 ${NEU.display} text-xl md:text-2xl`}>
-                Payload CMS &amp; Next.js architecture
+                Hard-coded sites that block editorial teams
               </h3>
               <p className={`mt-4 ${NEU.bodyText}`}>
-                Payload collections, custom blocks, and GraphQL APIs shaped for editors — not
-                one-off hard-coded pages.
+                Newsrooms and culture orgs need to publish without waiting on developers. I replace that
+                bottleneck with Payload CMS workflows editors actually use.
               </p>
             </div>
             <div className="bg-[var(--color-surface)] px-6 py-10 md:px-8 md:py-12">
-              <p className={NEU.eyebrow}>Focus</p>
+              <p className={NEU.eyebrow}>Result you get</p>
               <h3 className={`mt-4 ${NEU.display} text-xl md:text-2xl`}>
-                Production platforms at scale
+                Faster publishing, fewer rebuilds
               </h3>
               <p className={`mt-4 ${NEU.bodyText}`}>
-                Performance, accessibility, and maintainable code — shipped in agile teams and
-                tuned for real users.
+                Custom blocks, typed APIs, and Next.js frontends tuned for traffic — shipped in 2–4 month
+                cycles with clear handoff for your team.
               </p>
             </div>
           </div>

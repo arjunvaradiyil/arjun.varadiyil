@@ -14,10 +14,10 @@ export const WORK_STATUS = {
   badge: 'Open to freelance',
   eyebrow: 'Arjun Varadiyil',
   company: 'Faircode Infotech',
-  primaryCta: 'Hire Me',
+  primaryCta: 'Discuss your project',
   navCta: 'Contact',
   contactNote:
-    'Open to freelance projects and collaborations — reach out to discuss your next build.',
+    'Share your editorial product, CMS migration, or news portal brief — I respond within 24 hours with clear next steps.',
 };
 
 export const HERO_STATS = [
@@ -31,7 +31,8 @@ export const HERO_STATS = [
 export const HOME_HERO = {
   eyebrow: 'Work',
   headline: ['Built for scale.', 'Designed for performance.'],
-  tagline: 'Building scalable CMS platforms and high-performance web applications.',
+  tagline:
+    'Full stack developer at Faircode Infotech — 3 production CMS platforms shipped for biennale, news & civic teams.',
   description: '',
 };
 

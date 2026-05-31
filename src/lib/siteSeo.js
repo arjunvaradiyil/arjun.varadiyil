@@ -17,6 +17,7 @@ export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
 export const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 
 /** Primary meta description — 120–160 chars; sync layout + OG + Twitter + JSON-LD. */
+
 export const DEFAULT_DESCRIPTION =
   'Full stack developer in Kerala building production Next.js & Payload CMS platforms for news portals, biennale sites & civic tech teams.';
 

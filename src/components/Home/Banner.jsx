@@ -130,9 +130,9 @@ export default function Banner() {
                 transition={{ duration: 0.55, ease: EASE_OUT, delay: 0.52 }}
               >
                 <HeroCta href="/contact" primary>
-                  Hire Me
+                  Discuss your project
                 </HeroCta>
-                <HeroCta href="/projects">View Projects</HeroCta>
+                <HeroCta href="/projects">View case studies</HeroCta>
               </motion.div>
             </motion.div>
           </div>

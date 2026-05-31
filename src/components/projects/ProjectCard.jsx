@@ -35,11 +35,21 @@ function ProjectCardBody({ project, variant }) {
       <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
         <p className={NEU.eyebrow}>{project.industry}</p>
         <h2 className={`mt-2 ${NEU.display} text-xl sm:text-2xl`}>{project.title}</h2>
-        {project.tagline ? (
+        {project.impact ? (
+          <p className="mt-3 border-l-2 border-[var(--color-foreground)] pl-3 text-sm font-medium leading-snug text-[var(--color-foreground)]">
+            {project.impact}
+          </p>
+        ) : project.tagline ? (
           <p className={`mt-2 line-clamp-2 text-sm leading-relaxed ${NEU.bodyText}`}>{project.tagline}</p>
         ) : null}
+        {project.problem ? (
+          <p className={`mt-3 line-clamp-2 text-xs leading-relaxed ${NEU.bodyText}`}>
+            <span className="text-[var(--color-foreground-muted)]">Problem · </span>
+            {project.problem}
+          </p>
+        ) : null}
         <span className={`mt-auto inline-flex items-center gap-1 pt-5 ${NEU.link}`}>
-          Explore
+          Read case study
           <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
       </div>
@@ -124,6 +134,12 @@ function ProjectListItem({ project, index }) {
           {project.tagline ? (
             <p className={`mt-4 max-w-xl text-sm leading-relaxed sm:text-base ${NEU.bodyText}`}>
               {project.tagline}
+            </p>
+          ) : null}
+
+          {project.impact ? (
+            <p className="mt-4 max-w-xl border-l-2 border-[var(--color-foreground)] pl-4 text-sm font-medium leading-relaxed text-[var(--color-foreground)]">
+              {project.impact}
             </p>
           ) : null}
 
