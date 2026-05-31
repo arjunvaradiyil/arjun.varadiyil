@@ -152,7 +152,7 @@ export default function Banner() {
                 <HeroCta href="/contact" primary>
                   Get in touch
                 </HeroCta>
-                <HeroCta href="/projects">View my work</HeroCta>
+                {/* <HeroCta href="/projects">View my work</HeroCta> */}
               </motion.div>
             </motion.div>
           </div>

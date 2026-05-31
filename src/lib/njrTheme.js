@@ -6,7 +6,7 @@
 import { EMPLOYER_SHORT } from './employment';
 
 export const NJR_NAV_CATEGORIES = [
-  { label: 'Work', href: '/projects' },
+  // { label: 'Work', href: '/projects' },
   { label: 'Profile', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];

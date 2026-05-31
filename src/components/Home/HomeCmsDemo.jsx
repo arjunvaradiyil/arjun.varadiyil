@@ -2,8 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import Link from 'next/link';
-import { ArrowUpRight, Radio } from 'lucide-react';
+import { Radio } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
 import { EASE_OUT } from '../../lib/motion';
@@ -84,10 +83,10 @@ export default function HomeCmsDemo() {
             <h2 className={`mt-3 ${NEU.display} text-3xl md:text-4xl`}>{SIGNATURE_DEMO.title}</h2>
             <p className={`mt-4 ${NEU.bodyText}`}>{SIGNATURE_DEMO.description}</p>
           </div>
-          <Link href="/projects" className={`inline-flex shrink-0 items-center gap-2 ${NEU.link}`}>
+          {/* <Link href="/projects" className={`inline-flex shrink-0 items-center gap-2 ${NEU.link}`}>
             See project outcomes
             <ArrowUpRight className="h-4 w-4" aria-hidden />
-          </Link>
+          </Link> */}
         </Reveal>
 
         <div className="mt-10 grid gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
