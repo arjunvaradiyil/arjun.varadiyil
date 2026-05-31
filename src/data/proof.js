@@ -1,46 +1,50 @@
 /** Homepage proof points, CTA copy, and trust metrics — single source of truth. */
 
+import { EMPLOYER_SHORT } from '../lib/employment';
+
 export const CURRENT_ROLE = {
   title: 'Full Stack Developer',
-  company: 'Faircode Infotech',
+  company: EMPLOYER_SHORT,
   location: 'Kerala, India',
 };
 
 export const PROOF_METRICS = [
   {
     value: '3',
-    label: 'Platforms live in production',
-    detail: 'Biennale, Malayalam newsroom & civic tech — not mockups',
+    label: 'Featured projects',
+    detail: 'Editorial, news & civic platforms',
     href: '/projects',
   },
   {
-    value: '8 wks',
-    label: 'Fastest greenfield launch',
-    detail: 'Kochi–Muziris Biennale · idea to production with a 6-person team',
-    href: '/projects/kochi-muziris-biennale',
+    value: 'Dev',
+    label: 'Full stack developer',
+    detail: 'Next.js + Payload CMS builds',
+    href: '/projects',
   },
   {
-    value: 'Daily',
-    label: 'Newsroom publish cadence',
-    detail: 'Editors ship articles & multimedia without developer tickets',
-    href: '/projects/deshabhimani-news-portal',
+    value: 'CMS',
+    label: 'Editorial systems focus',
+    detail: 'Collections, blocks & publishing workflows',
+    href: '/projects',
   },
   {
-    value: '0',
-    label: 'Redeploys per content update',
-    detail: 'Payload CMS + Next.js ISR — content goes live in under 2 seconds',
-    href: '/contact',
+    value: 'Stack',
+    label: 'Production tooling',
+    detail: 'TypeScript · MongoDB · GraphQL · AWS',
+    href: '/about',
   },
 ];
 
 export const TRUST_METRICS = [
-  { label: 'Lighthouse SEO', value: '92+', note: 'Structured data, sitemap & on-page optimization' },
+  { label: 'Lighthouse SEO', value: '92+', note: 'This portfolio site — structured data & metadata' },
   { label: 'Desktop LCP', value: '1.3s', note: 'Optimized fonts, AVIF/WebP & edge delivery' },
-  { label: 'CMS collections shipped', value: '15+', note: 'Custom blocks across 3 production platforms' },
-  { label: 'Inquiry response', value: '<24h', note: 'Concrete next steps, not generic replies' },
+  { label: 'Stack', value: 'Next.js', note: 'Payload CMS · TypeScript · MongoDB · AWS' },
+  { label: 'GitHub', value: 'Active', note: 'Open-source & personal experiments' },
 ];
 
 export const GITHUB_USERNAME = 'arjunvaradiyil';
+
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/arjunvaradiyil';
 
 export const CURRENTLY_EXPLORING = [
   'AI agent workflows',
@@ -50,17 +54,18 @@ export const CURRENTLY_EXPLORING = [
 ];
 
 export const OUTCOME_CTA = {
-  headline: 'Your editorial team shouldn\'t wait on engineering.',
-  subline: 'Tell me what you\'re shipping — I\'ll reply within 24 hours with scope, timeline, and a concrete build plan.',
-  primary: { label: 'Start the conversation', href: '/contact' },
-  secondary: { label: 'Book a 30-min call', href: 'https://topmate.io/arjun_varadiyil', external: true },
+  headline: 'Interested in my work?',
+  subline:
+    'This is a professional portfolio. For networking, collaboration, or career conversations, get in touch or connect on LinkedIn.',
+  primary: { label: 'Get in touch', href: '/contact' },
+  secondary: { label: 'Connect on LinkedIn', href: LINKEDIN_URL, external: true },
 };
 
-/** Signature interactive section — brand identity on homepage. */
+/** Signature interactive section */
 export const SIGNATURE_DEMO = {
   eyebrow: 'The Publish Lab',
-  tag: 'Signature demo',
-  title: 'Try the publish flow I ship for clients',
+  tag: 'Concept demo',
+  title: 'Editorial publish flow (illustrative)',
   description:
-    'Hit simulate — editor → Payload → Next.js → reader. Same pipeline powering biennale & newsroom systems in production.',
+    'A simplified simulation of CMS → Next.js → reader — the kind of pipeline used on editorial projects. Not client source code or production data.',
 };

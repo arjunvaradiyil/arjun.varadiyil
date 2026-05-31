@@ -3,14 +3,15 @@
 import Link from 'next/link';
 import { useGsap } from '../hooks/useGsap';
 import { prefersReducedMotion, scrollReveal, EDITORIAL_EASE } from '../lib/gsap';
-import { SITE_EMAIL, TOPMATE_URL } from '../lib/siteSeo';
+import { SITE_EMAIL } from '../lib/siteSeo';
+import { LINKEDIN_URL } from '../data/proof';
 import { CENTER_NAV } from '../lib/navLinks';
 import { useSiteSettings } from './SiteSettingsProvider';
 import { NEU } from './ui/neuTheme';
 
 const CONNECT_LINKS = (email) => [
   { label: 'Email', href: `mailto:${email}`, external: false },
-  { label: 'Book a call', href: TOPMATE_URL, external: true },
+  { label: 'LinkedIn', href: LINKEDIN_URL, external: true },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/arjunvaradiyil',

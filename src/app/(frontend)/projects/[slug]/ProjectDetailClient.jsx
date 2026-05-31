@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
-import { FiArrowLeft, FiCalendar, FiClock, FiExternalLink, FiUsers } from 'react-icons/fi'
+import { FiArrowLeft, FiCalendar, FiClock, FiExternalLink } from 'react-icons/fi'
 import { HiOutlineBriefcase } from 'react-icons/hi2'
 import ProjectCard from '../../../../components/projects/ProjectCard'
+import ProjectEmployerNote from '../../../../components/projects/ProjectEmployerNote'
 import ProjectOutcomes from '../../../../components/projects/ProjectOutcomes'
-import ProjectProofMetric from '../../../../components/projects/ProjectProofMetric'
 import { NEU } from '../../../../components/ui/neuTheme'
 import { useGsap } from '../../../../hooks/useGsap'
 import {
@@ -22,7 +22,6 @@ const META = [
   { key: 'year', label: 'Year', icon: FiCalendar },
   { key: 'timeline', label: 'Timeline', icon: FiClock },
   { key: 'role', label: 'Role', icon: HiOutlineBriefcase },
-  { key: 'teamMembers', label: 'Team', icon: FiUsers, format: (v) => `${v} members` },
 ]
 
 function getRelatedProjects(projects, slug, industry, limit = 3) {
@@ -187,6 +186,11 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
               {project.industry}
             </p>
           )}
+          {project.employer ? (
+            <div data-gsap="hero-line" className="mb-4">
+              <ProjectEmployerNote employer={project.employer} role={project.role} />
+            </div>
+          ) : null}
           <h1
             data-gsap="hero-line"
             className="font-display text-4xl font-light leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
@@ -201,11 +205,6 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
               {project.tagline}
             </p>
           )}
-          {project.proofMetric ? (
-            <div data-gsap="hero-line" className="mt-8 max-w-md">
-              <ProjectProofMetric metric={project.proofMetric} />
-            </div>
-          ) : null}
         </header>
 
         {metaItems.length > 0 && (

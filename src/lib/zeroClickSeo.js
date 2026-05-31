@@ -3,7 +3,6 @@ import {
   SITE_EMAIL,
   SITE_NAME,
   SITE_URL,
-  TOPMATE_URL,
   absoluteUrl,
 } from './siteSeo';
 import { SGE_SUMMARY } from '../data/seoContent';
@@ -17,12 +16,12 @@ export const SITE_FAQ = [
   {
     question: 'Who is Arjun Varadiyil?',
     answer:
-      'Arjun Varadiyil is a Full Stack Developer in Kerala, India, specializing in Next.js, Payload CMS, and TypeScript. He builds production-grade editorial platforms, headless CMS architecture, and high-traffic publishing systems for biennale, news, and civic tech products.',
+      'Arjun Varadiyil is a Full Stack Developer in Kerala, India, specializing in Next.js, Payload CMS, and TypeScript. He builds editorial platforms and headless CMS architecture as part of professional teams.',
   },
   {
     question: 'Is Arjun Varadiyil a web developer in Kerala?',
     answer:
-      'Yes. Arjun Varadiyil is a Full Stack Developer in Kerala, India. He engineers scalable editorial and CMS-driven platforms at Faircode Infotech and is available for freelance and contract work.',
+      'Arjun Varadiyil is a Full Stack Developer at Faircode Infotech in Kerala, India, specializing in Next.js, Payload CMS, and TypeScript on editorial and publishing teams.',
   },
   {
     question: 'What technologies does Arjun Varadiyil use?',
@@ -32,17 +31,17 @@ export const SITE_FAQ = [
   {
     question: 'What kind of projects has Arjun built?',
     answer:
-      'Production systems include the Kochi\u2013Muziris Biennale platform (India\u2019s largest art biennale), Deshabhimani news publishing infrastructure, and MyIdukki Election Pledge civic tech \u2014 all built with Next.js and Payload CMS.',
+      'Arjun works on editorial and publishing platforms with Next.js and Payload CMS as part of professional teams. This portfolio lists personal and open-source work only — employer client projects are not shown here.',
   },
   {
     question: 'How do I contact Arjun Varadiyil?',
     answer:
-      'Use the contact form at arjunvaradiyil.in/contact or book a call via Topmate. LinkedIn and GitHub links are on the site footer and profile page.',
+      'Use the contact form at arjunvaradiyil.in/contact or connect via LinkedIn. GitHub is linked from the site footer and profile page.',
   },
   {
     question: 'Where is Arjun Varadiyil based?',
     answer:
-      'Arjun Varadiyil is based in Kerala, India, and is open to freelance projects and remote collaboration. Reach out via the contact page or LinkedIn.',
+      'Arjun Varadiyil is based in Kerala, India, and works full-time at Faircode Infotech. For professional inquiries, use the contact page or LinkedIn.',
   },
 ];
 
@@ -101,7 +100,7 @@ export function buildProfilePageSchema() {
 }
 
 export function buildPersonSchema(extraSameAs = []) {
-  const sameAs = [LINKEDIN, GITHUB, INSTAGRAM, TOPMATE_URL, ...extraSameAs].filter(Boolean);
+  const sameAs = [LINKEDIN, GITHUB, INSTAGRAM, ...extraSameAs].filter(Boolean);
 
   return {
     '@type': 'Person',

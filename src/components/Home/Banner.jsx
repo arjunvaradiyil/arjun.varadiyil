@@ -83,7 +83,7 @@ export default function Banner() {
                   as="h1"
                   id="hero-heading"
                   lines={headlineLines}
-                  className={`${NEU.displayHero} text-[clamp(1.75rem,8vw,3.75rem)] leading-[0.92] lg:text-[clamp(2rem,4vw,4rem)]`}
+                  className={`${NEU.displayHero} text-[clamp(1.375rem,5.5vw,2.5rem)] leading-[0.95] lg:text-[clamp(1.5rem,2.8vw,2.75rem)]`}
                   stagger={0.12}
                   delay={0.14}
                 />
@@ -150,9 +150,9 @@ export default function Banner() {
                 transition={{ duration: 0.55, ease: EASE_OUT, delay: 0.52 }}
               >
                 <HeroCta href="/contact" primary>
-                  Start the conversation
+                  Get in touch
                 </HeroCta>
-                <HeroCta href="/projects">See the proof</HeroCta>
+                <HeroCta href="/projects">View my work</HeroCta>
               </motion.div>
             </motion.div>
           </div>

@@ -17,12 +17,12 @@ const FLOW_STEPS = [
 ];
 
 const ACTIVITY_POOL = [
-  { project: 'Deshabhimani', action: 'Breaking story published', ms: '1.1s revalidate' },
-  { project: 'Biennale', action: 'Artist profile updated', ms: '0.9s revalidate' },
-  { project: 'Deshabhimani', action: 'Photo gallery block saved', ms: '1.3s revalidate' },
-  { project: 'Biennale', action: 'Programme schedule pushed live', ms: '1.0s revalidate' },
+  { project: 'Editorial site', action: 'Breaking story published', ms: '1.1s revalidate' },
+  { project: 'News portal', action: 'Article profile updated', ms: '0.9s revalidate' },
+  { project: 'CMS demo', action: 'Photo gallery block saved', ms: '1.3s revalidate' },
+  { project: 'Publishing app', action: 'Schedule pushed live', ms: '1.0s revalidate' },
   { project: 'News portal', action: 'Homepage hero swapped', ms: '0.8s revalidate' },
-  { project: 'Biennale', action: 'Exhibition page published', ms: '1.2s revalidate' },
+  { project: 'Editorial site', action: 'Landing page published', ms: '1.2s revalidate' },
 ];
 
 export default function HomeCmsDemo() {
@@ -85,7 +85,7 @@ export default function HomeCmsDemo() {
             <p className={`mt-4 ${NEU.bodyText}`}>{SIGNATURE_DEMO.description}</p>
           </div>
           <Link href="/projects" className={`inline-flex shrink-0 items-center gap-2 ${NEU.link}`}>
-            See production outcomes
+            See project outcomes
             <ArrowUpRight className="h-4 w-4" aria-hidden />
           </Link>
         </Reveal>

@@ -69,6 +69,7 @@ export function mapProject(doc: Record<string, unknown>) {
               : undefined,
           }
         : undefined,
+    employer: String(doc.employer ?? ''),
     year: String(doc.year ?? ''),
     timeline: String(doc.timeline ?? ''),
     industry: String(doc.industry ?? ''),

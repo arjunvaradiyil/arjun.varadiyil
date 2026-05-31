@@ -12,17 +12,19 @@ export default function HomeFeaturedProjects({ projects = [] }) {
   const featured = projects.slice(0, 2);
   const reduceMotion = useReducedMotion();
 
+  if (featured.length === 0) return null;
+
   return (
     <section className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}>
       <div className="mx-auto max-w-7xl">
         <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className={NEU.eyebrow}>Case studies</p>
+            <p className={NEU.eyebrow}>Selected work</p>
             <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>
-              Results first — then how
+              Selected work
             </h2>
             <p className={`mt-3 max-w-lg ${NEU.bodyText}`}>
-              One hard metric per project. Impact before stack.
+              Editorial, news & civic platforms — stack, role, and impact listed per project.
             </p>
           </div>
           <Link href="/projects" className={`inline-flex items-center gap-2 ${NEU.link}`}>

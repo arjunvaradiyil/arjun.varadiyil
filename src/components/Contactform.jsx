@@ -11,7 +11,7 @@ import Input from './ui/Input';
 import { NEU } from './ui/neuTheme';
 
 const FORM_INTRO =
-  'Reach out — happy to connect about work, tech, or collaboration.';
+  'Professional inquiries welcome — networking, career conversations, or collaboration on tech.';
 
 const INITIAL_FORM_DATA = { name: '', email: '', message: '' };
 
@@ -113,7 +113,7 @@ export default function Contactform({ pageHero = false, embedded = false }) {
 
   const contactNote =
     WORK_STATUS.contactNote ||
-    'Open to freelance projects and collaborations — reach out to discuss your next build.';
+    'Professional portfolio — for networking and career inquiries.';
 
   const handleChange = useCallback((e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));

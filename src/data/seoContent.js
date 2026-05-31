@@ -2,12 +2,12 @@
 
 /** 30–50 word definition block for AI extraction (also used as zero-click summary). */
 export const SGE_SUMMARY =
-  'Arjun Varadiyil is a Full Stack Developer in Kerala, India, specializing in Next.js, Payload CMS, and TypeScript. He engineers production-grade editorial platforms, headless CMS architecture, and high-traffic publishing systems — including India\u2019s largest art biennale, news portals, and civic tech tools.';
+  'Arjun Varadiyil is a Full Stack Developer at Faircode Infotech in Kerala, India, working with Next.js, Payload CMS, and TypeScript on editorial and publishing teams.';
 
 export const ABOUT_TAGLINE_SEO =
   'Full Stack Developer in Kerala building scalable editorial and CMS-driven platforms with Next.js and Payload CMS.';
 
-export const PROFESSIONAL_SUMMARY_SEO = `Arjun Varadiyil builds production-ready web systems for editorial teams, news platforms, and civic products. Based in Kerala, India, he specializes in Next.js, Payload CMS, and TypeScript — delivering headless CMS architecture, fast publishing workflows, and reliable performance under real traffic. His work includes platforms for India\u2019s largest art biennale, high-traffic publishing systems, and civic engagement tools. Open to freelance and contract engagements across India and remote teams.`;
+export const PROFESSIONAL_SUMMARY_SEO = `Arjun Varadiyil is a Full Stack Developer at Faircode Infotech in Kerala, India. He works on Next.js, Payload CMS, and TypeScript — contributing to editorial platforms and publishing systems as part of cross-functional teams. This portfolio focuses on skills, experience, and personal projects; employer client work is not listed.`;
 
 export const CORE_COMPETENCIES = {
   stack: [
@@ -44,9 +44,9 @@ export const ABOUT_SECTIONS = [
       'Arjun Varadiyil focuses on production-grade systems engineered for editorial teams — not generic marketing sites. He designs Payload CMS schemas, custom content blocks, and Next.js frontends that keep publishers fast, structured, and stable when traffic spikes.',
   },
   {
-    title: 'Production proof points',
+    title: 'Production focus',
     body:
-      'Live platforms include the Kochi\u2013Muziris Biennale digital ecosystem (India\u2019s largest art biennale), Deshabhimani news publishing infrastructure, and MyIdukki Election Pledge civic tooling — each built for real users, real deadlines, and real load.',
+      'Arjun works on editorial and publishing platforms with Next.js and Payload CMS — headless architecture, custom content blocks, and frontends tuned for traffic spikes. Employer client deliverables are not listed on this site.',
   },
   {
     title: 'Technical outcomes clients care about',

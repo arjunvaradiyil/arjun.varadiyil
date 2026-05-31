@@ -86,11 +86,11 @@ export default function HomeTrust() {
 
         <Reveal className="mt-8" delay={0.1}>
           <p className={`text-center text-xs ${NEU.bodyText}`}>
-            Want references from project teams?{' '}
+            Client names omitted for confidentiality. For professional inquiries,{' '}
             <Link href="/contact" className="underline underline-offset-4 hover:text-[var(--color-foreground)]">
-              Ask on your intro call
-            </Link>
-            — happy to connect you with colleagues from shipped work.
+              get in touch
+            </Link>{' '}
+            or connect on LinkedIn.
           </p>
         </Reveal>
       </div>

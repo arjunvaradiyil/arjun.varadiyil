@@ -120,7 +120,7 @@ export default function ProjectsPageClient({ projects = [], description = '' }) 
               href="/contact"
               className={`inline-flex items-center gap-2 px-6 py-3 text-xs uppercase tracking-[0.15em] ${NEU.btnPrimary}`}
             >
-              {workStatus?.primaryCta || 'Hire Me'}
+              {workStatus?.primaryCta || 'Get in touch'}
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
             </Link>
           </div>

@@ -12,6 +12,7 @@ import {
   NJR_NAV_CATEGORIES as staticNav,
   WORK_STATUS as staticWorkStatus,
 } from '../../lib/njrTheme';
+import { filterPublicProjects } from '../employment';
 import { tryGetPayloadClient } from './getPayload';
 import {
   mapCertification,
@@ -55,11 +56,11 @@ function staticSiteSettings() {
     heroStats: staticHeroStats,
     navCategories: staticNav,
     projectsPageDescription:
-      'News portals, biennale platform, and civic tech — Next.js, Payload CMS, and MERN stack.',
+      'Arts & culture, news publishing, and civic tech — Next.js, Payload CMS, and full stack delivery.',
     aboutSkillsSubtitle:
       'Node.js, React, Next.js, Payload CMS, databases, and the tools I use to ship production-ready web products.',
     experienceIntro:
-      'At Faircode Infotech I build biennale platforms, news portals, and civic tech — full-stack delivery with Next.js, Payload CMS, and modern databases.',
+      'Full-stack delivery with Next.js, Payload CMS, and modern databases on editorial and publishing teams.',
   };
 }
 
@@ -94,31 +95,30 @@ export async function getSiteSettings() {
 }
 
 export async function getProjects() {
-  if (!isCmsConfigured()) {
-    return staticProjects;
-  }
+  let projects = staticProjects;
 
-  try {
-    const payload = await getPayloadOrNull();
-    if (!payload) return staticProjects;
+  if (isCmsConfigured()) {
+    try {
+      const payload = await getPayloadOrNull();
+      if (payload) {
+        const { docs } = await payload.find({
+          collection: 'projects',
+          where: { published: { equals: true } },
+          sort: 'sortOrder',
+          limit: 100,
+          depth: 1,
+        });
 
-    const { docs } = await payload.find({
-      collection: 'projects',
-      where: { published: { equals: true } },
-      sort: 'sortOrder',
-      limit: 100,
-      depth: 1,
-    });
-
-    if (!docs.length) {
-      return staticProjects;
+        if (docs.length) {
+          projects = docs.map((doc) => mapProject(doc as Record<string, unknown>));
+        }
+      }
+    } catch (error) {
+      console.warn('[cms] projects fallback:', error);
     }
-
-    return docs.map((doc) => mapProject(doc as Record<string, unknown>));
-  } catch (error) {
-    console.warn('[cms] projects fallback:', error);
-    return staticProjects;
   }
+
+  return filterPublicProjects(projects);
 }
 
 export async function getProjectBySlug(slug: string) {
@@ -132,45 +132,8 @@ export type SitemapProject = {
 };
 
 export async function getProjectsForSitemap(): Promise<SitemapProject[]> {
-  const fallback = staticProjects.map((p) => ({ slug: p.slug }));
-
-  if (!isCmsConfigured()) {
-    return fallback;
-  }
-
-  try {
-    const payload = await getPayloadOrNull();
-    if (!payload) return fallback;
-
-    const { docs } = await payload.find({
-      collection: 'projects',
-      where: { published: { equals: true } },
-      sort: 'sortOrder',
-      limit: 100,
-      depth: 0,
-    });
-
-    if (!docs.length) {
-      return fallback;
-    }
-
-    return docs.map((doc) => {
-      const record = doc as Record<string, unknown>;
-      const updatedAt = record.updatedAt;
-      return {
-        slug: String(record.slug ?? ''),
-        lastModified:
-          updatedAt instanceof Date
-            ? updatedAt
-            : updatedAt
-              ? new Date(String(updatedAt))
-              : undefined,
-      };
-    });
-  } catch (error) {
-    console.warn('[cms] sitemap projects fallback:', error);
-    return fallback;
-  }
+  const projects = await getProjects();
+  return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function getExperience() {

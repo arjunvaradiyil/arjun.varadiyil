@@ -3,48 +3,50 @@
  * Dark cinematic layout, gold accents, category nav, editorial sections.
  */
 
+import { EMPLOYER_SHORT } from './employment';
+
 export const NJR_NAV_CATEGORIES = [
   { label: 'Work', href: '/projects' },
   { label: 'Profile', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
-/** Shown in hero, nav, and CTAs — update when employment status changes */
+/** Shown in hero, nav, and CTAs */
 export const WORK_STATUS = {
-  badge: 'Open to freelance',
+  badge: `Full stack @ ${EMPLOYER_SHORT}`,
   eyebrow: 'Full stack · Payload CMS',
-  company: 'Faircode Infotech',
-  primaryCta: 'Start the conversation',
+  company: EMPLOYER_SHORT,
+  primaryCta: 'Get in touch',
   navCta: 'Contact',
   contactNote:
-    "Need a fast, scalable platform? Tell me what you're shipping — I reply within 24 hours with a concrete plan.",
+    'Professional portfolio — for networking, collaboration, or career inquiries. I typically reply within a few business days.',
 };
 
 export const HERO_STATS = [
-  { value: '3', label: 'Production platforms live today', href: '/projects' },
-  { value: '8 wks', label: 'Fastest greenfield CMS launch', href: '/projects/kochi-muziris-biennale' },
-  { value: '15+', label: 'Editor-managed content models', href: '/projects' },
-  { value: '<2s', label: 'Publish → live page (ISR)', href: '/contact' },
+  { value: '3', label: 'Projects featured', href: '/projects' },
+  { value: 'Dev', label: 'Full stack developer', href: '/about' },
+  { value: 'CMS', label: 'Payload CMS in production', href: '/projects' },
+  { value: 'Kerala', label: `Based · full-time @ ${EMPLOYER_SHORT}`, href: '/about' },
 ];
 
 /** Developer stance — opinionated, subtle, senior voice. */
 export const DEVELOPER_STANCE =
   'Performance and editor autonomy are the same problem — if publishing needs a deploy, the architecture is wrong.';
 
-/** Home hero — proof line must earn trust in ~3 seconds. */
+/** Home hero */
 export const HOME_HERO = {
-  eyebrow: 'Full stack developer · Kerala',
-  headline: ['I ship CMS platforms', 'editors run without devs.'],
+  eyebrow: `Full stack developer · ${EMPLOYER_SHORT}`,
+  headline: ['Full stack developer', 'building editorial CMS systems.'],
   proofLine:
-    'Production systems for India\'s largest art biennale & a major Malayalam newsroom — daily editorial traffic, not portfolio demos.',
+    'Full stack developer focused on editorial CMS, headless architecture, and performance.',
   stanceLine: DEVELOPER_STANCE,
   tagline: '',
   description: '',
 };
 
 export const HOME_HERO_META = [
-  { label: 'Role', value: 'Full Stack Developer @ Faircode Infotech' },
-  { label: 'Stack', value: 'Next.js · Payload CMS · TypeScript · AWS' },
-  { label: 'Availability', value: 'Freelance & contract — remote OK' },
-  { label: 'Focus', value: 'Editorial platforms · news · civic tech' },
+  { label: 'Employer', value: `Full Stack Developer @ ${EMPLOYER_SHORT}` },
+  { label: 'Stack', value: 'Next.js · Payload CMS · TypeScript' },
+  { label: 'Portfolio', value: 'Skills, experience & open source' },
+  { label: 'Focus', value: 'Editorial platforms · CMS · performance' },
 ];

@@ -7,7 +7,6 @@ import { DRAWER_NAV, isNavActive } from '../lib/navLinks';
 import { useSiteSettings } from './SiteSettingsProvider';
 import { NEU } from './ui/neuTheme';
 import BrandLogo from './BrandLogo';
-import { TOPMATE_URL } from '../lib/siteSeo';
 
 const resume = 'https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view';
 
@@ -21,8 +20,6 @@ const SOCIALS = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arjunvaradiyil' },
   { name: 'Instagram', url: 'https://www.instagram.com/_arjuo__?igsh=MWZiOXdxMmg3c3Bodw%3D%3D&utm_source=qr' },
   { name: 'Github', url: 'https://github.com/arjunvaradiyil/arjun.varadiyil' },
-  { name: 'Book a call', url: TOPMATE_URL },
-  { name: 'Whatsapp', url: 'https://wa.me/9946642065' },
   { name: 'Resume', url: resume },
 ];
 
@@ -183,15 +180,12 @@ export default function SidebarMenu({ open, setOpen }) {
                 <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 sm:gap-x-10">
                   {SOCIALS.map((item, i) => {
                     const isResume = item.name === 'Resume';
-                    const isBookCall = item.url === TOPMATE_URL;
                     return (
                       <a
                         key={i}
                         href={item.url}
                         target="_blank"
-                        rel={
-                          isResume || isBookCall ? 'noopener noreferrer' : 'noopener noreferrer me'
-                        }
+                        rel={isResume ? 'noopener noreferrer' : 'noopener noreferrer me'}
                         title={`${item.name} (opens in a new tab)`}
                         className="group relative inline-block w-fit max-w-full"
                       >

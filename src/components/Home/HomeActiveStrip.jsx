@@ -5,7 +5,7 @@ import { ArrowUpRight, Github } from 'lucide-react';
 import { CURRENTLY_EXPLORING, GITHUB_USERNAME } from '../../data/proof';
 
 const BUILDING_NOTE =
-  'Prototyping LangChain RAG pipelines for editorial search — same CMS-first mindset, smarter retrieval.';
+  'Personal learning: AI agent workflows, LangChain & RAG — separate from employer client work.';
 
 /** Slim trust strip — active learning + GitHub. Sits directly under hero. */
 export default function HomeActiveStrip() {

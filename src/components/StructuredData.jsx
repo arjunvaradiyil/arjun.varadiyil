@@ -1,4 +1,5 @@
-import { DEFAULT_DESCRIPTION, FACEBOOK_URL, SITE_EMAIL, TOPMATE_URL, X_URL, YOUTUBE_URL } from '../lib/siteSeo';
+import { DEFAULT_DESCRIPTION, FACEBOOK_URL, SITE_EMAIL, X_URL, YOUTUBE_URL } from '../lib/siteSeo';
+import { LINKEDIN_URL } from '../data/proof';
 
 export default function StructuredData() {
   const sameAsExtra = [FACEBOOK_URL, X_URL, YOUTUBE_URL].filter((u) => typeof u === 'string' && u.length > 0);
@@ -31,7 +32,7 @@ export default function StructuredData() {
       "https://www.linkedin.com/in/arjunvaradiyil",
       "https://github.com/arjunvaradiyil/arjun.varadiyil",
       "https://www.instagram.com/_arjuo__",
-      TOPMATE_URL,
+      LINKEDIN_URL,
       ...sameAsExtra,
     ],
     "knowsAbout": [

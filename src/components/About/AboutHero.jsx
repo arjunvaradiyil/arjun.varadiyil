@@ -3,8 +3,7 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight, Calendar, Download, Github, Linkedin, Mail } from 'lucide-react';
-import { TOPMATE_URL } from '../../lib/siteSeo';
+import { ArrowUpRight, Download, Github, Linkedin, Mail } from 'lucide-react';
 import {
   ABOUT_TAGLINE,
   PROFILE as DEFAULT_PROFILE,
@@ -72,7 +71,6 @@ export default function AboutHero({
   const socialLinks = [
     { href: 'https://www.linkedin.com/in/arjunvaradiyil', icon: Linkedin, label: 'LinkedIn' },
     { href: 'https://github.com/arjunvaradiyil/arjun.varadiyil', icon: Github, label: 'GitHub' },
-    { href: TOPMATE_URL, icon: Calendar, label: 'Book a call' },
     { href: `mailto:${profile.email}`, icon: Mail, label: 'Email' },
     { href: resume, icon: Download, label: 'Resume' },
   ];
@@ -127,9 +125,9 @@ export default function AboutHero({
 
               <div className="grid gap-px border-t border-[var(--color-border)] bg-[var(--color-grid-line)] sm:grid-cols-2">
                 <AboutCta href="/contact" primary>
-                  Hire Me
+                  Get in touch
                 </AboutCta>
-                <AboutCta href="/projects">View Projects</AboutCta>
+                <AboutCta href="/projects">View my work</AboutCta>
               </div>
             </motion.div>
           </div>

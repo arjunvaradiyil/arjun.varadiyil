@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
 import ProjectCaseStudyLines from './ProjectCaseStudyLines';
-import ProjectProofMetric from './ProjectProofMetric';
+import ProjectEmployerNote from './ProjectEmployerNote';
 
 const IMAGE_SIZES = '(max-width: 768px) 100vw, 45vw';
 
@@ -36,7 +36,9 @@ function ProjectCardBody({ project, variant }) {
     return (
       <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
         <p className={NEU.eyebrow}>{project.industry}</p>
-        <ProjectProofMetric metric={project.proofMetric} className="mt-3" />
+        {project.employer ? (
+          <ProjectEmployerNote employer={project.employer} role={project.role} className="mt-2" />
+        ) : null}
         <h2 className={`mt-4 ${NEU.display} text-xl sm:text-2xl`}>{project.title}</h2>
         <ProjectCaseStudyLines project={project} className="mt-4" compact />
         {tags.length > 0 ? (
@@ -127,7 +129,9 @@ function ProjectListItem({ project, index }) {
             </div>
           </div>
 
-          <ProjectProofMetric metric={project.proofMetric} className="mt-4" />
+          {project.employer ? (
+            <ProjectEmployerNote employer={project.employer} role={project.role} className="mt-3" />
+          ) : null}
 
           <Link href={href} className="mt-4 block">
             <h2

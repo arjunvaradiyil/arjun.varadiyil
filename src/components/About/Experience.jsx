@@ -6,7 +6,7 @@ import SectionHeader from './SectionHeader';
 import { NEU } from '../ui/neuTheme';
 
 const DEFAULT_INTRO =
-  'At Faircode Infotech I build biennale platforms, news portals, and civic tech — full-stack delivery with Next.js, Payload CMS, and modern databases.';
+  'Full-stack delivery with Next.js, Payload CMS, and modern databases on editorial and publishing teams.';
 
 function ExperienceRoleHeader({ item }) {
   const isFaircode = item.company.toLowerCase().includes('faircode');

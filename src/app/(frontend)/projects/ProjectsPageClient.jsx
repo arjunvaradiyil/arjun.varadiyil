@@ -16,7 +16,7 @@ import {
 } from '../../../lib/gsap';
 
 const DEFAULT_DESCRIPTION =
-  'News portals, biennale platform, and civic tech — Next.js, Payload CMS, and MERN stack.';
+  'Arts & culture, news publishing, and civic tech — Next.js, Payload CMS, and full stack delivery.';
 
 export default function ProjectsPageClient({ projects = [], description = '' }) {
   const { workStatus } = useSiteSettings();
@@ -90,7 +90,11 @@ export default function ProjectsPageClient({ projects = [], description = '' }) 
           </ul>
         ) : (
           <p className={`${NEU.bodyText} border border-[var(--color-border)] px-6 py-12 text-center`}>
-            No projects published yet.
+            No public projects listed yet. Employer client work is kept off this portfolio — see{' '}
+            <Link href="/about" className="underline underline-offset-4 hover:text-[var(--color-foreground)]">
+              about
+            </Link>{' '}
+            for skills and experience.
           </p>
         )}
 
@@ -120,7 +124,7 @@ export default function ProjectsPageClient({ projects = [], description = '' }) 
               href="/contact"
               className={`inline-flex items-center gap-2 px-6 py-3 text-xs uppercase tracking-[0.15em] ${NEU.btnPrimary}`}
             >
-              {workStatus?.primaryCta || 'Hire Me'}
+              {workStatus?.primaryCta || 'Get in touch'}
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
             </Link>
           </div>
