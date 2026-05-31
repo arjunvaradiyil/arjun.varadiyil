@@ -75,11 +75,11 @@ export default function HomeCmsDemo() {
           <div className="max-w-2xl">
             <p className={NEU.eyebrow}>Live demo</p>
             <h2 className={`mt-3 ${NEU.display} text-3xl md:text-4xl`}>
-              This is how your editorial stack should work
+              Try the publish flow I ship for clients
             </h2>
             <p className={`mt-4 ${NEU.bodyText}`}>
-              Click publish to simulate what I ship — editor action to live page, no redeploy. The same
-              Payload → Next.js pipeline powers biennale and newsroom clients in production.
+              Hit simulate — watch editor → CMS → Next.js → reader. Same architecture powering biennale
+              and newsroom platforms in production.
             </p>
           </div>
           <Link href="/projects" className={`inline-flex shrink-0 items-center gap-2 ${NEU.link}`}>

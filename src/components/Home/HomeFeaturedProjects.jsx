@@ -17,12 +17,12 @@ export default function HomeFeaturedProjects({ projects = [] }) {
       <div className="mx-auto max-w-7xl">
         <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className={NEU.eyebrow}>Featured work</p>
+            <p className={NEU.eyebrow}>Case studies</p>
             <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>
-              Case studies with real impact
+              Problem → built → impact
             </h2>
             <p className={`mt-3 max-w-lg ${NEU.bodyText}`}>
-              Problem, solution, and measurable results — not just tech stacks.
+              How I think, not just what I shipped. Each project in three lines.
             </p>
           </div>
           <Link href="/projects" className={`inline-flex items-center gap-2 ${NEU.link}`}>

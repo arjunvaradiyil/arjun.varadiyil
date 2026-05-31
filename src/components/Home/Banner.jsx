@@ -87,6 +87,16 @@ export default function Banner() {
                   stagger={0.12}
                   delay={0.14}
                 />
+                {HOME_HERO.proofLine ? (
+                  <motion.p
+                    className="mt-4 max-w-lg border-l-2 border-[var(--color-foreground)] pl-4 font-sans text-sm font-medium leading-relaxed text-[var(--color-foreground)] sm:text-[15px]"
+                    initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.38 }}
+                  >
+                    {HOME_HERO.proofLine}
+                  </motion.p>
+                ) : null}
                 {HOME_HERO.tagline ? (
                   <motion.p
                     className="mt-3 max-w-lg font-sans text-sm font-medium leading-snug text-[var(--color-foreground-soft)] sm:mt-4 sm:text-[15px] sm:leading-relaxed"
@@ -130,9 +140,9 @@ export default function Banner() {
                 transition={{ duration: 0.55, ease: EASE_OUT, delay: 0.52 }}
               >
                 <HeroCta href="/contact" primary>
-                  Get your project plan
+                  Let&apos;s build it
                 </HeroCta>
-                <HeroCta href="/projects">See measured results</HeroCta>
+                <HeroCta href="/projects">View case studies</HeroCta>
               </motion.div>
             </motion.div>
           </div>

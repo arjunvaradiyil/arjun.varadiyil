@@ -1,4 +1,4 @@
-/** Homepage proof points, terminal demo copy, and trust metrics — single source of truth. */
+/** Homepage proof points, CTA copy, and trust metrics — single source of truth. */
 
 export const CURRENT_ROLE = {
   title: 'Full Stack Developer',
@@ -42,18 +42,16 @@ export const TRUST_METRICS = [
 
 export const GITHUB_USERNAME = 'arjunvaradiyil';
 
+export const CURRENTLY_EXPLORING = [
+  'AI agent workflows',
+  'LangChain & RAG',
+  'Payload CMS 3',
+  'Next.js performance',
+];
+
 export const OUTCOME_CTA = {
-  headline: 'Need a CMS your editors actually run?',
-  subline:
-    'I help teams launch editorial platforms in weeks — not quarters. Send your brief and get a concrete plan within 24 hours.',
-  primary: { label: 'Get your project plan', href: '/contact' },
+  headline: 'Need a fast, scalable platform?',
+  subline: "Let's build it. Tell me what you're shipping — I'll reply within 24 hours with scope, timeline, and next steps.",
+  primary: { label: "Let's build it", href: '/contact' },
   secondary: { label: 'Book a 30-min call', href: 'https://topmate.io/arjun_varadiyil', external: true },
 };
-
-/** Aggregate impact — surfaced in hero stats row. */
-export const AGGREGATE_IMPACT = [
-  { value: '3', label: 'Production platforms delivering revenue & reach', href: '/projects' },
-  { value: '8 wks', label: 'Fastest full platform launch', href: '/projects/kochi-muziris-biennale' },
-  { value: '15+', label: 'CMS models editors use daily', href: '/projects' },
-  { value: '<2s', label: 'Content publish to live page', href: '/contact' },
-];

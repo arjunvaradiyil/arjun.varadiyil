@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
-import ProjectOutcomes from './ProjectOutcomes';
+import ProjectCaseStudyLines from './ProjectCaseStudyLines';
 
 const IMAGE_SIZES = '(max-width: 768px) 100vw, 45vw';
 
@@ -36,16 +36,18 @@ function ProjectCardBody({ project, variant }) {
       <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
         <p className={NEU.eyebrow}>{project.industry}</p>
         <h2 className={`mt-2 ${NEU.display} text-xl sm:text-2xl`}>{project.title}</h2>
-        {project.impact ? (
-          <p className="mt-3 border-l-2 border-[var(--color-foreground)] pl-3 text-sm font-medium leading-snug text-[var(--color-foreground)]">
-            {project.impact}
-          </p>
-        ) : project.tagline ? (
-          <p className={`mt-2 line-clamp-2 text-sm leading-relaxed ${NEU.bodyText}`}>{project.tagline}</p>
+        <ProjectCaseStudyLines project={project} className="mt-4" compact />
+        {tags.length > 0 ? (
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <li key={tag} className={NEU.techTag}>
+                {tag}
+              </li>
+            ))}
+          </ul>
         ) : null}
-        <ProjectOutcomes outcomes={project.outcomes} compact />
         <span className={`mt-auto inline-flex items-center gap-1 pt-5 ${NEU.link}`}>
-          Read case study
+          Full case study
           <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
       </div>
@@ -127,19 +129,7 @@ function ProjectListItem({ project, index }) {
             </h2>
           </Link>
 
-          {project.tagline ? (
-            <p className={`mt-4 max-w-xl text-sm leading-relaxed sm:text-base ${NEU.bodyText}`}>
-              {project.tagline}
-            </p>
-          ) : null}
-
-          {project.impact ? (
-            <p className="mt-4 max-w-xl border-l-2 border-[var(--color-foreground)] pl-4 text-sm font-medium leading-relaxed text-[var(--color-foreground)]">
-              {project.impact}
-            </p>
-          ) : null}
-
-          <ProjectOutcomes outcomes={project.outcomes} compact className="max-w-md" />
+          <ProjectCaseStudyLines project={project} className="mt-5 max-w-xl" />
 
           {tags.length > 0 ? (
             <ul className="mt-6 flex flex-wrap gap-2">

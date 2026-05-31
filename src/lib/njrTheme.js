@@ -14,10 +14,10 @@ export const WORK_STATUS = {
   badge: 'Open to freelance',
   eyebrow: 'Full stack · Payload CMS',
   company: 'Faircode Infotech',
-  primaryCta: 'Get your project plan',
+  primaryCta: "Let's build it",
   navCta: 'Contact',
   contactNote:
-    'Tell me what your editorial team needs to ship faster — I respond within 24 hours with scope, timeline, and next steps.',
+    "Need a fast, scalable platform? Tell me what you're shipping — I reply within 24 hours with a concrete plan.",
 };
 
 export const HERO_STATS = [
@@ -27,21 +27,19 @@ export const HERO_STATS = [
   { value: '<2s', label: 'Publish → live page (ISR)', href: '/contact' },
 ];
 
-/** Home hero only — work-focused; profile details live on /about */
+/** Home hero — proof line must earn trust in ~3 seconds. */
 export const HOME_HERO = {
-  eyebrow: 'Results, not résumés',
-  headline: ['CMS platforms that ship.', 'Outcomes you can measure.'],
-  tagline:
-    'I build Next.js + Payload CMS systems for newsrooms & editorial teams — 3 in production, zero content bottlenecks.',
+  eyebrow: 'Full stack developer · Kerala',
+  headline: ['I ship CMS platforms', 'editors run without devs.'],
+  proofLine:
+    'Building production systems for India\'s largest art biennale & a major Malayalam newsroom — real editorial workflows, daily traffic.',
+  tagline: '',
   description: '',
 };
 
 export const HOME_HERO_META = [
-  { label: 'Current role', value: 'Full Stack Developer @ Faircode Infotech' },
-  { label: 'What clients get', value: 'Editors publish daily · Devs stop firefighting content' },
-  { label: 'Availability', value: 'Freelance & contract — Kerala & remote' },
-  {
-    label: 'Latest result',
-    value: 'Biennale & news platforms live — editors own the CMS, not engineering',
-  },
+  { label: 'Role', value: 'Full Stack Developer @ Faircode Infotech' },
+  { label: 'Stack', value: 'Next.js · Payload CMS · TypeScript · AWS' },
+  { label: 'Availability', value: 'Freelance & contract — remote OK' },
+  { label: 'Focus', value: 'Editorial platforms · news · civic tech' },
 ];

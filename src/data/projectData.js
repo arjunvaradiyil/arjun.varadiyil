@@ -25,12 +25,9 @@ export const projects = [
     role: 'Developer',
     teamMembers: 6,
     duration: '2 Months',
-    problem:
-      'India’s largest art biennale needed a digital home that editors could update daily — not a static site rebuilt every season.',
-    solution:
-      'Greenfield Next.js + Payload CMS platform with custom collections, blocks, and GraphQL APIs — fully admin-controlled, no hard-coded pages.',
-    impact:
-      'Live in 8 weeks with a 6-person team. 15+ Payload collections let editors publish exhibitions, artists & programmes without redeploys — platform runs the full biennale cycle.',
+    problem: 'Biennale needed daily editor updates — not a static site rebuilt every season.',
+    solution: 'Next.js + Payload CMS with custom collections, blocks & GraphQL — zero hard-coded pages.',
+    impact: 'Live in 8 weeks. 15+ CMS models — editors publish without redeploys or dev tickets.',
     outcomes: [
       { value: '8 wks', label: 'Build to production', detail: 'Greenfield CMS platform with full editorial handoff' },
       { value: '15+', label: 'CMS collections & blocks', detail: 'Exhibitions, artists, programmes, multimedia' },
@@ -76,12 +73,9 @@ export const projects = [
     role: 'Developer',
     teamMembers: 4,
     duration: '4 Months',
-    problem:
-      'A major Malayalam newsroom needed real-time publishing, multimedia workflows, and a CMS editors could use without developer help.',
-    solution:
-      'Payload CMS–driven news portal with reusable content blocks, article workflows, and performance-tuned Next.js frontend for high readership.',
-    impact:
-      '4-month delivery with a 4-person squad. Newsroom publishes breaking stories & multimedia daily — no developer queue for routine content updates.',
+    problem: 'Newsroom needed real-time publishing without waiting on developers for every update.',
+    solution: 'Payload CMS portal with reusable blocks, article workflows & performance-tuned Next.js frontend.',
+    impact: '4-month delivery. Editors publish breaking stories & multimedia daily — 100% CMS-driven.',
     outcomes: [
       { value: 'Daily', label: 'Editorial publish cadence', detail: 'Breaking news & multimedia without dev tickets' },
       { value: '4 mo', label: 'Feature delivery window', detail: 'Reusable blocks + CMS workflows on live portal' },
@@ -128,12 +122,9 @@ export const projects = [
     role: 'Developer',
     teamMembers: 1,
     duration: '1 Week',
-    problem:
-      'Voters in Idukki lacked a simple way to take a civic pledge and find their polling booth before election day.',
-    solution:
-      'Full-stack civic app with digital pledge flow, booth lookup, JWT-secured admin panel, and MongoDB backend — designed and shipped solo in one week.',
-    impact:
-      'Solo ship in 7 days. Citizens complete pledge & booth lookup in one flow; district admins track participation from a single JWT-secured panel.',
+    problem: 'Citizens had no simple way to pledge and find their polling booth before election day.',
+    solution: 'Full-stack civic app — pledge flow, booth lookup & JWT-secured admin panel, solo in 7 days.',
+    impact: 'Shipped in one week. One platform for citizens; admins track participation without spreadsheets.',
     outcomes: [
       { value: '7 days', label: 'Concept to deployment', detail: 'Solo full-stack architecture & delivery' },
       { value: '2', label: 'Citizen-facing flows', detail: 'Digital pledge + polling booth lookup' },

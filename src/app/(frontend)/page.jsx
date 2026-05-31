@@ -1,11 +1,9 @@
 import Banner from '../../components/Home/Banner';
-import HomeProofBar from '../../components/Home/HomeProofBar';
+import HomeActiveStrip from '../../components/Home/HomeActiveStrip';
 import HomeCmsDemo from '../../components/Home/HomeCmsDemo';
 import HomeTrust from '../../components/Home/HomeTrust';
 import HomeCta from '../../components/Home/HomeCta';
 import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
-import HomeIntro from '../../components/Home/HomeIntro';
-import HomeSeoCopy from '../../components/Home/HomeSeoCopy';
 import HomeServices from '../../components/Home/HomeServices';
 import MaintenanceScreen from '../../components/MaintenanceScreen';
 import { getProjects, getSkills } from '../../lib/cms/content';
@@ -45,15 +43,13 @@ export default async function HomePage() {
   return (
     <div className="overflow-x-hidden bg-[var(--color-surface)]">
       <Banner />
-      <HomeProofBar />
+      <HomeActiveStrip />
+      <HomeCmsDemo />
       <div id="home-content">
-        <HomeCmsDemo />
-        <HomeIntro />
         <HomeFeaturedProjects projects={projects} />
         <HomeTrust />
         <HomeServices skills={skills} />
         <HomeCta />
-        <HomeSeoCopy />
       </div>
     </div>
   );
