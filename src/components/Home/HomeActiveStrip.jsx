@@ -4,11 +4,18 @@ import Link from 'next/link';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { CURRENTLY_EXPLORING, GITHUB_USERNAME } from '../../data/proof';
 
+const BUILDING_NOTE =
+  'Prototyping LangChain RAG pipelines for editorial search — same CMS-first mindset, smarter retrieval.';
+
 /** Slim trust strip — active learning + GitHub. Sits directly under hero. */
 export default function HomeActiveStrip() {
   return (
     <div className="border-t border-[var(--color-border)] bg-[var(--color-surface)]">
-      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 py-4 sm:px-8 lg:px-12">
+        <p className="mb-3 max-w-3xl font-sans text-xs leading-relaxed text-[var(--color-foreground-muted)]">
+          {BUILDING_NOTE}
+        </p>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
           <span className="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--color-foreground-subtle)]">
             Currently exploring
@@ -34,6 +41,7 @@ export default function HomeActiveStrip() {
           Active on GitHub
           <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
         </a>
+        </div>
       </div>
     </div>
   );

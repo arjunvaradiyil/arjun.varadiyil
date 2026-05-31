@@ -59,6 +59,16 @@ export function mapProject(doc: Record<string, unknown>) {
     problem: String(doc.problem ?? ''),
     solution: String(doc.solution ?? ''),
     impact: String(doc.impact ?? ''),
+    proofMetric:
+      doc.proofMetric && typeof doc.proofMetric === 'object'
+        ? {
+            value: String((doc.proofMetric as { value?: string }).value ?? ''),
+            label: String((doc.proofMetric as { label?: string }).label ?? ''),
+            detail: (doc.proofMetric as { detail?: string }).detail
+              ? String((doc.proofMetric as { detail?: string }).detail)
+              : undefined,
+          }
+        : undefined,
     year: String(doc.year ?? ''),
     timeline: String(doc.timeline ?? ''),
     industry: String(doc.industry ?? ''),

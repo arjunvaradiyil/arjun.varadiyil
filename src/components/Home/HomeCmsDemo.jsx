@@ -7,6 +7,7 @@ import { ArrowUpRight, Radio } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
 import { EASE_OUT } from '../../lib/motion';
+import { SIGNATURE_DEMO } from '../../data/proof';
 
 const FLOW_STEPS = [
   { id: 'editor', label: 'Payload Admin', sub: 'Editor hits publish' },
@@ -67,20 +68,21 @@ export default function HomeCmsDemo() {
 
   return (
     <section
+      id="publish-lab"
       className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}
-      aria-label="Live CMS architecture demo"
+      aria-label="The Publish Lab — CMS architecture demo"
     >
       <div className="mx-auto max-w-7xl">
         <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className={NEU.eyebrow}>Live demo</p>
-            <h2 className={`mt-3 ${NEU.display} text-3xl md:text-4xl`}>
-              Try the publish flow I ship for clients
-            </h2>
-            <p className={`mt-4 ${NEU.bodyText}`}>
-              Hit simulate — watch editor → CMS → Next.js → reader. Same architecture powering biennale
-              and newsroom platforms in production.
-            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className={NEU.eyebrow}>{SIGNATURE_DEMO.eyebrow}</p>
+              <span className="border border-[var(--color-border-strong)] px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-[var(--color-foreground-subtle)]">
+                {SIGNATURE_DEMO.tag}
+              </span>
+            </div>
+            <h2 className={`mt-3 ${NEU.display} text-3xl md:text-4xl`}>{SIGNATURE_DEMO.title}</h2>
+            <p className={`mt-4 ${NEU.bodyText}`}>{SIGNATURE_DEMO.description}</p>
           </div>
           <Link href="/projects" className={`inline-flex shrink-0 items-center gap-2 ${NEU.link}`}>
             See production outcomes

@@ -5,9 +5,9 @@ import { NEU } from '../ui/neuTheme';
 /** Three-line mini case study: problem → built → impact. */
 export default function ProjectCaseStudyLines({ project, className = '', compact = false }) {
   const rows = [
+    { key: 'impact', label: 'Impact', text: project?.impact },
     { key: 'problem', label: 'Problem', text: project?.problem },
     { key: 'built', label: 'Built', text: project?.solution },
-    { key: 'impact', label: 'Impact', text: project?.impact },
   ].filter((row) => row.text);
 
   if (!rows.length) return null;

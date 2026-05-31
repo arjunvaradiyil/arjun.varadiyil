@@ -50,8 +50,17 @@ export const CURRENTLY_EXPLORING = [
 ];
 
 export const OUTCOME_CTA = {
-  headline: 'Need a fast, scalable platform?',
-  subline: "Let's build it. Tell me what you're shipping — I'll reply within 24 hours with scope, timeline, and next steps.",
-  primary: { label: "Let's build it", href: '/contact' },
+  headline: 'Your editorial team shouldn\'t wait on engineering.',
+  subline: 'Tell me what you\'re shipping — I\'ll reply within 24 hours with scope, timeline, and a concrete build plan.',
+  primary: { label: 'Start the conversation', href: '/contact' },
   secondary: { label: 'Book a 30-min call', href: 'https://topmate.io/arjun_varadiyil', external: true },
+};
+
+/** Signature interactive section — brand identity on homepage. */
+export const SIGNATURE_DEMO = {
+  eyebrow: 'The Publish Lab',
+  tag: 'Signature demo',
+  title: 'Try the publish flow I ship for clients',
+  description:
+    'Hit simulate — editor → Payload → Next.js → reader. Same pipeline powering biennale & newsroom systems in production.',
 };

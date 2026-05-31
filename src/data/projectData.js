@@ -28,6 +28,11 @@ export const projects = [
     problem: 'Biennale needed daily editor updates — not a static site rebuilt every season.',
     solution: 'Next.js + Payload CMS with custom collections, blocks & GraphQL — zero hard-coded pages.',
     impact: 'Live in 8 weeks. 15+ CMS models — editors publish without redeploys or dev tickets.',
+    proofMetric: {
+      value: '15+',
+      label: 'CMS collections shipped in 8 weeks',
+      detail: 'India\'s largest art biennale · 6-person squad',
+    },
     outcomes: [
       { value: '8 wks', label: 'Build to production', detail: 'Greenfield CMS platform with full editorial handoff' },
       { value: '15+', label: 'CMS collections & blocks', detail: 'Exhibitions, artists, programmes, multimedia' },
@@ -76,6 +81,11 @@ export const projects = [
     problem: 'Newsroom needed real-time publishing without waiting on developers for every update.',
     solution: 'Payload CMS portal with reusable blocks, article workflows & performance-tuned Next.js frontend.',
     impact: '4-month delivery. Editors publish breaking stories & multimedia daily — 100% CMS-driven.',
+    proofMetric: {
+      value: 'Daily',
+      label: 'Breaking-news publish cycle on live portal',
+      detail: 'Malayalam newsroom · 4-person squad · zero redeploys',
+    },
     outcomes: [
       { value: 'Daily', label: 'Editorial publish cadence', detail: 'Breaking news & multimedia without dev tickets' },
       { value: '4 mo', label: 'Feature delivery window', detail: 'Reusable blocks + CMS workflows on live portal' },
@@ -125,6 +135,11 @@ export const projects = [
     problem: 'Citizens had no simple way to pledge and find their polling booth before election day.',
     solution: 'Full-stack civic app — pledge flow, booth lookup & JWT-secured admin panel, solo in 7 days.',
     impact: 'Shipped in one week. One platform for citizens; admins track participation without spreadsheets.',
+    proofMetric: {
+      value: '7 days',
+      label: 'Solo ship — pledge & booth lookup live',
+      detail: 'Full-stack civic platform · JWT-secured admin',
+    },
     outcomes: [
       { value: '7 days', label: 'Concept to deployment', detail: 'Solo full-stack architecture & delivery' },
       { value: '2', label: 'Citizen-facing flows', detail: 'Digital pledge + polling booth lookup' },

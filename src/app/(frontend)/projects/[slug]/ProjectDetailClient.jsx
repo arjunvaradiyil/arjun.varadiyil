@@ -7,6 +7,7 @@ import { FiArrowLeft, FiCalendar, FiClock, FiExternalLink, FiUsers } from 'react
 import { HiOutlineBriefcase } from 'react-icons/hi2'
 import ProjectCard from '../../../../components/projects/ProjectCard'
 import ProjectOutcomes from '../../../../components/projects/ProjectOutcomes'
+import ProjectProofMetric from '../../../../components/projects/ProjectProofMetric'
 import { NEU } from '../../../../components/ui/neuTheme'
 import { useGsap } from '../../../../hooks/useGsap'
 import {
@@ -200,6 +201,11 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
               {project.tagline}
             </p>
           )}
+          {project.proofMetric ? (
+            <div data-gsap="hero-line" className="mt-8 max-w-md">
+              <ProjectProofMetric metric={project.proofMetric} />
+            </div>
+          ) : null}
         </header>
 
         {metaItems.length > 0 && (

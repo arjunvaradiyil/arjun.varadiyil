@@ -97,6 +97,16 @@ export default function Banner() {
                     {HOME_HERO.proofLine}
                   </motion.p>
                 ) : null}
+                {HOME_HERO.stanceLine ? (
+                  <motion.p
+                    className="mt-3 max-w-lg font-sans text-sm italic leading-relaxed text-[var(--color-foreground-muted)]"
+                    initial={reduceMotion ? false : { opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.55, ease: EASE_OUT, delay: 0.48 }}
+                  >
+                    {HOME_HERO.stanceLine}
+                  </motion.p>
+                ) : null}
                 {HOME_HERO.tagline ? (
                   <motion.p
                     className="mt-3 max-w-lg font-sans text-sm font-medium leading-snug text-[var(--color-foreground-soft)] sm:mt-4 sm:text-[15px] sm:leading-relaxed"
@@ -140,9 +150,9 @@ export default function Banner() {
                 transition={{ duration: 0.55, ease: EASE_OUT, delay: 0.52 }}
               >
                 <HeroCta href="/contact" primary>
-                  Let&apos;s build it
+                  Start the conversation
                 </HeroCta>
-                <HeroCta href="/projects">View case studies</HeroCta>
+                <HeroCta href="/projects">See the proof</HeroCta>
               </motion.div>
             </motion.div>
           </div>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
 import ProjectCaseStudyLines from './ProjectCaseStudyLines';
+import ProjectProofMetric from './ProjectProofMetric';
 
 const IMAGE_SIZES = '(max-width: 768px) 100vw, 45vw';
 
@@ -35,16 +36,22 @@ function ProjectCardBody({ project, variant }) {
     return (
       <div className="flex min-h-0 flex-1 flex-col p-5 sm:p-6">
         <p className={NEU.eyebrow}>{project.industry}</p>
-        <h2 className={`mt-2 ${NEU.display} text-xl sm:text-2xl`}>{project.title}</h2>
+        <ProjectProofMetric metric={project.proofMetric} className="mt-3" />
+        <h2 className={`mt-4 ${NEU.display} text-xl sm:text-2xl`}>{project.title}</h2>
         <ProjectCaseStudyLines project={project} className="mt-4" compact />
         {tags.length > 0 ? (
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <li key={tag} className={NEU.techTag}>
-                {tag}
-              </li>
-            ))}
-          </ul>
+          <div className="mt-5 border-t border-[var(--color-border)] pt-4">
+            <p className="mb-2 font-sans text-[10px] uppercase tracking-[0.18em] text-[var(--color-foreground-faint)]">
+              Stack
+            </p>
+            <ul className="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <li key={tag} className={`${NEU.techTag} opacity-80`}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : null}
         <span className={`mt-auto inline-flex items-center gap-1 pt-5 ${NEU.link}`}>
           Full case study
@@ -117,9 +124,10 @@ function ProjectListItem({ project, index }) {
               {project.timeline || project.duration ? (
                 <span className={NEU.techTag}>{project.timeline || project.duration}</span>
               ) : null}
-              {project.role ? <span className={NEU.techTag}>{project.role}</span> : null}
             </div>
           </div>
+
+          <ProjectProofMetric metric={project.proofMetric} className="mt-4" />
 
           <Link href={href} className="mt-4 block">
             <h2
@@ -129,16 +137,21 @@ function ProjectListItem({ project, index }) {
             </h2>
           </Link>
 
-          <ProjectCaseStudyLines project={project} className="mt-5 max-w-xl" />
+          <ProjectCaseStudyLines project={project} className="mt-4 max-w-xl" />
 
           {tags.length > 0 ? (
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <li key={tag} className={NEU.techTag}>
-                  {tag}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-6 border-t border-[var(--color-border)] pt-5">
+              <p className="mb-2 font-sans text-[10px] uppercase tracking-[0.18em] text-[var(--color-foreground-faint)]">
+                Stack
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <li key={tag} className={`${NEU.techTag} opacity-80`}>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ) : null}
 
           <div className="mt-auto flex flex-wrap items-center gap-5 border-t border-[var(--color-border)] pt-6">
