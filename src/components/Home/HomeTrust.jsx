@@ -29,11 +29,7 @@ export default function HomeTrust() {
     <section className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`} aria-label="Trust signals">
       <div className="mx-auto max-w-7xl">
         <Reveal className="max-w-2xl">
-          <p className={NEU.eyebrow}>Trust signals</p>
           <h2 className={`mt-3 ${NEU.display} text-3xl md:text-4xl`}>Numbers you can check</h2>
-          <p className={`mt-4 ${NEU.bodyText}`}>
-            Lighthouse scores, load times, and GitHub activity — not a skills laundry list.
-          </p>
         </Reveal>
 
         <div className="mt-10 grid gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">

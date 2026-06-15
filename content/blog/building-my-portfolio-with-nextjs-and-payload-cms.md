@@ -6,7 +6,7 @@
 
 ---
 
-Most developer portfolios look the same: a hero section, a grid of project cards, and a contact form that sends mail to nowhere. I wanted something different — a site that *felt* like the work I actually do: editorial platforms, news portals, and CMS-driven products shipped under real traffic.
+Most developer portfolios look the same: a hero section, a grid of project cards, and a contact form that sends mail to nowhere. I wanted something different — a site that *felt* like the full stack work I actually ship: clinic sites, civic platforms, quiz apps, and campaign hubs under real traffic.
 
 This post walks through how I built [arjunvaradiyil.in](https://arjunvaradiyil.in) — the architecture, the design choices, and the problems I solved along the way.
 
@@ -14,14 +14,14 @@ This post walks through how I built [arjunvaradiyil.in](https://arjunvaradiyil.i
 
 ## Why not a template?
 
-I build production systems for editorial teams — Kochi–Muziris Biennale, Deshabhimani News Portal, civic tools like MyIdukki Election Pledge. My portfolio should reflect that same standard: structured content, performance-conscious delivery, and an admin experience I’d actually use day to day.
+I build production Next.js systems for healthcare, civic, education, and campaign clients. My portfolio should reflect that same standard: structured content, performance-conscious delivery, and an admin experience I'd actually use day to day.
 
 A static HTML export or a Notion page wouldn’t cut it. I needed:
 
 - **A headless CMS** so I can update projects, skills, and site copy without redeploying
 - **Static fallbacks** so the site still works locally and in CI without a database
 - **SEO and structured data** baked in from the start — not bolted on later
-- **Motion and layout** that match the editorial, cinematic feel of the products I ship
+- **Motion and layout** that match the polished, production feel of the products I ship
 
 ---
 
@@ -129,7 +129,7 @@ A portfolio nobody finds is a README with extra steps. SEO was treated as infras
 - **Hreflang** — `en`, `en-IN`, and `x-default` for India-focused targeting
 - **Obfuscated emails** in visible UI — contact form and labeled links instead of scrape-friendly plain text
 
-Target keywords align with actual work: *Full Stack Developer in Kerala*, *Next.js*, *Payload CMS*, *news portal*, *editorial platform*.
+Target keywords align with actual work: *Full Stack Developer in Kerala*, *Next.js*, *Payload CMS*, *healthcare website*, *civic platform*.
 
 ---
 
@@ -143,11 +143,14 @@ The contact page uses a two-step modal form (details → message) with **Resend*
 
 Each project page is a case study, not a screenshot gallery:
 
-- **Kochi Muziris Biennale** — Payload CMS platform for India’s largest contemporary art biennale
-- **Deshabhimani News Portal** — real-time news publishing on a headless CMS stack
-- **MyIdukki Election Pledge** — civic tech for public engagement
+- **Kochi Muziris Biennale** — Payload CMS festival platform at [kochimuzirisbiennale.org](https://www.kochimuzirisbiennale.org/)
+- **Deshabhimani News Portal** — Malayalam news publishing at [deshabhimani.com](https://www.deshabhimani.com/)
+- **Dr. Naseeha's Homoeopathic Clinic** — healthcare site with treatment pages and online consultation
+- **My Vote My Voice (Idukki)** — civic voter pledge and booth lookup at [myidukki.com](https://myidukki.com/)
+- **Know Kerala** — interactive Malayalam quiz platform at [knowkeralam.com](https://www.knowkeralam.com/)
+- **Hello 2 AI** — DYFI Kerala AI literacy campaign at [aiohello.vercel.app](https://aiohello.vercel.app/)
 
-Project data includes role, team size, timeline, responsibilities, and tech stack — the same fields I’d want when evaluating someone else’s portfolio.
+Project data includes role, timeline, responsibilities, and tech stack — the same fields I’d want when evaluating someone else’s portfolio.
 
 ---
 
@@ -177,7 +180,7 @@ Open [http://localhost:3000](http://localhost:3000). The site runs on static dat
 
 Your portfolio is a product. If you build CMS platforms for a living, your site should *be* a CMS platform — or at least behave like one. Next.js and Payload made that achievable in a single codebase, with static fallbacks keeping development friction low.
 
-If you’re building something similar — editorial stack, headless CMS migration, or a news portal — [get in touch](https://arjunvaradiyil.in/contact). I’m open to freelance and contract work.
+If you're building something similar — full stack Next.js product, headless CMS migration, or a civic/education platform — [get in touch](https://arjunvaradiyil.in/contact).
 
 ---
 

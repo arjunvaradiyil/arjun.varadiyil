@@ -16,7 +16,7 @@ import {
 } from '../../../lib/gsap';
 
 const DEFAULT_DESCRIPTION =
-  'Kochi–Muziris Biennale, Deshabhimani newsroom, and MyIdukki civic app — role, stack, and what each solved.';
+  'Six live full stack builds — news, culture, healthcare, civic, and campaign platforms.';
 
 export default function ProjectsPageClient({ projects = [], description = '' }) {
   const { workStatus } = useSiteSettings();
@@ -90,7 +90,7 @@ export default function ProjectsPageClient({ projects = [], description = '' }) 
           </ul>
         ) : (
           <p className={`${NEU.bodyText} border border-[var(--color-border)] px-6 py-12 text-center`}>
-            No public projects listed yet. Employer client work is kept off this portfolio — see{' '}
+            No projects listed yet.{' '}
             <Link href="/about" className="underline underline-offset-4 hover:text-[var(--color-foreground)]">
               about
             </Link>{' '}

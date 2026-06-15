@@ -11,10 +11,10 @@ export default function HomeIntro() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className={NEU.eyebrow}>What I deliver</p>
           <h2 className={`${NEU.display} text-2xl sm:text-3xl md:text-4xl`}>
-            Why teams hire me — and what they get
+            Why clients work with me
           </h2>
           <p className={`mt-6 ${NEU.bodyText}`}>
-            Editors should publish without filing dev tickets. That is the bar — not another React portfolio.
+            I take ideas from sketch to launch — fast, clean, and built to stay live.
           </p>
         </Reveal>
 
@@ -26,21 +26,19 @@ export default function HomeIntro() {
             <div className="bg-[var(--color-surface)] px-6 py-10 md:px-8 md:py-12">
               <p className={NEU.eyebrow}>Problem I solve</p>
               <h3 className={`mt-4 ${NEU.display} text-xl md:text-2xl`}>
-                Hard-coded sites that block editorial teams
+                Sites that stall when content needs to change
               </h3>
               <p className={`mt-4 ${NEU.bodyText}`}>
-                Newsrooms and culture orgs need to publish without waiting on developers. I replace that
-                bottleneck with Payload CMS workflows editors actually use.
+                I build products people open every day — voter tools, quizzes, and campaign sites that keep working after launch.
               </p>
             </div>
             <div className="bg-[var(--color-surface)] px-6 py-10 md:px-8 md:py-12">
               <p className={NEU.eyebrow}>Result you get</p>
               <h3 className={`mt-4 ${NEU.display} text-xl md:text-2xl`}>
-                Faster publishing, fewer rebuilds
+                Faster launches, fewer rebuilds
               </h3>
               <p className={`mt-4 ${NEU.bodyText}`}>
-                Custom blocks, typed APIs, and Next.js pages that hold up on launch day — usually in
-                2–4 month cycles with a clear handoff.
+                One codebase from database to UI — live in weeks, not months, with a clean handoff when it ships.
               </p>
             </div>
           </div>

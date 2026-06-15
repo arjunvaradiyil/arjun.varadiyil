@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { useSiteSettings } from '../SiteSettingsProvider';
 import SidebarMenu from '../SidebarMenu';
 import HeroHeader from './HeroHeader';
@@ -11,9 +11,44 @@ import HeroPortrait from './HeroPortrait';
 import { NEU } from '../ui/neuTheme';
 import LineStaggerReveal from '../ui/LineStaggerReveal';
 import { HOME_HERO, HOME_HERO_META } from '../../lib/njrTheme';
+import { ROLE_TITLE } from '../../lib/employment';
+import { PUBLIC_SOCIAL_LINKS } from '../../data/proof';
+import { SITE_EMAIL } from '../../lib/siteSeo';
 import { EASE_OUT, staggerContainer, staggerItem } from '../../lib/motion';
 
 const STAT_HREF_FALLBACKS = ['/about', '/projects', '/contact', '/projects'];
+
+const SOCIAL_ICONS = { LinkedIn: Linkedin, GitHub: Github, Email: Mail };
+
+const heroSocialLinkClass =
+  'flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--color-border-strong)] bg-[var(--color-surface)] text-[var(--color-foreground)] transition hover:border-[var(--color-foreground)] hover:bg-[var(--color-primary-bg)] hover:text-[var(--color-primary-fg)]';
+
+function HeroSocialLinks({ email }) {
+  const links = [
+    ...PUBLIC_SOCIAL_LINKS,
+    { label: 'Email', href: `mailto:${email}`, external: false },
+  ];
+
+  return (
+    <div className="mt-3 flex flex-wrap gap-2">
+      {links.map(({ label, href, external }) => {
+        const Icon = SOCIAL_ICONS[label];
+        return (
+          <a
+            key={label}
+            href={href}
+            target={external ? '_blank' : undefined}
+            rel={external ? 'noopener noreferrer me' : undefined}
+            aria-label={label}
+            className={heroSocialLinkClass}
+          >
+            <Icon className="h-4 w-4" aria-hidden />
+          </a>
+        );
+      })}
+    </div>
+  );
+}
 
 function HeroCta({ href, children, primary = false }) {
   const reduceMotion = useReducedMotion();
@@ -36,10 +71,11 @@ function HeroCta({ href, children, primary = false }) {
 export default function Banner() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { heroStats: HERO_STATS, heroImage, profile } = useSiteSettings();
+  const contactEmail = profile?.email || SITE_EMAIL;
   const portrait = profile?.photo || '/assets/images/profilepic.png';
   const heroSrc = heroImage || portrait;
   const displayName = profile?.fullName || profile?.name || 'Arjun Varadiyil';
-  const portraitAlt = `${displayName} — full stack developer in Kerala, India`;
+  const portraitAlt = `${displayName} — Full Stack Developer in Kerala, India`;
   const reduceMotion = useReducedMotion();
   const headlineLines = Array.isArray(HOME_HERO.headline)
     ? HOME_HERO.headline
@@ -56,7 +92,7 @@ export default function Banner() {
             src={heroSrc}
             alt={portraitAlt}
             name={displayName}
-            role="Software Engineer"
+            role={ROLE_TITLE}
             priority
             size="split"
           />
@@ -141,6 +177,15 @@ export default function Banner() {
                     </p>
                   </motion.div>
                 ))}
+                <motion.div
+                  className="bg-[var(--color-surface)] px-4 py-4 sm:px-5 sm:py-5"
+                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: EASE_OUT, delay: 0.25 + HOME_HERO_META.length * 0.06 }}
+                >
+                  <p className={NEU.eyebrow}>Connect</p>
+                  <HeroSocialLinks email={contactEmail} />
+                </motion.div>
               </div>
 
               <motion.div
@@ -149,10 +194,10 @@ export default function Banner() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: EASE_OUT, delay: 0.52 }}
               >
-                <HeroCta href="/contact" primary>
-                  Get in touch
+                <HeroCta href="/projects" primary>
+                  View my work
                 </HeroCta>
-                <HeroCta href="/projects">View my work</HeroCta>
+                <HeroCta href="/contact">Get in touch</HeroCta>
               </motion.div>
             </motion.div>
           </div>

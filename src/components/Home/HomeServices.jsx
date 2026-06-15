@@ -20,13 +20,9 @@ export default function HomeServices({ skills = [] }) {
       </GhostWatermark>
       <div className="relative mx-auto max-w-7xl">
         <Reveal>
-          <p className={NEU.eyebrow}>Expertise</p>
           <h2 className={`mt-3 max-w-xl ${NEU.display} text-3xl md:text-5xl`}>
             What I work with
           </h2>
-          <p className={`mt-5 max-w-2xl ${NEU.bodyText}`}>
-            Frontend, full stack, and Payload CMS — the same stack behind the news, festival, and civic projects in my archive.
-          </p>
         </Reveal>
 
         <StaggerReveal as="ul" className="mt-10 grid gap-px bg-[var(--color-grid-line)] md:grid-cols-3">

@@ -6,6 +6,7 @@ import {
   absoluteUrl,
 } from './siteSeo';
 import { SGE_SUMMARY } from '../data/seoContent';
+import { EMPLOYER_SHORT } from './employment';
 
 const PERSON_ID = `${SITE_URL}/#person`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -16,12 +17,11 @@ export const SITE_FAQ = [
   {
     question: 'Who is Arjun Varadiyil?',
     answer:
-      'A Full Stack Developer in Kerala at Faircode Infotech. He builds Payload CMS and Next.js platforms for newsrooms, cultural festivals, and civic teams.',
+      `A Full Stack Developer at ${EMPLOYER_SHORT} in Kerala. He builds Next.js platforms for healthcare, civic, education, and campaign clients.`,
   },
   {
     question: 'Is Arjun Varadiyil a web developer in Kerala?',
-    answer:
-      'Yes. He is based in Kerala and works full-time at Faircode Infotech on CMS-driven web products for editorial and public-facing teams.',
+    answer: `Yes — Full Stack Developer at ${EMPLOYER_SHORT}, based in Kerala.`,
   },
   {
     question: 'What technologies does Arjun Varadiyil use?',
@@ -31,7 +31,7 @@ export const SITE_FAQ = [
   {
     question: 'What kind of projects has Arjun built?',
     answer:
-      'A Malayalam news portal (Deshabhimani), a Kochi–Muziris Biennale platform, and a MyIdukki civic pledge app. Case studies on this site; other employer client work is not listed.',
+      'Kochi Muziris Biennale CMS, Deshabhimani news portal, homoeopathic clinic site, civic voter pledge platform, Kerala quiz site, and AI literacy campaign hub. Case studies are on this portfolio.',
   },
   {
     question: 'How do I contact Arjun Varadiyil?',
@@ -41,7 +41,7 @@ export const SITE_FAQ = [
   {
     question: 'Where is Arjun Varadiyil based?',
     answer:
-      'Kerala, India. He works full-time at Faircode Infotech. For professional inquiries, use the contact page or LinkedIn.',
+      `Kerala, India. He works at ${EMPLOYER_SHORT}. For professional inquiries, use the contact page or LinkedIn.`,
   },
 ];
 
@@ -58,13 +58,12 @@ const PROFILE_IMAGE = `${SITE_URL}/assets/images/arjunvaradiyil.jpeg`;
 export function buildFaqPageSchema(faqs = SITE_FAQ) {
   return {
     '@type': 'FAQPage',
-    '@id': `${SITE_URL}/#faq`,
-    mainEntity: faqs.map((item) => ({
+    mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
-      name: item.question,
+      name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: item.answer,
+        text: faq.answer,
       },
     })),
   };

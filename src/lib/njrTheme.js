@@ -3,7 +3,13 @@
  * Dark cinematic layout, gold accents, category nav, editorial sections.
  */
 
-import { EMPLOYER_SHORT } from './employment';
+import { DEVELOPER_APPROACH } from '../data/proof';
+import {
+  EMPLOYER_SHORT,
+  LOCATION,
+  ROLE_AT_EMPLOYER,
+  ROLE_EYEBROW,
+} from './employment';
 
 export const NJR_NAV_CATEGORIES = [
   { label: 'Work', href: '/projects' },
@@ -11,42 +17,36 @@ export const NJR_NAV_CATEGORIES = [
   { label: 'Contact', href: '/contact' },
 ];
 
-/** Shown in hero, nav, and CTAs */
 export const WORK_STATUS = {
-  badge: `Developer @ ${EMPLOYER_SHORT}`,
-  eyebrow: 'Payload CMS · Next.js',
+  badge: ROLE_AT_EMPLOYER,
+  eyebrow: ROLE_EYEBROW,
   company: EMPLOYER_SHORT,
   primaryCta: 'Get in touch',
   navCta: 'Contact',
-  contactNote:
-    'Open to networking and career conversations — I usually reply within a few business days.',
+  contactNote: 'I usually reply within a few business days.',
 };
 
 export const HERO_STATS = [
-  { value: '3', label: 'Shipped platforms', href: '/projects' },
-  { value: 'News', label: 'Malayalam newsroom', href: '/projects' },
-  { value: 'Biennale', label: 'Festival CMS', href: '/projects' },
-  { value: 'Kerala', label: `Full-time @ ${EMPLOYER_SHORT}`, href: '/about' },
+  { value: '6', label: 'Live projects', href: '/projects' },
+  { value: 'Live', label: 'In production', href: '/projects' },
+  { value: 'EN · ML · HI · TE', label: 'Multilingual builds', href: '/projects/my-vote-my-voice-idukki' },
+  { value: 'Kerala', label: 'India based', href: '/about' },
 ];
 
-/** Developer stance — opinionated, subtle, senior voice. */
-export const DEVELOPER_STANCE =
-  'Performance and editor autonomy are the same problem — if publishing needs a deploy, the architecture is wrong.';
+export const DEVELOPER_STANCE = DEVELOPER_APPROACH;
 
-/** Home hero */
 export const HOME_HERO = {
-  eyebrow: `Developer @ ${EMPLOYER_SHORT}`,
-  headline: ['CMS systems editors', 'can run without a deploy.'],
+  eyebrow: EMPLOYER_SHORT,
+  headline: ['Live products.', 'Not mockups.'],
   proofLine:
-    'News portals, biennale programmes, civic apps — Payload CMS and Next.js on teams of four to six.',
-  stanceLine: DEVELOPER_STANCE,
+    'Biennale programmes, voter tools, quiz apps, and campaign hubs — shipped from Kerala and still running today.',
+  stanceLine: '',
   tagline: '',
   description: '',
 };
 
 export const HOME_HERO_META = [
-  { label: 'Day job', value: `Developer @ ${EMPLOYER_SHORT}` },
-  { label: 'Stack', value: 'Next.js · Payload · TypeScript' },
-  { label: 'Recent', value: 'Deshabhimani · KMB · MyIdukki' },
-  { label: 'Belief', value: 'Publishing should not wait on devs' },
+  { label: 'Build with', value: 'Next.js · Payload CMS · TypeScript' },
+  { label: 'Ship for', value: 'Festivals · civic · education' },
+  { label: 'Based in', value: LOCATION },
 ];

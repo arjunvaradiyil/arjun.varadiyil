@@ -18,7 +18,7 @@ export default function HomeProofBar() {
               <span className="text-[var(--color-foreground-soft)]">@ {CURRENT_ROLE.company}</span>
             </p>
             <p className="mt-1 font-sans text-sm text-[var(--color-foreground-muted)]">
-              {CURRENT_ROLE.location} · Full-time @ Faircode
+              {CURRENT_ROLE.location}
             </p>
           </div>
           <Link href="/about" className={`inline-flex shrink-0 items-center gap-2 ${NEU.link}`}>

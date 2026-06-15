@@ -6,10 +6,13 @@ import { ArrowUpRight } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
 import { Reveal, StaggerReveal, StaggerItem } from '../ui/Reveal';
 import { transition } from '../../lib/motion';
+import { HIDDEN_FROM_HOME_SLUGS } from '../../lib/employment';
 import ProjectCard from '../projects/ProjectCard';
 
 export default function HomeFeaturedProjects({ projects = [] }) {
-  const featured = projects.slice(0, 2);
+  const featured = projects
+    .filter((project) => project?.slug && !HIDDEN_FROM_HOME_SLUGS.includes(project.slug))
+    .slice(0, 2);
   const reduceMotion = useReducedMotion();
 
   if (featured.length === 0) return null;
@@ -19,13 +22,7 @@ export default function HomeFeaturedProjects({ projects = [] }) {
       <div className="mx-auto max-w-7xl">
         <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className={NEU.eyebrow}>Recent builds</p>
-          <h2 className={`mt-3 ${NEU.display} text-3xl md:text-5xl`}>
-            Recent builds
-          </h2>
-          <p className={`mt-3 max-w-lg ${NEU.bodyText}`}>
-            A biennale platform, a Malayalam newsroom, and a civic pledge app — each with the problem, stack, and my role.
-          </p>
+            <h2 className={`${NEU.display} text-3xl md:text-5xl`}>Recent builds</h2>
           </div>
           <Link href="/projects" className={`inline-flex items-center gap-2 ${NEU.link}`}>
             All projects

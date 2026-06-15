@@ -6,17 +6,17 @@ import SectionHeader from './SectionHeader';
 import { NEU } from '../ui/neuTheme';
 
 const DEFAULT_INTRO =
-  'News, festival, and civic builds at Faircode — Payload CMS and Next.js on small agile teams.';
+  'Full-stack delivery at Faircode Infotech — Payload CMS and Next.js.';
 
 function ExperienceRoleHeader({ item }) {
-  const isFaircode = item.company.toLowerCase().includes('faircode');
+  const isEmployer = item.company.toLowerCase().includes('faircode');
 
   return (
     <div className="grid gap-px bg-[var(--color-grid-line)] md:grid-cols-[5.5rem_1fr_auto]">
       <div className="flex items-center justify-center bg-[var(--color-surface)] p-5 md:p-6">
         <div
           className={`relative h-14 w-14 shrink-0 overflow-hidden border border-[var(--color-border)] ${
-            isFaircode ? 'bg-white p-1.5' : 'bg-[var(--color-surface-elevated)]'
+            isEmployer ? 'bg-white p-1.5' : 'bg-[var(--color-surface-elevated)]'
           }`}
         >
           <Image src={item.logo} alt={`${item.company} logo`} fill className="object-contain" sizes="56px" />

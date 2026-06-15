@@ -10,16 +10,14 @@ export const SITE_EMAIL = 'arjunvaradiyil203@gmail.com';
 export const SITE_TITLE_DEFAULT =
   'Next.js & Payload CMS Developer in Kerala | Arjun Varadiyil';
 
+export const DEFAULT_DESCRIPTION =
+  'Full Stack Developer at Faircode Infotech — Next.js platforms for civic, education, and campaign clients in Kerala.';
+
 /** Book-a-call link (Topmate) — career guidance, resume review, mentoring */
 export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';
 
 /** Absolute sitemap URL — use in robots.txt and Search Console. */
 export const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
-
-/** Primary meta description — 120–160 chars; sync layout + OG + Twitter + JSON-LD. */
-
-export const DEFAULT_DESCRIPTION =
-  'Developer in Kerala building Payload CMS and Next.js for Deshabhimani, Kochi–Muziris Biennale, and civic products — where editors publish without waiting on devs.';
 
 export const KEYWORDS = [
   'Full Stack Developer in Kerala',

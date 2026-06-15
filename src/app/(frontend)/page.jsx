@@ -1,6 +1,5 @@
 import Banner from '../../components/Home/Banner';
 import HomeActiveStrip from '../../components/Home/HomeActiveStrip';
-import HomeCmsDemo from '../../components/Home/HomeCmsDemo';
 import HomeTrust from '../../components/Home/HomeTrust';
 import HomeCta from '../../components/Home/HomeCta';
 import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
@@ -44,7 +43,6 @@ export default async function HomePage() {
     <div className="overflow-x-hidden bg-[var(--color-surface)]">
       <Banner />
       <HomeActiveStrip />
-      <HomeCmsDemo />
       <div id="home-content">
         <HomeFeaturedProjects projects={projects} />
         <HomeTrust />

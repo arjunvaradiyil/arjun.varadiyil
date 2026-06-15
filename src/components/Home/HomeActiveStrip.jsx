@@ -5,7 +5,7 @@ import { ArrowUpRight, Github } from 'lucide-react';
 import { CURRENTLY_EXPLORING, GITHUB_USERNAME } from '../../data/proof';
 
 const BUILDING_NOTE =
-  'On my own time: AI agents and RAG experiments — separate from day-job client work.';
+  'Personal experiments: AI agents and RAG — separate from client work at Faircode.';
 
 /** Slim trust strip — active learning + GitHub. Sits directly under hero. */
 export default function HomeActiveStrip() {

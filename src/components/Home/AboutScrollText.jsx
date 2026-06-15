@@ -3,9 +3,7 @@
 import React from 'react';
 import WordStaggerReveal from '../ui/WordStaggerReveal';
 import { NEU } from '../ui/neuTheme';
-
-const TEXT =
-  'If a content change needs a deploy, that is an architecture problem — not something editors should work around.';
+import { DEVELOPER_APPROACH } from '../../data/proof';
 
 export default function AboutScrollText() {
   return (
@@ -21,7 +19,7 @@ export default function AboutScrollText() {
         <div className={`${NEU.cardStatic} p-8 md:p-10`}>
           <WordStaggerReveal
             as='h2'
-            text={TEXT}
+            text={DEVELOPER_APPROACH}
             className={`${NEU.display} text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl`}
             viewport={{ once: true, amount: 0.45 }}
           />

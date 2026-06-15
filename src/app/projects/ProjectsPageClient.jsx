@@ -16,7 +16,7 @@ import {
 } from '../../lib/gsap';
 
 const DEFAULT_DESCRIPTION =
-  'News portals, biennale platform, and civic tech — Next.js, Payload CMS, and MERN stack.';
+  'Six live full stack builds — news, culture, healthcare, civic, and campaign platforms.';
 
 export default function ProjectsPageClient({ projects = [], description = '' }) {
   const { workStatus } = useSiteSettings();

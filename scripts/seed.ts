@@ -34,23 +34,53 @@ async function seed() {
       heroStats: HERO_STATS,
       navCategories: NJR_NAV_CATEGORIES,
       projectsPageDescription:
-        'Kochi–Muziris Biennale, Deshabhimani newsroom, and MyIdukki civic app — what I built, with whom, and why.',
-      aboutSkillsSubtitle:
-        'The tools behind those builds — Next.js, Payload CMS, databases, and day-to-day dev workflow.',
+        'Six live full stack builds — news, culture, healthcare, civic, and campaign platforms.',
+      aboutSkillsSubtitle: 'Next.js, Payload CMS, MongoDB, and production delivery.',
       experienceIntro:
-        'Client delivery at Faircode Infotech — news, culture, and civic products where editors publish daily.',
+        'Full Stack Developer at Faircode Infotech — Next.js from database to deploy.',
     },
   });
 
   const removedProjectSlugs = [
     'prajashakti-news-portal',
     'i-serve',
+    'myidukki-election-pledge',
     'arts-culture-cms-platform',
     'digital-newsroom-platform',
+    'arts-festival-cms-platform',
+    'regional-news-portal',
     'civic-election-pledge-platform',
+    'personal-portfolio-cms',
+    'core-election-specialist',
+    'hello-2-ai-campaign',
   ];
 
+  console.log('Removing stale projects…');
+  for (const slug of removedProjectSlugs) {
+    const { docs } = await payload.find({
+      collection: 'projects',
+      where: { slug: { equals: slug } },
+      limit: 10,
+    });
+    for (const doc of docs) {
+      await payload.delete({ collection: 'projects', id: doc.id });
+      console.log(`Removed project: ${slug}`);
+    }
+  }
+
   console.log('Seeding projects…');
+  const { docs: existingProjects } = await payload.find({
+    collection: 'projects',
+    limit: 200,
+  });
+  for (const [index, doc] of existingProjects.entries()) {
+    await payload.update({
+      collection: 'projects',
+      id: doc.id,
+      data: { projectId: `tmp-${index}` },
+    });
+  }
+
   for (const [index, project] of projects.entries()) {
     const existing = await payload.find({
       collection: 'projects',
@@ -91,18 +121,6 @@ async function seed() {
       });
     } else {
       await payload.create({ collection: 'projects', data });
-    }
-  }
-
-  for (const slug of removedProjectSlugs) {
-    const { docs } = await payload.find({
-      collection: 'projects',
-      where: { slug: { equals: slug } },
-      limit: 10,
-    });
-    for (const doc of docs) {
-      await payload.delete({ collection: 'projects', id: doc.id });
-      console.log(`Removed project: ${slug}`);
     }
   }
 

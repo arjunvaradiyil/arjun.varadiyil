@@ -12,7 +12,7 @@ import {
 import HeroPortrait from '../Home/HeroPortrait';
 import { Reveal } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
-import { WORK_STATUS } from '../../lib/njrTheme';
+import { ROLE_AT_EMPLOYER } from '../../lib/employment';
 import { EASE_OUT, transition } from '../../lib/motion';
 
 const resume = 'https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view';
@@ -52,8 +52,8 @@ export default function AboutHero({
       value: `${profile.experience?.replace(/\s*years?/i, '') || '1.3+'} years in production`,
     },
     { label: 'Location', value: `${profile.location || 'Kerala, India'} (Remote Ready)` },
-    { label: 'Currently', value: `Shipping platforms at ${WORK_STATUS.company}` },
-    { label: 'Focus', value: 'Editorial & CMS systems' },
+    { label: 'Currently', value: ROLE_AT_EMPLOYER },
+    { label: 'Focus', value: 'Newsrooms · festivals · communities' },
   ];
 
   const fadeUp = useMemo(

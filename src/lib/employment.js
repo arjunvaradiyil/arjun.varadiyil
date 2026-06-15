@@ -1,13 +1,20 @@
-/** Employer & portfolio-safe copy — align with employment terms. */
+/** Employer & portfolio copy. */
 
 export const EMPLOYER = 'Faircode Infotech Pvt Ltd';
 export const EMPLOYER_SHORT = 'Faircode Infotech';
+export const ROLE_TITLE = 'Full Stack Developer';
+export const ROLE_AT_EMPLOYER = `Full Stack Developer @ ${EMPLOYER_SHORT}`;
+export const LOCATION = 'Kerala, India';
+export const ROLE_EYEBROW = EMPLOYER_SHORT;
 
-/** When true, employer/client projects are excluded from the public portfolio. */
+/** Project slugs omitted from the homepage featured section (still on /projects). */
+export const HIDDEN_FROM_HOME_SLUGS = ['deshabhimani-news-portal', 'homoeopathic-clinic-melattur'];
+
+/** When true, projects tagged with employer field are hidden from the public portfolio. */
 export const HIDE_EMPLOYER_PROJECTS = true;
 
 export const PORTFOLIO_NOTE =
-  'Selected case studies only — other employer client work stays off this site. Contact or LinkedIn for inquiries.';
+  'Selected work on this site. For inquiries, use contact or LinkedIn.';
 
 export function isEmployerProject(project) {
   if (!project?.employer) return false;

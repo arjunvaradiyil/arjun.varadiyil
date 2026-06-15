@@ -1,13 +1,14 @@
+import { EMPLOYER } from '../lib/employment';
+
 export const experienceData = [
   {
     period: 'January 2025 – Present',
     role: 'Full Stack Developer',
-    company: 'Faircode Infotech Pvt Ltd',
+    company: EMPLOYER,
     points: [
-      'Shipped Payload CMS + Next.js for a Malayalam newsroom, a biennale programme site, and a district civic pledge app.',
-      'Designed collections and blocks so editors publish articles, schedules, and media without developer tickets.',
-      'Built GraphQL APIs, admin flows, and frontend pages on squads of four to six.',
-      'Fixed production bugs and tightened page load on live portals under real traffic.',
+      'Payload CMS + Next.js for Kochi Muziris Biennale and Deshabhimani newsroom — live publishing at scale.',
+      'Healthcare clinic, civic voter pledge, Kerala quiz, and AI campaign sites — APIs through production deploys.',
+      'GraphQL, admin flows, and frontends — end-to-end delivery on live client traffic.',
     ],
     logo: '/assets/images/fclogo.png',
   },

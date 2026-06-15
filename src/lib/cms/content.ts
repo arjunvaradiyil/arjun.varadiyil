@@ -12,7 +12,7 @@ import {
   NJR_NAV_CATEGORIES as staticNav,
   WORK_STATUS as staticWorkStatus,
 } from '../../lib/njrTheme';
-import { filterPublicProjects } from '../employment';
+import { filterPublicProjects, EMPLOYER_SHORT } from '../employment';
 import { tryGetPayloadClient } from './getPayload';
 import {
   mapCertification,
@@ -56,11 +56,9 @@ function staticSiteSettings() {
     heroStats: staticHeroStats,
     navCategories: staticNav,
     projectsPageDescription:
-      'Kochi–Muziris Biennale, Deshabhimani newsroom, and MyIdukki civic app — what I built, with whom, and why.',
-    aboutSkillsSubtitle:
-      'The tools behind those builds — Next.js, Payload CMS, databases, and day-to-day dev workflow.',
-    experienceIntro:
-      'Client delivery at Faircode Infotech — news, culture, and civic products where editors publish daily.',
+      'Six live full stack builds — news, culture, healthcare, civic, and campaign platforms.',
+    aboutSkillsSubtitle: 'Next.js, Payload CMS, MongoDB, and production delivery.',
+    experienceIntro: `Full Stack Developer at ${EMPLOYER_SHORT} — Next.js from database to deploy.`,
   };
 }
 

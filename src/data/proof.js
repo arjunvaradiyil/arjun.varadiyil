@@ -1,36 +1,40 @@
 /** Homepage proof points, CTA copy, and trust metrics — single source of truth. */
 
-import { EMPLOYER_SHORT } from '../lib/employment';
+import { EMPLOYER_SHORT, LOCATION, ROLE_TITLE } from '../lib/employment';
 
 export const CURRENT_ROLE = {
-  title: 'Full Stack Developer',
+  title: ROLE_TITLE,
   company: EMPLOYER_SHORT,
-  location: 'Kerala, India',
+  location: LOCATION,
 };
+
+/** One memorable line — import elsewhere; do not duplicate the string. */
+export const DEVELOPER_APPROACH =
+  'I take products from first sketch to production — no handoffs, no dead ends.';
 
 export const PROOF_METRICS = [
   {
-    value: '3',
-    label: 'Case studies',
-    detail: 'Biennale, Deshabhimani & MyIdukki',
+    value: '6',
+    label: 'Live builds',
+    detail: 'Festivals · civic · campaigns',
     href: '/projects',
   },
   {
-    value: '4–6',
-    label: 'Typical team',
-    detail: 'Cross-functional squads on client builds',
-    href: '/about',
+    value: 'Full',
+    label: 'Stack delivery',
+    detail: 'Next.js · MongoDB · Payload CMS',
+    href: '/projects',
   },
   {
-    value: 'CMS',
-    label: 'Payload in practice',
-    detail: 'Collections, blocks & GraphQL APIs',
-    href: '/projects',
+    value: 'Live',
+    label: 'Civic platform',
+    detail: 'Voter pledge at myidukki.com',
+    href: '/projects/my-vote-my-voice-idukki',
   },
   {
     value: '1.3s',
     label: 'This site LCP',
-    detail: 'AVIF images, edge fonts, lean bundles',
+    detail: 'AVIF · edge fonts · lean bundles',
     href: '/about',
   },
 ];
@@ -44,7 +48,15 @@ export const TRUST_METRICS = [
 
 export const GITHUB_USERNAME = 'arjunvaradiyil';
 
+export const GITHUB_URL = `https://github.com/${GITHUB_USERNAME}/arjun.varadiyil`;
+
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/arjunvaradiyil';
+
+/** Public profile links — hero, footer, about. */
+export const PUBLIC_SOCIAL_LINKS = [
+  { label: 'LinkedIn', href: LINKEDIN_URL, external: true },
+  { label: 'GitHub', href: GITHUB_URL, external: true },
+];
 
 export const CURRENTLY_EXPLORING = [
   'AI agent workflows',
@@ -55,17 +67,7 @@ export const CURRENTLY_EXPLORING = [
 
 export const OUTCOME_CTA = {
   headline: 'Want to talk?',
-  subline:
-    'Open to roles, collaborations, and straight conversations about CMS and publishing work.',
+  subline: 'Open to roles and collaborations on full stack Next.js work.',
   primary: { label: 'Get in touch', href: '/contact' },
   secondary: { label: 'Connect on LinkedIn', href: LINKEDIN_URL, external: true },
-};
-
-/** Signature interactive section */
-export const SIGNATURE_DEMO = {
-  eyebrow: 'The Publish Lab',
-  tag: 'Concept demo',
-  title: 'How a story goes live',
-  description:
-    'A stripped-down CMS → Next.js → reader flow — the same shape as news and festival builds, without client data.',
 };

@@ -78,7 +78,7 @@ export const Projects: CollectionConfig = {
               uploadLabel: 'Cover image',
               fallbackName: 'image',
               fallbackLabel: 'Cover image fallback',
-              fallbackDescription: 'Public path when no upload is set (e.g. /myidukki.png).',
+              fallbackDescription: 'Public path when no upload is set (e.g. /assets/images/example.png).',
             }),
             ...imageUploadFields({
               uploadName: 'logoMedia',

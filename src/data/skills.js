@@ -4,12 +4,12 @@ export const skills = [
     title: 'Frontend',
     href: '/about',
     cardBlurb:
-      'Article pages, programme listings, and festival schedules — React and Next.js layouts built for daily publishing.',
+      'Campaign landings, quiz flows, and civic tools — React and Next.js layouts built for real users.',
     description:
-      'Interfaces for newsrooms and cultural orgs: clear hierarchy, keyboard-friendly navigation, and pages that load fast on mid-range phones.',
+      'Interfaces for civic, education, and campaign clients: clear hierarchy, keyboard-friendly navigation, and pages that load fast on mid-range phones.',
     features: [
       'Next.js App Router with SSR and static routes where it fits',
-      'Component patterns reused across article, listing, and detail pages',
+      'Component patterns reused across landing, listing, and detail pages',
       'Tailwind layouts tuned for Malayalam and English content',
       'Motion and image loading that does not tank LCP',
     ],
@@ -22,14 +22,14 @@ export const skills = [
     title: 'Full Stack',
     href: '/projects',
     cardBlurb:
-      'APIs, auth, and databases wired to the same Next.js codebase — from booth lookup flows to news article endpoints.',
+      'APIs, auth, and databases wired to the same Next.js codebase — from booth lookup flows to content endpoints.',
     description:
       'End-to-end features on MongoDB and PostgreSQL: pledge forms, admin dashboards, GraphQL resolvers, and REST hooks for third-party tools.',
     features: [
       'GraphQL and REST APIs shaped around editor and reader needs',
       'MongoDB for civic apps; PostgreSQL where relational data fits',
       'JWT-secured admin panels for non-technical operators',
-      'Bug fixes and feature work on live news and festival sites',
+      'Bug fixes and feature work on live civic and campaign sites',
     ],
     image:
       'https://www.mindinventory.com/blog/wp-content/uploads/2022/03/react-nodejs.webp',
@@ -40,11 +40,11 @@ export const skills = [
     title: 'Content Management',
     href: '/projects',
     cardBlurb:
-      'Payload CMS for newsrooms and festivals — custom blocks editors recognise, not generic page builders.',
+      'Payload CMS for portfolios and content sites — custom blocks, not generic page builders.',
     description:
-      'Collections and blocks for Deshabhimani-style news workflows and biennale programme content: artists, venues, schedules, multimedia.',
+      'Collections and blocks for project case studies, campaign pages, and multilingual content: services, testimonials, schedules, multimedia.',
     features: [
-      'Content models mapped to how editors actually file stories',
+      'Content models mapped to how clients actually update their sites',
       'Reusable blocks for hero, gallery, embed, and related links',
       'S3-backed media libraries with sensible admin UX',
       'Role-based access so reporters and admins see different views',
@@ -58,11 +58,11 @@ export const skills = [
     title: 'Tools & Workflow',
     href: '/about',
     cardBlurb:
-      'Git, Postman, and VS Code — the boring toolchain that keeps multi-dev squads aligned.',
+      'Git, Postman, and VS Code — structured workflows from local dev through client handoff.',
     description:
-      'Version control, API testing, and local setups that match staging — so handoffs between frontend and CMS work stay predictable.',
+      'Version control, API testing, and local setups that match staging — predictable delivery on client builds.',
     features: [
-      'GitHub PRs and branch workflows on 4–6 person teams',
+      'GitHub PRs and branch workflows with clients',
       'Postman collections for GraphQL and REST endpoints',
       'VS Code as primary editor across macOS and Linux',
       'Python scripts for one-off data and automation tasks',
