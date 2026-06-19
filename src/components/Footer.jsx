@@ -4,15 +4,15 @@ import Link from 'next/link';
 import { useGsap } from '../hooks/useGsap';
 import { prefersReducedMotion, scrollReveal, EDITORIAL_EASE } from '../lib/gsap';
 import { SITE_EMAIL } from '../lib/siteSeo';
-import { LINKEDIN_URL } from '../data/proof';
+import { PUBLIC_SOCIAL_LINKS } from '../data/proof';
 import { CENTER_NAV } from '../lib/navLinks';
+import { LOCATION } from '../lib/employment';
 import { useSiteSettings } from './SiteSettingsProvider';
 import { NEU } from './ui/neuTheme';
 
 const CONNECT_LINKS = (email) => [
   { label: 'Email', href: `mailto:${email}`, external: false },
-  { label: 'LinkedIn', href: LINKEDIN_URL, external: true },
-  { label: 'GitHub', href: 'https://github.com/arjunvaradiyil/arjun.varadiyil', external: true },
+  ...PUBLIC_SOCIAL_LINKS,
 ];
 
 const footerLink =
@@ -31,9 +31,9 @@ function FooterColumn({ label, children, align = 'left' }) {
 }
 
 export default function Footer() {
-  const { profile, workStatus } = useSiteSettings();
+  const { profile } = useSiteSettings();
   const email = profile?.email || SITE_EMAIL;
-  const location = profile?.location || 'Kerala, India';
+  const location = profile?.location || LOCATION;
 
   const scopeRef = useGsap(({ gsap, scope }) => {
     if (prefersReducedMotion()) return;
@@ -107,9 +107,6 @@ export default function Footer() {
             <p className="font-syne text-sm font-bold uppercase tracking-[0.06em] text-[var(--color-foreground)] sm:text-base">
               {location}
             </p>
-            {workStatus?.badge ? (
-              <p className={`mt-4 ${NEU.badge}`}>{workStatus.badge}</p>
-            ) : null}
           </FooterColumn>
         </div>
 

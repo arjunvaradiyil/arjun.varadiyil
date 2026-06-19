@@ -2,11 +2,11 @@
 
 import React from 'react';
 import Education from '../../../components/About/Education';
-import Contactform from '../../../components/Contactform';
 import AboutSkills from '../../../components/About/AboutSkills';
 import AboutCertifications from '../../../components/About/AboutCertifications';
 import Experience from '../../../components/About/Experience';
 import AboutHero from '../../../components/About/AboutHero';
+import HomeCta from '../../../components/Home/HomeCta';
 import { useGsap } from '../../../hooks/useGsap';
 import {
   prefersReducedMotion,
@@ -22,7 +22,7 @@ export default function AboutPageClient({
   professionalSummary,
   aboutSkillsSubtitle,
   experienceIntro,
-  workStatus,
+  liveSummary,
 }) {
   const scopeRef = useGsap(({ gsap, scope }) => {
     if (prefersReducedMotion()) return;
@@ -41,12 +41,13 @@ export default function AboutPageClient({
       <AboutHero
         profile={profile}
         professionalSummary={professionalSummary}
+        liveSummary={liveSummary}
       />
       <AboutSkills skills={skills} subtitle={aboutSkillsSubtitle} />
       <Experience experience={experience} intro={experienceIntro} />
       <AboutCertifications certifications={certifications} />
       <Education education={education} />
-      <Contactform embedded />
+      <HomeCta />
     </div>
   );
 }

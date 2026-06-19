@@ -14,9 +14,7 @@ import { HOME_HERO, HOME_HERO_META } from '../../lib/njrTheme';
 import { ROLE_TITLE } from '../../lib/employment';
 import { PUBLIC_SOCIAL_LINKS } from '../../data/proof';
 import { SITE_EMAIL } from '../../lib/siteSeo';
-import { EASE_OUT, staggerContainer, staggerItem } from '../../lib/motion';
-
-const STAT_HREF_FALLBACKS = ['/about', '/projects', '/contact', '/projects'];
+import { EASE_OUT } from '../../lib/motion';
 
 const SOCIAL_ICONS = { LinkedIn: Linkedin, GitHub: Github, Email: Mail };
 
@@ -70,7 +68,7 @@ function HeroCta({ href, children, primary = false }) {
 
 export default function Banner() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { heroStats: HERO_STATS, heroImage, profile } = useSiteSettings();
+  const { heroImage, profile } = useSiteSettings();
   const contactEmail = profile?.email || SITE_EMAIL;
   const portrait = profile?.photo || '/assets/images/profilepic.png';
   const heroSrc = heroImage || portrait;
@@ -205,41 +203,6 @@ export default function Banner() {
       </div>
 
       <SidebarMenu open={menuOpen} setOpen={setMenuOpen} />
-
-      <motion.div
-        className="grid grid-cols-2 border-t border-[var(--color-border)] md:grid-cols-4"
-        initial={reduceMotion ? false : 'hidden'}
-        animate={reduceMotion ? undefined : 'visible'}
-        variants={staggerContainer}
-      >
-        {HERO_STATS.map((stat, i) => (
-          <motion.div
-            key={stat.label}
-            variants={reduceMotion ? undefined : staggerItem}
-            transition={reduceMotion ? undefined : { duration: 0.5, ease: EASE_OUT, delay: 0.5 + i * 0.07 }}
-            className={[
-              i > 0 ? 'border-l border-[var(--color-border)]' : '',
-              i >= 2 ? 'border-t border-[var(--color-border)] md:border-t-0' : '',
-            ].join(' ')}
-          >
-            <Link
-              href={stat.href || STAT_HREF_FALLBACKS[i] || '/about'}
-              className="group flex h-full flex-col justify-between gap-3 px-5 py-8 transition hover:bg-[var(--color-hover)] md:px-8 md:py-10"
-            >
-              <p className="font-syne text-2xl font-bold text-[var(--color-foreground)] md:text-3xl">{stat.value}</p>
-              <div className="flex items-end justify-between gap-3">
-                <p className="max-w-[11rem] font-sans text-[10px] font-medium uppercase leading-relaxed tracking-[0.16em] text-[var(--color-foreground-subtle)]">
-                  {stat.label}
-                </p>
-                <ArrowUpRight
-                  className="h-4 w-4 shrink-0 text-[var(--color-foreground-faint)] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[var(--color-foreground-soft)]"
-                  aria-hidden
-                />
-              </div>
-            </Link>
-          </motion.div>
-        ))}
-      </motion.div>
     </section>
   );
 }

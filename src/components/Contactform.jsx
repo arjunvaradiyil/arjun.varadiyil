@@ -10,9 +10,6 @@ import { useSiteSettings } from './SiteSettingsProvider';
 import Input from './ui/Input';
 import { NEU } from './ui/neuTheme';
 
-const FORM_INTRO =
-  'Professional inquiries welcome — networking, career conversations, or collaboration on tech.';
-
 const INITIAL_FORM_DATA = { name: '', email: '', message: '' };
 
 const STEPS = [
@@ -79,14 +76,12 @@ function ContactIntro({ pageHero, contactNote, profileEmail }) {
   return (
     <div className="flex flex-col justify-center">
       <p className={NEU.eyebrow}>Contact</p>
-      <p className="mt-5 font-sans text-sm font-medium text-[var(--color-foreground-soft)] sm:text-base">Hello</p>
-      <HeadingTag className={`${NEU.displayHero} mt-3 text-4xl sm:text-5xl lg:text-[clamp(2rem,4vw,3.5rem)]`}>
+      <HeadingTag className={`${NEU.displayHero} mt-5 text-4xl sm:text-5xl lg:text-[clamp(2rem,4vw,3.5rem)]`}>
         Get in touch
       </HeadingTag>
       <p className="mt-5 max-w-md font-sans text-sm font-medium leading-snug text-[var(--color-foreground-soft)] sm:text-[15px] sm:leading-relaxed">
         {contactNote}
       </p>
-      <p className={`mt-4 max-w-md ${NEU.bodyText}`}>{FORM_INTRO}</p>
 
       {profileEmail ? (
         <Link
@@ -111,9 +106,7 @@ export default function Contactform({ pageHero = false, embedded = false }) {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
 
-  const contactNote =
-    WORK_STATUS.contactNote ||
-    'Professional portfolio — for networking and career inquiries.';
+  const contactNote = WORK_STATUS.contactNote || 'I usually reply within a few business days.';
 
   const handleChange = useCallback((e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));

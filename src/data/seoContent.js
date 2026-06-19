@@ -9,8 +9,7 @@ export const SGE_SUMMARY =
 export const ABOUT_TAGLINE_SEO =
   `Full Stack Developer at ${EMPLOYER_SHORT}, Kerala — Next.js, Payload CMS, and MongoDB.`;
 
-export const PROFESSIONAL_SUMMARY_SEO =
-  `Full Stack Developer at ${EMPLOYER_SHORT}, Kerala. ${DEVELOPER_APPROACH}`;
+export const PROFESSIONAL_SUMMARY_SEO = DEVELOPER_APPROACH;
 
 export const CORE_COMPETENCIES = {
   stack: [

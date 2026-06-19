@@ -12,7 +12,7 @@ import {
   NJR_NAV_CATEGORIES as staticNav,
   WORK_STATUS as staticWorkStatus,
 } from '../../lib/njrTheme';
-import { filterPublicProjects, EMPLOYER_SHORT } from '../employment';
+import { filterPublicProjects } from '../employment';
 import { tryGetPayloadClient } from './getPayload';
 import {
   mapCertification,
@@ -55,10 +55,9 @@ function staticSiteSettings() {
     workStatus: staticWorkStatus,
     heroStats: staticHeroStats,
     navCategories: staticNav,
-    projectsPageDescription:
-      'Six live full stack builds — news, culture, healthcare, civic, and campaign platforms.',
-    aboutSkillsSubtitle: 'Next.js, Payload CMS, MongoDB, and production delivery.',
-    experienceIntro: `Full Stack Developer at ${EMPLOYER_SHORT} — Next.js from database to deploy.`,
+    projectsPageDescription: '',
+    aboutSkillsSubtitle: 'Frontend, backend, CMS, and deployment.',
+    experienceIntro: 'Roles and delivery highlights.',
   };
 }
 

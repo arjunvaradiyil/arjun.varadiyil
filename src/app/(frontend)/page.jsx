@@ -1,11 +1,7 @@
 import Banner from '../../components/Home/Banner';
-import HomeActiveStrip from '../../components/Home/HomeActiveStrip';
-import HomeTrust from '../../components/Home/HomeTrust';
-import HomeCta from '../../components/Home/HomeCta';
 import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
-import HomeServices from '../../components/Home/HomeServices';
 import MaintenanceScreen from '../../components/MaintenanceScreen';
-import { getProjects, getSkills } from '../../lib/cms/content';
+import { getProjects } from '../../lib/cms/content';
 import { isMaintenanceMode } from '../../lib/maintenance';
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_TITLE_DEFAULT, absoluteUrl } from '../../lib/siteSeo';
 
@@ -37,17 +33,13 @@ export default async function HomePage() {
     return <MaintenanceScreen />;
   }
 
-  const [projects, skills] = await Promise.all([getProjects(), getSkills()]);
+  const projects = await getProjects();
 
   return (
     <div className="overflow-x-hidden bg-[var(--color-surface)]">
       <Banner />
-      <HomeActiveStrip />
       <div id="home-content">
         <HomeFeaturedProjects projects={projects} />
-        <HomeTrust />
-        <HomeServices skills={skills} />
-        <HomeCta />
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ export const HOME_HERO = {
   eyebrow: EMPLOYER_SHORT,
   headline: ['Live products.', 'Not mockups.'],
   proofLine:
-    'Biennale programmes, voter tools, quiz apps, and campaign hubs — shipped from Kerala and still running today.',
+    'Biennale programmes, voter tools, quiz apps, and campaign hubs — still running today.',
   stanceLine: '',
   tagline: '',
   description: '',
@@ -47,6 +47,5 @@ export const HOME_HERO = {
 
 export const HOME_HERO_META = [
   { label: 'Build with', value: 'Next.js · Payload CMS · TypeScript' },
-  { label: 'Ship for', value: 'Festivals · civic · education' },
   { label: 'Based in', value: LOCATION },
 ];

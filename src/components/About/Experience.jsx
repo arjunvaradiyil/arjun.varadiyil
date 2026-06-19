@@ -5,9 +5,6 @@ import { experienceData as defaultExperience } from '../../data/experienceData';
 import SectionHeader from './SectionHeader';
 import { NEU } from '../ui/neuTheme';
 
-const DEFAULT_INTRO =
-  'Full-stack delivery at Faircode Infotech — Payload CMS and Next.js.';
-
 function ExperienceRoleHeader({ item }) {
   const isEmployer = item.company.toLowerCase().includes('faircode');
 
@@ -59,7 +56,7 @@ function ExperiencePoints({ points }) {
   );
 }
 
-export default function Experience({ experience = defaultExperience, intro = DEFAULT_INTRO }) {
+export default function Experience({ experience = defaultExperience, intro = '' }) {
   return (
     <section
       data-gsap="about-section"
@@ -70,7 +67,7 @@ export default function Experience({ experience = defaultExperience, intro = DEF
           <SectionHeader
             eyebrow="Career"
             title="Professional experience"
-            subtitle={intro || DEFAULT_INTRO}
+            subtitle={intro || undefined}
             align="left"
             staticReveal
           />

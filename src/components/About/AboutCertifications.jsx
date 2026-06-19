@@ -6,12 +6,8 @@ import { certifications as defaultCertifications } from '../../data/certificatio
 import Certifications from './Certifications';
 import { NEU } from '../ui/neuTheme';
 
-const DEFAULT_INTRO =
-  'Industry certifications in full-stack development and core programming — MERN stack, JavaScript, and NSDC programs.';
-
 export default function AboutCertifications({
   certifications = defaultCertifications,
-  intro = DEFAULT_INTRO,
 }) {
   return (
     <section
@@ -26,7 +22,9 @@ export default function AboutCertifications({
           <div>
             <p className={NEU.eyebrow}>Credentials</p>
             <h2 className={`mt-3 ${NEU.display} text-3xl md:text-4xl`}>Certifications</h2>
-            <p className={`mt-3 max-w-2xl text-base md:text-lg ${NEU.bodyText}`}>{intro}</p>
+            <p className={`mt-3 max-w-2xl text-base md:text-lg ${NEU.bodyText}`}>
+              MERN stack, JavaScript, and NSDC programs.
+            </p>
           </div>
           <Link href="/certifications" className={`inline-flex shrink-0 items-center gap-1 ${NEU.link}`}>
             View all

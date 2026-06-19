@@ -1,8 +1,6 @@
 'use client';
 
-import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
 import { NEU } from '../ui/neuTheme';
 import { Reveal, StaggerReveal, StaggerItem } from '../ui/Reveal';
 import { transition } from '../../lib/motion';
@@ -10,9 +8,9 @@ import { HIDDEN_FROM_HOME_SLUGS } from '../../lib/employment';
 import ProjectCard from '../projects/ProjectCard';
 
 export default function HomeFeaturedProjects({ projects = [] }) {
-  const featured = projects
-    .filter((project) => project?.slug && !HIDDEN_FROM_HOME_SLUGS.includes(project.slug))
-    .slice(0, 2);
+  const featured = projects.filter(
+    (project) => project?.slug && !HIDDEN_FROM_HOME_SLUGS.includes(project.slug),
+  );
   const reduceMotion = useReducedMotion();
 
   if (featured.length === 0) return null;
@@ -20,25 +18,18 @@ export default function HomeFeaturedProjects({ projects = [] }) {
   return (
     <section className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}>
       <div className="mx-auto max-w-7xl">
-        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className={`${NEU.display} text-3xl md:text-5xl`}>Recent builds</h2>
-          </div>
-          <Link href="/projects" className={`inline-flex items-center gap-2 ${NEU.link}`}>
-            All projects
-            <ArrowUpRight className="h-4 w-4" aria-hidden />
-          </Link>
+        <Reveal>
+          <h2 className={`${NEU.display} text-3xl md:text-5xl`}>Work</h2>
         </Reveal>
 
-        <StaggerReveal as="ul" className="mt-10 grid gap-px bg-[var(--color-grid-line)] md:mt-12 md:grid-cols-2">
-          {featured.map((project) => (
-            <StaggerItem key={project.slug} as="li" className="bg-[var(--color-surface)]">
+        <StaggerReveal as="ul" className="mt-10 space-y-8 md:mt-12 md:space-y-10">
+          {featured.map((project, index) => (
+            <StaggerItem key={project.slug} as="li">
               <motion.div
-                className="h-full"
-                whileHover={reduceMotion ? undefined : { opacity: 0.92 }}
+                whileHover={reduceMotion ? undefined : { opacity: 0.96 }}
                 transition={transition(0.25)}
               >
-                <ProjectCard project={project} variant="featured" />
+                <ProjectCard project={project} variant="list" index={index + 1} />
               </motion.div>
             </StaggerItem>
           ))}
