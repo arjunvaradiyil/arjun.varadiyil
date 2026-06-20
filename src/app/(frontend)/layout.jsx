@@ -67,7 +67,7 @@ export const metadata = {
         url: '/assets/images/arjunvaradiyil.jpeg',
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Web Developer Kerala`,
+        alt: `${SITE_NAME} — Web-Developer in Kochi, Kerala`,
       },
     ],
   },
