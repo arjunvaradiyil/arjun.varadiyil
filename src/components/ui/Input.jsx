@@ -3,10 +3,10 @@
 import React from 'react';
 
 const darkInputClasses =
-  'w-full border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-2.5 text-gray-100 placeholder:text-[var(--color-foreground-faint)] outline-none transition focus:border-[var(--color-foreground)]/50 focus:ring-1 focus:ring-white/20 sm:p-3';
+  'w-full border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-2.5 text-[var(--color-foreground)] placeholder:text-[var(--color-foreground-faint)] outline-none transition focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent-soft)] sm:p-3';
 
 const editorialInputClasses =
-  'w-full border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 py-3 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-foreground-faint)] outline-none transition focus:border-[var(--color-foreground)] focus:ring-1 focus:ring-[var(--color-border-strong)] sm:px-4 sm:py-3.5';
+  'w-full border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 py-3 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-foreground-faint)] outline-none transition focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent-soft)] sm:px-4 sm:py-3.5';
 
 const neuInputClasses =
   'w-full border border-gray-900/20 bg-white p-2.5 text-gray-900 placeholder:text-gray-500 outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900/20 dark:border-[var(--color-border)] dark:bg-[var(--color-surface-elevated)] dark:text-gray-100 sm:p-3';

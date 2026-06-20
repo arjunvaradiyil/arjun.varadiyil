@@ -17,7 +17,7 @@ export const SITE_FAQ = [
   {
     question: 'Who is Arjun Varadiyil?',
     answer:
-      `A Full Stack Developer at ${EMPLOYER_SHORT} in Kerala. He builds Next.js platforms for healthcare, civic, education, and campaign clients.`,
+      'A Full Stack Developer in Kerala building scalable news, editorial, and CMS platforms with Next.js and Payload CMS.',
   },
   {
     question: 'Is Arjun Varadiyil a web developer in Kerala?',
@@ -26,12 +26,12 @@ export const SITE_FAQ = [
   {
     question: 'What technologies does Arjun Varadiyil use?',
     answer:
-      'Next.js, Payload CMS, TypeScript, React, Node.js, MongoDB, PostgreSQL, GraphQL, and Tailwind CSS — mostly on publishing and civic products.',
+      'Next.js, React, Payload CMS, Node.js, MongoDB, TypeScript, and REST APIs — focused on news, editorial, and CMS platforms.',
   },
   {
     question: 'What kind of projects has Arjun built?',
     answer:
-      'Kochi Muziris Biennale CMS, Prajasakti news portal, homoeopathic clinic site, civic voter pledge platform, and Kerala quiz site. Case studies are on this portfolio.',
+      'Kochi Muziris Biennale CMS, Prajasakti news platform, Know Kerala content platform, and My Vote My Voice civic engagement platform. Case studies are on this portfolio.',
   },
   {
     question: 'How do I contact Arjun Varadiyil?',

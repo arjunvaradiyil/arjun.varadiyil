@@ -155,7 +155,11 @@ export async function getExperience() {
       return staticExperience;
     }
 
-    return docs.map((doc) => mapExperience(doc as Record<string, unknown>));
+    const mapped = docs
+      .map((doc) => mapExperience(doc as Record<string, unknown>))
+      .filter((item) => item.company || item.role);
+
+    return mapped.length ? mapped : staticExperience;
   } catch (error) {
     console.warn('[cms] experience fallback:', error);
     return staticExperience;

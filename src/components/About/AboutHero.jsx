@@ -107,7 +107,7 @@ export default function AboutHero({
               </p>
               <p className={`mt-4 max-w-xl ${NEU.bodyText}`}>{professionalSummary}</p>
               {HOME_HERO.proofLine ? (
-                <p className="mt-4 max-w-xl border-l-2 border-[var(--color-foreground)] pl-4 font-sans text-sm font-medium leading-relaxed text-[var(--color-foreground)] sm:text-[15px]">
+                <p className="mt-4 max-w-xl border-l-2 border-[var(--color-accent)] pl-4 font-sans text-sm font-medium leading-relaxed text-[var(--color-foreground)] sm:text-[15px]">
                   {HOME_HERO.proofLine}
                 </p>
               ) : null}

@@ -166,7 +166,7 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
         {project.image && (
           <div
             data-gsap="hero-image"
-            className={`relative mb-12 aspect-[21/9] w-full overflow-hidden ${NEU.frame}`}
+            className={`relative mb-12 aspect-[21/9] w-full overflow-hidden transition duration-300 hover:ring-1 hover:ring-inset hover:ring-[var(--color-accent)] ${NEU.frame}`}
           >
             <Image
               src={project.image}

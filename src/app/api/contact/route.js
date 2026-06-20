@@ -1,5 +1,55 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import { BRAND, escapeHtml } from '../../../lib/brandColors';
+
+function ownerEmailHtml({ name, email, message }) {
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: ${BRAND.surface}; color: ${BRAND.foreground};">
+      <div style="padding: 28px 24px 16px; border-bottom: 3px solid ${BRAND.accent};">
+        <h2 style="margin: 0; font-size: 20px; letter-spacing: 0.08em; text-transform: uppercase; color: ${BRAND.foreground};">
+          New contact submission
+        </h2>
+      </div>
+      <div style="padding: 24px;">
+        <p style="margin: 0 0 12px; color: ${BRAND.foregroundMuted};"><strong style="color: ${BRAND.foreground};">Name:</strong> ${name}</p>
+        <p style="margin: 0 0 12px; color: ${BRAND.foregroundMuted};"><strong style="color: ${BRAND.foreground};">Email:</strong> ${email}</p>
+        <p style="margin: 0 0 8px; color: ${BRAND.foregroundMuted};"><strong style="color: ${BRAND.foreground};">Message:</strong></p>
+        <div style="background: ${BRAND.surfaceElevated}; padding: 16px; border-left: 4px solid ${BRAND.accent}; color: ${BRAND.foreground};">
+          <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>
+        </div>
+      </div>
+      <p style="padding: 0 24px 24px; margin: 0; font-size: 12px; color: ${BRAND.foregroundMuted};">
+        Sent from arjunvaradiyil.in contact form
+      </p>
+    </div>
+  `;
+}
+
+function confirmationEmailHtml({ name, message }) {
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <div style="background: ${BRAND.surface}; padding: 32px 28px; border-bottom: 3px solid ${BRAND.accent}; text-align: left;">
+        <p style="margin: 0 0 8px; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: ${BRAND.accent};">Portfolio</p>
+        <h1 style="margin: 0; font-size: 28px; color: ${BRAND.foreground};">Thank you, ${name}</h1>
+      </div>
+      <div style="background: ${BRAND.lightSurface}; padding: 28px; border: 1px solid rgba(139, 105, 20, 0.2); border-top: none;">
+        <p style="color: ${BRAND.lightForeground}; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+          I've received your message and will get back to you within a few business days.
+        </p>
+        <div style="background: #ffffff; padding: 18px; border-left: 4px solid ${BRAND.accent}; margin: 20px 0;">
+          <p style="color: ${BRAND.lightMuted}; font-size: 13px; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.12em;">Your message</p>
+          <p style="color: ${BRAND.lightForeground}; font-size: 14px; margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>
+        </div>
+        <p style="color: ${BRAND.lightForeground}; font-size: 16px; line-height: 1.6; margin: 0;">
+          Best regards,<br><strong>Arjun Varadiyil</strong>
+        </p>
+      </div>
+      <p style="text-align: center; margin: 16px 0 0; font-size: 12px; color: ${BRAND.lightMuted};">
+        Automated confirmation — please do not reply
+      </p>
+    </div>
+  `;
+}
 
 export async function POST(request) {
   try {
@@ -46,6 +96,10 @@ export async function POST(request) {
       );
     }
 
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message);
+
     // Send emails in parallel: notification to owner and confirmation to submitter
     const [ownerEmailResult, confirmationEmailResult] = await Promise.allSettled([
       // Email to portfolio owner
@@ -53,24 +107,7 @@ export async function POST(request) {
         from: 'Portfolio Contact <onboarding@resend.dev>',
         to: ['arjunvaradiyil203@gmail.com'],
         subject: `New Contact Form Submission from ${name}`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #333; border-bottom: 2px solid #9333ea; padding-bottom: 10px;">
-              New Contact Form Submission
-            </h2>
-            <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-top: 20px;">
-              <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
-              <p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
-              <p style="margin: 10px 0;"><strong>Message:</strong></p>
-              <div style="background-color: white; padding: 15px; border-radius: 4px; margin-top: 10px; border-left: 4px solid #9333ea;">
-                <p style="margin: 0; white-space: pre-wrap;">${message}</p>
-              </div>
-            </div>
-            <p style="color: #666; font-size: 12px; margin-top: 20px;">
-              This email was sent from your portfolio contact form.
-            </p>
-          </div>
-        `,
+        html: ownerEmailHtml({ name: safeName, email: safeEmail, message: safeMessage }),
         replyTo: email,
       }),
       // Confirmation email to submitter
@@ -78,39 +115,7 @@ export async function POST(request) {
         from: 'Arjun Varadiyil <onboarding@resend.dev>',
         to: [email],
         subject: 'Thank you for contacting me!',
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
-              <h1 style="color: white; margin: 0; font-size: 28px;">Thank You, ${name}!</h1>
-            </div>
-            <div style="background-color: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 10px 10px;">
-              <p style="color: #333; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
-                I've received your message and I'm excited to learn more about your project idea!
-              </p>
-              <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #667eea;">
-                <p style="color: #666; font-size: 14px; margin: 0 0 10px 0;"><strong>Your Message:</strong></p>
-                <p style="color: #333; font-size: 14px; margin: 0; white-space: pre-wrap; font-style: italic;">${message}</p>
-              </div>
-              <p style="color: #333; font-size: 16px; line-height: 1.6; margin: 20px 0 0 0;">
-                I'll review your message and get back to you as soon as possible, typically within 24-48 hours.
-              </p>
-              <p style="color: #333; font-size: 16px; line-height: 1.6; margin: 20px 0 0 0;">
-                Looking forward to working with you!
-              </p>
-              <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
-                <p style="color: #666; font-size: 14px; margin: 0;">
-                  Best regards,<br>
-                  <strong style="color: #333;">Arjun Varadiyil</strong>
-                </p>
-              </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px; padding: 20px; background-color: #f9fafb; border-radius: 8px;">
-              <p style="color: #666; font-size: 12px; margin: 0;">
-                This is an automated confirmation email. Please do not reply to this message.
-              </p>
-            </div>
-          </div>
-        `,
+        html: confirmationEmailHtml({ name: safeName, message: safeMessage }),
       }),
     ]);
 

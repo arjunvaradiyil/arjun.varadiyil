@@ -12,7 +12,7 @@ const IMAGE_SIZES = '(max-width: 768px) 100vw, 45vw';
 
 function ProjectCardImage({ project, className = '', imageClassName = '' }) {
   return (
-    <div className={`relative w-full overflow-hidden bg-zinc-900 ${className}`}>
+    <div className={`relative w-full overflow-hidden bg-[var(--color-surface-elevated)] transition duration-300 group-hover:ring-1 group-hover:ring-inset group-hover:ring-[var(--color-accent)] ${className}`}>
       <Image
         src={project.image}
         alt={project.title}
@@ -21,7 +21,7 @@ function ProjectCardImage({ project, className = '', imageClassName = '' }) {
         className={`object-cover object-top grayscale transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-0 ${imageClassName}`}
       />
       {project.year ? (
-        <span className="absolute left-4 top-4 z-10 border border-[var(--color-border-strong)] bg-[var(--color-surface)]/90 px-2.5 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--color-foreground)]">
+        <span className="absolute left-4 top-4 z-10 border border-[var(--color-accent)] bg-[var(--color-surface)]/90 px-2.5 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--color-accent)]">
           {isInDevelopmentProject(project) ? 'In development' : project.year}
         </span>
       ) : null}

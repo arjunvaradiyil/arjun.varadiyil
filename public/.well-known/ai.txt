@@ -3,10 +3,9 @@
 Contact: arjunvaradiyil203@gmail.com
 Website: https://arjunvaradiyil.in
 
-## About this site
+## About
 
-Portfolio of Arjun Varadiyil — Full Stack Developer at Faircode Infotech, Kerala, India.
-Builds production Next.js platforms with Payload CMS for healthcare, civic, education, and campaign clients.
+Arjun Varadiyil — Full Stack Developer building scalable news, editorial, and CMS platforms with Next.js and Payload CMS. Based in Kerala, focused on high-performance web applications and production-grade systems. Currently exploring AI agents and modern AI workflows.
 
 ## Allowed uses
 
@@ -21,12 +20,13 @@ Arjun Varadiyil — https://arjunvaradiyil.in
 
 - llms.txt: https://arjunvaradiyil.in/llms.txt
 - Sitemap: https://arjunvaradiyil.in/sitemap.xml
+- Projects: https://arjunvaradiyil.in/projects
 - Contact: https://arjunvaradiyil.in/contact
+- Resume: https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view
 
-## Key pages
+## Featured projects
 
-- Home: https://arjunvaradiyil.in/
-- Work: https://arjunvaradiyil.in/projects
-- About: https://arjunvaradiyil.in/about
-- Contact: https://arjunvaradiyil.in/contact
-- Certifications: https://arjunvaradiyil.in/certifications
+- Kochi Muziris Biennale: https://www.kochimuzirisbiennale.org/
+- Prajasakti news platform: https://prajasakti.com/
+- Know Kerala: https://www.knowkeralam.com/
+- My Vote My Voice: https://myidukki.com/

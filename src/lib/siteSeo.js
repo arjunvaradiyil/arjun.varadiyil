@@ -12,18 +12,18 @@ export const SITE_TITLE_DEFAULT =
 
 /** Meta description — 120–160 chars. */
 export const DEFAULT_DESCRIPTION =
-  'Full Stack Developer at Faircode Infotech in Kerala — production Next.js platforms with Payload CMS for healthcare, civic, education, and campaign clients.';
+  'Full Stack Developer in Kerala — scalable news, editorial, and CMS platforms with Next.js and Payload CMS. Production-grade, high-performance web systems.';
 
 /** Open Graph title — 25–35 chars. */
 export const OG_TITLE = 'Arjun Varadiyil | Next.js Dev';
 
 /** Open Graph description — 55–65 chars. */
 export const OG_DESCRIPTION =
-  'Kerala Full Stack Developer — Next.js, Payload CMS, civic tech.';
+  'News & CMS developer in Kerala — Next.js, Payload CMS.';
 
 /** Twitter card description — 150–200 chars. */
 export const TWITTER_DESCRIPTION =
-  'Full Stack Developer at Faircode Infotech, Kerala. Builds production Next.js platforms with Payload CMS for healthcare, civic, and education clients — live work includes Kochi Muziris Biennale CMS.';
+  'Full Stack Developer in Kerala building scalable news, editorial, and CMS platforms with Next.js & Payload CMS. Live work includes Kochi Muziris Biennale and Prajasakti newsroom systems.';
 
 /** Book-a-call link (Topmate) — career guidance, resume review, mentoring */
 export const TOPMATE_URL = 'https://topmate.io/arjun_varadiyil';

@@ -17,7 +17,7 @@ export default function ThemeToggle({ className = '' }) {
       onClick={toggleTheme}
       aria-label={label}
       title={label}
-      className={`flex h-9 w-9 items-center justify-center border border-[var(--color-border-strong)] text-[var(--color-foreground-soft)] transition hover:border-[var(--color-foreground)] hover:bg-[var(--color-primary-bg)] hover:text-[var(--color-primary-fg)] ${className}`}
+      className={`flex h-9 w-9 items-center justify-center border border-[var(--color-border-strong)] text-[var(--color-foreground-soft)] transition hover:border-[var(--color-accent)] hover:bg-[var(--color-primary-bg)] hover:text-[var(--color-primary-fg)] ${className}`}
       whileHover={reduceMotion ? undefined : { y: -1 }}
       whileTap={reduceMotion ? undefined : { scale: 0.96 }}
     >

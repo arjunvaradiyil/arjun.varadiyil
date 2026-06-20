@@ -12,23 +12,50 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
   :root,
   .dark {
     color-scheme: dark;
-    --color-surface: #000000;
-    --color-surface-elevated: #111111;
-    --color-header: rgba(0, 0, 0, 0.9);
-    --color-foreground: #ffffff;
-    --color-foreground-soft: rgba(255, 255, 255, 0.78);
-    --color-foreground-muted: rgba(255, 255, 255, 0.55);
-    --color-foreground-subtle: rgba(255, 255, 255, 0.5);
-    --color-foreground-faint: rgba(255, 255, 255, 0.4);
-    --color-foreground-ghost: rgba(255, 255, 255, 0.06);
-    --color-border: rgba(255, 255, 255, 0.15);
-    --color-border-strong: rgba(255, 255, 255, 0.3);
-    --color-grid-line: rgba(255, 255, 255, 0.15);
-    --color-primary-bg: #ffffff;
-    --color-primary-fg: #000000;
-    --color-hover: rgba(255, 255, 255, 0.03);
-    --color-focus: rgba(255, 255, 255, 0.6);
-    --color-selection-bg: rgba(255, 255, 255, 0.2);
+    --color-surface: #0a0a0a;
+    --color-surface-elevated: #141414;
+    --color-header: rgba(10, 10, 10, 0.92);
+    --color-foreground: #f5f0e8;
+    --color-foreground-soft: rgba(245, 240, 232, 0.78);
+    --color-foreground-muted: rgba(245, 240, 232, 0.55);
+    --color-foreground-subtle: rgba(245, 240, 232, 0.5);
+    --color-foreground-faint: rgba(245, 240, 232, 0.4);
+    --color-foreground-ghost: rgba(201, 162, 39, 0.08);
+    --color-border: rgba(201, 162, 39, 0.14);
+    --color-border-strong: rgba(201, 162, 39, 0.32);
+    --color-grid-line: rgba(255, 255, 255, 0.1);
+    --color-accent: #c9a227;
+    --color-accent-muted: #8b6914;
+    --color-accent-soft: rgba(201, 162, 39, 0.14);
+    --color-primary-bg: var(--color-accent);
+    --color-primary-fg: #0a0a0a;
+    --color-hover: rgba(201, 162, 39, 0.06);
+    --color-focus: rgba(201, 162, 39, 0.65);
+    --color-selection-bg: rgba(201, 162, 39, 0.28);
+  }
+
+  .light {
+    color-scheme: light;
+    --color-surface: #f5f2eb;
+    --color-surface-elevated: #ffffff;
+    --color-header: rgba(245, 242, 235, 0.92);
+    --color-foreground: #1a1a1a;
+    --color-foreground-soft: rgba(26, 26, 26, 0.82);
+    --color-foreground-muted: rgba(26, 26, 26, 0.62);
+    --color-foreground-subtle: rgba(26, 26, 26, 0.52);
+    --color-foreground-faint: rgba(26, 26, 26, 0.42);
+    --color-foreground-ghost: rgba(139, 105, 20, 0.1);
+    --color-border: rgba(139, 105, 20, 0.2);
+    --color-border-strong: rgba(139, 105, 20, 0.38);
+    --color-grid-line: rgba(26, 26, 26, 0.08);
+    --color-accent: #a8861e;
+    --color-accent-muted: #8b6914;
+    --color-accent-soft: rgba(168, 134, 30, 0.16);
+    --color-primary-bg: var(--color-accent);
+    --color-primary-fg: #ffffff;
+    --color-hover: rgba(168, 134, 30, 0.08);
+    --color-focus: rgba(168, 134, 30, 0.55);
+    --color-selection-bg: rgba(168, 134, 30, 0.22);
   }
 
   html {
@@ -88,6 +115,30 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
     background-color: var(--color-selection-bg);
     color: inherit;
   }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-muted) var(--color-surface);
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--color-accent-muted);
+    border-radius: 999px;
+    border: 2px solid var(--color-surface);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
 }
 
 @media (min-width: 768px) {
@@ -138,7 +189,7 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
 
   78%,
   86% {
-    color: rgba(255, 255, 255, 0.22);
+    color: rgba(201, 162, 39, 0.28);
     opacity: 1;
   }
 }

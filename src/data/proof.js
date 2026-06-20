@@ -66,8 +66,8 @@ export const CURRENTLY_EXPLORING = [
 ];
 
 export const OUTCOME_CTA = {
-  headline: 'Want to talk?',
-  subline: 'Open to roles and collaborations on full stack Next.js work.',
+  headline: "Let's build something meaningful.",
+  subline: 'Open to roles and collaborations on full stack Next.js news and CMS work.',
   primary: { label: 'Get in touch', href: '/contact' },
   secondary: { label: 'Connect on LinkedIn', href: LINKEDIN_URL, external: true },
 };

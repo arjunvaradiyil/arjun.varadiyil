@@ -125,7 +125,7 @@ export default function Banner() {
                 />
                 {HOME_HERO.proofLine ? (
                   <motion.p
-                    className="mt-4 max-w-lg border-l-2 border-[var(--color-foreground)] pl-4 font-sans text-sm font-medium leading-relaxed text-[var(--color-foreground)] sm:text-[15px]"
+                    className="mt-4 max-w-lg border-l-2 border-[var(--color-accent)] pl-4 font-sans text-sm font-medium leading-relaxed text-[var(--color-foreground)] sm:text-[15px]"
                     initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.38 }}

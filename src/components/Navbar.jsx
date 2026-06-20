@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import SidebarMenu from './SidebarMenu';
 import { Menu } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 import { CENTER_NAV, isNavActive } from '../lib/navLinks';
 import { useSiteSettings } from './SiteSettingsProvider';
 import { NEU } from './ui/neuTheme';
@@ -30,7 +31,7 @@ export default function Navbar() {
           <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 px-5 py-4 sm:px-8 md:grid-cols-[1fr_auto_1fr] md:px-12">
             <Link
               href="/"
-              className="font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-[var(--color-foreground-soft)] transition hover:text-[var(--color-foreground)]"
+              className="font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-[var(--color-foreground-soft)] transition hover:text-[var(--color-accent)]"
             >
               Arjun Varadiyil
             </Link>
@@ -53,10 +54,11 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center justify-end gap-2">
+              <ThemeToggle className="hidden md:flex" />
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="flex h-9 w-9 items-center justify-center text-[var(--color-foreground-soft)] transition hover:text-[var(--color-foreground)] md:hidden"
+                className="flex h-9 w-9 items-center justify-center text-[var(--color-foreground-soft)] transition hover:text-[var(--color-accent)] md:hidden"
                 aria-label="Open menu"
                 aria-expanded={open}
                 aria-controls="mobile-navigation"

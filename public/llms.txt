@@ -1,40 +1,55 @@
-# Arjun Varadiyil — Portfolio
+# Arjun Varadiyil
 
-> Full Stack Developer at Faircode Infotech, Kerala, India. Builds Next.js platforms for healthcare, civic, education, and campaign clients.
+Full Stack Developer building scalable news, editorial, and CMS platforms using Next.js & Payload CMS.
 
-## About
+Based in Kerala. Focused on high-performance web applications and production-grade systems.
+Currently exploring AI agents and modern AI workflows.
 
-- Name: Arjun Varadiyil
-- Role: Full Stack Developer @ Faircode Infotech
-- Location: Kerala, India
 - Website: https://arjunvaradiyil.in
 - LinkedIn: https://www.linkedin.com/in/arjunvaradiyil
 - GitHub: https://github.com/arjunvaradiyil/arjun.varadiyil
 
-## Expertise
+---
 
-- Full stack Next.js development — frontend, APIs, and databases
-- Headless CMS architecture with Payload CMS
-- Healthcare, civic, education, and campaign web platforms
-- Performance, accessibility, and maintainable production delivery
+## Projects
 
-## Key pages
+**Kochi Muziris Biennale Platform**
+Next.js + Payload CMS
+Content-driven platform with optimized performance and SEO.
+https://arjunvaradiyil.in/projects/kochi-muziris-biennale
+https://www.kochimuzirisbiennale.org/
 
-- Home: https://arjunvaradiyil.in/
-- Work / projects: https://arjunvaradiyil.in/projects
-- About: https://arjunvaradiyil.in/about
-- Contact: https://arjunvaradiyil.in/contact
-- Certifications: https://arjunvaradiyil.in/certifications
+**Prajasakti News Platform**
+Modern editorial system
+Scalable publishing workflow with fast load times.
+https://arjunvaradiyil.in/projects/prajasakti-news-portal
+https://prajasakti.com/
 
-## Featured work
+**Know Kerala**
+Content platform
+Structured CMS architecture for regional content delivery.
+https://arjunvaradiyil.in/projects/know-kerala-quiz-platform
+https://www.knowkeralam.com/
 
-- Kochi Muziris Biennale: https://www.kochimuzirisbiennale.org/
-- Prajasakti news portal: https://prajasakti.com/
-- Dr. Naseeha's Homoeopathic Clinic: https://www.drnaseehashomoeopathicclinicmelattur.com/
-- My Vote My Voice (Idukki): https://myidukki.com/
-- Know Kerala quiz platform: https://www.knowkeralam.com/
-# - Hello 2 AI campaign: https://aiohello.vercel.app/
+**My Vote My Voice**
+Civic engagement platform
+Built for accessibility, reach, and reliability.
+https://arjunvaradiyil.in/projects/my-vote-my-voice-idukki
+https://myidukki.com/
+
+---
+
+## Stack
+
+Next.js · React · Payload CMS · Node.js · MongoDB · TypeScript · REST APIs
+
+---
 
 ## Contact
 
-Use the contact form at https://arjunvaradiyil.in/contact or book a call via Topmate: https://topmate.io/arjun_varadiyil
+Let's build something meaningful.
+
+- Projects: https://arjunvaradiyil.in/projects
+- Contact: https://arjunvaradiyil.in/contact
+- Resume: https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view
+- Book a call: https://topmate.io/arjun_varadiyil

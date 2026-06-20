@@ -98,12 +98,14 @@ export function mapExperience(doc: Record<string, unknown>) {
     ? doc.points.map((item: { text?: string }) => item?.text).filter(Boolean)
     : [];
 
+  const logoFallback = String(doc.logo ?? '').trim() || '/assets/images/fclogo.png';
+
   return {
     period: String(doc.period ?? ''),
     role: String(doc.role ?? ''),
     company: String(doc.company ?? ''),
     points,
-    logo: resolveMediaUrl(doc.logoMedia, String(doc.logo ?? '')),
+    logo: resolveMediaUrl(doc.logoMedia, logoFallback) || logoFallback,
   };
 }
 

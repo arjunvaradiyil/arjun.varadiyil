@@ -9,6 +9,7 @@ import { CENTER_NAV } from '../lib/navLinks';
 import { LOCATION } from '../lib/employment';
 import { useSiteSettings } from './SiteSettingsProvider';
 import { NEU } from './ui/neuTheme';
+import ThemeToggle from './ThemeToggle';
 
 const CONNECT_LINKS = (email) => [
   { label: 'Email', href: `mailto:${email}`, external: false },
@@ -16,7 +17,7 @@ const CONNECT_LINKS = (email) => [
 ];
 
 const footerLink =
-  'font-sans text-sm uppercase tracking-[0.16em] text-[var(--color-foreground-muted)] transition hover:text-[var(--color-foreground)]';
+  'font-sans text-sm uppercase tracking-[0.16em] text-[var(--color-foreground-muted)] transition hover:text-[var(--color-accent)]';
 
 function FooterColumn({ label, children, align = 'left' }) {
   return (
@@ -107,6 +108,9 @@ export default function Footer() {
             <p className="font-syne text-sm font-bold uppercase tracking-[0.06em] text-[var(--color-foreground)] sm:text-base">
               {location}
             </p>
+            <div className="mt-6">
+              <ThemeToggle />
+            </div>
           </FooterColumn>
         </div>
 

@@ -4,6 +4,7 @@ import ThemeProvider from '../../components/ThemeProvider';
 import SiteHeader from '../../components/SiteHeader';
 import MainShell from '../../components/MainShell';
 import ScrollToTopButton from '../../components/ScrollToTopButton';
+import ScrollProgress from '../../components/ScrollProgress';
 import ConditionalFooter from '../../components/ConditionalFooter';
 import ScrollToTop from '../../components/ScrollToTop';
 import GoogleAnalytics from '../../components/GoogleAnalytics';
@@ -27,13 +28,7 @@ import {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#000000',
-};
-
-export const formatDetection = {
-  telephone: false,
-  email: false,
-  address: false,
+  themeColor: '#0a0a0a',
 };
 
 export const metadata = {
@@ -47,6 +42,11 @@ export const metadata = {
   creator: SITE_NAME,
   publisher: SITE_NAME,
   metadataBase: new URL(absoluteUrl('/')),
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
   alternates: {
     canonical: '/',
     languages: {
@@ -64,10 +64,10 @@ export const metadata = {
     description: OG_DESCRIPTION,
     images: [
       {
-        url: '/assets/images/arjunvaradiyil.jpeg',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Web-Developer in Kochi, Kerala`,
+        alt: `${SITE_NAME} — Full Stack Developer in Kerala`,
       },
     ],
   },
@@ -75,7 +75,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: SITE_TITLE_DEFAULT,
     description: TWITTER_DESCRIPTION,
-    images: ['/assets/images/arjunvaradiyil.jpeg'],
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
@@ -94,6 +94,7 @@ export const metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
       { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
     ],
@@ -108,8 +109,9 @@ export default async function RootLayout({ children }) {
   const siteSettings = await getSiteSettings();
 
   return (
-    <html lang='en' className={`dark ${fontClassNames}`} suppressHydrationWarning>
+    <html lang='en' className={fontClassNames} suppressHydrationWarning>
       <head>
+        <meta name="theme-color" content="#0a0a0a" />
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_INIT_SCRIPT,
@@ -125,6 +127,7 @@ export default async function RootLayout({ children }) {
         <StructuredData />
         <ThemeProvider>
           <SiteSettingsProvider value={siteSettings}>
+          <ScrollProgress />
           <ScrollToTop />
           <SiteHeader maintenance={maintenance} />
           <MainShell maintenance={maintenance}>{children}</MainShell>

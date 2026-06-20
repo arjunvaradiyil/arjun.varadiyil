@@ -7,6 +7,7 @@ import { NEU } from '../ui/neuTheme';
 
 function ExperienceRoleHeader({ item }) {
   const isEmployer = item.company.toLowerCase().includes('faircode');
+  const logoSrc = item.logo || '/assets/images/fclogo.png';
 
   return (
     <div className="grid gap-px bg-[var(--color-grid-line)] md:grid-cols-[5.5rem_1fr_auto]">
@@ -16,7 +17,7 @@ function ExperienceRoleHeader({ item }) {
             isEmployer ? 'bg-white p-1.5' : 'bg-[var(--color-surface-elevated)]'
           }`}
         >
-          <Image src={item.logo} alt={`${item.company} logo`} fill className="object-contain" sizes="56px" />
+          <Image src={logoSrc} alt={`${item.company} logo`} fill className="object-contain" sizes="56px" />
         </div>
       </div>
 
@@ -56,7 +57,9 @@ function ExperiencePoints({ points }) {
   );
 }
 
-export default function Experience({ experience = defaultExperience, intro = '' }) {
+export default function Experience({ experience, intro = '' }) {
+  const items = experience?.length ? experience : defaultExperience;
+
   return (
     <section
       data-gsap="about-section"
@@ -74,10 +77,9 @@ export default function Experience({ experience = defaultExperience, intro = '' 
         </div>
 
         <div className="space-y-10">
-          {experience.map((item) => (
+          {items.map((item) => (
             <article
-              key={item.company}
-              data-gsap="reveal"
+              key={`${item.company}-${item.period}`}
               className={`overflow-hidden ${NEU.frame}`}
             >
               <ExperienceRoleHeader item={item} />

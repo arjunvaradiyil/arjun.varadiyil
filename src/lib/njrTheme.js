@@ -39,7 +39,7 @@ export const HOME_HERO = {
   eyebrow: '',
   headline: ['Live products.', 'Not mockups.'],
   proofLine:
-    'Biennale programmes, voter tools, quiz apps, and campaign hubs — still running today.',
+    'Newsroom systems, festival CMS, civic platforms, and regional content delivery — built for performance and scale.',
   stanceLine: '',
   tagline: '',
   description: '',
@@ -47,6 +47,6 @@ export const HOME_HERO = {
 
 export const HOME_HERO_META = [
   { label: 'Works at', value: EMPLOYER_SHORT },
-  { label: 'Build with', value: 'Next.js · Payload CMS · TypeScript' },
+  { label: 'Build with', value: 'Next.js · Payload CMS · Node.js · TypeScript' },
   { label: 'Based in', value: LOCATION },
 ];

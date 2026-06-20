@@ -6,9 +6,9 @@ export const experienceData = [
     role: 'Full Stack Developer',
     company: EMPLOYER,
     points: [
-      'Payload CMS + Next.js for Kochi Muziris Biennale and Prajasakti newsroom — live publishing at scale.',
-      'Healthcare clinic, civic voter pledge, Kerala quiz, and AI campaign sites — APIs through production deploys.',
-      'GraphQL, admin flows, and frontends — end-to-end delivery on live client traffic.',
+      'Payload CMS + Next.js for Kochi Muziris Biennale and Prajasakti newsroom — live editorial publishing at scale.',
+      'Know Kerala content platform and My Vote My Voice civic site — structured CMS through production deploys.',
+      'GraphQL, admin flows, and frontends — end-to-end delivery on high-traffic client systems.',
     ],
     logo: '/assets/images/fclogo.png',
   },
