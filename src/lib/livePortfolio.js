@@ -1,3 +1,5 @@
+import { isInDevelopmentProject, isLiveProject } from './projectStatus';
+
 const INDUSTRY_SHORT = {
   'Arts & Culture': 'Culture',
   'News & Media': 'News',
@@ -7,29 +9,34 @@ const INDUSTRY_SHORT = {
   'Education & AI Literacy': 'Campaigns',
 };
 
-/** Summarise projects that still have a live preview URL. */
+function industryLabel(project) {
+  return INDUSTRY_SHORT[project.industry] || project.industry;
+}
+
+/** Summarise live and in-development projects from portfolio data. */
 export function summarizeLiveProjects(projects = []) {
-  const live = projects.filter((project) => project?.previewLink);
+  const live = projects.filter((project) => isLiveProject(project));
+  const inDevelopment = projects.filter((project) => isInDevelopmentProject(project));
 
-  const types = [
-    ...new Set(
-      live
-        .map((project) => INDUSTRY_SHORT[project.industry] || project.industry)
-        .filter(Boolean),
-    ),
-  ];
+  const liveTypes = [...new Set(live.map(industryLabel).filter(Boolean))];
+  const inDevTypes = [...new Set(inDevelopment.map(industryLabel).filter(Boolean))];
 
-  const count = live.length;
+  const liveCount = live.length;
   const buildsLabel =
-    count === 0
+    liveCount === 0
       ? 'No public live URLs yet'
-      : `${count} ${count === 1 ? 'site' : 'sites'} in production`;
+      : `${liveCount} ${liveCount === 1 ? 'site' : 'sites'} in production`;
+
+  const detailParts = [...liveTypes];
+  if (inDevTypes.length > 0) {
+    detailParts.push(`${inDevTypes.join(' · ')} in development`);
+  }
 
   return {
-    count,
-    typesLabel: types.join(' · '),
+    count: liveCount,
+    inDevelopmentCount: inDevelopment.length,
+    typesLabel: detailParts.join(' · '),
     buildsLabel,
-    /** One line for compact UI cells — types when available, else count. */
-    displayLabel: types.length > 0 ? types.join(' · ') : buildsLabel,
+    displayLabel: liveTypes.length > 0 ? liveTypes.join(' · ') : buildsLabel,
   };
 }

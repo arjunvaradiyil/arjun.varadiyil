@@ -3,7 +3,15 @@ import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
 import MaintenanceScreen from '../../components/MaintenanceScreen';
 import { getProjects } from '../../lib/cms/content';
 import { isMaintenanceMode } from '../../lib/maintenance';
-import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_TITLE_DEFAULT, absoluteUrl } from '../../lib/siteSeo';
+import {
+  DEFAULT_DESCRIPTION,
+  OG_DESCRIPTION,
+  OG_TITLE,
+  SITE_NAME,
+  SITE_TITLE_DEFAULT,
+  TWITTER_DESCRIPTION,
+  absoluteUrl,
+} from '../../lib/siteSeo';
 
 export const revalidate = 60;
 
@@ -14,9 +22,12 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    siteName: SITE_NAME,
     url: absoluteUrl('/'),
-    title: SITE_TITLE_DEFAULT,
-    description: DEFAULT_DESCRIPTION,
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
     images: [
       {
         url: '/assets/images/profilepic.png',
@@ -25,6 +36,12 @@ export const metadata = {
         alt: `${SITE_NAME} — Full Stack Developer in Kerala`,
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE_DEFAULT,
+    description: TWITTER_DESCRIPTION,
+    images: ['/assets/images/profilepic.png'],
   },
 };
 

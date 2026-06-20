@@ -89,6 +89,7 @@ export function mapProject(doc: Record<string, unknown>) {
     gitLink: String(doc.gitLink ?? ''),
     previewLink: String(doc.previewLink ?? ''),
     linkedinLink: String(doc.linkedinLink ?? ''),
+    status: String(doc.status ?? ''),
   };
 }
 

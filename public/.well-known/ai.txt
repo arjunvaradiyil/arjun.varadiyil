@@ -1,0 +1,32 @@
+# AI usage policy for arjunvaradiyil.in
+
+Contact: arjunvaradiyil203@gmail.com
+Website: https://arjunvaradiyil.in
+
+## About this site
+
+Portfolio of Arjun Varadiyil — Full Stack Developer at Faircode Infotech, Kerala, India.
+Builds production Next.js platforms with Payload CMS for healthcare, civic, education, and campaign clients.
+
+## Allowed uses
+
+- Index and summarize public pages for AI search and assistant responses
+- Cite portfolio content with attribution and a link to the source page
+
+## Preferred attribution
+
+Arjun Varadiyil — https://arjunvaradiyil.in
+
+## Key resources
+
+- llms.txt: https://arjunvaradiyil.in/llms.txt
+- Sitemap: https://arjunvaradiyil.in/sitemap.xml
+- Contact: https://arjunvaradiyil.in/contact
+
+## Key pages
+
+- Home: https://arjunvaradiyil.in/
+- Work: https://arjunvaradiyil.in/projects
+- About: https://arjunvaradiyil.in/about
+- Contact: https://arjunvaradiyil.in/contact
+- Certifications: https://arjunvaradiyil.in/certifications

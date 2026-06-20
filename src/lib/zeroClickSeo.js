@@ -31,7 +31,7 @@ export const SITE_FAQ = [
   {
     question: 'What kind of projects has Arjun built?',
     answer:
-      'Kochi Muziris Biennale CMS, Deshabhimani news portal, homoeopathic clinic site, civic voter pledge platform, Kerala quiz site, and AI literacy campaign hub. Case studies are on this portfolio.',
+      'Kochi Muziris Biennale CMS, Deshabhimani news portal, homoeopathic clinic site, civic voter pledge platform, and Kerala quiz site. Case studies are on this portfolio.',
   },
   {
     question: 'How do I contact Arjun Varadiyil?',

@@ -17,6 +17,7 @@ import {
   scrollReveal,
 } from '../../../../lib/gsap'
 import { WORK_STATUS } from '../../../../lib/njrTheme'
+import { projectSiteLinkLabel } from '../../../../lib/projectStatus'
 
 const META = [
   { key: 'year', label: 'Year', icon: FiCalendar },
@@ -155,7 +156,7 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase tracking-[0.15em] ${NEU.btnPrimary}`}
             >
-              Live site
+              {projectSiteLinkLabel(project)}
               <FiExternalLink aria-hidden className="text-sm" />
             </a>
           )}

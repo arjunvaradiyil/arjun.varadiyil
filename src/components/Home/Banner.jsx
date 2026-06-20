@@ -104,15 +104,17 @@ export default function Banner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, ease: EASE_OUT, delay: 0.1 }}
             >
-              <motion.p
-                className={NEU.eyebrow}
-                initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: EASE_OUT, delay: 0.08 }}
-              >
-                {HOME_HERO.eyebrow}
-              </motion.p>
-              <div className="mt-4">
+              {HOME_HERO.eyebrow ? (
+                <motion.p
+                  className={NEU.eyebrow}
+                  initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, ease: EASE_OUT, delay: 0.08 }}
+                >
+                  {HOME_HERO.eyebrow}
+                </motion.p>
+              ) : null}
+              <div className={HOME_HERO.eyebrow ? 'mt-4' : undefined}>
                 <LineStaggerReveal
                   as="h1"
                   id="hero-heading"

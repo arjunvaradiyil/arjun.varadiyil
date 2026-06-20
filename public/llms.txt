@@ -33,7 +33,7 @@
 - Dr. Naseeha's Homoeopathic Clinic: https://www.drnaseehashomoeopathicclinicmelattur.com/
 - My Vote My Voice (Idukki): https://myidukki.com/
 - Know Kerala quiz platform: https://www.knowkeralam.com/
-- Hello 2 AI campaign: https://aiohello.vercel.app/
+# - Hello 2 AI campaign: https://aiohello.vercel.app/
 
 ## Contact
 

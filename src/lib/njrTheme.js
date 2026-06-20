@@ -36,7 +36,7 @@ export const HERO_STATS = [
 export const DEVELOPER_STANCE = DEVELOPER_APPROACH;
 
 export const HOME_HERO = {
-  eyebrow: EMPLOYER_SHORT,
+  eyebrow: '',
   headline: ['Live products.', 'Not mockups.'],
   proofLine:
     'Biennale programmes, voter tools, quiz apps, and campaign hubs — still running today.',
@@ -46,6 +46,7 @@ export const HOME_HERO = {
 };
 
 export const HOME_HERO_META = [
+  { label: 'Works at', value: EMPLOYER_SHORT },
   { label: 'Build with', value: 'Next.js · Payload CMS · TypeScript' },
   { label: 'Based in', value: LOCATION },
 ];

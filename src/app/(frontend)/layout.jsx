@@ -13,12 +13,27 @@ import { getSiteSettings } from '../../lib/cms/content';
 import { isMaintenanceMode } from '../../lib/maintenance';
 import { THEME_INIT_SCRIPT } from '../../lib/theme';
 import { fontClassNames } from '../../lib/fonts';
-import { DEFAULT_DESCRIPTION, KEYWORDS, SITE_NAME, SITE_TITLE_DEFAULT, absoluteUrl } from '../../lib/siteSeo';
+import {
+  DEFAULT_DESCRIPTION,
+  KEYWORDS,
+  OG_DESCRIPTION,
+  OG_TITLE,
+  SITE_NAME,
+  SITE_TITLE_DEFAULT,
+  TWITTER_DESCRIPTION,
+  absoluteUrl,
+} from '../../lib/siteSeo';
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: '#000000',
+};
+
+export const formatDetection = {
+  telephone: false,
+  email: false,
+  address: false,
 };
 
 export const metadata = {
@@ -45,8 +60,8 @@ export const metadata = {
     locale: 'en_IN',
     url: absoluteUrl('/'),
     siteName: SITE_NAME,
-    title: SITE_TITLE_DEFAULT,
-    description: DEFAULT_DESCRIPTION,
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
     images: [
       {
         url: '/assets/images/arjunvaradiyil.jpeg',
@@ -59,7 +74,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: SITE_TITLE_DEFAULT,
-    description: DEFAULT_DESCRIPTION,
+    description: TWITTER_DESCRIPTION,
     images: ['/assets/images/arjunvaradiyil.jpeg'],
   },
   robots: {

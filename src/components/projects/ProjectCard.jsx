@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
+import { isInDevelopmentProject, projectSiteLinkLabel } from '../../lib/projectStatus';
 import { NEU } from '../ui/neuTheme';
 import ProjectCaseStudyLines from './ProjectCaseStudyLines';
 import ProjectEmployerNote from './ProjectEmployerNote';
@@ -21,7 +22,7 @@ function ProjectCardImage({ project, className = '' }) {
       />
       {project.year ? (
         <span className="absolute left-4 top-4 z-10 border border-[var(--color-border-strong)] bg-[var(--color-surface)]/90 px-2.5 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--color-foreground)]">
-          {project.year}
+          {isInDevelopmentProject(project) ? 'In development' : project.year}
         </span>
       ) : null}
     </div>
@@ -93,7 +94,7 @@ function ProjectCardBody({ project, variant }) {
             rel="noopener noreferrer"
             className={`inline-flex items-center gap-1 ${NEU.link}`}
           >
-            Live site
+            {projectSiteLinkLabel(project)}
             <ExternalLink className="h-3.5 w-3.5" aria-hidden />
           </a>
         ) : null}
@@ -108,21 +109,24 @@ function ProjectListItem({ project, index }) {
 
   return (
     <article className={`group overflow-hidden ${NEU.frame}`}>
-      <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+      <div className="grid sm:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
         <Link
           href={href}
-          className="relative block overflow-hidden border-b border-[var(--color-border)] lg:border-b-0 lg:border-r"
+          className="relative block overflow-hidden border-b border-[var(--color-border)] sm:border-b-0 sm:border-r"
         >
-          <ProjectCardImage project={project} className="aspect-[16/10] lg:aspect-auto lg:min-h-[300px] lg:h-full" />
+          <ProjectCardImage project={project} className="aspect-[16/10] sm:aspect-auto sm:min-h-[260px] sm:h-full" />
           <span className="absolute bottom-4 left-4 z-10 font-mono text-sm tabular-nums text-[var(--color-foreground-subtle)]">
             {String(index).padStart(2, '0')}
           </span>
         </Link>
 
-        <div className="flex flex-col bg-[var(--color-surface)] p-6 sm:p-8 lg:p-10">
+        <div className="flex flex-col bg-[var(--color-surface)] p-5 sm:p-8 lg:p-10">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className={NEU.eyebrow}>{project.industry}</p>
             <div className="flex flex-wrap gap-2">
+              {isInDevelopmentProject(project) ? (
+                <span className={NEU.techTag}>In development</span>
+              ) : null}
               {project.timeline || project.duration ? (
                 <span className={NEU.techTag}>{project.timeline || project.duration}</span>
               ) : null}
@@ -173,7 +177,7 @@ function ProjectListItem({ project, index }) {
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-1.5 ${NEU.link} text-[11px] tracking-[0.18em]`}
               >
-                Live site
+                {projectSiteLinkLabel(project)}
                 <ExternalLink className="h-4 w-4" aria-hidden />
               </a>
             ) : null}
