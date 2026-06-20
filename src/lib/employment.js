@@ -8,7 +8,7 @@ export const LOCATION = 'Kerala, India';
 export const ROLE_EYEBROW = EMPLOYER_SHORT;
 
 /** Project slugs omitted from the homepage featured section (still on /projects). */
-export const HIDDEN_FROM_HOME_SLUGS = ['deshabhimani-news-portal', 'homoeopathic-clinic-melattur'];
+export const HIDDEN_FROM_HOME_SLUGS = ['prajasakti-news-portal', 'homoeopathic-clinic-melattur'];
 
 /** When true, projects tagged with employer field are hidden from the public portfolio. */
 export const HIDE_EMPLOYER_PROJECTS = true;

@@ -42,6 +42,7 @@ async function seed() {
   });
 
   const removedProjectSlugs = [
+    'deshabhimani-news-portal',
     'prajashakti-news-portal',
     'i-serve',
     'myidukki-election-pledge',

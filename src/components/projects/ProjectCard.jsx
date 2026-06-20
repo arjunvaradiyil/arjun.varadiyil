@@ -10,15 +10,15 @@ import ProjectEmployerNote from './ProjectEmployerNote';
 
 const IMAGE_SIZES = '(max-width: 768px) 100vw, 45vw';
 
-function ProjectCardImage({ project, className = '' }) {
+function ProjectCardImage({ project, className = '', imageClassName = '' }) {
   return (
-    <div className={`relative aspect-[16/10] w-full overflow-hidden bg-zinc-900 ${className}`}>
+    <div className={`relative w-full overflow-hidden bg-zinc-900 ${className}`}>
       <Image
         src={project.image}
         alt={project.title}
         fill
         sizes={IMAGE_SIZES}
-        className="object-cover object-center grayscale transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
+        className={`object-cover object-top grayscale transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-0 ${imageClassName}`}
       />
       {project.year ? (
         <span className="absolute left-4 top-4 z-10 border border-[var(--color-border-strong)] bg-[var(--color-surface)]/90 px-2.5 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--color-foreground)]">
@@ -109,12 +109,15 @@ function ProjectListItem({ project, index }) {
 
   return (
     <article className={`group overflow-hidden ${NEU.frame}`}>
-      <div className="grid sm:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+      <div className="grid sm:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] sm:items-stretch">
         <Link
           href={href}
-          className="relative block overflow-hidden border-b border-[var(--color-border)] sm:border-b-0 sm:border-r"
+          className="relative block min-h-[220px] overflow-hidden border-b border-[var(--color-border)] sm:min-h-[280px] sm:h-full sm:border-b-0 sm:border-r"
         >
-          <ProjectCardImage project={project} className="aspect-[16/10] sm:aspect-auto sm:min-h-[260px] sm:h-full" />
+          <ProjectCardImage
+            project={project}
+            className="absolute inset-0 h-full w-full"
+          />
           <span className="absolute bottom-4 left-4 z-10 font-mono text-sm tabular-nums text-[var(--color-foreground-subtle)]">
             {String(index).padStart(2, '0')}
           </span>
@@ -199,7 +202,7 @@ export default function ProjectCard({ project, variant = 'full', index }) {
     return (
       <Link href={href} className={`${NEU.card} group flex h-full flex-col overflow-hidden transition duration-300`}>
         <div className="relative shrink-0 overflow-hidden">
-          <ProjectCardImage project={project} />
+          <ProjectCardImage project={project} className="aspect-[16/10]" />
         </div>
         <ProjectCardBody project={project} variant={variant} />
       </Link>
@@ -209,7 +212,7 @@ export default function ProjectCard({ project, variant = 'full', index }) {
   return (
     <article className={`${NEU.card} group flex h-full flex-col overflow-hidden`}>
       <Link href={href} className="relative block shrink-0 overflow-hidden">
-        <ProjectCardImage project={project} />
+        <ProjectCardImage project={project} className="aspect-[16/10]" />
       </Link>
       <ProjectCardBody project={project} variant="full" />
     </article>

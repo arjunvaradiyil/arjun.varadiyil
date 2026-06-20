@@ -6,6 +6,15 @@ import { NEU } from '../ui/neuTheme';
 export default function ProjectOutcomes({ outcomes = [], compact = false, className = '' }) {
   if (!outcomes?.length) return null;
 
+  const gridCols =
+    outcomes.length >= 4
+      ? 'lg:grid-cols-4'
+      : outcomes.length === 3
+        ? 'lg:grid-cols-3'
+        : outcomes.length === 2
+          ? 'sm:grid-cols-2'
+          : '';
+
   if (compact) {
     return (
       <ul className={`mt-4 grid grid-cols-2 gap-2 ${className}`}>
@@ -23,7 +32,7 @@ export default function ProjectOutcomes({ outcomes = [], compact = false, classN
   }
 
   return (
-    <ul className={`grid gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] sm:grid-cols-2 lg:grid-cols-4 ${className}`}>
+    <ul className={`grid gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] sm:grid-cols-2 ${gridCols} ${className}`}>
       {outcomes.map((item) => (
         <li key={`${item.value}-${item.label}`} className="bg-[var(--color-surface)] px-5 py-5 sm:px-6">
           <p className="font-syne text-2xl font-bold tabular-nums text-[var(--color-foreground)]">{item.value}</p>

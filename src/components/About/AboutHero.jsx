@@ -14,7 +14,7 @@ import HeroPortrait from '../Home/HeroPortrait';
 import { Reveal } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
 import { HOME_HERO, HOME_HERO_META } from '../../lib/njrTheme';
-import { LOCATION, ROLE_TITLE } from '../../lib/employment';
+import { EMPLOYER_SHORT, LOCATION, ROLE_TITLE } from '../../lib/employment';
 import { EASE_OUT, transition } from '../../lib/motion';
 
 const resume = 'https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view';
@@ -63,6 +63,7 @@ export default function AboutHero({
     },
     { label: 'Experience', value: `${experienceYears} years in production` },
     { label: 'Stack', value: buildWith || 'Next.js · Payload CMS · TypeScript' },
+    { label: 'Works at', value: EMPLOYER_SHORT },
     { label: 'Based in', value: location },
   ];
 

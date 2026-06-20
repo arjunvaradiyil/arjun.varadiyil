@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo } from 'react'
-import { FiArrowLeft, FiCalendar, FiClock, FiExternalLink } from 'react-icons/fi'
+import { FiArrowLeft, FiCalendar, FiClock, FiExternalLink, FiLayers } from 'react-icons/fi'
 import { HiOutlineBriefcase } from 'react-icons/hi2'
 import ProjectCard from '../../../../components/projects/ProjectCard'
 import ProjectEmployerNote from '../../../../components/projects/ProjectEmployerNote'
@@ -23,6 +23,7 @@ const META = [
   { key: 'year', label: 'Year', icon: FiCalendar },
   { key: 'timeline', label: 'Timeline', icon: FiClock },
   { key: 'role', label: 'Role', icon: HiOutlineBriefcase },
+  { key: 'industry', label: 'Industry', icon: FiLayers },
 ]
 
 function getRelatedProjects(projects, slug, industry, limit = 3) {

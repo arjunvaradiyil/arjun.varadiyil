@@ -144,7 +144,7 @@ The contact page uses a two-step modal form (details → message) with **Resend*
 Each project page is a case study, not a screenshot gallery:
 
 - **Kochi Muziris Biennale** — Payload CMS festival platform at [kochimuzirisbiennale.org](https://www.kochimuzirisbiennale.org/)
-- **Deshabhimani News Portal** — Malayalam news publishing at [deshabhimani.com](https://www.deshabhimani.com/)
+- **Prajasakti News Portal** — Telugu news publishing at [prajasakti.com](https://prajasakti.com/)
 - **Dr. Naseeha's Homoeopathic Clinic** — healthcare site with treatment pages and online consultation
 - **My Vote My Voice (Idukki)** — civic voter pledge and booth lookup at [myidukki.com](https://myidukki.com/)
 - **Know Kerala** — interactive Malayalam quiz platform at [knowkeralam.com](https://www.knowkeralam.com/)

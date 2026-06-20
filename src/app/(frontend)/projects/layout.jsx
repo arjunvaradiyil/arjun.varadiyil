@@ -14,13 +14,13 @@ export const metadata = {
     siteName: SITE_NAME,
     title: `Projects | ${SITE_NAME}`,
     description:
-      'Six live full stack builds — Biennale CMS, Deshabhimani news, clinic, civic, quiz, and AI campaign.',
+      'Six live full stack builds — Biennale CMS, Prajasakti news, clinic, civic, quiz, and AI campaign.',
   },
   twitter: {
     card: 'summary_large_image',
     title: `Projects | ${SITE_NAME}`,
     description:
-      'Six live full stack builds — Biennale CMS, Deshabhimani news, clinic, civic, quiz, and AI campaign.',
+      'Six live full stack builds — Biennale CMS, Prajasakti news, clinic, civic, quiz, and AI campaign.',
   },
   robots: {
     index: true,
