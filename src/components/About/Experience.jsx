@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { experienceData as defaultExperience } from '../../data/experienceData';
 import SectionHeader from './SectionHeader';
+import { Reveal, StaggerItem, StaggerReveal } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
 
 function ExperienceRoleHeader({ item }) {
@@ -61,12 +62,9 @@ export default function Experience({ experience, intro = '' }) {
   const items = experience?.length ? experience : defaultExperience;
 
   return (
-    <section
-      data-gsap="about-section"
-      className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}
-    >
+    <section className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}>
       <div className="mx-auto max-w-7xl">
-        <div data-gsap="reveal">
+        <Reveal>
           <SectionHeader
             eyebrow="Career"
             title="Professional experience"
@@ -74,12 +72,13 @@ export default function Experience({ experience, intro = '' }) {
             align="left"
             staticReveal
           />
-        </div>
+        </Reveal>
 
-        <div className="space-y-10">
+        <StaggerReveal as="div" className="space-y-10">
           {items.map((item) => (
-            <article
+            <StaggerItem
               key={`${item.company}-${item.period}`}
+              as="article"
               className={`overflow-hidden ${NEU.frame}`}
             >
               <ExperienceRoleHeader item={item} />
@@ -89,9 +88,9 @@ export default function Experience({ experience, intro = '' }) {
                 </p>
                 <ExperiencePoints points={item.points} />
               </div>
-            </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerReveal>
       </div>
     </section>
   );

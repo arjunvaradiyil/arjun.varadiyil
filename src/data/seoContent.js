@@ -4,13 +4,19 @@ import { EMPLOYER_SHORT } from '../lib/employment';
 import { DEVELOPER_APPROACH } from './proof';
 
 export const SGE_SUMMARY =
-  'Arjun Varadiyil is a Full Stack Developer in Kerala building scalable news, editorial, and CMS platforms with Next.js and Payload CMS.';
+  'Arjun Varadiyil is a Full Stack Developer building scalable digital experiences with modern web technologies — high-performance platforms, CMS solutions, and products that make an impact. Based in Kerala.';
 
-export const ABOUT_TAGLINE_SEO =
-  'Full Stack Developer building news, editorial, and CMS platforms with Next.js & Payload CMS — based in Kerala.';
+export const HOME_HERO_HEADLINE = [
+  'Building scalable digital experiences',
+  'with modern web technologies.',
+];
 
-export const PROFESSIONAL_SUMMARY_SEO =
-  'Focused on high-performance web applications and production-grade systems. Currently exploring AI agents and modern AI workflows.';
+export const HOME_HERO_SUBLINE =
+  'Full Stack Developer creating high-performance platforms, CMS solutions, and products that make an impact.';
+
+export const ABOUT_TAGLINE_SEO = HOME_HERO_SUBLINE;
+
+export const PROFESSIONAL_SUMMARY_SEO = HOME_HERO_SUBLINE;
 
 export const CORE_COMPETENCIES = {
   stack: [

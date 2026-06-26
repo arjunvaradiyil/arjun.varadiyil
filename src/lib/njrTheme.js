@@ -4,6 +4,7 @@
  */
 
 import { DEVELOPER_APPROACH } from '../data/proof';
+import { HOME_HERO_HEADLINE, HOME_HERO_SUBLINE } from '../data/seoContent';
 import {
   EMPLOYER_SHORT,
   LOCATION,
@@ -37,9 +38,8 @@ export const DEVELOPER_STANCE = DEVELOPER_APPROACH;
 
 export const HOME_HERO = {
   eyebrow: '',
-  headline: ['Live products.', 'Not mockups.'],
-  proofLine:
-    'Newsroom systems, festival CMS, civic platforms, and regional content delivery — built for performance and scale.',
+  headline: HOME_HERO_HEADLINE,
+  proofLine: HOME_HERO_SUBLINE,
   stanceLine: '',
   tagline: '',
   description: '',

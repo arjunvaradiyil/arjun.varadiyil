@@ -11,7 +11,7 @@ import {
 } from '../../data/aboutData';
 import { PUBLIC_SOCIAL_LINKS } from '../../data/proof';
 import HeroPortrait from '../Home/HeroPortrait';
-import { Reveal } from '../ui/Reveal';
+import { MotionIn } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
 import { HOME_HERO, HOME_HERO_META } from '../../lib/njrTheme';
 import { EMPLOYER_SHORT, LOCATION, ROLE_TITLE } from '../../lib/employment';
@@ -87,14 +87,22 @@ export default function AboutHero({
 
   return (
     <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]" aria-labelledby="about-profile-heading">
-      <div className="lg:grid lg:grid-cols-2">
-        <div className="relative min-h-[52vh] border-b border-[var(--color-border)] lg:min-h-[480px] lg:border-b-0">
-          <HeroPortrait src={photo} alt={displayName} name={displayName} role={ROLE_TITLE} priority size="split" />
+      <div className="lg:grid lg:min-h-[min(85svh,760px)] lg:grid-cols-2 lg:items-stretch">
+        <div className="relative min-h-[48vh] overflow-hidden border-b border-[var(--color-border)] sm:min-h-[52vh] lg:min-h-0 lg:border-b-0">
+          <HeroPortrait
+            src={photo}
+            alt={displayName}
+            name={displayName}
+            role={ROLE_TITLE}
+            priority
+            size="split"
+            showNameOverlay={false}
+          />
         </div>
 
-        <div className="flex flex-col lg:border-l lg:border-[var(--color-border)]">
-          <div className="flex flex-col gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:gap-10 lg:px-10 lg:py-12 xl:px-12">
-            <Reveal>
+        <div className="flex flex-col justify-center lg:border-l lg:border-[var(--color-border)]">
+          <div className="flex w-full flex-col gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:gap-10 lg:px-10 lg:py-12 xl:px-12">
+            <MotionIn>
               <p className={NEU.eyebrow}>Profile</p>
               <h1
                 id="about-profile-heading"
@@ -111,7 +119,7 @@ export default function AboutHero({
                   {HOME_HERO.proofLine}
                 </p>
               ) : null}
-            </Reveal>
+            </MotionIn>
 
             <motion.div {...fadeUp} className="border border-[var(--color-border)] bg-[var(--color-grid-line)]">
               <ul className="grid grid-cols-2 gap-px bg-[var(--color-grid-line)]">

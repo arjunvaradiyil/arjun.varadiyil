@@ -11,7 +11,6 @@ import HeroPortrait from './HeroPortrait';
 import { NEU } from '../ui/neuTheme';
 import LineStaggerReveal from '../ui/LineStaggerReveal';
 import { HOME_HERO, HOME_HERO_META } from '../../lib/njrTheme';
-import { ROLE_TITLE } from '../../lib/employment';
 import { PUBLIC_SOCIAL_LINKS } from '../../data/proof';
 import { SITE_EMAIL } from '../../lib/siteSeo';
 import { EASE_OUT } from '../../lib/motion';
@@ -83,22 +82,21 @@ export default function Banner() {
     <section className="bg-[var(--color-surface)]" aria-labelledby="hero-heading">
       <HeroHeader menuOpen={menuOpen} onOpenMenu={() => setMenuOpen(true)} variant="overlay" />
 
-      <div className="pt-14 lg:grid lg:min-h-[calc(100svh-3.5rem)] lg:grid-cols-2">
+      <div className="pt-14 lg:grid lg:min-h-[calc(100svh-3.5rem)] lg:grid-cols-2 lg:items-stretch">
         {/* Left — full-height portrait */}
-        <div className="relative min-h-[58vh] border-b border-[var(--color-border)] lg:min-h-0 lg:border-b-0">
+        <div className="relative min-h-[50vh] overflow-hidden border-b border-[var(--color-border)] sm:min-h-[58vh] lg:min-h-0 lg:border-b-0">
           <HeroPortrait
             src={heroSrc}
             alt={portraitAlt}
             name={displayName}
-            role={ROLE_TITLE}
             priority
             size="split"
           />
         </div>
 
         {/* Right — intro, meta, CTAs */}
-        <div className="flex flex-col bg-[var(--color-surface)] lg:border-l lg:border-[var(--color-border)]">
-          <div className="flex flex-1 flex-col gap-10 px-5 py-8 sm:px-8 sm:py-10 lg:gap-12 lg:px-10 lg:py-12 xl:px-12">
+        <div className="flex flex-col justify-center bg-[var(--color-surface)] lg:border-l lg:border-[var(--color-border)]">
+          <div className="flex w-full flex-1 flex-col justify-center gap-10 px-5 py-8 sm:px-8 sm:py-10 lg:gap-12 lg:px-10 lg:py-12 xl:px-12">
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

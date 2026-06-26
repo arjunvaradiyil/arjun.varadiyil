@@ -2,20 +2,21 @@
 
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { StaggerItem, StaggerReveal } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
 
 const SKILL_HREF_FALLBACKS = ['/about', '/projects', '/projects', '/about'];
 
 export default function ServiceNeuGrid({ skills }) {
   return (
-    <div className="grid grid-cols-1 gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] sm:grid-cols-2 xl:grid-cols-4">
+    <StaggerReveal className="grid grid-cols-1 gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] sm:grid-cols-2 xl:grid-cols-4">
       {skills.map((service, i) => {
         const blurb = service.cardBlurb ?? service.description;
 
         return (
-          <article
+          <StaggerItem
             key={service.id}
-            data-gsap="reveal"
+            as="article"
             className="bg-[var(--color-surface)]"
           >
             <Link
@@ -39,9 +40,9 @@ export default function ServiceNeuGrid({ skills }) {
                 ))}
               </ul>
             </Link>
-          </article>
+          </StaggerItem>
         );
       })}
-    </div>
+    </StaggerReveal>
   );
 }

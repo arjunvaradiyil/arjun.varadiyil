@@ -35,6 +35,7 @@ export default function HeroPortrait({
   className = '',
   priority = false,
   size = 'default',
+  showNameOverlay = true,
 }) {
   const reduceMotion = useReducedMotion();
   const isSplit = size === 'split';
@@ -102,35 +103,27 @@ export default function HeroPortrait({
           fetchPriority={priority ? 'high' : 'auto'}
           sizes={isSplit ? '(max-width: 1024px) 100vw, 50vw' : '(max-width: 1024px) 90vw, 420px'}
           className={`grayscale ${getPortraitClasses(src)} ${
-            isSplit
-              ? 'lg:[mask-image:linear-gradient(to_right,black_58%,rgba(0,0,0,0.95)_78%,rgba(0,0,0,0.55)_90%,transparent_100%)]'
-              : ''
+            isSplit ? 'object-cover object-center' : ''
           }`}
         />
         </motion.div>
         <div
           className={`pointer-events-none absolute inset-0 z-[2] ${
             isSplit
-              ? 'bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface)]/15 to-[var(--color-surface)]/35 lg:bg-gradient-to-r lg:from-[var(--color-surface)]/40 lg:via-transparent lg:to-[var(--color-surface)]'
+              ? 'bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface)]/20 to-transparent lg:bg-gradient-to-t lg:from-[var(--color-surface)]/70 lg:via-transparent lg:to-transparent'
               : 'bg-gradient-to-t from-[var(--color-surface)]/50 via-transparent to-[var(--color-surface)]/30'
           }`}
           aria-hidden
         />
         {isSplit ? (
-          <>
-            <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-[3] hidden w-20 bg-gradient-to-r from-[var(--color-surface)]/55 via-[var(--color-surface)]/20 to-transparent lg:block"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-[3] hidden w-28 bg-gradient-to-l from-[var(--color-surface)] via-[var(--color-surface)]/75 to-transparent lg:block xl:w-36"
-              aria-hidden
-            />
-          </>
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-24 bg-gradient-to-t from-[var(--color-surface)] to-transparent lg:hidden"
+            aria-hidden
+          />
         ) : null}
-        {displayName ? (
+        {displayName && showNameOverlay ? (
           reduceMotion ? (
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface)]/85 to-transparent px-6 pb-8 pt-24 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12 xl:px-12">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface)]/90 to-transparent px-8 pb-8 pt-20 sm:px-10 sm:pb-10 lg:px-12 lg:pb-12">
               <p className={`${NEU.displayHero} text-[clamp(2rem,7vw,3.5rem)] leading-[0.88] lg:text-[clamp(2.25rem,3.5vw,3.75rem)]`}>
                 <span className="block">{displayName.first}</span>
                 {displayName.last ? <span className="block">{displayName.last}</span> : null}
@@ -139,7 +132,7 @@ export default function HeroPortrait({
             </div>
           ) : (
           <motion.div
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface)]/85 to-transparent px-6 pb-8 pt-24 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12 xl:px-12"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] bg-gradient-to-t from-[var(--color-surface)] via-[var(--color-surface)]/90 to-transparent px-8 pb-8 pt-20 sm:px-10 sm:pb-10 lg:px-12 lg:pb-12"
             initial="hidden"
             animate="visible"
             variants={{

@@ -2,14 +2,12 @@
 
 import Image from 'next/image';
 import { certifications as defaultCertifications } from '../../data/certificationsData';
+import { StaggerItem, StaggerReveal } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
 
 export default function Certifications({ showHeader = true, certifications = defaultCertifications }) {
   return (
-    <section
-      className={`${NEU.section} ${showHeader ? NEU.sectionPad : ''}`}
-      data-gsap={showHeader ? 'about-section' : undefined}
-    >
+    <section className={`${NEU.section} ${showHeader ? NEU.sectionPad : ''}`}>
       <div className="relative z-10 mx-auto max-w-7xl">
         {showHeader ? (
           <>
@@ -21,12 +19,13 @@ export default function Certifications({ showHeader = true, certifications = def
           </>
         ) : null}
 
-        <ul
+        <StaggerReveal
+          as="ul"
           className={`grid list-none grid-cols-1 gap-px border border-[var(--color-border)] bg-[var(--color-grid-line)] sm:grid-cols-2 lg:grid-cols-3 ${showHeader ? 'mt-12 md:mt-14' : ''}`}
           aria-label="Certification cards"
         >
           {certifications.map((cert) => (
-            <li key={cert.id} data-gsap="reveal" className="min-w-0 bg-[var(--color-surface)]">
+            <StaggerItem key={cert.id} as="li" className="min-w-0 bg-[var(--color-surface)]">
               <article className="flex h-full flex-col p-6 sm:p-7">
                 {cert.image ? (
                   <div className={`relative mb-5 h-20 w-full overflow-hidden ${NEU.frame}`}>
@@ -54,9 +53,9 @@ export default function Certifications({ showHeader = true, certifications = def
                   {cert.description}
                 </p>
               </article>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </StaggerReveal>
       </div>
     </section>
   );

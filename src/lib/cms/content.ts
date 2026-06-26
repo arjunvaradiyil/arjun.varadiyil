@@ -240,7 +240,11 @@ export async function getEducation() {
       return staticEducation;
     }
 
-    return docs.map((doc) => mapEducation(doc as Record<string, unknown>));
+    const mapped = docs
+      .map((doc) => mapEducation(doc as Record<string, unknown>))
+      .filter((item) => item.title && item.year);
+
+    return mapped.length ? mapped : staticEducation;
   } catch (error) {
     console.warn('[cms] education fallback:', error);
     return staticEducation;

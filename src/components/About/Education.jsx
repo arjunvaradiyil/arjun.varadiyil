@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { EDUCATION_TIMELINE as defaultEducation } from '../../data/aboutData';
 import SectionHeader from './SectionHeader';
+import { Reveal, StaggerItem, StaggerReveal } from '../ui/Reveal';
 import { NEU } from '../ui/neuTheme';
 
 const DEFAULT_INTRO =
@@ -68,13 +69,12 @@ function EducationProgramme({ description }) {
 }
 
 export default function Education({ education = defaultEducation, intro = DEFAULT_INTRO }) {
+  const items = education?.length ? education : defaultEducation;
+
   return (
-    <section
-      data-gsap="about-section"
-      className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}
-    >
+    <section className={`border-t border-[var(--color-border)] ${NEU.section} ${NEU.sectionPad}`}>
       <div className="mx-auto max-w-7xl">
-        <div data-gsap="reveal">
+        <Reveal>
           <SectionHeader
             eyebrow="Education"
             title="Academic background"
@@ -82,20 +82,20 @@ export default function Education({ education = defaultEducation, intro = DEFAUL
             align="left"
             staticReveal
           />
-        </div>
+        </Reveal>
 
-        <div className="space-y-10">
-          {education.map((item, index) => (
-            <article
+        <StaggerReveal as="div" className="space-y-10">
+          {items.map((item, index) => (
+            <StaggerItem
               key={`${item.title}-${item.year}`}
-              data-gsap="reveal"
+              as="article"
               className={`overflow-hidden ${NEU.frame}`}
             >
               <EducationInstitutionHeader item={item} index={index} />
               <EducationProgramme description={item.description} />
-            </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerReveal>
       </div>
     </section>
   );
