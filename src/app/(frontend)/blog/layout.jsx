@@ -1,8 +1,8 @@
 import { KEYWORDS, SITE_NAME, absoluteUrl } from '../../../lib/siteSeo';
 
 export const metadata = {
-  title: 'Writing',
-  description: `Technical writing on Next.js, Payload CMS, and full stack delivery — ${SITE_NAME}.`,
+  title: 'Blogs',
+  description: `Technical blogs on Next.js, Payload CMS, and full stack delivery — ${SITE_NAME}.`,
   keywords: [...KEYWORDS, 'Next.js blog', 'Payload CMS', 'Full Stack Developer Kerala'],
   alternates: {
     canonical: '/blog',
@@ -12,12 +12,12 @@ export const metadata = {
     locale: 'en_IN',
     url: absoluteUrl('/blog'),
     siteName: SITE_NAME,
-    title: `Writing | ${SITE_NAME}`,
+    title: `Blogs | ${SITE_NAME}`,
     description: 'Technical posts on Next.js, Payload CMS, and production full stack work.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Writing | ${SITE_NAME}`,
+    title: `Blogs | ${SITE_NAME}`,
     description: 'Technical posts on Next.js, Payload CMS, and production full stack work.',
   },
   robots: {

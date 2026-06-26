@@ -61,10 +61,12 @@ body[data-mobile-nav-open='true'] .scroll-to-top-btn {
   html {
     font-family: var(--font-syne), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     scroll-behavior: smooth;
+    max-width: 100%;
   }
 
   body {
     min-height: 100vh;
+    max-width: 100%;
     background-color: var(--color-surface);
     color: var(--color-foreground);
     transition: background-color 0.3s ease, color 0.3s ease;

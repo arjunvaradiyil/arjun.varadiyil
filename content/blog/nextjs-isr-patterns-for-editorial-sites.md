@@ -3,6 +3,8 @@ title: Next.js ISR Patterns for High-Traffic Editorial Sites
 description: Revalidation strategies, cache boundaries, and performance trade-offs when serving news and festival content on Next.js 15.
 date: 2025-06-22
 slug: nextjs-isr-patterns-for-editorial-sites
+image: /nextjsisr.png
+imageAlt: Next.js ISR patterns for high-traffic editorial sites
 published: true
 ---
 

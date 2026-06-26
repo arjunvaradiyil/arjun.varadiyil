@@ -3,6 +3,8 @@ title: Payload CMS Collections for Newsroom Workflows
 description: Content models, blocks, and admin UX patterns I use when building editorial platforms with Payload CMS and Next.js.
 date: 2025-06-15
 slug: payload-cms-collections-for-newsroom-workflows
+image: /payloadworkflow.png
+imageAlt: Payload CMS collections for newsroom workflows
 published: true
 ---
 

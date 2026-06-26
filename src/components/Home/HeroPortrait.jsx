@@ -71,7 +71,7 @@ export default function HeroPortrait({
           </>
         ) : (
           <motion.div
-            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[min(70vw,520px)] w-[min(70vw,520px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.03)_45%,transparent_72%)] lg:h-[min(28vw,560px)] lg:w-[min(28vw,560px)]"
+            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[min(55vw,400px)] w-[min(55vw,400px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.03)_45%,transparent_72%)] lg:h-[min(24vw,480px)] lg:w-[min(24vw,480px)]"
             aria-hidden
             animate={
               reduceMotion

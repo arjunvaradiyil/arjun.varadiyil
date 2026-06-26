@@ -280,6 +280,7 @@ export function buildCreativeWorkSchema(project) {
 export function buildBlogPostingSchema(post) {
   const path = `/blog/${post.slug}`;
   const url = absoluteUrl(path);
+  const image = post.image?.startsWith('http') ? post.image : absoluteUrl(post.image || '/assets/images/lighthouse-home.png');
 
   return {
     '@context': 'https://schema.org',
@@ -287,6 +288,7 @@ export function buildBlogPostingSchema(post) {
     '@id': `${url}#article`,
     headline: post.title,
     description: post.description,
+    image,
     datePublished: post.date || undefined,
     dateModified: post.date || undefined,
     author: { '@id': PERSON_ID },

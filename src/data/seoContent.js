@@ -7,7 +7,8 @@ export const SGE_SUMMARY =
   'Arjun Varadiyil is a Full Stack Developer building scalable digital experiences with modern web technologies — high-performance platforms, CMS solutions, and products that make an impact. Based in Kerala.';
 
 export const HOME_HERO_HEADLINE = [
-  'Building scalable digital experiences',
+  'Building scalable',
+  'digital experiences',
   'with modern web technologies.',
 ];
 

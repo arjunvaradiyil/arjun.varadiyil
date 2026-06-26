@@ -3,6 +3,8 @@ title: Building My Portfolio with Next.js 15, Payload CMS, and a CMS-First Minds
 description: How I built arjunvaradiyil.in — hybrid CMS architecture, S3 uploads, motion design, and SEO infrastructure for a production-grade developer portfolio.
 date: 2025-06-01
 slug: building-my-portfolio-with-nextjs-and-payload-cms
+image: /portfloio.png
+imageAlt: Building my portfolio with Next.js and Payload CMS
 published: true
 ---
 

@@ -15,12 +15,19 @@ Currently exploring AI agents and modern AI workflows.
 
 ## Blog
 
-Technical writing on Next.js, Payload CMS, and production web architecture.
+Technical blogs on Next.js, Payload CMS, and production web architecture.
 
 - All posts: https://arjunvaradiyil.in/blog
-- Building My Portfolio with Next.js & Payload CMS: https://arjunvaradiyil.in/blog/building-my-portfolio-with-nextjs-and-payload-cms
-- Payload CMS Collections for Newsroom Workflows: https://arjunvaradiyil.in/blog/payload-cms-collections-for-newsroom-workflows
+- Headless CMS Architecture: https://arjunvaradiyil.in/blog/headless-cms-architecture
+- LangChain for Developers: https://arjunvaradiyil.in/blog/langchain-for-developers
+- AI Agents — Practical Guide: https://arjunvaradiyil.in/blog/ai-agents-practical-guide
+- React Performance Optimization: https://arjunvaradiyil.in/blog/react-performance-optimization
+- MongoDB Performance Tips: https://arjunvaradiyil.in/blog/mongodb-performance-tips
+- Next.js Interview Questions: https://arjunvaradiyil.in/blog/nextjs-interview-questions
+- Payload CMS Tutorial: https://arjunvaradiyil.in/blog/payload-cms-tutorial
 - Next.js ISR Patterns for Editorial Sites: https://arjunvaradiyil.in/blog/nextjs-isr-patterns-for-editorial-sites
+- Payload CMS Collections for Newsroom Workflows: https://arjunvaradiyil.in/blog/payload-cms-collections-for-newsroom-workflows
+- Building My Portfolio with Next.js & Payload CMS: https://arjunvaradiyil.in/blog/building-my-portfolio-with-nextjs-and-payload-cms
 
 ---
 

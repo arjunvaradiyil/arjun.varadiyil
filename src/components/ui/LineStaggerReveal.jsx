@@ -31,11 +31,16 @@ export default function LineStaggerReveal({
     const PlainTag = Tag;
     return (
       <PlainTag id={id} className={className}>
-        {items.map((line, i) => (
-          <span key={line} className={block && i > 0 ? `block ${lineClassName}` : lineClassName}>
-            {line}
-          </span>
-        ))}
+      {items.map((line, i) => (
+        <span
+          key={line}
+          className={[block ? 'block w-full break-words' : i > 0 ? 'block w-full break-words' : '', lineClassName]
+            .filter(Boolean)
+            .join(' ')}
+        >
+          {line}
+        </span>
+      ))}
       </PlainTag>
     );
   }
@@ -62,10 +67,10 @@ export default function LineStaggerReveal({
         },
       }}
     >
-      {items.map((line, i) => (
+      {items.map((line) => (
         <motion.span
           key={line}
-          className={[block && i > 0 ? 'block' : '', lineClassName].filter(Boolean).join(' ')}
+          className={[block ? 'block w-full break-words' : '', lineClassName].filter(Boolean).join(' ')}
           variants={lineVariants}
         >
           {line}

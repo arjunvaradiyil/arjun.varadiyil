@@ -59,7 +59,7 @@ export default async function HomePage() {
   const projects = await getProjects();
 
   return (
-    <div className="overflow-x-hidden bg-[var(--color-surface)]">
+    <div className="bg-[var(--color-surface)]">
       <Banner />
       <div id="home-content">
         <HomeFeaturedProjects projects={projects} />

@@ -79,12 +79,12 @@ export default function Banner() {
     : [HOME_HERO.headline];
 
   return (
-    <section className="relative isolate bg-[var(--color-surface)]" aria-labelledby="hero-heading">
+    <section className="relative bg-[var(--color-surface)]" aria-labelledby="hero-heading">
       <HeroHeader menuOpen={menuOpen} onOpenMenu={() => setMenuOpen(true)} variant="overlay" />
 
-      <div className="pt-[4.75rem] sm:pt-[5rem] lg:grid lg:min-h-[calc(100svh-5rem)] lg:grid-cols-2 lg:items-stretch">
+      <div className="pt-[4.75rem] sm:pt-[5rem] xl:grid xl:min-h-[calc(100svh-5rem)] xl:grid-cols-2 xl:items-stretch">
         {/* Left — full-height portrait */}
-        <div className="relative min-h-[50vh] overflow-hidden border-b border-[var(--color-border)] sm:min-h-[58vh] lg:min-h-0 lg:border-b-0">
+        <div className="relative min-h-[50vh] min-w-0 overflow-hidden border-b border-[var(--color-border)] sm:min-h-[58vh] xl:min-h-0 xl:border-b-0">
           <HeroPortrait
             src={heroSrc}
             alt={portraitAlt}
@@ -95,9 +95,10 @@ export default function Banner() {
         </div>
 
         {/* Right — intro, meta, CTAs */}
-        <div className="flex flex-col justify-center bg-[var(--color-surface)] lg:border-l lg:border-[var(--color-border)]">
-          <div className="flex w-full flex-1 flex-col justify-center gap-10 px-5 py-8 sm:px-8 sm:py-10 lg:gap-12 lg:px-10 lg:py-12 xl:px-12">
+        <div className="flex min-w-0 flex-col justify-center bg-[var(--color-surface)] xl:border-l xl:border-[var(--color-border)]">
+          <div className="flex w-full min-w-0 flex-1 flex-col justify-center gap-10 px-5 py-8 sm:px-8 sm:py-10 xl:gap-12 xl:px-10 xl:py-12 2xl:px-12">
             <motion.div
+              className="w-full min-w-0"
               initial={reduceMotion ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, ease: EASE_OUT, delay: 0.1 }}
@@ -112,18 +113,19 @@ export default function Banner() {
                   {HOME_HERO.eyebrow}
                 </motion.p>
               ) : null}
-              <div className={HOME_HERO.eyebrow ? 'mt-4' : undefined}>
+              <div className={HOME_HERO.eyebrow ? 'mt-4 min-w-0' : 'min-w-0'}>
                 <LineStaggerReveal
                   as="h1"
                   id="hero-heading"
                   lines={headlineLines}
-                  className={`${NEU.displayHero} text-[clamp(1.375rem,5.5vw,2.5rem)] leading-[0.95] lg:text-[clamp(1.5rem,2.8vw,2.75rem)]`}
+                  lineClassName="w-full break-words"
+                  className={`${NEU.displayHero} w-full max-w-full whitespace-normal break-words text-balance text-[clamp(1.375rem,5.5vw,2.125rem)] sm:text-[clamp(1.5rem,4.5vw,2.25rem)] xl:text-[1.35rem] xl:leading-[1.08] 2xl:text-[1.5rem]`}
                   stagger={0.12}
                   delay={0.14}
                 />
                 {HOME_HERO.proofLine ? (
                   <motion.p
-                    className="mt-4 max-w-lg border-l-2 border-[var(--color-accent)] pl-4 font-sans text-sm font-medium leading-relaxed text-[var(--color-foreground)] sm:text-[15px]"
+                    className="mt-4 max-w-full border-l-2 border-[var(--color-accent)] pl-4 font-sans text-sm font-medium leading-relaxed text-[var(--color-foreground)] sm:text-[15px]"
                     initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.38 }}
