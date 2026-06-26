@@ -1,11 +1,15 @@
 import { getProjectsForSitemap } from '../lib/cms/content';
+import { getBlogPostsForSitemap } from '../lib/blog';
 import { STATIC_SITEMAP_PAGES } from '../lib/sitemap';
 import { SITE_URL } from '../lib/siteSeo';
 
 export const revalidate = 3600;
 
 export default async function sitemap() {
-  const projects = await getProjectsForSitemap();
+  const [projects, blogPosts] = await Promise.all([
+    getProjectsForSitemap(),
+    Promise.resolve(getBlogPostsForSitemap()),
+  ]);
   const now = new Date();
 
   const staticRoutes = STATIC_SITEMAP_PAGES.map((page) => ({
@@ -24,5 +28,12 @@ export default async function sitemap() {
       priority: 0.8,
     }));
 
-  return [...staticRoutes, ...projectRoutes];
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: post.lastModified ?? now,
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
+  return [...staticRoutes, ...projectRoutes, ...blogRoutes];
 }

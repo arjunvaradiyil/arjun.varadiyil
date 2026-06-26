@@ -11,7 +11,7 @@ const navLink = `${NEU.navLink} transition-colors`;
 export default function HeroHeader({ menuOpen, onOpenMenu, variant = 'overlay' }) {
   const isOverlay = variant === 'overlay';
   const shell = isOverlay
-    ? `absolute inset-x-0 top-0 z-30 border-b border-[var(--color-border)]`
+    ? `absolute inset-x-0 top-0 z-30 ${NEU.headerShell}`
     : `relative z-30 border-b border-[var(--color-border)] ${NEU.surface}`;
 
   return (

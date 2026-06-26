@@ -6,8 +6,21 @@ Based in Kerala. Focused on high-performance web applications and production-gra
 Currently exploring AI agents and modern AI workflows.
 
 - Website: https://arjunvaradiyil.in
+- Blog: https://arjunvaradiyil.in/blog
+- RSS: https://arjunvaradiyil.in/rss.xml
 - LinkedIn: https://www.linkedin.com/in/arjunvaradiyil
 - GitHub: https://github.com/arjunvaradiyil/arjun.varadiyil
+
+---
+
+## Blog
+
+Technical writing on Next.js, Payload CMS, and production web architecture.
+
+- All posts: https://arjunvaradiyil.in/blog
+- Building My Portfolio with Next.js & Payload CMS: https://arjunvaradiyil.in/blog/building-my-portfolio-with-nextjs-and-payload-cms
+- Payload CMS Collections for Newsroom Workflows: https://arjunvaradiyil.in/blog/payload-cms-collections-for-newsroom-workflows
+- Next.js ISR Patterns for Editorial Sites: https://arjunvaradiyil.in/blog/nextjs-isr-patterns-for-editorial-sites
 
 ---
 

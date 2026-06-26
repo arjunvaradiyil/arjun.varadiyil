@@ -276,3 +276,24 @@ export function buildCreativeWorkSchema(project) {
     keywords: [...(project.services || []), project.industry].filter(Boolean).join(', '),
   };
 }
+
+export function buildBlogPostingSchema(post) {
+  const path = `/blog/${post.slug}`;
+  const url = absoluteUrl(path);
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${url}#article`,
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date || undefined,
+    dateModified: post.date || undefined,
+    author: { '@id': PERSON_ID },
+    publisher: { '@id': PERSON_ID },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    inLanguage: 'en-IN',
+    url,
+    isPartOf: { '@id': WEBSITE_ID },
+  };
+}

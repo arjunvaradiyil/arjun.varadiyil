@@ -1,5 +1,8 @@
+import dynamic from 'next/dynamic';
 import Banner from '../../components/Home/Banner';
 import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
+import HomeLatestBlog from '../../components/Home/HomeLatestBlog';
+import HomeSeoCopy from '../../components/Home/HomeSeoCopy';
 import MaintenanceScreen from '../../components/MaintenanceScreen';
 import { getProjects } from '../../lib/cms/content';
 import { isMaintenanceMode } from '../../lib/maintenance';
@@ -12,6 +15,9 @@ import {
   TWITTER_DESCRIPTION,
   absoluteUrl,
 } from '../../lib/siteSeo';
+
+const HomeIntro = dynamic(() => import('../../components/Home/HomeIntro'));
+const ZeroClickFaq = dynamic(() => import('../../components/ZeroClickFaq'));
 
 export const revalidate = 60;
 
@@ -57,6 +63,10 @@ export default async function HomePage() {
       <Banner />
       <div id="home-content">
         <HomeFeaturedProjects projects={projects} />
+        <HomeIntro />
+        <HomeLatestBlog />
+        <HomeSeoCopy />
+        <ZeroClickFaq />
       </div>
     </div>
   );

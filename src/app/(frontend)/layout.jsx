@@ -117,6 +117,7 @@ export default async function RootLayout({ children }) {
             __html: THEME_INIT_SCRIPT,
           }}
         />
+        <link rel='alternate' type='application/rss+xml' title={`${SITE_NAME} Blog`} href={absoluteUrl('/rss.xml')} />
         <link rel='preload' as='image' href='/assets/images/profilepic.png' fetchPriority='high' />
         <link rel='alternate' hrefLang='en' href={absoluteUrl('/')} />
         <link rel='alternate' hrefLang='en-IN' href={absoluteUrl('/')} />

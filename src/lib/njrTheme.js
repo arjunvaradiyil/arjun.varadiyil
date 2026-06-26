@@ -14,6 +14,7 @@ import {
 
 export const NJR_NAV_CATEGORIES = [
   { label: 'Work', href: '/projects' },
+  { label: 'Writing', href: '/blog' },
   { label: 'Profile', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];

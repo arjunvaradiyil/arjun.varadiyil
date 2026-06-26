@@ -11,7 +11,7 @@ export const syne = Syne({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-syne',
-  preload: true,
+  preload: false,
 });
 
 export const fontClassNames = `${inter.variable} ${syne.variable}`;

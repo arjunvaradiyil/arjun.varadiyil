@@ -3,7 +3,9 @@ import { notFound } from 'next/navigation';
 import { FiArrowLeft } from 'react-icons/fi';
 import { format, parseISO } from 'date-fns';
 import BlogPostContent from '../../../../components/blog/BlogPostContent';
+import PageStructuredData from '../../../../components/PageStructuredData';
 import { getBlogPost, getBlogSlugs } from '../../../../lib/blog';
+import { buildBlogPostingSchema } from '../../../../lib/zeroClickSeo';
 import { NEU } from '../../../../components/ui/neuTheme';
 import { KEYWORDS, SITE_NAME, absoluteUrl } from '../../../../lib/siteSeo';
 
@@ -69,6 +71,7 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <div className="min-h-screen bg-[var(--color-surface)] text-[var(--color-foreground)]">
+      <PageStructuredData schemas={buildBlogPostingSchema(post)} />
       <article className="mx-auto max-w-3xl px-5 pb-24 pt-28 sm:px-8 sm:pb-32 sm:pt-32 lg:px-12">
         <Link
           href="/blog"

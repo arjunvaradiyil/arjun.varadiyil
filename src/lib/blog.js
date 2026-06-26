@@ -46,3 +46,11 @@ export function getBlogPost(slug) {
 export function getBlogSlugs() {
   return getBlogPosts().map((post) => post.slug);
 }
+
+/** Sitemap entries for published blog posts. */
+export function getBlogPostsForSitemap() {
+  return getBlogPosts().map((post) => ({
+    slug: post.slug,
+    lastModified: post.date ? new Date(post.date) : new Date(),
+  }));
+}

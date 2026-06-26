@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
+import PageStructuredData from '../../../components/PageStructuredData';
 import { getBlogPosts } from '../../../lib/blog';
+import { buildItemListSchema } from '../../../lib/zeroClickSeo';
+import { absoluteUrl } from '../../../lib/siteSeo';
 import { NEU } from '../../../components/ui/neuTheme';
 
 function formatDate(date) {
@@ -15,9 +18,18 @@ function formatDate(date) {
 
 export default function BlogPage() {
   const posts = getBlogPosts();
+  const listSchema = buildItemListSchema({
+    name: 'Technical notes — Arjun Varadiyil',
+    description: 'Architecture, CMS patterns, and lessons from shipping production Next.js systems.',
+    items: posts.map((post) => ({
+      name: post.title,
+      url: absoluteUrl(`/blog/${post.slug}`),
+    })),
+  });
 
   return (
     <div className="min-h-screen bg-[var(--color-surface)] text-[var(--color-foreground)]">
+      <PageStructuredData schemas={listSchema} />
       <div className="mx-auto max-w-7xl px-5 pb-24 pt-28 sm:px-8 sm:pb-32 sm:pt-32 lg:px-12">
         <header className="max-w-3xl border-b border-[var(--color-border)] pb-10">
           <p className={NEU.eyebrow}>Writing</p>

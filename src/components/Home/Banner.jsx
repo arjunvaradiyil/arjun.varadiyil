@@ -79,10 +79,10 @@ export default function Banner() {
     : [HOME_HERO.headline];
 
   return (
-    <section className="bg-[var(--color-surface)]" aria-labelledby="hero-heading">
+    <section className="relative isolate bg-[var(--color-surface)]" aria-labelledby="hero-heading">
       <HeroHeader menuOpen={menuOpen} onOpenMenu={() => setMenuOpen(true)} variant="overlay" />
 
-      <div className="pt-14 lg:grid lg:min-h-[calc(100svh-3.5rem)] lg:grid-cols-2 lg:items-stretch">
+      <div className="pt-[4.75rem] sm:pt-[5rem] lg:grid lg:min-h-[calc(100svh-5rem)] lg:grid-cols-2 lg:items-stretch">
         {/* Left — full-height portrait */}
         <div className="relative min-h-[50vh] overflow-hidden border-b border-[var(--color-border)] sm:min-h-[58vh] lg:min-h-0 lg:border-b-0">
           <HeroPortrait
