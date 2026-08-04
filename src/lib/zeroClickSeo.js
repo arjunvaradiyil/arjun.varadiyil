@@ -17,21 +17,21 @@ export const SITE_FAQ = [
   {
     question: 'Who is Arjun Varadiyil?',
     answer:
-      'A Full Stack Developer in Kerala building scalable news, editorial, and CMS platforms with Next.js and Payload CMS.',
+      'An AI Engineer and Full Stack Developer in Kerala who builds Next.js and Payload CMS products for newsrooms, festivals, and civic programmes, plus AI agent and RAG workflows.',
   },
   {
     question: 'Is Arjun Varadiyil a web developer in Kerala?',
-    answer: `Yes — Full Stack Developer at ${EMPLOYER_SHORT}, based in Kerala.`,
+    answer: `Yes — AI Engineer & Full Stack Developer at ${EMPLOYER_SHORT}, based in Kerala.`,
   },
   {
     question: 'What technologies does Arjun Varadiyil use?',
     answer:
-      'Next.js, React, Payload CMS, Node.js, MongoDB, TypeScript, and REST APIs — focused on news, editorial, and CMS platforms.',
+      'Next.js, React, Payload CMS, Node.js, MongoDB, TypeScript, GraphQL, LangChain, and RAG tooling — applied to editorial, festival, and civic products.',
   },
   {
     question: 'What kind of projects has Arjun built?',
     answer:
-      'Kochi Muziris Biennale CMS, Prajasakti news platform, Know Kerala content platform, and My Vote My Voice civic engagement platform. Case studies are on this portfolio.',
+      'Kochi Muziris Biennale CMS, Deshabhimani and Prajasakti news portals, and My Vote My Voice for Idukki District Administration. Case studies are on this portfolio.',
   },
   {
     question: 'How do I contact Arjun Varadiyil?',
@@ -40,8 +40,7 @@ export const SITE_FAQ = [
   },
   {
     question: 'Where is Arjun Varadiyil based?',
-    answer:
-      `Kerala, India. He works at ${EMPLOYER_SHORT}. For professional inquiries, use the contact page or LinkedIn.`,
+    answer: `Kerala, India. He works at ${EMPLOYER_SHORT}. For professional inquiries, use the contact page or LinkedIn.`,
   },
 ];
 
@@ -86,7 +85,7 @@ export function buildProfilePageSchema() {
     '@type': 'ProfilePage',
     '@id': PROFILE_ID,
     url: SITE_URL,
-    name: `${SITE_NAME} — Full Stack Developer`,
+    name: `${SITE_NAME} — AI Engineer & Full Stack Developer`,
     description: DEFAULT_DESCRIPTION,
     inLanguage: 'en-IN',
     isPartOf: { '@id': WEBSITE_ID },
@@ -105,14 +104,14 @@ export function buildPersonSchema(extraSameAs = []) {
     '@type': 'Person',
     '@id': PERSON_ID,
     name: SITE_NAME,
-    jobTitle: 'Full Stack Developer',
+    jobTitle: ['AI Engineer', 'Full Stack Developer'],
     description: SGE_SUMMARY,
     url: SITE_URL,
     image: PROFILE_IMAGE,
     email: SITE_EMAIL,
     hasOccupation: {
       '@type': 'Occupation',
-      name: 'Full Stack Developer',
+      name: 'AI Engineer & Full Stack Developer',
       occupationLocation: {
         '@type': 'AdministrativeArea',
         name: 'Kerala, India',
@@ -123,6 +122,9 @@ export function buildPersonSchema(extraSameAs = []) {
         'TypeScript',
         'React',
         'Node.js',
+        'LangChain',
+        'RAG',
+        'AI Agents',
         'Headless CMS Architecture',
         'Performance Optimization',
         'MongoDB',
@@ -137,14 +139,17 @@ export function buildPersonSchema(extraSameAs = []) {
     },
     sameAs,
     knowsAbout: [
+      'AI Engineering',
       'Full Stack Development',
       'Next.js',
       'Payload CMS',
+      'LangChain',
+      'RAG',
+      'AI Agents',
       'TypeScript',
       'Headless CMS Architecture',
       'Editorial Platforms',
       'Performance Optimization',
-      'High-Traffic Application Development',
       'Digital Journalism Tech Stack',
       'Civic Tech Tools',
       'Web Development',
@@ -178,12 +183,13 @@ export function buildProfessionalServiceSchema() {
       { '@type': 'State', name: 'Kerala', '@id': 'https://www.wikidata.org/wiki/Q1186' },
     ],
     serviceType: [
+      'AI Engineering',
       'Full Stack Development',
       'Next.js Development',
       'Payload CMS Development',
       'Headless CMS Architecture',
       'Editorial Platform Development',
-      'High-Traffic Web Application Development',
+      'AI Agent Development',
       'Web Development',
     ],
     priceRange: 'Contact for pricing',
@@ -194,7 +200,7 @@ export function buildLocalBusinessSchema() {
   return {
     '@type': 'LocalBusiness',
     '@id': `${SITE_URL}/#localbusiness`,
-    name: `${SITE_NAME} — Web Developer`,
+    name: `${SITE_NAME} — AI Engineer & Full Stack Developer`,
     description: DEFAULT_DESCRIPTION,
     url: SITE_URL,
     image: PROFILE_IMAGE,

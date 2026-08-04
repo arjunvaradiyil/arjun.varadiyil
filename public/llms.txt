@@ -1,9 +1,8 @@
 # Arjun Varadiyil
 
-Full Stack Developer building scalable news, editorial, and CMS platforms using Next.js & Payload CMS.
-
-Based in Kerala. Focused on high-performance web applications and production-grade systems.
-Currently exploring AI agents and modern AI workflows.
+AI Engineer & Full Stack Developer in Kerala.
+Ships Next.js and Payload CMS products for newsrooms, festivals, and civic programmes.
+Builds AI agent and RAG workflows alongside production TypeScript systems.
 
 - Website: https://arjunvaradiyil.in
 - Blog: https://arjunvaradiyil.in/blog
@@ -15,7 +14,7 @@ Currently exploring AI agents and modern AI workflows.
 
 ## Blog
 
-Technical blogs on Next.js, Payload CMS, and production web architecture.
+Technical writing on Next.js, Payload CMS, LangChain, and production architecture.
 
 - All posts: https://arjunvaradiyil.in/blog
 - Headless CMS Architecture: https://arjunvaradiyil.in/blog/headless-cms-architecture
@@ -33,27 +32,23 @@ Technical blogs on Next.js, Payload CMS, and production web architecture.
 
 ## Projects
 
-**Kochi Muziris Biennale Platform**
-Next.js + Payload CMS
-Content-driven platform with optimized performance and SEO.
+**Kochi Muziris Biennale**
+Festival CMS — curators publish exhibitions and programmes through the season.
 https://arjunvaradiyil.in/projects/kochi-muziris-biennale
 https://www.kochimuzirisbiennale.org/
 
-**Prajasakti News Platform**
-Modern editorial system
-Scalable publishing workflow with fast load times.
+**Prajasakti News Portal**
+Telugu newsroom stack — same-day stories without engineering tickets.
 https://arjunvaradiyil.in/projects/prajasakti-news-portal
 https://prajasakti.com/
 
-**Know Kerala**
-Content platform
-Structured CMS architecture for regional content delivery.
-https://arjunvaradiyil.in/projects/know-kerala-quiz-platform
-https://www.knowkeralam.com/
+**Deshabhimani News Portal**
+Malayalam daily — Payload-powered desk with a Next.js reader.
+https://arjunvaradiyil.in/projects/deshabhimani-news-portal
+https://www.deshabhimani.com/
 
-**My Vote My Voice**
-Civic engagement platform
-Built for accessibility, reach, and reliability.
+**My Vote My Voice — Idukki**
+Civic pledge, booth lookup, and election resources for district administration.
 https://arjunvaradiyil.in/projects/my-vote-my-voice-idukki
 https://myidukki.com/
 
@@ -61,15 +56,15 @@ https://myidukki.com/
 
 ## Stack
 
-Next.js · React · Payload CMS · Node.js · MongoDB · TypeScript · REST APIs
+Next.js · React · Payload CMS · Node.js · MongoDB · TypeScript · LangChain · GraphQL
 
 ---
 
 ## Contact
 
-Let's build something meaningful.
+Open to AI engineering and full stack collaborations.
 
-- Projects: https://arjunvaradiyil.in/projects
+- Work: https://arjunvaradiyil.in/work
 - Contact: https://arjunvaradiyil.in/contact
 - Resume: https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view
 - Book a call: https://topmate.io/arjun_varadiyil

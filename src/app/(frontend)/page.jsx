@@ -1,11 +1,11 @@
-import dynamic from 'next/dynamic';
-import Banner from '../../components/Home/Banner';
-import HomeFeaturedProjects from '../../components/Home/HomeFeaturedProjects';
-import HomeLatestBlog from '../../components/Home/HomeLatestBlog';
-import HomeSeoCopy from '../../components/Home/HomeSeoCopy';
+import RajanHome from '../../components/home-rajan/RajanHome';
 import MaintenanceScreen from '../../components/MaintenanceScreen';
+import PageStructuredData from '../../components/PageStructuredData';
 import { getProjects } from '../../lib/cms/content';
+import { getFeaturedHomeProjects } from '../../lib/homeFeatured';
+import { getBlogPosts } from '../../lib/blog';
 import { isMaintenanceMode } from '../../lib/maintenance';
+import { buildItemListSchema } from '../../lib/zeroClickSeo';
 import {
   DEFAULT_DESCRIPTION,
   OG_DESCRIPTION,
@@ -15,9 +15,6 @@ import {
   TWITTER_DESCRIPTION,
   absoluteUrl,
 } from '../../lib/siteSeo';
-
-const HomeIntro = dynamic(() => import('../../components/Home/HomeIntro'));
-const ZeroClickFaq = dynamic(() => import('../../components/ZeroClickFaq'));
 
 export const revalidate = 60;
 
@@ -36,10 +33,10 @@ export const metadata = {
     description: OG_DESCRIPTION,
     images: [
       {
-        url: '/assets/images/profilepic.png',
+        url: '/profilepic-removebg-preview.png',
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Full Stack Developer in Kerala`,
+        alt: `${SITE_NAME} — AI Engineer & Full Stack Developer in Kerala`,
       },
     ],
   },
@@ -47,7 +44,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: SITE_TITLE_DEFAULT,
     description: TWITTER_DESCRIPTION,
-    images: ['/assets/images/profilepic.png'],
+    images: ['/profilepic-removebg-preview.png'],
   },
 };
 
@@ -57,17 +54,22 @@ export default async function HomePage() {
   }
 
   const projects = await getProjects();
+  const featuredProjects = getFeaturedHomeProjects(projects);
+  const posts = getBlogPosts().slice(0, 3);
+  const featuredListSchema = buildItemListSchema({
+    name: 'Featured projects — Arjun Varadiyil',
+    description:
+      'Selected production builds: Kochi Muziris Biennale CMS and Deshabhimani News Portal.',
+    items: featuredProjects.map((project) => ({
+      name: project.title,
+      url: absoluteUrl(`/projects/${project.slug}`),
+    })),
+  });
 
   return (
-    <div className="bg-[var(--color-surface)]">
-      <Banner />
-      <div id="home-content">
-        <HomeFeaturedProjects projects={projects} />
-        <HomeIntro />
-        <HomeLatestBlog />
-        <HomeSeoCopy />
-        <ZeroClickFaq />
-      </div>
-    </div>
+    <>
+      <PageStructuredData schemas={featuredListSchema} />
+      <RajanHome projects={featuredProjects} posts={posts} />
+    </>
   );
 }

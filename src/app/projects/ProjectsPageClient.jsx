@@ -16,7 +16,7 @@ import {
 } from '../../lib/gsap';
 
 const DEFAULT_DESCRIPTION =
-  'Six live full stack builds — news, culture, healthcare, civic, and campaign platforms.';
+  'Selected production builds — festival CMS, Malayalam and Telugu newsrooms, and civic tools.';
 
 export default function ProjectsPageClient({ projects = [], description = '' }) {
   const { workStatus } = useSiteSettings();

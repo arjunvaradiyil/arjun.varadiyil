@@ -1,16 +1,15 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { isRajanPage } from '../lib/rajanPages';
 import PageTransition from './layout/PageTransition';
 
 export default function MainShell({ children, maintenance = false }) {
   const pathname = usePathname();
-  const isHome = pathname === '/';
+  const rajan = isRajanPage(pathname);
 
   let padding = 'pt-[4.75rem] sm:pt-[5rem]';
-  if (maintenance) {
-    padding = 'pt-0';
-  } else if (isHome) {
+  if (maintenance || rajan) {
     padding = 'pt-0';
   }
 

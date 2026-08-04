@@ -72,7 +72,7 @@ export default function Banner() {
   const portrait = profile?.photo || '/assets/images/profilepic.png';
   const heroSrc = heroImage || portrait;
   const displayName = profile?.fullName || profile?.name || 'Arjun Varadiyil';
-  const portraitAlt = `${displayName} — Full Stack Developer in Kerala, India`;
+  const portraitAlt = `${displayName} — AI Engineer & Full Stack Developer in Kerala, India`;
   const reduceMotion = useReducedMotion();
   const headlineLines = Array.isArray(HOME_HERO.headline)
     ? HOME_HERO.headline

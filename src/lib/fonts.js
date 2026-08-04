@@ -1,4 +1,4 @@
-import { Inter, Syne } from 'next/font/google';
+import { Inter, Syne, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 
 export const inter = Inter({
   subsets: ['latin'],
@@ -14,4 +14,20 @@ export const syne = Syne({
   preload: false,
 });
 
-export const fontClassNames = `${inter.variable} ${syne.variable}`;
+export const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
+  weight: ['400', '500', '600', '700'],
+  preload: false,
+});
+
+export const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains',
+  weight: ['400', '500'],
+  preload: false,
+});
+
+export const fontClassNames = `${inter.variable} ${syne.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable}`;

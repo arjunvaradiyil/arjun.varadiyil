@@ -6,7 +6,7 @@ import {
 export const PROFILE = {
   name: 'Arjun Varadiyil',
   fullName: 'Arjun Varadiyil',
-  designation: 'Full Stack Developer',
+  designation: 'AI Engineer & Full Stack Developer',
   experience: '1.3+ years',
   education: 'B.Tech — Computer Science Engineering',
   location: 'Kerala, India',

@@ -34,15 +34,16 @@ async function seed() {
       heroStats: HERO_STATS,
       navCategories: NJR_NAV_CATEGORIES,
       projectsPageDescription:
-        'Six live full stack builds — news, culture, healthcare, civic, and campaign platforms.',
-      aboutSkillsSubtitle: 'Next.js, Payload CMS, MongoDB, and production delivery.',
+        'Selected production builds — festival CMS, Malayalam and Telugu newsrooms, and civic tools.',
+      aboutSkillsSubtitle: 'TypeScript stacks from schema to UI — plus AI agent and RAG experiments.',
       experienceIntro:
-        'Full Stack Developer at Faircode Infotech — Next.js from database to deploy.',
+        'At Faircode Infotech since January 2025 — culture desks, Malayalam & Telugu newsrooms, and civic sprint work.',
     },
   });
 
   const removedProjectSlugs = [
-    'deshabhimani-news-portal',
+    'homoeopathic-clinic-melattur',
+    'know-kerala-quiz-platform',
     'prajashakti-news-portal',
     'i-serve',
     'myidukki-election-pledge',

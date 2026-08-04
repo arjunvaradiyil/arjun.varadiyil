@@ -1,13 +1,19 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { ArrowUp } from 'lucide-react';
+import { isRajanPage } from '../lib/rajanPages';
 import { NEU } from './ui/neuTheme';
 
 export default function ScrollToTopButton() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+  const hide = isRajanPage(pathname);
 
   useEffect(() => {
+    if (hide) return undefined;
+
     const toggleVisibility = () => {
       setVisible(window.scrollY > 400);
     };
@@ -15,7 +21,9 @@ export default function ScrollToTopButton() {
     window.addEventListener('scroll', toggleVisibility, { passive: true });
     toggleVisibility();
     return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+  }, [hide]);
+
+  if (hide || !visible) return null;
 
   const scrollToTop = () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -24,8 +32,6 @@ export default function ScrollToTopButton() {
       behavior: reduceMotion ? 'auto' : 'smooth',
     });
   };
-
-  if (!visible) return null;
 
   return (
     <button

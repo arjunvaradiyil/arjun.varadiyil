@@ -1,15 +1,6 @@
-import { getProjects, getSiteSettings } from '../../../lib/cms/content';
-import ProjectsPageClient from './ProjectsPageClient';
+import { redirect } from 'next/navigation';
 
-export const revalidate = 60;
-
-export default async function ProjectsPage() {
-  const [projects, site] = await Promise.all([getProjects(), getSiteSettings()]);
-
-  return (
-    <ProjectsPageClient
-      projects={projects}
-      description={site.projectsPageDescription}
-    />
-  );
+/** Legacy list URL — primary work index is `/work`. */
+export default function ProjectsPage() {
+  redirect('/work');
 }

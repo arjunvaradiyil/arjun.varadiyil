@@ -1,11 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { isRajanPage } from '../lib/rajanPages';
 
 export default function ScrollProgress() {
+  const pathname = usePathname();
   const [progress, setProgress] = useState(0);
+  const hide = isRajanPage(pathname);
 
   useEffect(() => {
+    if (hide) return undefined;
+
     const update = () => {
       const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
       const max = scrollHeight - clientHeight;
@@ -19,7 +25,9 @@ export default function ScrollProgress() {
       window.removeEventListener('scroll', update);
       window.removeEventListener('resize', update);
     };
-  }, []);
+  }, [hide]);
+
+  if (hide) return null;
 
   return (
     <div

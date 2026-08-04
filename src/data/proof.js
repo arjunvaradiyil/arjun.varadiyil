@@ -10,20 +10,20 @@ export const CURRENT_ROLE = {
 
 /** One memorable line — import elsewhere; do not duplicate the string. */
 export const DEVELOPER_APPROACH =
-  'I take products from first sketch to production — no handoffs, no dead ends.';
+  'From first sketch to production — schema, UI, and deploy in one pass.';
 
 export const PROOF_METRICS = [
   {
-    value: '6',
+    value: '4',
     label: 'Live builds',
-    detail: 'Festivals · civic · campaigns',
-    href: '/projects',
+    detail: 'News · culture · civic',
+    href: '/work',
   },
   {
-    value: 'Full',
-    label: 'Stack delivery',
-    detail: 'Next.js · MongoDB · Payload CMS',
-    href: '/projects',
+    value: 'AI +',
+    label: 'Full stack',
+    detail: 'Next.js · Payload · LangChain',
+    href: '/work',
   },
   {
     value: 'Live',
@@ -43,7 +43,7 @@ export const TRUST_METRICS = [
   { label: 'Lighthouse SEO', value: '92+', note: 'Structured data on this portfolio' },
   { label: 'Desktop LCP', value: '1.3s', note: 'Measured on this build' },
   { label: 'GitHub', value: 'Active', note: 'Side projects between client work' },
-  { label: 'Stack', value: 'TypeScript', note: 'Next.js · Payload · MongoDB' },
+  { label: 'Stack', value: 'TypeScript', note: 'Next.js · Payload · AI tooling' },
 ];
 
 export const GITHUB_USERNAME = 'arjunvaradiyil';
@@ -66,8 +66,9 @@ export const CURRENTLY_EXPLORING = [
 ];
 
 export const OUTCOME_CTA = {
-  headline: "Let's build something meaningful.",
-  subline: 'Open to roles and collaborations on full stack Next.js news and CMS work.',
+  headline: "Let's ship the next build.",
+  subline:
+    'Open to AI engineering and full stack roles on Next.js, CMS, and agent-powered products.',
   primary: { label: 'Get in touch', href: '/contact' },
   secondary: { label: 'Connect on LinkedIn', href: LINKEDIN_URL, external: true },
 };

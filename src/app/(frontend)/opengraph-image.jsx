@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { BRAND } from '../../lib/brandColors';
 import { SITE_TITLE_DEFAULT } from '../../lib/siteSeo';
 
-export const alt = 'Arjun Varadiyil — Full Stack Developer';
+export const alt = 'Arjun Varadiyil — AI Engineer & Full Stack Developer';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 

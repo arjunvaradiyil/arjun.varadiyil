@@ -67,7 +67,7 @@ export const metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — Full Stack Developer in Kerala`,
+        alt: `${SITE_NAME} — AI Engineer & Full Stack Developer in Kerala`,
       },
     ],
   },
@@ -94,11 +94,13 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
       { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/arjunvaradiyil.png', sizes: '500x500', type: 'image/png' },
     ],
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/favicon.png',
   },
 };
 
@@ -118,7 +120,7 @@ export default async function RootLayout({ children }) {
           }}
         />
         <link rel='alternate' type='application/rss+xml' title={`${SITE_NAME} Blog`} href={absoluteUrl('/rss.xml')} />
-        <link rel='preload' as='image' href='/assets/images/profilepic.png' fetchPriority='high' />
+        <link rel='preload' as='image' href='/profilepic-removebg-preview.png' fetchPriority='high' />
         <link rel='alternate' hrefLang='en' href={absoluteUrl('/')} />
         <link rel='alternate' hrefLang='en-IN' href={absoluteUrl('/')} />
         <link rel='alternate' hrefLang='x-default' href={absoluteUrl('/')} />

@@ -13,9 +13,9 @@ import {
 } from './employment';
 
 export const NJR_NAV_CATEGORIES = [
-  { label: 'Work', href: '/projects' },
-  { label: 'Blogs', href: '/blog' },
-  { label: 'Profile', href: '/about' },
+  { label: 'Work', href: '/work' },
+  { label: 'About', href: '/about' },
+  { label: 'Experience', href: '/experience' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -29,9 +29,9 @@ export const WORK_STATUS = {
 };
 
 export const HERO_STATS = [
-  { value: '6', label: 'Live projects', href: '/projects' },
-  { value: 'Live', label: 'In production', href: '/projects' },
-  { value: 'EN · ML · HI · TE', label: 'Multilingual builds', href: '/projects/my-vote-my-voice-idukki' },
+  { value: '4', label: 'Live projects', href: '/work' },
+  { value: 'AI +', label: 'Full stack', href: '/about' },
+  { value: 'EN · ML · TE', label: 'Multilingual builds', href: '/projects/my-vote-my-voice-idukki' },
   { value: 'Kerala', label: 'India based', href: '/about' },
 ];
 
@@ -48,6 +48,6 @@ export const HOME_HERO = {
 
 export const HOME_HERO_META = [
   { label: 'Works at', value: EMPLOYER_SHORT },
-  { label: 'Build with', value: 'Next.js · Payload CMS · Node.js · TypeScript' },
+  { label: 'Build with', value: 'Next.js · Payload · LangChain · TypeScript' },
   { label: 'Based in', value: LOCATION },
 ];

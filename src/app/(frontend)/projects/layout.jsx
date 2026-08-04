@@ -2,8 +2,8 @@ import { KEYWORDS, SITE_NAME, absoluteUrl } from '../../../lib/siteSeo';
 
 export const metadata = {
   title: 'Projects',
-  description: `Portfolio by ${SITE_NAME} — healthcare, civic, education, and campaign platforms with Next.js and full stack development.`,
-  keywords: [...KEYWORDS, 'Portfolio Web Developer', 'Next.js Projects Kerala', 'React Portfolio'],
+  description: `Portfolio by ${SITE_NAME} — festival CMS, Malayalam and Telugu newsrooms, and civic tools with Next.js and Payload CMS.`,
+  keywords: [...KEYWORDS, 'Portfolio Web Developer', 'Next.js Projects Kerala', 'AI Engineer Portfolio'],
   alternates: {
     canonical: '/projects',
   },
@@ -14,13 +14,13 @@ export const metadata = {
     siteName: SITE_NAME,
     title: `Projects | ${SITE_NAME}`,
     description:
-      'Six live full stack builds — Biennale CMS, Prajasakti news, clinic, civic, quiz, and AI campaign.',
+      'Production builds — Biennale CMS, Deshabhimani, Prajasakti, and My Vote My Voice.',
   },
   twitter: {
     card: 'summary_large_image',
     title: `Projects | ${SITE_NAME}`,
     description:
-      'Six live full stack builds — Biennale CMS, Prajasakti news, clinic, civic, quiz, and AI campaign.',
+      'Production builds — Biennale CMS, Deshabhimani, Prajasakti, and My Vote My Voice.',
   },
   robots: {
     index: true,

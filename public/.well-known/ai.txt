@@ -5,7 +5,7 @@ Website: https://arjunvaradiyil.in
 
 ## About
 
-Arjun Varadiyil — Full Stack Developer building scalable news, editorial, and CMS platforms with Next.js and Payload CMS. Based in Kerala, focused on high-performance web applications and production-grade systems. Currently exploring AI agents and modern AI workflows.
+Arjun Varadiyil — AI Engineer & Full Stack Developer in Kerala. Builds Next.js and Payload CMS products for newsrooms, festivals, and civic programmes, and works with LangChain, RAG, and AI agent workflows.
 
 ## Allowed uses
 
@@ -20,7 +20,7 @@ Arjun Varadiyil — https://arjunvaradiyil.in
 
 - llms.txt: https://arjunvaradiyil.in/llms.txt
 - Sitemap: https://arjunvaradiyil.in/sitemap.xml
-- Projects: https://arjunvaradiyil.in/projects
+- Work: https://arjunvaradiyil.in/work
 - Contact: https://arjunvaradiyil.in/contact
 - Resume: https://drive.google.com/file/d/1ZnYLAnJzsW0EkUPe_3R-6agIO6oWDzT-/view
 
@@ -28,5 +28,5 @@ Arjun Varadiyil — https://arjunvaradiyil.in
 
 - Kochi Muziris Biennale: https://www.kochimuzirisbiennale.org/
 - Prajasakti news platform: https://prajasakti.com/
-- Know Kerala: https://www.knowkeralam.com/
+- Deshabhimani news portal: https://www.deshabhimani.com/
 - My Vote My Voice: https://myidukki.com/
