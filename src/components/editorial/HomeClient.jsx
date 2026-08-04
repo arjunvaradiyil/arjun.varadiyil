@@ -192,7 +192,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-x-hidden bg-white font-body text-black transition-colors duration-300 selection:bg-black selection:text-white dark:bg-[#0a0a0a] dark:text-white dark:selection:bg-white dark:selection:text-black"
+      className="relative overflow-x-hidden bg-white font-body text-black selection:bg-black selection:text-white"
     >
       <AnimatePresence mode="wait">
         {isLoading ? <Preloader key="loader" onComplete={onPreloaderComplete} /> : null}

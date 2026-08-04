@@ -5,19 +5,11 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useTheme } from './ThemeProvider';
 import { THEMES } from '../lib/theme';
 
-const VARIANT_CLASSES = {
-  default:
-    'border border-[var(--color-border-strong)] text-[var(--color-foreground-soft)] hover:border-[var(--color-accent)] hover:bg-[var(--color-primary-bg)] hover:text-[var(--color-primary-fg)]',
-  editorial:
-    'rounded-full border border-neutral-300 text-neutral-600 hover:border-neutral-900 hover:bg-neutral-950 hover:text-white dark:border-neutral-600 dark:text-neutral-300 dark:hover:border-white dark:hover:bg-white dark:hover:text-black',
-};
-
-export default function ThemeToggle({ className = '', variant = 'default' }) {
+export default function ThemeToggle({ className = '' }) {
   const { theme, toggleTheme } = useTheme();
   const reduceMotion = useReducedMotion();
   const isDark = theme === THEMES.DARK;
   const label = isDark ? 'Switch to light theme' : 'Switch to dark theme';
-  const variantClass = VARIANT_CLASSES[variant] || VARIANT_CLASSES.default;
 
   return (
     <motion.button
@@ -25,7 +17,7 @@ export default function ThemeToggle({ className = '', variant = 'default' }) {
       onClick={toggleTheme}
       aria-label={label}
       title={label}
-      className={`flex h-9 w-9 shrink-0 items-center justify-center transition ${variantClass} ${className}`}
+      className={`flex h-9 w-9 items-center justify-center border border-[var(--color-border-strong)] text-[var(--color-foreground-soft)] transition hover:border-[var(--color-accent)] hover:bg-[var(--color-primary-bg)] hover:text-[var(--color-primary-fg)] ${className}`}
       whileHover={reduceMotion ? undefined : { y: -1 }}
       whileTap={reduceMotion ? undefined : { scale: 0.96 }}
     >

@@ -3,11 +3,11 @@
 import BackgroundGrid from './BackgroundGrid';
 import BottomPillNav from './BottomPillNav';
 
-/** Editorial shell shared by home + About / Work / Contact / detail pages. */
+/** White editorial shell shared by home + About / Work / Contact / detail pages. */
 export default function EditorialShell({ children, showGrid = true, className = '' }) {
   return (
     <div
-      className={`relative min-h-screen overflow-x-hidden bg-white font-body text-black transition-colors duration-300 selection:bg-black selection:text-white dark:bg-[#0a0a0a] dark:text-white dark:selection:bg-white dark:selection:text-black ${className}`}
+      className={`light relative min-h-screen overflow-x-hidden bg-white font-body text-black selection:bg-black selection:text-white ${className}`}
     >
       {showGrid ? <BackgroundGrid /> : null}
       <BottomPillNav />
