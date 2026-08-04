@@ -8,11 +8,11 @@ const article =
 const articleLegacy =
   'max-w-none text-[var(--color-foreground-soft)] [&_a]:text-[var(--color-accent)] [&_a]:underline [&_a]:underline-offset-4 [&_a]:transition hover:[&_a]:text-[var(--color-foreground)]';
 
-function MarkdownH2({ children, rajan }) {
+function MarkdownH2({ children, editorial }) {
   return (
     <h2
       className={`mt-10 mb-4 font-display text-2xl font-bold tracking-tight sm:text-[1.65rem] ${
-        rajan ? 'text-black' : 'font-syne normal-case text-[var(--color-foreground)]'
+        editorial ? 'text-black' : 'font-syne normal-case text-[var(--color-foreground)]'
       }`}
     >
       {children}
@@ -20,11 +20,11 @@ function MarkdownH2({ children, rajan }) {
   );
 }
 
-function MarkdownH3({ children, rajan }) {
+function MarkdownH3({ children, editorial }) {
   return (
     <h3
       className={`mt-10 text-lg font-bold sm:text-xl ${
-        rajan ? 'font-display text-black' : 'font-syne text-[var(--color-foreground)]'
+        editorial ? 'font-display text-black' : 'font-syne text-[var(--color-foreground)]'
       }`}
     >
       {children}
@@ -36,11 +36,11 @@ function MarkdownP({ children }) {
   return <p className="my-5 text-sm leading-[1.8] sm:text-base">{children}</p>;
 }
 
-function MarkdownUl({ children, rajan }) {
+function MarkdownUl({ children, editorial }) {
   return (
     <ul
       className={`my-6 space-y-3 [&>li]:flex [&>li]:gap-3 [&>li]:before:mt-2 [&>li]:before:h-2 [&>li]:before:w-2 [&>li]:before:shrink-0 [&>li]:before:rounded-full [&>li]:before:content-[''] ${
-        rajan ? '[&>li]:before:bg-[#ff5e3a]' : '[&>li]:before:bg-[var(--color-accent)]'
+        editorial ? '[&>li]:before:bg-[#ff5e3a]' : '[&>li]:before:bg-[var(--color-accent)]'
       }`}
     >
       {children}
@@ -48,11 +48,11 @@ function MarkdownUl({ children, rajan }) {
   );
 }
 
-function MarkdownOl({ children, rajan }) {
+function MarkdownOl({ children, editorial }) {
   return (
     <ol
       className={`my-6 list-decimal space-y-3 pl-6 ${
-        rajan ? 'marker:text-[#ff5e3a]' : 'marker:text-[var(--color-accent)]'
+        editorial ? 'marker:text-[#ff5e3a]' : 'marker:text-[var(--color-accent)]'
       }`}
     >
       {children}
@@ -64,11 +64,11 @@ function MarkdownLi({ children }) {
   return <li className="text-sm leading-relaxed sm:text-base">{children}</li>;
 }
 
-function MarkdownBlockquote({ children, rajan }) {
+function MarkdownBlockquote({ children, editorial }) {
   return (
     <blockquote
       className={`my-8 border-l-2 py-1 pl-5 italic ${
-        rajan
+        editorial
           ? 'border-[#ff5e3a] text-neutral-500'
           : 'border-[var(--color-accent)] text-[var(--color-foreground-muted)]'
       }`}
@@ -78,17 +78,17 @@ function MarkdownBlockquote({ children, rajan }) {
   );
 }
 
-function MarkdownHr({ rajan }) {
+function MarkdownHr({ editorial }) {
   return (
-    <hr className={`my-12 ${rajan ? 'border-black/10' : 'border-[var(--color-border)]'}`} />
+    <hr className={`my-12 ${editorial ? 'border-black/10' : 'border-[var(--color-border)]'}`} />
   );
 }
 
-function MarkdownPre({ children, rajan }) {
+function MarkdownPre({ children, editorial }) {
   return (
     <pre
       className={`my-8 overflow-x-auto p-4 text-[13px] leading-relaxed sm:p-5 sm:text-sm ${
-        rajan
+        editorial
           ? 'border border-black/15 bg-neutral-100 text-neutral-800'
           : 'rounded-sm border border-[var(--color-border)] bg-[var(--color-surface-elevated)]'
       }`}
@@ -98,12 +98,12 @@ function MarkdownPre({ children, rajan }) {
   );
 }
 
-function MarkdownCode({ inline, className, children, rajan, ...props }) {
+function MarkdownCode({ inline, className, children, editorial, ...props }) {
   if (inline) {
     return (
       <code
         className={`rounded px-1.5 py-0.5 font-mono text-[0.88em] ${
-          rajan
+          editorial
             ? 'bg-neutral-100 text-black'
             : 'bg-[var(--color-surface-elevated)] text-[var(--color-foreground)]'
         }`}
@@ -116,7 +116,7 @@ function MarkdownCode({ inline, className, children, rajan, ...props }) {
 
   return (
     <code
-      className={`font-mono ${rajan ? 'text-neutral-700' : 'text-[var(--color-foreground-soft)]'} ${className || ''}`}
+      className={`font-mono ${editorial ? 'text-neutral-700' : 'text-[var(--color-foreground-soft)]'} ${className || ''}`}
       {...props}
     >
       {children}
@@ -124,19 +124,19 @@ function MarkdownCode({ inline, className, children, rajan, ...props }) {
   );
 }
 
-function MarkdownStrong({ children, rajan }) {
+function MarkdownStrong({ children, editorial }) {
   return (
-    <strong className={`font-medium ${rajan ? 'text-black' : 'text-[var(--color-foreground)]'}`}>
+    <strong className={`font-medium ${editorial ? 'text-black' : 'text-[var(--color-foreground)]'}`}>
       {children}
     </strong>
   );
 }
 
-function MarkdownTable({ children, rajan }) {
+function MarkdownTable({ children, editorial }) {
   return (
     <div
       className={`my-8 overflow-x-auto ${
-        rajan ? 'border border-black/15' : 'border border-[var(--color-border)]'
+        editorial ? 'border border-black/15' : 'border border-[var(--color-border)]'
       }`}
     >
       <table className="w-full min-w-[480px] border-collapse text-sm">{children}</table>
@@ -144,11 +144,11 @@ function MarkdownTable({ children, rajan }) {
   );
 }
 
-function MarkdownTh({ children, rajan }) {
+function MarkdownTh({ children, editorial }) {
   return (
     <th
       className={`px-4 py-3 text-left font-mono text-[10px] font-medium uppercase tracking-[0.14em] ${
-        rajan
+        editorial
           ? 'border-b border-black/10 bg-neutral-100 text-neutral-500'
           : 'border-b border-[var(--color-border)] bg-[var(--color-surface-elevated)] text-[var(--color-foreground-muted)]'
       }`}
@@ -158,11 +158,11 @@ function MarkdownTh({ children, rajan }) {
   );
 }
 
-function MarkdownTd({ children, rajan }) {
+function MarkdownTd({ children, editorial }) {
   return (
     <td
       className={`px-4 py-3 last:border-b-0 ${
-        rajan
+        editorial
           ? 'border-b border-black/10 text-neutral-700'
           : 'border-b border-[var(--color-border)] text-[var(--color-foreground-soft)]'
       }`}
@@ -172,7 +172,7 @@ function MarkdownTd({ children, rajan }) {
   );
 }
 
-function MarkdownImage({ src, alt, rajan }) {
+function MarkdownImage({ src, alt, editorial }) {
   if (!src) return null;
 
   const imageSrc = src.startsWith('http') ? src : src.startsWith('/') ? src : `/${src}`;
@@ -180,7 +180,7 @@ function MarkdownImage({ src, alt, rajan }) {
   return (
     <figure
       className={`relative my-10 aspect-[16/10] w-full overflow-hidden ${
-        rajan
+        editorial
           ? 'border border-black/15 bg-neutral-100'
           : 'border border-[var(--color-border)] bg-[var(--color-surface-elevated)]'
       }`}
@@ -195,7 +195,7 @@ function MarkdownImage({ src, alt, rajan }) {
       {alt ? (
         <figcaption
           className={`border-t px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] ${
-            rajan
+            editorial
               ? 'border-black/10 bg-white text-neutral-500'
               : 'border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-foreground-muted)]'
           }`}
@@ -208,28 +208,28 @@ function MarkdownImage({ src, alt, rajan }) {
 }
 
 export default function BlogPostContent({ content, variant = 'legacy' }) {
-  const rajan = variant === 'rajan';
+  const editorial = variant === 'editorial';
 
   const markdownComponents = {
-    h2: (props) => <MarkdownH2 rajan={rajan} {...props} />,
-    h3: (props) => <MarkdownH3 rajan={rajan} {...props} />,
+    h2: (props) => <MarkdownH2 editorial={editorial} {...props} />,
+    h3: (props) => <MarkdownH3 editorial={editorial} {...props} />,
     p: MarkdownP,
-    ul: (props) => <MarkdownUl rajan={rajan} {...props} />,
-    ol: (props) => <MarkdownOl rajan={rajan} {...props} />,
+    ul: (props) => <MarkdownUl editorial={editorial} {...props} />,
+    ol: (props) => <MarkdownOl editorial={editorial} {...props} />,
     li: MarkdownLi,
-    blockquote: (props) => <MarkdownBlockquote rajan={rajan} {...props} />,
-    hr: () => <MarkdownHr rajan={rajan} />,
-    pre: (props) => <MarkdownPre rajan={rajan} {...props} />,
-    code: (props) => <MarkdownCode rajan={rajan} {...props} />,
-    strong: (props) => <MarkdownStrong rajan={rajan} {...props} />,
-    table: (props) => <MarkdownTable rajan={rajan} {...props} />,
-    th: (props) => <MarkdownTh rajan={rajan} {...props} />,
-    td: (props) => <MarkdownTd rajan={rajan} {...props} />,
-    img: ({ src, alt }) => <MarkdownImage src={src} alt={alt} rajan={rajan} />,
+    blockquote: (props) => <MarkdownBlockquote editorial={editorial} {...props} />,
+    hr: () => <MarkdownHr editorial={editorial} />,
+    pre: (props) => <MarkdownPre editorial={editorial} {...props} />,
+    code: (props) => <MarkdownCode editorial={editorial} {...props} />,
+    strong: (props) => <MarkdownStrong editorial={editorial} {...props} />,
+    table: (props) => <MarkdownTable editorial={editorial} {...props} />,
+    th: (props) => <MarkdownTh editorial={editorial} {...props} />,
+    td: (props) => <MarkdownTd editorial={editorial} {...props} />,
+    img: ({ src, alt }) => <MarkdownImage src={src} alt={alt} editorial={editorial} />,
   };
 
   return (
-    <div className={rajan ? article : articleLegacy}>
+    <div className={editorial ? article : articleLegacy}>
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
         {content}
       </ReactMarkdown>

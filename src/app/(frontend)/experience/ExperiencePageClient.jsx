@@ -1,8 +1,8 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import RajanPageShell from '../../../components/home-rajan/RajanPageShell';
-import LetsBuildSection from '../../../components/home-rajan/LetsBuildSection';
+import EditorialShell from '../../../components/editorial/EditorialShell';
+import LetsBuildSection from '../../../components/editorial/LetsBuildSection';
 import { experienceData } from '../../../data/experienceData';
 import { EMPLOYER_SHORT, ROLE_TITLE } from '../../../lib/employment';
 
@@ -13,7 +13,7 @@ export default function ExperiencePageClient({ experience = [], experienceIntro 
   const expRows = experience?.length ? experience : experienceData;
 
   return (
-    <RajanPageShell>
+    <EditorialShell>
       <section className="px-6 pb-16 pt-28 md:px-16 md:pb-20 md:pt-32 lg:px-24">
         <p className="mb-6 font-mono text-sm uppercase tracking-widest text-gray-500">
           [ Experience ]
@@ -85,6 +85,6 @@ export default function ExperiencePageClient({ experience = [], experienceIntro 
       </section>
 
       <LetsBuildSection animatePath />
-    </RajanPageShell>
+    </EditorialShell>
   );
 }

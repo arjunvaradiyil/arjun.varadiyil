@@ -124,7 +124,7 @@ function CardReveal({ children, className = '' }) {
   );
 }
 
-export default function RajanHome({ projects = [], posts = [] }) {
+export default function HomeClient({ projects = [], posts = [] }) {
   const containerRef = useRef(null);
   const reduceMotion = useReducedMotion();
   const [isLoading, setIsLoading] = useState(true);

@@ -1,15 +1,15 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { isRajanPage } from '../lib/rajanPages';
+import { isEditorialPage } from '../lib/editorialPages';
 import PageTransition from './layout/PageTransition';
 
 export default function MainShell({ children, maintenance = false }) {
   const pathname = usePathname();
-  const rajan = isRajanPage(pathname);
+  const editorial = isEditorialPage(pathname);
 
   let padding = 'pt-[4.75rem] sm:pt-[5rem]';
-  if (maintenance || rajan) {
+  if (maintenance || editorial) {
     padding = 'pt-0';
   }
 

@@ -18,7 +18,7 @@ module.exports = {
         antonio: ['Antonio', 'sans-serif'],
       },
       colors: {
-        rajan: {
+        brand: {
           accent: '#ff5e3a',
           coral: '#e8927c',
         },

@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 import { ArrowUpRight, ArrowLeft, ExternalLink } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
-import RajanPageShell from '../../../../components/home-rajan/RajanPageShell';
-import LetsBuildSection from '../../../../components/home-rajan/LetsBuildSection';
+import EditorialShell from '../../../../components/editorial/EditorialShell';
+import LetsBuildSection from '../../../../components/editorial/LetsBuildSection';
 import { projectSiteLinkLabel } from '../../../../lib/projectStatus';
 
 const EASE = [0.16, 1, 0.3, 1];
@@ -55,7 +55,7 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
 
   if (!project) {
     return (
-      <RajanPageShell>
+      <EditorialShell>
         <div className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
           <p className="font-mono text-sm uppercase tracking-widest text-gray-500">
             Project not found
@@ -67,12 +67,12 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
             <ArrowLeft size={14} /> All work
           </Link>
         </div>
-      </RajanPageShell>
+      </EditorialShell>
     );
   }
 
   return (
-    <RajanPageShell>
+    <EditorialShell>
       <article className="px-6 pb-16 pt-28 md:px-16 md:pb-24 md:pt-32 lg:px-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-black/10 pb-6">
@@ -287,6 +287,6 @@ export default function ProjectDetailClient({ slug, projects = [], project }) {
         </div>
       </article>
       <LetsBuildSection animatePath />
-    </RajanPageShell>
+    </EditorialShell>
   );
 }

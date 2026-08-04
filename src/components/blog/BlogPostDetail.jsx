@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
-import RajanPageShell from '../home-rajan/RajanPageShell';
+import EditorialShell from '../editorial/EditorialShell';
 import BlogPostContent from './BlogPostContent';
 import { PROFILE, PROFESSIONAL_SUMMARY } from '../../data/aboutData';
 import { LINKEDIN_URL } from '../../data/proof';
@@ -26,7 +26,7 @@ export default function BlogPostDetail({
   shareUrl,
 }) {
   return (
-    <RajanPageShell>
+    <EditorialShell>
       <article className="px-6 pb-16 pt-28 md:px-16 md:pb-24 md:pt-32 lg:px-24">
         <div className="mx-auto max-w-3xl">
           <Link
@@ -85,8 +85,8 @@ export default function BlogPostDetail({
             ) : null}
           </header>
 
-          <div className="prose-rajan mt-12 border-t border-black/10 pt-10">
-            <BlogPostContent content={post.content} variant="rajan" />
+          <div className="prose-editorial mt-12 border-t border-black/10 pt-10">
+            <BlogPostContent content={post.content} variant="editorial" />
           </div>
 
           <section
@@ -177,6 +177,6 @@ export default function BlogPostDetail({
           </section>
         ) : null}
       </article>
-    </RajanPageShell>
+    </EditorialShell>
   );
 }

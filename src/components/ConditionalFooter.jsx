@@ -1,11 +1,11 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { isRajanPage } from '../lib/rajanPages';
+import { isEditorialPage } from '../lib/editorialPages';
 import Footer from './Footer';
 
 export default function ConditionalFooter() {
   const pathname = usePathname();
-  if (isRajanPage(pathname)) return null;
+  if (isEditorialPage(pathname)) return null;
   return <Footer />;
 }

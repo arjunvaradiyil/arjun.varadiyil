@@ -1,6 +1,6 @@
 import PageStructuredData from '../../../components/PageStructuredData';
 import BlogPostCard from '../../../components/blog/BlogPostCard';
-import RajanPageShell from '../../../components/home-rajan/RajanPageShell';
+import EditorialShell from '../../../components/editorial/EditorialShell';
 import { getBlogPosts } from '../../../lib/blog';
 import { buildItemListSchema } from '../../../lib/zeroClickSeo';
 import { absoluteUrl } from '../../../lib/siteSeo';
@@ -17,7 +17,7 @@ export default function BlogPage() {
   });
 
   return (
-    <RajanPageShell>
+    <EditorialShell>
       <PageStructuredData schemas={listSchema} />
       <div className="px-6 pb-16 pt-28 md:px-16 md:pb-24 md:pt-32 lg:px-24">
         <div className="mx-auto max-w-6xl">
@@ -37,13 +37,13 @@ export default function BlogPage() {
             <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
                 <li key={post.slug} className="min-w-0">
-                  <BlogPostCard post={post} variant="rajan" />
+                  <BlogPostCard post={post} variant="editorial" />
                 </li>
               ))}
             </ul>
           )}
         </div>
       </div>
-    </RajanPageShell>
+    </EditorialShell>
   );
 }

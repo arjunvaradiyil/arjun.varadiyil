@@ -4,7 +4,7 @@ import BackgroundGrid from './BackgroundGrid';
 import BottomPillNav from './BottomPillNav';
 
 /** White editorial shell shared by home + About / Work / Contact / detail pages. */
-export default function RajanPageShell({ children, showGrid = true, className = '' }) {
+export default function EditorialShell({ children, showGrid = true, className = '' }) {
   return (
     <div
       className={`light relative min-h-screen overflow-x-hidden bg-white font-body text-black selection:bg-black selection:text-white ${className}`}

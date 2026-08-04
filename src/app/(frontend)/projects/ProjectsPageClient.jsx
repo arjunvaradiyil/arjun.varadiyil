@@ -5,9 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import RajanPageShell from '../../../components/home-rajan/RajanPageShell';
-import KineticGrid from '../../../components/home-rajan/KineticGrid';
-import LetsBuildSection from '../../../components/home-rajan/LetsBuildSection';
+import EditorialShell from '../../../components/editorial/EditorialShell';
+import KineticGrid from '../../../components/editorial/KineticGrid';
+import LetsBuildSection from '../../../components/editorial/LetsBuildSection';
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -23,7 +23,7 @@ export default function ProjectsPageClient({ projects = [], description = '' }) 
   }, [projects]);
 
   return (
-    <RajanPageShell showGrid={false}>
+    <EditorialShell showGrid={false}>
       <section className="relative overflow-hidden bg-black text-white">
         <KineticGrid
           globalColor="monochrome"
@@ -132,6 +132,6 @@ export default function ProjectsPageClient({ projects = [], description = '' }) 
         </KineticGrid>
       </section>
       <LetsBuildSection animatePath />
-    </RajanPageShell>
+    </EditorialShell>
   );
 }

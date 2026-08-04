@@ -17,9 +17,9 @@ function formatDate(date) {
 
 export default function BlogPostCard({ post, variant = 'legacy' }) {
   const { main: titleMain, sub: titleSub } = splitPostTitle(post.title);
-  const rajan = variant === 'rajan';
+  const editorial = variant === 'editorial';
 
-  if (rajan) {
+  if (editorial) {
     return (
       <Link
         href={`/blog/${post.slug}`}

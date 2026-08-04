@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { ArrowUp } from 'lucide-react';
-import { isRajanPage } from '../lib/rajanPages';
+import { isEditorialPage } from '../lib/editorialPages';
 import { NEU } from './ui/neuTheme';
 
 export default function ScrollToTopButton() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
-  const hide = isRajanPage(pathname);
+  const hide = isEditorialPage(pathname);
 
   useEffect(() => {
     if (hide) return undefined;

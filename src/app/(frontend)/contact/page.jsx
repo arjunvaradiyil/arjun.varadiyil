@@ -4,8 +4,8 @@ import React, { useState, useCallback } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import RajanPageShell from '../../../components/home-rajan/RajanPageShell';
-import LetsBuildSection from '../../../components/home-rajan/LetsBuildSection';
+import EditorialShell from '../../../components/editorial/EditorialShell';
+import LetsBuildSection from '../../../components/editorial/LetsBuildSection';
 import Modal from '../../../components/ui/Modal';
 import { useSiteSettings } from '../../../components/SiteSettingsProvider';
 import { SITE_EMAIL } from '../../../lib/siteSeo';
@@ -86,7 +86,7 @@ export default function ContactPage() {
   };
 
   return (
-    <RajanPageShell showGrid={false}>
+    <EditorialShell showGrid={false}>
       <LetsBuildSection
         as="header"
         email={email}
@@ -231,6 +231,6 @@ export default function ContactPage() {
         title={errorMessage}
         onClose={() => setErrorMessage('')}
       />
-    </RajanPageShell>
+    </EditorialShell>
   );
 }

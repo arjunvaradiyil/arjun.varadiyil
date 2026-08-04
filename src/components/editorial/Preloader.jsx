@@ -48,7 +48,7 @@ export default function Preloader({ onComplete }) {
         <span>© {new Date().getFullYear()}</span>
       </div>
 
-      {/* flex-1 (not h-full) so header + counter stay on-screen on mobile — Rajan layout fix */}
+      {/* flex-1 (not h-full) so header + counter stay on-screen on mobile */}
       <div className="flex min-h-0 flex-1 flex-col items-center justify-center">
         <motion.h1
           key={wordIndex}

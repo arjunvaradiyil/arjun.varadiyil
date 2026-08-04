@@ -1,4 +1,4 @@
-import RajanHome from '../../components/home-rajan/RajanHome';
+import HomeClient from '../../components/editorial/HomeClient';
 import MaintenanceScreen from '../../components/MaintenanceScreen';
 import PageStructuredData from '../../components/PageStructuredData';
 import { getProjects } from '../../lib/cms/content';
@@ -69,7 +69,7 @@ export default async function HomePage() {
   return (
     <>
       <PageStructuredData schemas={featuredListSchema} />
-      <RajanHome projects={featuredProjects} posts={posts} />
+      <HomeClient projects={featuredProjects} posts={posts} />
     </>
   );
 }

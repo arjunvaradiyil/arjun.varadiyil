@@ -4,9 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
-import RajanPageShell from '../../../components/home-rajan/RajanPageShell';
-import WaveRibbon from '../../../components/home-rajan/WaveRibbon';
-import LetsBuildSection from '../../../components/home-rajan/LetsBuildSection';
+import EditorialShell from '../../../components/editorial/EditorialShell';
+import WaveRibbon from '../../../components/editorial/WaveRibbon';
+import LetsBuildSection from '../../../components/editorial/LetsBuildSection';
 import { GITHUB_URL, LINKEDIN_URL } from '../../../data/proof';
 import { experienceData } from '../../../data/experienceData';
 import { EDUCATION_TIMELINE, PROFILE as DEFAULT_PROFILE } from '../../../data/aboutData';
@@ -70,7 +70,7 @@ export default function AboutPageClient({
     : ['Next.js', 'Payload CMS', 'TypeScript', 'React', 'Node.js', 'MongoDB', 'LangChain', 'GraphQL', 'Tailwind CSS'];
 
   return (
-    <RajanPageShell>
+    <EditorialShell>
       <section className="relative px-6 pb-24 pt-28 md:px-16 md:pb-32 md:pt-32 lg:px-24">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
           <WaveRibbon />
@@ -272,6 +272,6 @@ export default function AboutPageClient({
       ) : null}
 
       <LetsBuildSection animatePath />
-    </RajanPageShell>
+    </EditorialShell>
   );
 }

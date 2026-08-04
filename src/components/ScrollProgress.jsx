@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { isRajanPage } from '../lib/rajanPages';
+import { isEditorialPage } from '../lib/editorialPages';
 
 export default function ScrollProgress() {
   const pathname = usePathname();
   const [progress, setProgress] = useState(0);
-  const hide = isRajanPage(pathname);
+  const hide = isEditorialPage(pathname);
 
   useEffect(() => {
     if (hide) return undefined;
