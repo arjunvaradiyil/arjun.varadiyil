@@ -192,7 +192,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-x-hidden bg-white font-body text-black selection:bg-black selection:text-white"
+      className="relative overflow-x-hidden bg-white font-body text-black transition-colors duration-300 selection:bg-black selection:text-white dark:bg-[#0a0a0a] dark:text-white dark:selection:bg-white dark:selection:text-black"
     >
       <AnimatePresence mode="wait">
         {isLoading ? <Preloader key="loader" onComplete={onPreloaderComplete} /> : null}
@@ -217,7 +217,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
             <div className="overflow-hidden">
               <motion.p
                 variants={textReveal}
-                className="mb-4 font-mono text-sm uppercase tracking-widest text-gray-500 md:text-base"
+                className="mb-4 font-mono text-sm uppercase tracking-widest text-gray-500 dark:text-neutral-400 md:text-base"
               >
                 {ROLE_TITLE}
               </motion.p>
@@ -243,10 +243,10 @@ export default function HomeClient({ projects = [], posts = [] }) {
                   <motion.div variants={fadeUp} className="mb-2 hidden sm:block md:mb-6">
                     <a
                       href="/about"
-                      className="group relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border-2 border-black md:h-20 md:w-20"
+                      className="group relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border-2 border-black dark:border-white md:h-20 md:w-20"
                     >
                       <div className="absolute inset-0 translate-y-full bg-black transition-transform duration-500 ease-out group-hover:translate-y-0" />
-                      <ArrowUpRight className="relative z-10 h-6 w-6 text-black transition-colors duration-500 group-hover:text-white md:h-8 md:w-8" />
+                      <ArrowUpRight className="relative z-10 h-6 w-6 text-black transition-colors duration-500 group-hover:text-white dark:text-white dark:group-hover:text-black md:h-8 md:w-8" />
                     </a>
                   </motion.div>
                 </div>
@@ -257,20 +257,20 @@ export default function HomeClient({ projects = [], posts = [] }) {
                 style={reduceMotion ? undefined : { scale: picScale, y: picY }}
                 className="relative mb-2 h-36 w-36 flex-shrink-0 self-end md:h-56 md:w-56 md:self-auto"
               >
-                <div className="group relative h-full w-full overflow-hidden rounded-2xl border-2 border-black bg-neutral-100">
+                <div className="group relative h-full w-full overflow-hidden rounded-2xl border-2 border-black bg-black dark:border-white">
                   <Image
-                    src="/profilepic-removebg-preview.png"
+                    src="/arjunvaradiyil.png"
                     alt="Arjun Varadiyil"
                     fill
                     priority
-                    className="object-contain object-bottom grayscale transition-all duration-700 group-hover:grayscale-0"
+                    className="object-cover object-top grayscale transition-all duration-700 group-hover:grayscale-0"
                     sizes="224px"
                   />
                 </div>
-                <div className="absolute -left-2 -top-2 h-5 w-5 border-l-2 border-t-2 border-black" />
-                <div className="absolute -right-2 -top-2 h-5 w-5 border-r-2 border-t-2 border-black" />
-                <div className="absolute -bottom-2 -left-2 h-5 w-5 border-b-2 border-l-2 border-black" />
-                <div className="absolute -bottom-2 -right-2 h-5 w-5 border-b-2 border-r-2 border-black" />
+                <div className="absolute -left-2 -top-2 h-5 w-5 border-l-2 border-t-2 border-black dark:border-white" />
+                <div className="absolute -right-2 -top-2 h-5 w-5 border-r-2 border-t-2 border-black dark:border-white" />
+                <div className="absolute -bottom-2 -left-2 h-5 w-5 border-b-2 border-l-2 border-black dark:border-white" />
+                <div className="absolute -bottom-2 -right-2 h-5 w-5 border-b-2 border-r-2 border-black dark:border-white" />
               </motion.div>
             </div>
           </motion.div>
@@ -345,7 +345,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
             <ScrollReveal delay={0.3} className="mt-16 flex items-center gap-6">
               <a
                 href={`mailto:${SITE_EMAIL}`}
-                className="inline-flex items-center gap-2 border-b-2 border-black pb-1 font-mono text-sm uppercase tracking-widest transition-colors hover:border-gray-500 hover:text-gray-500"
+                className="inline-flex items-center gap-2 border-b-2 border-black pb-1 font-mono text-sm uppercase tracking-widest transition-colors hover:border-gray-500 hover:text-gray-500 dark:border-white dark:hover:border-neutral-400 dark:hover:text-neutral-400"
               >
                 <Mail size={16} /> Get in Touch
               </a>
@@ -353,7 +353,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-black transition-all duration-300 hover:bg-black hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-black transition-all duration-300 hover:bg-black hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black"
                 aria-label="GitHub"
               >
                 <Github size={16} />
@@ -362,7 +362,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-black transition-all duration-300 hover:bg-black hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-black transition-all duration-300 hover:bg-black hover:text-white dark:border-white dark:hover:bg-white dark:hover:text-black"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={16} />
@@ -371,15 +371,15 @@ export default function HomeClient({ projects = [], posts = [] }) {
           </div>
 
           <ScrollReveal direction="right" className="hidden md:block">
-            <div className="group relative aspect-[3/4] w-full overflow-hidden">
+            <div className="group relative aspect-[3/4] w-full overflow-hidden bg-black">
               <Image
-                src="/profilepic-removebg-preview.png"
+                src="/arjunvaradiyil.png"
                 alt="Arjun Varadiyil portrait"
                 fill
-                className="object-contain object-bottom grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                className="object-cover object-top grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
                 sizes="(max-width: 1024px) 40vw, 360px"
               />
-              <div className="absolute inset-0 border border-black" />
+              <div className="absolute inset-0 border border-black dark:border-white" />
             </div>
           </ScrollReveal>
         </div>
@@ -477,7 +477,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
 
       {/* BLOGS (slim SEO strip) */}
       {posts.length > 0 ? (
-        <section className="border-t border-black/10 px-6 py-20 md:px-16 lg:px-24" aria-labelledby="home-blog-heading">
+        <section className="border-t border-black/10 px-6 py-20 dark:border-white/10 md:px-16 lg:px-24" aria-labelledby="home-blog-heading">
           <div className="mx-auto max-w-5xl">
             <div className="mb-10 flex items-end justify-between gap-4">
               <TextLineReveal>
@@ -487,7 +487,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
               </TextLineReveal>
               <Link
                 href="/blog"
-                className="font-mono text-xs uppercase tracking-widest text-neutral-500 transition hover:text-black"
+                className="font-mono text-xs uppercase tracking-widest text-neutral-500 transition hover:text-black dark:hover:text-white"
               >
                 View all →
               </Link>
@@ -497,7 +497,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
                 <li key={post.slug} className="h-full">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="group flex h-full flex-col border border-black/10 p-5 transition hover:border-black"
+                    className="group flex h-full flex-col border border-black/10 p-5 transition hover:border-black dark:border-white/10 dark:hover:border-white"
                   >
                     <p className="font-mono text-[10px] uppercase tracking-widest text-neutral-400">
                       {post.date}
@@ -521,7 +521,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
       ) : null}
 
       {/* MARQUEE */}
-      <section className="overflow-hidden border-b border-t border-black/10 py-12 md:py-16">
+      <section className="overflow-hidden border-b border-t border-black/10 py-12 dark:border-white/10 md:py-16">
         <OutlineMarquee
           items={['AI Engineer', 'Full Stack', 'Next.js', 'Payload CMS', 'LangChain']}
           speed={30}
@@ -549,7 +549,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
                 <motion.div
                   whileHover={reduceMotion ? undefined : { x: 16 }}
                   transition={{ duration: 0.4, ease: EASE }}
-                  className="group flex flex-col justify-between border-b border-black/10 py-10 transition-colors duration-300 hover:border-black md:flex-row md:items-center"
+                  className="group flex flex-col justify-between border-b border-black/10 py-10 transition-colors duration-300 hover:border-black dark:border-white/10 dark:hover:border-white md:flex-row md:items-center"
                 >
                   <div className="flex-1">
                     <h3 className="font-display text-3xl font-medium">{exp.role}</h3>
@@ -557,7 +557,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
                       {exp.company} — {exp.points?.[0] || ''}
                     </p>
                   </div>
-                  <div className="mt-4 flex-shrink-0 font-mono text-sm uppercase tracking-widest text-black md:mt-0 md:text-right">
+                  <div className="mt-4 flex-shrink-0 font-mono text-sm uppercase tracking-widest text-black dark:text-white md:mt-0 md:text-right">
                     {exp.period}
                   </div>
                 </motion.div>
@@ -568,7 +568,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
       </section>
 
       {/* SKILLS */}
-      <section className="overflow-hidden border-t border-black/10 bg-white py-20">
+      <section className="overflow-hidden border-t border-black/10 bg-white py-20 dark:border-white/10 dark:bg-[#0a0a0a]">
         <div className="mx-auto mb-16 max-w-5xl px-6 md:px-16 lg:px-24">
           <TextLineReveal>
             <h2 className="mb-8 font-mono text-sm uppercase tracking-widest text-gray-400">
@@ -576,7 +576,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
             </h2>
           </TextLineReveal>
           <ScrollReveal delay={0.1}>
-            <p className="max-w-4xl font-display text-2xl font-bold leading-[1.15] tracking-tight text-black md:text-4xl lg:text-5xl">
+            <p className="max-w-4xl font-display text-2xl font-bold leading-[1.15] tracking-tight text-black dark:text-white md:text-4xl lg:text-5xl">
               Next.js and Payload for news &amp; culture desks — plus LangChain, RAG, and agent workflows for the next products.
             </p>
           </ScrollReveal>
@@ -587,7 +587,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
             {[...skillItems, ...skillItems].map((skill, index) => (
               <div
                 key={`${skill.name}-${index}`}
-                className="flex flex-shrink-0 items-center gap-3 rounded-full border border-neutral-300/40 bg-neutral-100 px-5 py-2.5 text-neutral-600 shadow-sm transition-all duration-300 hover:bg-neutral-200 hover:text-black"
+                className="flex flex-shrink-0 items-center gap-3 rounded-full border border-neutral-300/40 bg-neutral-100 px-5 py-2.5 text-neutral-600 shadow-sm transition-all duration-300 hover:bg-neutral-200 hover:text-black dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
               >
                 <skill.Icon className="h-5 w-5 flex-shrink-0" />
                 <span className="font-mono text-xs font-semibold tracking-wide md:text-sm">

@@ -15,19 +15,22 @@ export function applyTheme(theme) {
 
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) {
-    meta.setAttribute('content', isDark ? '#0a0a0a' : '#f5f2eb');
+    meta.setAttribute('content', isDark ? '#0a0a0a' : '#ffffff');
   }
 }
 
+/** Prefer light (white editorial) when no preference is stored. */
 export function getStoredTheme() {
-  if (typeof window === 'undefined') return THEMES.DARK;
+  if (typeof window === 'undefined') return THEMES.LIGHT;
 
   try {
     const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    return stored === THEMES.LIGHT ? THEMES.LIGHT : THEMES.DARK;
+    if (stored === THEMES.DARK) return THEMES.DARK;
+    if (stored === THEMES.LIGHT) return THEMES.LIGHT;
+    return THEMES.LIGHT;
   } catch {
-    return THEMES.DARK;
+    return THEMES.LIGHT;
   }
 }
 
-export const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}');var d=t!=='${THEMES.LIGHT}';var r=document.documentElement;r.classList.toggle('dark',d);r.classList.toggle('light',!d);r.style.colorScheme=d?'dark':'light';}catch(e){document.documentElement.classList.add('dark');}})();`;
+export const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem('${THEME_STORAGE_KEY}');var d=t==='${THEMES.DARK}';var r=document.documentElement;r.classList.toggle('dark',d);r.classList.toggle('light',!d);r.style.colorScheme=d?'dark':'light';var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',d?'#0a0a0a':'#ffffff');}catch(e){document.documentElement.classList.add('light');}})();`;

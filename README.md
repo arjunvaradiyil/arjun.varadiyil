@@ -86,7 +86,7 @@ The easiest way to deploy is using [Vercel](https://vercel.com).
 
 - **Email:** arjunvaradiyil203@gmail.com
 - **LinkedIn:** [arjunvaradiyil](https://www.linkedin.com/in/arjunvaradiyil)
-- **GitHub:** [arjunvaradiyil](https://github.com/arjunvaradiyil/arjun.varadiyil)
+- **GitHub:** [arjunvaradiyil](https://github.com/arjunvaradiyil)
 - **Instagram:** [@_arjuo__](https://www.instagram.com/_arjuo__)
 
 ## 📄 License

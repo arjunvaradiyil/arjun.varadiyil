@@ -157,4 +157,4 @@ This keeps `next build` reliable and local dev friction low.
 
 **Related:** [Payload CMS Collections for Newsroom Workflows](https://arjunvaradiyil.in/blog/payload-cms-collections-for-newsroom-workflows) · [CMS Architecture Guide](https://arjunvaradiyil.in/blog/headless-cms-architecture)
 
-**Connect:** [LinkedIn](https://www.linkedin.com/in/arjunvaradiyil) · [GitHub](https://github.com/arjunvaradiyil/arjun.varadiyil) · [Contact](https://arjunvaradiyil.in/contact)
+**Connect:** [LinkedIn](https://www.linkedin.com/in/arjunvaradiyil) · [GitHub](https://github.com/arjunvaradiyil) · [Contact](https://arjunvaradiyil.in/contact)

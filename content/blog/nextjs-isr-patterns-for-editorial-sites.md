@@ -65,4 +65,4 @@ The goal is predictable TTFB under load — not the maximum possible dynamism.
 
 **Related work:** [Kochi Muziris Biennale](https://arjunvaradiyil.in/projects/kochi-muziris-biennale) · [Prajasakti News Portal](https://arjunvaradiyil.in/projects/prajasakti-news-portal)
 
-**Connect:** [LinkedIn](https://www.linkedin.com/in/arjunvaradiyil) · [GitHub](https://github.com/arjunvaradiyil/arjun.varadiyil) · [Contact](https://arjunvaradiyil.in/contact)
+**Connect:** [LinkedIn](https://www.linkedin.com/in/arjunvaradiyil) · [GitHub](https://github.com/arjunvaradiyil) · [Contact](https://arjunvaradiyil.in/contact)

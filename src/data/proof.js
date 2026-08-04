@@ -48,7 +48,7 @@ export const TRUST_METRICS = [
 
 export const GITHUB_USERNAME = 'arjunvaradiyil';
 
-export const GITHUB_URL = `https://github.com/${GITHUB_USERNAME}/arjun.varadiyil`;
+export const GITHUB_URL = `https://github.com/${GITHUB_USERNAME}`;
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/arjunvaradiyil';
 

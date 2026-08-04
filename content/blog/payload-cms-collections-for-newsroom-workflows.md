@@ -64,4 +64,4 @@ If reporters wait on developers for layout changes, the CMS model is wrong — n
 
 **Related case study:** [Prajasakti News Portal](https://arjunvaradiyil.in/projects/prajasakti-news-portal)
 
-**Connect:** [LinkedIn](https://www.linkedin.com/in/arjunvaradiyil) · [GitHub](https://github.com/arjunvaradiyil/arjun.varadiyil) · [Contact](https://arjunvaradiyil.in/contact)
+**Connect:** [LinkedIn](https://www.linkedin.com/in/arjunvaradiyil) · [GitHub](https://github.com/arjunvaradiyil) · [Contact](https://arjunvaradiyil.in/contact)

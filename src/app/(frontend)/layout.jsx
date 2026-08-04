@@ -28,7 +28,7 @@ import {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0a0a0a',
+  themeColor: '#ffffff',
 };
 
 export const metadata = {
@@ -113,7 +113,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang='en' className={fontClassNames} suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="theme-color" content="#ffffff" />
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_INIT_SCRIPT,

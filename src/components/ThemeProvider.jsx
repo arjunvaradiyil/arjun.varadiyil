@@ -2,10 +2,10 @@
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { NEU } from './ui/neuTheme';
-import { THEMES, applyTheme, getStoredTheme } from '../lib/theme';
+import { THEMES, applyTheme, getStoredTheme, THEME_STORAGE_KEY } from '../lib/theme';
 
 const ThemeContext = React.createContext({
-  theme: THEMES.DARK,
+  theme: THEMES.LIGHT,
   toggleTheme: () => {},
 });
 
@@ -14,10 +14,12 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(THEMES.DARK);
+  const [theme, setTheme] = useState(THEMES.LIGHT);
 
   useEffect(() => {
-    setTheme(getStoredTheme());
+    const stored = getStoredTheme();
+    setTheme(stored);
+    applyTheme(stored);
   }, []);
 
   const toggleTheme = useCallback(() => {
@@ -26,7 +28,7 @@ export default function ThemeProvider({ children }) {
       applyTheme(next);
 
       try {
-        localStorage.setItem('theme', next);
+        localStorage.setItem(THEME_STORAGE_KEY, next);
       } catch {
         /* ignore */
       }

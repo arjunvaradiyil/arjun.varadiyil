@@ -128,6 +128,47 @@ export const projects = [
   },
   {
     id: '04',
+    slug: 'left-views',
+    title: 'The Left Views',
+    tagline:
+      'Politics, views, and interviews ship from a desk-built CMS — no freeze-window rebuilds.',
+    description:
+      'Headless editorial stack for The Left Views: Payload CMS for the newsroom, Next.js reader experience for politics, analysis, and interviews at leftviews.in.',
+    year: '2025',
+    timeline: '3 Months',
+    industry: 'News & Media',
+    services: ['Next.js', 'Payload CMS', 'GraphQL', 'TypeScript', 'Tailwind CSS'],
+    about: '',
+    role: 'Full Stack Developer',
+    duration: '3 Months',
+    problem: 'Opinion and politics coverage needed same-day publishing without engineering tickets.',
+    solution: 'Composable Payload collections and blocks plus a Next.js frontend shaped for views, interviews, and desk workflows.',
+    impact: 'Editors keep leftviews.in current with continuous politics and analysis publishing.',
+    proofMetric: {
+      value: 'Live',
+      label: 'Editorial desk',
+      detail: '3-month build',
+    },
+    outcomes: [
+      { value: 'Live', label: 'In production', detail: 'leftviews.in' },
+      { value: 'CMS', label: 'Payload', detail: 'Views, interviews & media' },
+      { value: 'Desk', label: 'Self-serve', detail: 'Same-day story updates' },
+      { value: 'GraphQL', label: 'API layer', detail: 'Headless feed for the reader app' },
+    ],
+    responsibilities: [
+      'Modelled Payload collections and blocks for politics and views desks',
+      'Shipped Next.js reader pages and GraphQL content delivery',
+      'Tuned publishing flows under continuous editorial traffic',
+    ],
+    image: '/leftviews.png',
+    logo: '',
+    type: 'image',
+    gitLink: '',
+    previewLink: 'https://www.leftviews.in/',
+    linkedinLink: '',
+  },
+  {
+    id: '05',
     slug: 'my-vote-my-voice-idukki',
     title: 'My Vote My Voice — Idukki',
     tagline:
@@ -167,12 +208,12 @@ export const projects = [
     linkedinLink: '',
   },
   // {
-  //   id: '05',
+  //   id: '06',
   //   slug: 'know-kerala-quiz-platform',
   //   ...
   // },
   // {
-  //   id: '06',
+  //   id: '07',
   //   slug: 'hello-2-ai-campaign',
   //   ...
   // },

@@ -50,7 +50,7 @@ export const ZERO_CLICK_SUMMARY = SGE_SUMMARY;
 export const SPEAKABLE_SELECTORS = ['.zero-click-summary', '.zero-click-faq-answer'];
 
 const LINKEDIN = 'https://www.linkedin.com/in/arjunvaradiyil';
-const GITHUB = 'https://github.com/arjunvaradiyil/arjun.varadiyil';
+const GITHUB = 'https://github.com/arjunvaradiyil';
 const INSTAGRAM = 'https://www.instagram.com/_arjuo__';
 const PROFILE_IMAGE = `${SITE_URL}/assets/images/arjunvaradiyil.jpeg`;
 

@@ -197,5 +197,5 @@ If you're building something similar — full stack Next.js product, headless CM
 **Links**
 
 - Live site: [arjunvaradiyil.in](https://arjunvaradiyil.in)
-- GitHub: [github.com/arjunvaradiyil/arjun.varadiyil](https://github.com/arjunvaradiyil/arjun.varadiyil)
+- GitHub: [github.com/arjunvaradiyil](https://github.com/arjunvaradiyil)
 - LinkedIn: [linkedin.com/in/arjunvaradiyil](https://www.linkedin.com/in/arjunvaradiyil)

@@ -20,7 +20,7 @@ const PAGE_LINKS = DRAWER_NAV.map((item) => ({
 const SOCIALS = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/arjunvaradiyil' },
   { name: 'Instagram', url: 'https://www.instagram.com/_arjuo__?igsh=MWZiOXdxMmg3c3Bodw%3D%3D&utm_source=qr' },
-  { name: 'Github', url: 'https://github.com/arjunvaradiyil/arjun.varadiyil' },
+  { name: 'Github', url: 'https://github.com/arjunvaradiyil' },
   { name: 'Resume', url: resume },
 ];
 
