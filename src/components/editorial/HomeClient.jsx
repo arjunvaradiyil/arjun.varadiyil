@@ -21,6 +21,7 @@ import {
   SiTailwindcss,
   SiGraphql,
   SiJavascript,
+  SiPayloadcms,
 } from 'react-icons/si';
 import BackgroundGrid from './BackgroundGrid';
 import WaveRibbon from './WaveRibbon';
@@ -45,7 +46,7 @@ const skillItems = [
   { name: 'MongoDB', Icon: SiMongodb },
   { name: 'Tailwind CSS', Icon: SiTailwindcss },
   { name: 'GraphQL', Icon: SiGraphql },
-  { name: 'Payload CMS', Icon: SiNextdotjs },
+  { name: 'Payload CMS', Icon: SiPayloadcms },
 ];
 
 function ScrollReveal({ children, className = '', delay = 0, direction = 'up' }) {

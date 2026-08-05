@@ -4,6 +4,7 @@ import ThemeProvider from '../../components/ThemeProvider';
 import SiteHeader from '../../components/SiteHeader';
 import MainShell from '../../components/MainShell';
 import ScrollToTopButton from '../../components/ScrollToTopButton';
+import AiChatAssistant from '../../components/AiChatAssistant';
 import ScrollProgress from '../../components/ScrollProgress';
 import ConditionalFooter from '../../components/ConditionalFooter';
 import ScrollToTop from '../../components/ScrollToTop';
@@ -136,6 +137,7 @@ export default async function RootLayout({ children }) {
           <MainShell maintenance={maintenance}>{children}</MainShell>
           {!maintenance ? <ConditionalFooter /> : null}
           {!maintenance ? <ScrollToTopButton /> : null}
+          {!maintenance ? <AiChatAssistant /> : null}
           </SiteSettingsProvider>
         </ThemeProvider>
       </body>
