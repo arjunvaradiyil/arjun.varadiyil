@@ -35,6 +35,8 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  // Hide the Next.js "N" badge — it overlaps the bottom pill nav in development.
+  devIndicators: false,
 };
 
 export default withPayload(nextConfig, {

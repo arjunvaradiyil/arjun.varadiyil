@@ -193,7 +193,7 @@ export default function HomeClient({ projects = [], posts = [] }) {
   return (
     <div
       ref={containerRef}
-      className="relative overflow-x-hidden bg-white font-body text-black selection:bg-black selection:text-white"
+      className="relative overflow-x-hidden bg-white pb-36 font-body text-black selection:bg-black selection:text-white"
     >
       <AnimatePresence mode="wait">
         {isLoading ? <Preloader key="loader" onComplete={onPreloaderComplete} /> : null}
@@ -300,9 +300,9 @@ export default function HomeClient({ projects = [], posts = [] }) {
       </section>
 
       {/* INTRO */}
-      <section id="about" className="px-6 py-32 md:px-16 md:py-44 lg:px-24">
+      <section id="about" className="px-6 py-32 pr-20 md:px-16 md:py-44 md:pr-28 lg:px-24 lg:pr-32">
         <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-16 md:grid-cols-[1fr_0.6fr]">
-          <div>
+          <div className="min-w-0">
             <TextLineReveal>
               <h2 className="mb-12 font-mono text-sm uppercase tracking-widest text-gray-400">
                 [ 01 ] Intro

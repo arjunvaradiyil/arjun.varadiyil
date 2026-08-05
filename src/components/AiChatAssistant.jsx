@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { MessageCircle, Send, X } from 'lucide-react';
 import { CHAT_SUGGESTIONS } from '../lib/chatKnowledge';
+import { isEditorialPage } from '../lib/editorialPages';
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -22,6 +23,7 @@ export default function AiChatAssistant({ enabled = true }) {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showTip, setShowTip] = useState(true);
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -41,13 +43,21 @@ export default function AiChatAssistant({ enabled = true }) {
   }, [open]);
 
   useEffect(() => {
+    if (!showTip) return undefined;
+    const id = window.setTimeout(() => setShowTip(false), 4500);
+    return () => window.clearTimeout(id);
+  }, [showTip]);
+
+  useEffect(() => {
     if (!listRef.current) return;
     listRef.current.scrollTop = listRef.current.scrollHeight;
   }, [messages, loading, open]);
 
   if (hidden) return null;
 
-  const panelClass = 'bottom-6';
+  // Sit just above the editorial bottom pill (bottom-8 + ~3rem height).
+  const editorial = isEditorialPage(pathname);
+  const dockClass = editorial ? 'bottom-20' : 'bottom-6';
 
   async function sendMessage(text) {
     const content = String(text || '').trim();
@@ -94,7 +104,7 @@ export default function AiChatAssistant({ enabled = true }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduceMotion ? undefined : { opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.35, ease: EASE }}
-            className={`fixed right-4 z-[60] flex h-[min(32rem,70vh)] w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden border-2 border-black bg-white text-black shadow-2xl md:right-6 ${panelClass}`}
+            className={`fixed right-4 z-[60] flex h-[min(32rem,calc(100dvh-8rem))] w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden border-2 border-black bg-white text-black shadow-2xl md:right-6 ${dockClass}`}
             role="dialog"
             aria-label="Portfolio AI assistant"
           >
@@ -184,17 +194,21 @@ export default function AiChatAssistant({ enabled = true }) {
             animate={{ opacity: 1, y: 0 }}
             exit={reduceMotion ? undefined : { opacity: 0, y: 8 }}
             transition={{ duration: 0.25, ease: EASE }}
-            className="group fixed bottom-6 right-4 z-[61] flex h-14 w-14 items-center justify-center md:right-6"
+            className={`group fixed right-4 z-[45] flex h-12 w-12 items-center justify-center md:right-6 md:h-14 md:w-14 ${dockClass}`}
             aria-expanded={false}
             aria-label="Open AI assistant — Hi! How can I help you?"
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             whileTap={reduceMotion ? undefined : { scale: 0.96 }}
           >
-            <span className="pointer-events-none absolute right-[calc(100%+0.5rem)] top-1/2 w-max max-w-[min(14rem,calc(100vw-5.5rem))] -translate-y-1/2 border-2 border-black bg-white px-3 py-2 text-left text-xs leading-snug text-black shadow-lg">
+            <span
+              className={`pointer-events-none absolute bottom-full right-0 mb-2 w-max max-w-[min(12rem,calc(100vw-2rem))] border-2 border-black bg-white px-3 py-2 text-left text-xs leading-snug text-black shadow-lg transition-opacity duration-200 ${
+                showTip ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100'
+              }`}
+            >
               <span aria-hidden>👋</span> Hi! How can I help you?
             </span>
-            <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-black text-white shadow-lg transition group-hover:bg-white group-hover:text-black">
-              <MessageCircle size={22} />
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-black text-white shadow-lg transition group-hover:bg-white group-hover:text-black md:h-14 md:w-14">
+              <MessageCircle size={20} />
             </span>
           </motion.button>
         ) : null}
