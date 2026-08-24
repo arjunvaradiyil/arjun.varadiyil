@@ -3,6 +3,8 @@
 export const FEATURED_HOME_SLUGS = [
   'kochi-muziris-biennale',
   'deshabhimani-news-portal',
+  'left-views',
+  'hello-2-ai',
 ];
 
 export function getFeaturedHomeProjects(projects = []) {

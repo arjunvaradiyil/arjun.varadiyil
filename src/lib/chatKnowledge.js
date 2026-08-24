@@ -142,8 +142,12 @@ export function offlineReply(lastUserMessage) {
     return 'My Vote My Voice (Idukki) is a civic web app for voter pledge, booth lookup, and election resources — built in a one-week sprint. Live at myidukki.com. See /projects/my-vote-my-voice-idukki.';
   }
 
+  if (/\b(hello\s*2?\s*ai|hello2ai|ai\s*readiness|dyfi)\b/.test(q)) {
+    return 'Hello 2 AI is DYFI Keralam’s AI-readiness campaign for school students aged 10–15. Arjun shipped the campaign site as full stack developer — programme, six-module syllabus, team, and mentor signup — live at hello2ai.in. See /projects/hello-2-ai.';
+  }
+
   if (/\b(projects?|works?|portfolio|case\s*stud(?:y|ies)|builds?)\b/.test(q)) {
-    return 'Arjun ships production Next.js and Payload CMS systems for newsrooms, festivals, and civic programmes — including Kochi Muziris Biennale, Deshabhimani, The Left Views, Prajasakti, and My Vote My Voice. Browse /work for case studies.';
+    return 'Arjun ships production Next.js and Payload CMS systems for newsrooms, festivals, and civic programmes — including Kochi Muziris Biennale, Deshabhimani, The Left Views, Prajasakti, My Vote My Voice, and Hello 2 AI. Browse /work for case studies.';
   }
 
   if (/\b(skills?|stack|tech(?:nolog(?:y|ies))?|langchain|ai\s*agent|typescript|next\.?js|payload)\b/.test(q)) {

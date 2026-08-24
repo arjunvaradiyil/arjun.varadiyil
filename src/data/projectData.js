@@ -207,14 +207,48 @@ export const projects = [
     previewLink: 'https://myidukki.com/',
     linkedinLink: '',
   },
-  // {
-  //   id: '06',
-  //   slug: 'know-kerala-quiz-platform',
-  //   ...
-  // },
-  // {
-  //   id: '07',
-  //   slug: 'hello-2-ai-campaign',
-  //   ...
-  // },
+  {
+    id: '06',
+    slug: 'hello-2-ai',
+    title: 'Hello 2 AI',
+    tagline:
+      'Statewide AI-readiness campaign site for Kerala school students — programme, modules, and mentor signup in one place.',
+    description:
+      'Public site for DYFI Keralam’s Hello 2 AI campaign: curriculum highlights, coordinator roster, and a six-step volunteer mentor flow for experts across 14 districts. Live at hello2ai.in.',
+    year: '2026',
+    timeline: 'Campaign site',
+    industry: 'Education',
+    services: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
+    about: '',
+    role: 'Full Stack Developer',
+    duration: 'Campaign site',
+    problem:
+      'The campaign needed a single public home for students, schools, and volunteer mentors — syllabus, team, and signup — without a scattered set of forms.',
+    solution:
+      'Shipped the campaign site with programme narrative, six-module syllabus, coordinator directory, and a district-aware mentor application flow.',
+    impact:
+      'Mentors apply from every Kerala district; students and schools can explore the AI-readiness programme at hello2ai.in.',
+    proofMetric: {
+      value: 'Live',
+      label: 'Campaign site',
+      detail: 'hello2ai.in',
+    },
+    outcomes: [
+      { value: '14', label: 'Districts', detail: 'Kerala-wide mentor pairing' },
+      { value: '6', label: 'Modules', detail: 'Hands-on AI syllabus for ages 10–15' },
+      { value: 'Signup', label: 'Mentor flow', detail: 'Six-step volunteer application' },
+      { value: 'Live', label: 'In production', detail: 'hello2ai.in' },
+    ],
+    responsibilities: [
+      'Built the public campaign site as full stack developer',
+      'Shipped programme, team, and mentor-application flows',
+      'Launched the live site for DYFI Keralam’s Hello 2 AI campaign',
+    ],
+    image: '/hello2ai.png',
+    logo: '',
+    type: 'image',
+    gitLink: '',
+    previewLink: 'https://www.hello2ai.in/',
+    linkedinLink: '',
+  },
 ];
