@@ -9,6 +9,7 @@ import ScrollProgress from '../../components/ScrollProgress';
 import ConditionalFooter from '../../components/ConditionalFooter';
 import ScrollToTop from '../../components/ScrollToTop';
 import GoogleAnalytics from '../../components/GoogleAnalytics';
+import WebyzAnalytics from '../../components/WebyzAnalytics';
 import StructuredData from '../../components/StructuredData';
 import SiteSettingsProvider from '../../components/SiteSettingsProvider';
 import { getSiteSettings } from '../../lib/cms/content';
@@ -128,6 +129,7 @@ export default async function RootLayout({ children }) {
       </head>
       <body className='antialiased font-sans'>
         <GoogleAnalytics />
+        <WebyzAnalytics />
         <StructuredData />
         <ThemeProvider>
           <SiteSettingsProvider value={siteSettings}>

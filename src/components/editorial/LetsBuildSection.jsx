@@ -1,9 +1,10 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import KineticGrid from './KineticGrid';
+import ContactFormModal from './ContactFormModal';
 import { GITHUB_URL, LINKEDIN_URL } from '../../data/proof';
 import { ABOUT_CTA_LINE } from '../../data/seoContent';
 import { SITE_EMAIL } from '../../lib/siteSeo';
@@ -25,10 +26,13 @@ export default function LetsBuildSection({
   animatePath = false,
   /** Link target for “Contact form →” — use #form on the contact page. */
   formHref = '/contact',
+  /** “Contact form →” opens a popup. Set false to link to formHref instead. */
+  formAsModal = true,
   headingAs: Heading = 'h2',
   className = '',
 }) {
   const sectionRef = useRef(null);
+  const [formOpen, setFormOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -93,12 +97,22 @@ export default function LetsBuildSection({
             >
               {email}
             </a>
-            <Link
-              href={formHref}
-              className="mt-3 font-mono text-xs uppercase tracking-widest text-neutral-500 transition hover:text-white"
-            >
-              Contact form →
-            </Link>
+            {formAsModal ? (
+              <button
+                type="button"
+                onClick={() => setFormOpen(true)}
+                className="mt-3 font-mono text-xs uppercase tracking-widest text-neutral-500 transition hover:text-white"
+              >
+                Contact form →
+              </button>
+            ) : (
+              <Link
+                href={formHref}
+                className="mt-3 font-mono text-xs uppercase tracking-widest text-neutral-500 transition hover:text-white"
+              >
+                Contact form →
+              </Link>
+            )}
           </div>
 
           <div className="flex flex-col items-start gap-1.5 font-display text-sm font-bold text-white md:items-end md:text-base">
@@ -121,6 +135,7 @@ export default function LetsBuildSection({
           </div>
         </div>
       </KineticGrid>
+      {formAsModal ? <ContactFormModal isOpen={formOpen} onClose={() => setFormOpen(false)} /> : null}
     </Tag>
   );
 }

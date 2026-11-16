@@ -6,10 +6,30 @@ import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import EditorialShell from '../../../components/editorial/EditorialShell';
-import KineticGrid from '../../../components/editorial/KineticGrid';
 import LetsBuildSection from '../../../components/editorial/LetsBuildSection';
+import { Reveal } from '../../../components/ui/Reveal';
+import { isInDevelopmentProject } from '../../../lib/projectStatus';
 
 const EASE = [0.16, 1, 0.3, 1];
+
+/* Same line-free look as the work detail, About and Experience pages. Accent is page-scoped. */
+const SHELL =
+  '!bg-[var(--color-surface)] !text-[var(--color-foreground)] [--color-accent:#ff5e3a] [--color-accent-soft:rgba(255,94,58,0.12)] [--color-primary-bg:#ff5e3a] [--color-primary-fg:#ffffff]';
+const CHIP =
+  'rounded-full bg-[var(--color-accent-soft)] px-4 py-2 font-sans text-sm font-medium text-[var(--color-foreground)]';
+const TAG =
+  'rounded-full bg-[var(--color-surface)] px-3 py-1.5 font-sans text-xs font-medium text-[var(--color-foreground-muted)]';
+const LABEL =
+  'font-sans text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-foreground-subtle)]';
+
+function GlowBackground() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      <div className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-[var(--color-accent)] opacity-[0.14] blur-[120px]" />
+      <div className="absolute -left-48 top-[60rem] h-[30rem] w-[30rem] rounded-full bg-[var(--color-accent)] opacity-[0.1] blur-[120px]" />
+    </div>
+  );
+}
 
 export default function ProjectsPageClient({ projects = [], description = '' }) {
   const reduceMotion = useReducedMotion();
@@ -23,114 +43,108 @@ export default function ProjectsPageClient({ projects = [], description = '' }) 
   }, [projects]);
 
   return (
-    <EditorialShell showGrid={false}>
-      <section className="relative overflow-hidden bg-black text-white">
-        <KineticGrid
-          globalColor="monochrome"
-          className="bg-black px-6 pb-24 pt-28 md:px-16 md:pb-32 md:pt-32 lg:px-24"
-        >
-          <div className="mb-16 flex items-end justify-between md:mb-24">
-            <div>
-              <p className="mb-4 font-mono text-sm uppercase tracking-widest text-gray-500">
-                [ Portfolio ]
+    <EditorialShell showGrid={false} className={SHELL}>
+      <div className="relative">
+        <GlowBackground />
+        <div className="relative z-10">
+          <section className="px-6 pb-12 pt-28 md:px-16 md:pb-16 md:pt-32 lg:px-24">
+            <div className="mx-auto flex max-w-6xl items-end justify-between gap-8">
+              <div>
+                <span className={CHIP}>Portfolio</span>
+                <h1 className="mt-8 font-sans text-6xl font-bold leading-[0.95] tracking-[-0.04em] text-[var(--color-foreground)] sm:text-7xl lg:text-8xl">
+                  Selected
+                  <br />
+                  Works
+                </h1>
+                {description ? (
+                  <p className="mt-8 max-w-xl font-sans text-lg leading-relaxed text-[var(--color-foreground-muted)]">
+                    {description}
+                  </p>
+                ) : null}
+              </div>
+              <p className="hidden font-sans text-8xl font-bold leading-none tracking-[-0.05em] tabular-nums text-[var(--color-accent)] md:block">
+                {String(uniqueProjects.length).padStart(2, '0')}
               </p>
-              <h1 className="font-display text-5xl font-bold uppercase tracking-tighter md:text-7xl">
-                Selected <br /> Works
-              </h1>
-              {description ? (
-                <p className="mt-6 max-w-xl font-mono text-sm leading-relaxed text-neutral-400">
-                  {description}
-                </p>
-              ) : null}
             </div>
-            <span className="mb-2 hidden font-mono text-sm uppercase tracking-widest text-gray-500 md:block">
-              {String(uniqueProjects.length).padStart(2, '0')}
-            </span>
-          </div>
+          </section>
 
-          {uniqueProjects.length > 0 ? (
-            <ul className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-20">
-              {uniqueProjects.map((project, i) => (
-                <li key={project.slug} className={i % 2 !== 0 ? 'md:mt-24' : ''}>
-                  <motion.div
-                    whileHover={reduceMotion ? undefined : { y: -10 }}
-                    transition={{ duration: 0.4, ease: EASE }}
-                  >
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="group block overflow-hidden border border-neutral-200/80 bg-white text-black shadow-md transition-shadow duration-500 hover:shadow-2xl"
-                    >
-                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100">
-                        {project.image ? (
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="object-cover object-top grayscale transition duration-700 group-hover:scale-[1.04] group-hover:grayscale-0"
-                          />
-                        ) : (
-                          <div className="flex h-full items-center justify-center font-mono text-xs uppercase tracking-widest text-neutral-400">
-                            No image
-                          </div>
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60 transition group-hover:opacity-40" />
-                        <span className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-white/90 text-neutral-900 shadow-sm backdrop-blur-sm transition duration-300 group-hover:bg-neutral-950 group-hover:text-white">
-                          <ArrowUpRight size={18} />
-                        </span>
-                        {(project.year || project.industry) && (
-                          <span className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-widest text-white/90">
-                            {project.year || project.industry}
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="flex flex-col p-6 md:p-8">
-                        <h2 className="font-display text-2xl font-bold text-neutral-900 md:text-3xl">
-                          {project.title}
-                        </h2>
-                        <p className="mt-3 line-clamp-3 font-mono text-sm leading-relaxed text-neutral-600">
-                          {project.tagline || project.description}
-                        </p>
-
-                        {(project.services || []).length > 0 ? (
-                          <div className="mt-6 flex flex-wrap gap-2">
-                            {(project.services || []).slice(0, 4).map((t) => (
-                              <span
-                                key={t}
-                                className="border border-neutral-200 bg-neutral-50 px-3 py-1 font-mono text-xs text-neutral-600"
-                              >
-                                {t}
+          <section className="px-6 pb-16 md:px-16 md:pb-24 lg:px-24">
+            <div className="mx-auto max-w-6xl">
+              {uniqueProjects.length > 0 ? (
+                <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  {uniqueProjects.map((project, i) => (
+                    <li key={project.slug}>
+                      <Reveal className="h-full">
+                        <motion.div
+                          className="h-full"
+                          whileHover={reduceMotion ? undefined : { y: -6 }}
+                          transition={{ duration: 0.3, ease: EASE }}
+                        >
+                          <Link
+                            href={`/projects/${project.slug}`}
+                            className="group flex h-full flex-col overflow-hidden rounded-3xl bg-[var(--color-surface-elevated)] shadow-xl shadow-black/5 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/10"
+                          >
+                            <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--color-surface)]">
+                              {project.image ? (
+                                <Image
+                                  src={project.image}
+                                  alt={project.title}
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, 50vw"
+                                  className="object-cover object-top grayscale transition duration-700 group-hover:scale-[1.04] group-hover:grayscale-0"
+                                />
+                              ) : (
+                                <div className={`flex h-full items-center justify-center ${LABEL}`}>No image</div>
+                              )}
+                              <span className="absolute left-4 top-4 rounded-full bg-[var(--color-surface-elevated)]/90 px-3 py-1.5 font-sans text-xs font-semibold tabular-nums text-[var(--color-foreground)] backdrop-blur-sm">
+                                {String(i + 1).padStart(2, '0')}
                               </span>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
-                    </Link>
-                  </motion.div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="border border-white/20 px-6 py-12 text-center font-mono text-sm text-neutral-400">
-              No projects listed yet.{' '}
-              <Link href="/about" className="underline underline-offset-4 hover:text-white">
-                About
-              </Link>{' '}
-              for skills and experience.
-            </p>
-          )}
+                              <span className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-surface-elevated)]/90 text-[var(--color-foreground)] backdrop-blur-sm transition duration-300 group-hover:bg-[var(--color-accent)] group-hover:text-white">
+                                <ArrowUpRight size={18} />
+                              </span>
+                            </div>
 
-          <div className="mt-16 text-center">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 border-b border-white/40 pb-1 font-mono text-sm uppercase tracking-widest text-white/80 transition hover:border-white hover:text-white"
-            >
-              ← Home
-            </Link>
-          </div>
-        </KineticGrid>
-      </section>
+                            <div className="flex flex-1 flex-col p-6 md:p-8">
+                              <p className={LABEL}>
+                                {isInDevelopmentProject(project) ? 'In development' : project.year}
+                                {project.industry ? ` · ${project.industry}` : ''}
+                              </p>
+                              <h2 className="mt-3 font-sans text-2xl font-bold tracking-[-0.02em] text-[var(--color-foreground)] md:text-3xl">
+                                {project.title}
+                              </h2>
+                              <p className="mt-3 line-clamp-3 font-sans text-base leading-relaxed text-[var(--color-foreground-muted)]">
+                                {project.tagline || project.description}
+                              </p>
+
+                              {(project.services || []).length > 0 ? (
+                                <ul className="mt-auto flex flex-wrap gap-2 pt-6">
+                                  {project.services.slice(0, 4).map((t) => (
+                                    <li key={t} className={TAG}>
+                                      {t}
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : null}
+                            </div>
+                          </Link>
+                        </motion.div>
+                      </Reveal>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="rounded-3xl bg-[var(--color-surface-elevated)] px-6 py-12 text-center font-sans text-base text-[var(--color-foreground-muted)]">
+                  No projects listed yet.{' '}
+                  <Link href="/about" className="font-semibold text-[var(--color-accent)] underline underline-offset-4">
+                    About
+                  </Link>{' '}
+                  for skills and experience.
+                </p>
+              )}
+            </div>
+          </section>
+        </div>
+      </div>
       <LetsBuildSection animatePath />
     </EditorialShell>
   );
